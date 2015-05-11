@@ -1,0 +1,66 @@
+<style>
+	
+	/* hide not needed styles */
+	.product-base #box-special-container-outer #box-special-container
+	{
+		display: none;
+	}
+	
+	.product-base .special-for-plain
+	{
+		display:none;
+	}
+	
+	.inside-column
+	{
+		padding-top: 0;
+	}
+	
+	
+</style>
+{debug.product}
+<div class="container outer-base-one-product">
+	<h2>{translate.Features_product}</h2>
+
+	<ul class="base-features">
+		{if:product.feature_01_scale}<li data-title="{features.1.name}"><span><img src="{uimages}/products/product_icons/feature_01.png"></span><span>&nbsp;{product.feature_01_value}&nbsp;%</span><span><img src="{uimages}/products/product_icons/base_no_{product.feature_01_scale}.jpg" title="{product.feature_01_scale}"></span></li>{endif:product.feature_01_scale}
+		{if:product.feature_02_scale}<li data-title="{features.2.name}"><span><img src="{uimages}/products/product_icons/feature_02.png"></span><span>&nbsp;{product.feature_02_value}&nbsp;dB</span><span><img src="{uimages}/products/product_icons/base_no_{product.feature_02_scale}.jpg" title="{product.feature_02_scale}"></span></li>{endif:product.feature_02_scale}
+		{if:product.feature_03_scale}<li data-title="{features.3.name}"><span><img src="{uimages}/products/product_icons/feature_03.png"></span><span>&nbsp;{product.feature_03_value}&nbsp;t/m<sup>2</sup></sup></span><span><img src="{uimages}/products/product_icons/base_no_{product.feature_03_scale}.jpg" title="{product.feature_03_scale}"></span></li>{endif:product.feature_03_scale}
+		{if:product.feature_04_scale}<li data-title="{features.4.name}"><span><img src="{uimages}/products/product_icons/feature_04.png"></span><span>&nbsp;{product.feature_04_value}</span><span><img src="{uimages}/products/product_icons/base_no_{product.feature_04_scale}.jpg" title="{product.feature_04_scale}"></span></li>{endif:product.feature_04_scale}
+		{if:product.feature_05_scale}<li data-title="{features.5.name}"><span><img src="{uimages}/products/product_icons/feature_05.png"></span><span>&nbsp;{product.feature_05_value}&nbsp;M2k/W</span><span><img src="{uimages}/products/product_icons/base_no_{product.feature_05_scale}.jpg" title="{product.feature_05_scale}"></span></li>{endif:product.feature_05_scale}
+		{if:product.feature_06_scale}<li data-title="{features.6.name}"><span><img src="{uimages}/products/product_icons/feature_06.png"></span><span>&nbsp;{product.feature_06_value}&nbsp;mm</span><span><img src="{uimages}/products/product_icons/base_no_{product.feature_06_scale}.jpg" title="{product.feature_06_scale}"></span></li>{endif:product.feature_06_scale}
+		{if:product.feature_07_scale}<li data-title="{features.7.name}"><span><img src="{uimages}/products/product_icons/feature_07.png"></span><span>&nbsp;{product.feature_07_value}&nbsp;m</span><span><img src="{uimages}/products/product_icons/base_no_{product.feature_07_scale}.jpg" title="{product.feature_07_scale}"></span></li>{endif:product.feature_07_scale}
+		{if:product.feature_08_scale}<li data-title="{features.8.name}"><span><img src="{uimages}/products/product_icons/feature_08.png"></span><span>&nbsp;{product.feature_08_value}</span><span><img src="{uimages}/products/product_icons/base_no_{product.feature_08_scale}.jpg" title="{product.feature_08_scale}"></span></li>{endif:product.feature_08_scale}
+
+	</ul>
+	
+	<div class="container">
+		<div class="col-md-3 base-technical-data">
+			<h2>{translate.Technical_data}</h2>	
+			<ul class="base-technical-data-list">
+				<li>{translate.Length}: <span>{product.length} mm</span></li>
+				<li>{translate.Width}: <span>{product.length} mm</span></li>
+				<li>{translate.Thickness}: <span>{product.thickness} mm</span></li>
+				<li>W opakowaniu: <span>{product.set_quantity} m<sup>2</sup></span></li>
+				<!-- <li>{translate.Density}: <span>?</span></li> -->
+				<li>{translate.Material}: <span>{product.source}</span></li>
+				<li>{translate.Ean}: <span>{product.ean}</span></li>
+			</ul>
+			
+		</div>
+
+		<div class="col-md-9 base-packaging">
+			<h2>{translate.Packaging}</h2>
+			<ul>				
+				<li><span><img src="{uimages}/products/product_icons/{product.structure_a.key}.jpg"></span><span>{product.structure_a.name?N/D}</span></li>
+
+			</ul>
+		</div>
+	</div>
+</div>
+<!--
+<div class="base-assembly">
+	<div class="container">
+		<h2>{translate.Easy_assembly}</h2>
+	</div>
+</div> -->

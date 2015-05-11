@@ -1,0 +1,36 @@
+{if:menu}
+    
+    <div id="myCarousel" class="carousel slide col-md-12" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner col-md-12">
+         {loop:menu:s1}
+         <div class="{if:lp=1}active{endif:lp=1} item col-md-12">
+          
+          <ul class="menu-marki row">
+		  {loop:menu:s2}
+           <li data-target="#myCarousel" data-slide-to="{__loop__}" class="{class} col-md-4 col-xs-4 {if:hide_phone} hidden-xs{endif:hide_phone}" id="panel-{__loop__} item" {if:description}data="{description}"{endif:description}>
+           <a class="{if:white_color}link-white{endif:white_color} main-link {if:is_new}menu-short-descr{endif:is_new}" href="{if:href}{href}{endif:href}"{if:alt_title} title="{alt_title}"{endif:alt_title} >
+   
+           {if:description}
+           <div class="menu-marki-descr">
+            {if:imga}<img class="img-responsive" src="{uimages}/{imga}" data="{uimages}/{imga}">{endif:imga}
+            {description}<div class="clearfix"></div>
+           </div>
+           {endif:description}
+           {if:img}<img class="img-link img-responsive" src="{uimages}/{img}" data="{uimages}/{imga}">{endif:img}
+          </a> 
+           <img class="orange img-responsive" src="{template_images}/active-orange-wider.png" alt="" /><div class="clearfix visible-xs"></div>
+          </li>
+         {endloop:menu:s2}
+         </ul>
+        </div>
+        {endloop:menu:s1}
+
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+    </div>
+
+{endif:menu}
+
+

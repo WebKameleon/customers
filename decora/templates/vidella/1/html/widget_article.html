@@ -1,0 +1,68 @@
+{with:articleWidget}
+
+{if:level=(30,31)}
+	<article class="contact">
+     {if:title}<h2 class="title kmw_article_h2">{title}</h2>{endif:title}
+     {plain}
+	 {if:more}<br><a class="art-read-more" href="{more_link}">{translate.More} &gt;</a>{endif:more}
+    </article>
+{define:level_found=1}
+{endif:level=(30,31)}
+
+
+{if:!level_found}
+{if:level=52}
+{if:!html=tabs.php}
+<div role="tabpanel" class="tab-pane fade {if:first_child}in active{endif:first_child}" id="tab-{sid}" aria-labelledby="{sid}-tab">
+{endif:!html=tabs.php}
+{endif:level=52}
+
+<div {if:class}class="{class}"{endif:class}>
+
+	<div class="row">    
+		<div class="list-item container {tokens.odd_or_even}">
+			<div class="advice-body dekoracje-article">
+				
+				<div class="kmw_info">
+					<div class="txt">
+						<div>
+							<div class="dekoracje-img advice-img">
+									{if:bgimg}
+									<a class="kmw_article_foto" href="{more_link}">
+										<img src="{imagesUrl}/{bgimg}" />
+									</a>
+									{endif:bgimg}
+								</div>
+							<h2 class="title kmw_article_h2">
+				    <a href="{more_link}">{title}</a>
+				</h2>
+					{if:menu}<ul>
+				    {loop:menu}
+				        <li {if:class}class="{class}"{endif:class}>
+				           <a href="{href}"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:onclick}onclick="{onclick}"{endif:onclick} {if:description} data="{description}" {endif:description} {if:imga}data="{uimages}/{imga}"{endif:imga}>{if:img}<img src="{uimages}/{img}">{endif:img}{alt}</a>
+				        </li>
+				    {endloop:menu}    
+				    </ul>{endif:menu} 
+							{plain}
+								{if:more}<br><a class="art-read-more" href="{more_link}">{translate.More} &gt;</a>{endif:more}
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+
+{if:level=52}
+{if:!html=tabs.php}
+</div>
+{endif:!html=tabs.php}
+{endif:level=52}
+
+{endif:!level_found}
+
+
+{endwith:articleWidget}

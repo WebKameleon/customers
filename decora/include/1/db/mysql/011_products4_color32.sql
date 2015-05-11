@@ -1,0 +1,1 @@
+ALTER TABLE decora_products MODIFY color Varchar(32);

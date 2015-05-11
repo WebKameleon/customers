@@ -1,0 +1,116 @@
+<script type="text/javascript" >
+  $(function() {
+
+      //set breadcrumb with collection and item
+      
+      
+      $('div.breadcrumbs ul').append('<li>' + capitaliseFirstLetter('{product.collection} ') + '</li>');
+      $('div.breadcrumbs ul').append('<li>' + capitaliseFirstLetter('{product.name_www}') + '</li>');
+      
+      
+      function capitaliseFirstLetter(string)
+      {
+	  return decodeURIComponent(string.charAt(0).toUpperCase() + string.slice(1));
+      }
+  });      
+      
+</script>	  
+
+  <style>
+  
+  .products-decorations #box-special-container-outer
+  {
+  	display:none;
+  }
+  
+  </style>
+<div class="selected-product">
+	
+	<div class="col-md-5 moved-left">
+		<h1 class="title1">
+			<span>{product.name}</span> <span class="color-title"></span>
+			<span class="color-name1">{product.name_www}</span>
+		</h1>
+		<img src="{uimages}/products/decorations/full/{product.ean}_full.jpg" width="400" height="400">
+	</div>
+	
+	<div class="col-md-2">
+		<!-- <strong>{translate.Colors}:</strong>
+		<div class="color-features">
+			<ul>
+				{loop:products}
+					<li><img src="{uimages}/products/rolety/colors/{ean}.jpg" title="{color_a.name}" data="{name_www}" rel="{ean}" price="{price}" width="60" height="60"></li>
+				{endloop:products}
+			</ul>
+		</div>
+		-->
+	</div>
+	
+	<div class="col-md-5">
+		<div class="col-md-8">
+			<div>
+			<strong>{product.desc_short}:</strong>
+				<div class="additional-features">
+					{product.desc|nl2br}
+				</div>
+			</div>
+			{if:product.price}
+			<div class="suggested-price">
+				{translate.suggested_price_deco}:
+			</div>
+			<div class="price">
+				{product.price|ceil} {translate.currency}
+			</div>
+			{endif:product.price}
+
+			{if:product.price_desc}
+			<div class="price-info">
+				{product.price_desc}
+			</div>
+			{ednif:product.price_desc}
+			<!-- 
+			<div class="see-links">{translate.seealso}</div>
+			<ul class="price-links">
+	      		{if:product.video}<li><a href="{product.video}">{translate.video}</a></li>{endif:product.video}
+	      		<li><a href="javascript:void(0)">{translate.instruction}</a></li>
+	      		<li><a href="javascript:void(0)">{translate.lorem}</a></li>
+	      	</ul>
+	      -->
+			
+		</div>
+		<div class="col-md-4">
+			{define:dim}{loop:product.dimension_a}<li>{dimesion} {unit?cm}</li>{endloop:product.dimension_a}{if:product.dim}<li>{product.dim}</li>{endif:product.dim}{enddefine:dim}
+			<strong class="invisible-klej yes-{product.assembly}">{translate.Volume}:</strong>
+			{if:dim}<strong class="no-{product.assembly}">{translate.Dimmensions}:</strong>{endif:dim}
+			<div class="dimmension-fetures">
+				<ul>
+					{dim}
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	
+	
+	<div class="row bottom-line">
+		
+	</div>
+	
+	<div class="product-features col-md-6">
+	      	<h2 class="title">{translate.features_product_assembly}</h2>
+	      	
+	      	<div class="karnisze-features">
+	      		<ul>
+	      		{loop:product.features_a}
+	      			<li data-title="{name}"><img src="{uimages}/products/feature_icons/{key}.jpg" ></li>
+	      		{endloop:product.features_a}
+	      		</ul>
+	      	</div>
+	      </div>
+	      
+	      
+	<div class="row bottom-line">
+		
+	</div>  
+	
+</div>

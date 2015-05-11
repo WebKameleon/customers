@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>{page.title}</title>
+	{if:page.og_desc}
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="{page.title}"/> 
+	<meta property="og:site_name" content="{server.http_url}" />
+	<meta property="og:description" content="{page.og_desc}" />
+	{if:page.og_image}<meta property="og:image" content="{uimages}/{page.og_image}" />{endif:page.og_image}
+	{endif:page.og_desc}
+	<meta name="Robots" content="all" />
+	<meta name="generator" content="{generator}" />
+	<meta name="webkameleonId" content="server={page.server}; page={page.id}; ver={page.ver}; lang={page.lang}; ftp={page.nd_ftp|kameleon.datetime}" />
+	{if:page.description}<meta name="description" content="{page.description}" />{endif:page.description}	
+	{if:page.keywords}<meta name="keywords" content="{page.keywords}" />{endif:page.keywords}
+	<meta name="viewport" content="width=device-width">
+       <link rel="stylesheet" href="{template_dir}/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{template_dir}/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{template_dir}/css/main.css">
+        <script src="{template_dir}/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body{if:page.class} class="{page.class}"{endif:page.class}>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+{with:header}
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-sm-4">
+		{level1}
+        </div>
+        <div class="col-sm-4">
+		{level2}
+        </div>
+        <div class="col-sm-4">
+		{level3}
+        </div>
+       </div>
+
+    </div>
+
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse">
+		{level5}
+        </div>
+
+<!--/.navbar-collapse -->
+      </div>
+    </div>
+{endwith:header}
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+{with:body}
+    <div class="jumbotron">
+      <div class="container">
+	{level1}
+      </div>
+    </div>
+
+    <div class="container bialy">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-sm-4">
+		{level2}
+        </div>
+        <div class="col-sm-4">
+		{level4}
+        </div>
+        <div class="col-sm-4">
+		{level3}
+        </div>
+       </div>
+      <div class="row">
+        <div class="col-sm-12">
+		{level5}
+        </div>
+      </div>
+
+    </div> <!-- /container -->        
+{endwith:body}
+
+{with:footer}
+    <div class="container bialy">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-sm-4">
+		{level1}
+        </div>
+        <div class="col-sm-4">
+		{level2}
+        </div>
+        <div class="col-sm-4">
+		{level3}
+        </div>
+       </div>
+     <div class="row">
+        <div class="col-sm-12">
+
+		{level1}
+        </div>
+      </div>
+      
+
+      <footer>
+        
+      </footer>
+
+    </div> <!-- /container -->  
+{endwith:footer}
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{template_dir}/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script src="{template_dir}/js/vendor/bootstrap.min.js"></script>
+        <script src="{template_dir}/js/main.js"></script>
+    </body>
+</html>

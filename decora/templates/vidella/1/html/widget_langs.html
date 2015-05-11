@@ -1,0 +1,10 @@
+{with:langsWidget}
+<div class="lang-menu">
+	<div class="lang-label-div"><div class="lang-label-a">{lang}</div></div>
+<ul class="kmw_langs">
+    {loop:all_languages}
+    <li class="{if:__loop__=$lang}active{endif:__loop__=$lang}"><a href="{tokens|page_href:$__loop__\:$page_target}" title="{loop}" class="flag-{__loop__}-noflag">{__loop__}</a></li>
+    {endloop:all_languages}
+</ul>
+</div>
+{endwith:langsWidget}

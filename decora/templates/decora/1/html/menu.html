@@ -1,0 +1,345 @@
+{if:level=3} 
+{if:menu:special}
+<div class="panel-group" id="accordion{menu_id}">
+{loop:menu}
+   {if:!menu}
+	  <div class="panel panel-default">
+		<div class="panel-heading {if:active}active{endif:active}">
+		  <h4 class="panel-title" data-toggle="collapse" data-parent="#accordion{menu_id}" data-target="#collapse{menu_id}{lp}">
+			<!--<a href="{href}">-->
+			   {alt}
+			<!--</a>-->
+		  </h4>
+		</div>
+		<div id="collapse{menu_id}{lp}" class="panel-collapse collapse {if:active}in{endif:active}">
+		  <div class="panel-body">
+			{if:submenu_id}
+				<ul class="">{loop:menu:s2}
+				<li><a href="{href}" class="{if:active}active{endif:active}"{if:alt_title} title="{alt_title}"{endif:alt_title}{if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}</a>
+					{if:submenu_id:s3}
+						{include:submenu-2.html}
+					{endif:submenu_id:s3}
+				</li>{endloop:menu:s2}
+				</ul>
+			{endif:submenu_id}
+		  </div>
+		</div>
+	  </div>
+    {endif:menu}
+{endloop:menu}  
+</div>
+{define:level_found=1}
+{endif:menu:special}
+{endif:level=3}
+
+<!--- MAPA -->
+{if:level=117} 
+<div class="contact-map">
+   
+    <ul id="tabs">{loop:menu}<li class="map {class}{if:hide_phone} hidden-xs{endif:hide_phone}" style="position:absolute;top:{target}px; right:{variables}px" id="panel-{__loop__}"><a class="map-link" href="#tab{__loop__}"></a></li>{endloop:menu}</ul>
+   
+   
+   <div id="tabs_content_container">
+   {loop:menu}
+     <div id="tab{__loop__}" class="tab_content"> {if:alt}<h3>{alt}</h3>{endif:alt}{if:description}<p>{description}</p>{endif:description}</div>
+   {endloop:menu}
+   </div>
+</div>
+ {define:level_found=1}
+{endif:level=117}
+
+<script>
+$(document).ready(function(){
+    //  When user clicks on tab, this code will be executed
+    $("#tabs li").click(function() {
+								 
+						 
+        //  First remove class "active" from currently active tab
+        $("#tabs li").removeClass('active');
+ 
+        //  Now add class "active" to the selected/clicked tab
+        $(this).addClass("active");
+ 
+        //  Hide all tab content
+        $(".tab_content").hide();
+ 
+        //  Here we get the href value of the selected tab
+        var selected_tab = $(this).find("a").attr("href");
+ 
+        //  Show the selected tab content
+        $(selected_tab).fadeIn();
+ 
+        //  At the end, we add return false so that the click on the link is not executed
+        return false;
+    });
+});
+</script>
+<!-- end MAPA -->
+
+<!-- RELACJE INWESTORSKIE -->
+
+<!-- MENU BOXy -->
+{if:level=(102,11)}
+<div id="menu-box">
+ <div class="box menu-grid">
+  <ul class="megamenu2 col-md-12">
+   {loop:menu}
+     <li class="{class} col-md-4 {if:hide_phone} hidden-xs{endif:hide_phone}" id="panel-{__loop__}" {if:description}data="{description}"{endif:description}>
+	  {if:img}<a class="a-img-link" href="{if:href}{href}{endif:href}#{alt}" name="{alt}">
+      {if:description}<p class="menu-short-descr">{description}
+      {if:alt}<h3><span>{alt}</span></h3>{endif:alt}<img class="img-link img-responsive" src="{uimages}/{img}" data="{uimages}/{imga}"></a>{endif:img}  
+     <img class="orange-arrow img-responsive" src="{template_images}/css/active-orange.png" alt="" />{endif:description}</li>   
+   {endloop:menu}
+ </ul>
+ <div class="clearfix"></div>
+ </div>
+</div>
+
+ {define:level_found=1}
+{endif:level=(102,11)}
+<!-- end MENU BOXy -->
+
+<!-- MENU BOXy BIS-->
+{if:level=(104,12)}
+<div id="menu-box">
+ <div class="box menu-grid">
+  <ul class="megamenu2 col-md-12">
+   {loop:menu}
+     <li class="{class} col-md-4 {if:hide_phone} hidden-xs{endif:hide_phone}" id="panel-{__loop__}" {if:description}data="{description}"{endif:description}>
+	  {if:img}<a class="a-img-link" href="{if:href}{href}{endif:href}#{alt}" name="{alt}">
+      {if:description}<p class="menu-short-descr">{description}
+      {if:alt}<h3><span>{alt}</span></h3>{endif:alt}<img class="img-link img-responsive" src="{uimages}/{img}" data="{uimages}/{imga}"></a>{endif:img}  
+     <img class="orange-arrow img-responsive" src="{template_images}/css/active-orange.png" alt="" />{endif:description}</li>   
+   {endloop:menu}
+  </ul>
+  <div class="clearfix"></div>
+ </div>
+</div>
+ {define:level_found=1}
+{endif:level=(104,12)}
+<!-- end MENU BOXy BIS-->
+
+<!-- MENU WLADZE STATUTOWE -->
+{if:level=105}
+<div class="menu-content container">
+<ul class="wladze">
+   {loop:menu}
+     <li class="{class}" id="a{__loop__}"> <!-- li div -->
+     {if:alt}<a href="{if:href}{href}{endif:href}#{alt}" name="{alt}" class="custom-column-link" >{if:alt}<h3><span>{alt}</span></h3>{endif:alt}</a>{endif:alt}
+     <!--<img class="grey-arrow" src="{template_images}/arrow-grey.png" alt="" />-->
+     </li>    <!-- li div-->
+   {endloop:menu}
+   <div class="clearfix"></div>
+</ul>
+</div>
+ {define:level_found=1}
+{endif:level=105}
+<!-- end MENU WLADZE STATUTOWE -->
+
+<!-- MENU RADA NADZORCZA -->
+{if:level=108}
+ <ul class="rada">
+        {loop:menu}
+            <li class="{class}{if:hide_phone} hidden-xs{endif:hide_phone}" id="panel-{__loop__}" {if:description}data="{description}"{endif:description}>
+            <a class="{if:white_color}link-white{endif:white_color} main-link {if:is_new}menu-short-descr{endif:is_new}" href="{if:href}{href}{endif:href}#{alt}" name="{alt}"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:onclick}onclick="{onclick}"{endif:onclick}>
+			{alt}<span>{if:titlea}{titlea}{endif:titlea}</span></a>
+            </li>
+            {endloop:menu}
+   <div class="clearfix"></div>
+ {define:level_found=1}
+{endif:level=108}
+<!-- end MENU RADA NADZORCZA -->
+
+<!-- MENU BELKA -->
+{if:level=101}
+<div class="grey-bar"></div>
+<ul class="nav nav-justified">
+    <li id="a{__loop__}"><a href="#"><</a></li>
+   {loop:menu}
+     <li class="{class}" id="a{__loop__}"> <!-- li div -->
+     {if:alt}<a href="{href}" class="custom-column-link" {if:onclick}onclick="{onclick}"{endif:onclick}>{alt}</a>{endif:alt}
+     </li>    <!-- li div-->
+   {endloop:menu}
+</ul>
+    {define:level_found=1}
+{endif:level=101}
+<!-- end MANU BELKA -->
+
+<!-- MENU SIDEBAR -->
+{if:level=32}
+
+   <ul class="relacje-menu">
+   {loop:menu}
+     <li class="custom-column" id="a{__loop__}"> <!-- li div -->
+     {if:alt}<a href="{href}" class="custom-column-link" {if:onclick}onclick="{onclick}"{endif:onclick}><h5>{alt}</h5></a>{endif:alt}
+                                
+       {if:menu:s2}
+       <ul class="submenu-2 hidden-xs relacje-submenu">
+       
+         {loop:menu:s2}
+         <li id="b{__loop__}"><a href="{if:href}{href}{endif:href}" alt="{uimages}/{img}">{if:alt_title}<span>{alt_title}</span>{endif:alt_title}{alt}</a></li>
+         {endloop:menu:s2}
+       
+       </ul>
+       {endif:menu:s2}
+                                  
+       {if:description}<p class="menu-short-descr hidden-xs">{description}</p>{endif:description}
+                              
+     </li>    <!-- li div-->
+   {endloop:menu}
+   
+   </ul>
+   {define:level_found=1}
+
+{endif:level=32}
+<!-- end MENU SIDEBAR -->
+
+<!-- MENU SIDEBAR -->
+{if:level=119}
+
+   <ul class="relacje-menu">
+   {loop:menu}
+     <li class="custom-column" id="a{__loop__}"> <!-- li div -->
+     {if:alt}<a href="{href}#{alt}" name="{alt}" class="custom-column-link" {if:onclick}onclick="{onclick}"{endif:onclick}><h5>{alt}</h5></a>{endif:alt}
+                                
+       {if:menu:s2}
+       <ul class="submenu-2 hidden-xs relacje-submenu">
+       
+         {loop:menu:s2}
+         <li id="b{__loop__}"><a href="{if:href}{href}{endif:href}" alt="{uimages}/{img}">{if:alt_title}<span>{alt_title}</span>{endif:alt_title}{alt}</a></li>
+         {endloop:menu:s2}
+       
+       </ul>
+       {endif:menu:s2}
+                                  
+       {if:description}<p class="menu-short-descr hidden-xs">{description}</p>{endif:description}
+                              
+     </li>    <!-- li div-->
+   {endloop:menu}
+   
+   </ul>
+   {define:level_found=1}
+
+{endif:level=119}
+<!-- end MENU SIDEBAR -->
+
+<!-- end RELACJE INWESTORSKIE -->
+
+{if:level=1}
+
+<div class="box {class}">
+    {if:title}{if:more}<a href="{more_link}">{endif:more}
+    {tokens.box_title}
+    <div class="menu-title">{plain}</div>
+    {if:more}</a>{endif:more}{endif:title}
+
+    {if:menu}<ul class="megamenu menu">
+        {loop:menu}
+		
+            <li class="{class}{if:hide_phone} hidden-xs{endif:hide_phone}" id="panel-{__loop__}" {if:description}data="{description}"{endif:description}>
+            <a class="{if:white_color}link-white{endif:white_color} main-link {if:is_new}menu-short-descr{endif:is_new}" href="{if:href}{href}{endif:href}"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:onclick}onclick="{onclick}"{endif:onclick}>
+			{if:imga}<img class="img-link-logo img-responsive" src="{uimages}/{imga}" data="{uimages}/{imga}">{endif:imga}
+			<p class="acc-desc">{alt}</p></a>
+            {if:alt_title}<a class="{if:white_color}link-white{endif:white_color} alt-link" href="{if:href}{href}{endif:href}">{alt_title}</a>{endif:alt_title}
+            {if:img}<a class="a-img-link" href="{if:href}{href}{endif:href}"><img class="img-link" src="{uimages}/{img}" data="{uimages}/{imga}"></a>{endif:img}   
+            {if:description}<p class="menu-short-descr"><img class="img-link" src="{uimages}/{imga}" data="{uimages}/{imga}">{description}</p>{endif:description}
+            <a class="add-link" href="{href}"><img src="{template_images}/plus_icon.png"></a>
+                
+                {if:menu:s1}
+                    
+                    <div class="megamenu-menu-bg submenu-1"><!-- ul / div-->
+                    
+                        {loop:menu:s1}
+                            
+                            <div class="custom-column" id="a{__loop__}"> <!-- li div -->
+                                {if:img}<a href="{href}"><img class="menu-image hidden-xs" src="{uimages}/{img}"></a>{endif:img}
+                                {if:imga}<a href="{href}"><img class="menu-image-alt visible-xs" src="{uimages}/{imga}"></a>{endif:imga}
+                                {if:alt}<a href="{href}" class="custom-column-link" {if:onclick}onclick="{onclick}"{endif:onclick}><h5>{alt}</h5></a>{endif:alt}
+                                
+                                {if:menu:s2}
+                                  <ul class="submenu-2 hidden-xs">
+                                      {loop:menu:s2}
+                                          <li id="b{__loop__}"><a href="{if:href}{href}{endif:href}" alt="{uimages}/{img}">{alt}</a></li>
+                                      {endloop:menu:s2}
+                                  </ul>
+                                {endif:menu:s2}
+                                  
+                                {if:description}<p class="menu-short-descr hidden-xs">{description}</p>{endif:description}
+                              
+                            </div>    <!-- li div-->
+    
+                        {endloop:menu:s1}
+                    
+                    </div><!-- /ul  div -->
+                    
+                {endif:menu:s1}
+            </li>
+        {endloop:menu}    
+    
+    </ul>{endif:menu}
+    
+    <div id="thumb-prev"></div>
+	<div id="thumb-next"></div>
+    
+</div>
+
+   {define:level_found=1}
+{endif:level=1}
+
+{if:!level_found}
+<div class="box {class}">
+    {if:title}{if:more}<a href="{more_link}">{endif:more}
+    {tokens.box_title}
+    <div class="menu-title">{plain}</div>
+    {if:more}</a>{endif:more}{endif:title}
+
+    {if:menu}<ul class="megamenu menu">
+        {loop:menu}
+		
+            <li class="{class}{if:hide_phone} hidden-xs{endif:hide_phone}" id="panel-{__loop__}" {if:description}data="{description}"{endif:description}>
+            <a class="{if:white_color}link-white{endif:white_color} main-link {if:is_new}menu-short-descr{endif:is_new}" href="{if:href}{href}{endif:href}"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:onclick}onclick="{onclick}"{endif:onclick}>
+			{if:imga}<img class="img-link-logo img-responsive" src="{uimages}/{imga}" data="{uimages}/{imga}">{endif:imga}
+			{alt}</a>
+            {if:alt_title}<a class="{if:white_color}link-white{endif:white_color} alt-link" href="{if:href}{href}{endif:href}">{alt_title}</a>{endif:alt_title}
+            {if:img}<a class="a-img-link" href="{if:href}{href}{endif:href}"><img class="img-link" src="{uimages}/{img}" data="{uimages}/{imga}"></a>{endif:img}   
+            {if:description}<p class="menu-short-descr"><img class="img-link" src="{uimages}/{imga}" data="{uimages}/{imga}">{description}</p>{endif:description}
+            <a class="add-link" href="{href}"><img src="{template_images}/plus_icon.png"></a>
+                
+                {if:menu:s1}
+                    
+                    <div class="megamenu-menu-bg submenu-1"><!-- ul / div-->
+                    
+                        {loop:menu:s1}
+                            
+                            <div class="custom-column" id="a{__loop__}"> <!-- li div -->
+                                {if:img}<a href="{href}"><img class="menu-image hidden-xs" src="{uimages}/{img}"></a>{endif:img}
+                                {if:imga}<a href="{href}"><img class="menu-image-alt visible-xs" src="{uimages}/{imga}"></a>{endif:imga}
+                                {if:alt}<a href="{href}" class="custom-column-link" {if:onclick}onclick="{onclick}"{endif:onclick}><h5>{alt}</h5></a>{endif:alt}
+                                
+                                {if:menu:s2}
+                                  <ul class="submenu-2 hidden-xs">
+                                      {loop:menu:s2}
+                                          <li id="b{__loop__}"><a href="{if:href}{href}{endif:href}" alt="{uimages}/{img}">{alt}</a></li>
+                                      {endloop:menu:s2}
+                                  </ul>
+                                {endif:menu:s2}
+                                  
+                                {if:description}<p class="menu-short-descr hidden-xs">{description}</p>{endif:description}
+                              
+                            </div>    <!-- li div-->
+    
+                        {endloop:menu:s1}
+                    
+                    </div><!-- /ul  div -->
+                    
+                {endif:menu:s1}
+            </li>
+        {endloop:menu}    
+    
+    </ul>{endif:menu}
+    
+    <div id="thumb-prev"></div>
+	<div id="thumb-next"></div>
+    
+</div>
+{endif:!level_found}

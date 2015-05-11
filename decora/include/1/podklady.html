@@ -1,0 +1,30 @@
+<script type="text/javascript" src="<?php echo $IMAGES?>/js/decora/podklady.js"></script>
+
+<style>
+	
+	.inside-column
+	{
+		padding-top: 0;
+	}
+	
+</style>
+<div class="base-product-filter">
+	<div class="outer-base-filter-list">
+
+		<div class="base-filter-list container">
+			<ul>
+				{loop:features}
+					{if:show}<li class="filter-item" data="{key}"><span>{pure_name}</span></li>{endif:show}
+				{endloop:features}		
+			</ul>
+		</div>
+	</div>
+	
+	<div class="outer-base-product-list">
+		<div class="inner-base-product-list container">
+			<ul class="base-product-list"></ul>
+		</div>
+	</div>
+	
+	
+</div>

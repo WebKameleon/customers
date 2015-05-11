@@ -1,0 +1,71 @@
+<!-- SLIDER MARKI I PRODUKTY -->
+{if:level=109}
+ <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+{loop:menu:s0}
+        
+        <li data-target="#myCarousel" data-slide-to="{__loop__}" {if:first_child}class="active"{endif:first_child}></li>
+        
+{endloop:menu:s0}          
+
+      </ol>
+      
+      
+      <div class="carousel-inner">
+        {loop:menu:s1}
+        <div class="item {if:first_child}active{endif:first_child}">
+          <img src="{uimages}/{img}" data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>{alt}</h1>
+            </div>
+          </div>
+        </div>
+        {endloop:menu:s1} 
+        
+</div>
+      
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><img src="{template_images}/left_arrow.png"></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><img src="{template_images}/right_arrow.png"></a>
+    </div><!-- /.carousel -->
+ {define:level_found=1}
+{endif:level=109}
+<!-- end SLIDER MARKI I PRODUKTY -->
+
+    {if:menu}
+   
+
+   
+      <div id="myCarousel" class="carousel slide">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+{loop:menu:s0}
+        
+        <li data-target="#myCarousel" data-slide-to="{__loop__}" {if:first_child}class="active"{endif:first_child}></li>
+        
+{endloop:menu:s0}          
+
+      </ol>
+      
+      
+      <div class="carousel-inner">
+        {loop:menu:s1}
+        <div class="item {if:first_child}active{endif:first_child}">
+          <img src="{uimages}/{img}" data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>{alt}</h1>
+            </div>
+          </div>
+        </div>
+        {endloop:menu:s1} 
+        
+</div>
+      
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><img src="{template_images}/left_arrow.png"></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><img src="{template_images}/right_arrow.png"></a>
+    </div><!-- /.carousel -->
+    
+   
+  {endif:menu}

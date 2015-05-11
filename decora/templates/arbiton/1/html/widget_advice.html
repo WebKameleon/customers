@@ -1,0 +1,41 @@
+
+
+<div {if:class}class="{class}"{endif:class}>
+
+	<div class="row">    
+		<div class="list-item container {tokens.odd_or_even}">
+			<div class="advice-body">
+				
+				<div class="kmw_info">
+					<div class="txt">
+						<div>
+							<div class="advice-img">
+									{if:bgimg}
+									
+										<img src="{uimages}/{bgimg}" />
+									
+									{endif:bgimg}
+								</div>
+							<div class="title kmw_article_h2">
+				    {if:more}<a href="{more_link}">{endif:more}{title}{if:more}</a>{endif:more}
+				</div> 
+				    {if:menu}<ul>
+				    {loop:menu}
+				        <li {if:class}class="{class}"{endif:class}>
+				           <a href="{href}"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:onclick}onclick="{onclick}"{endif:onclick} {if:description} data="{description}" {endif:description} {if:imga}data="{uimages}/{imga}"{endif:imga}>{if:img}<img src="{uimages}/{img}">{endif:img}{alt}</a>
+				        </li>
+				    {endloop:menu}    
+				    </ul>{endif:menu}
+							<div class="special-for-plain">
+							{plain}<br>
+								{if:more}<a class="art-read-more" href="{more_link}">{translate.More} &gt;</a>{endif:more}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>

@@ -1,0 +1,135 @@
+<style type="text/css">
+    #accordion-wrapper {
+        background-color : #000;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .accordion-opened {
+        height: 100%;
+    }
+
+    #accordion-carousel {
+        margin-bottom : 10px;
+    }
+
+    #accordion-thumbs img {
+        border : 2px solid transparent;
+    }
+
+    #accordion-thumbs img.active {
+        border : 2px solid #ff7500;
+    }
+
+    #accordion-close {
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        padding-bottom: 15px;
+        padding-top: 10px;
+        background-image:url({template_images}/close_accord_up.png);
+        background-repeat: no-repeat;
+        background-position: 54% 45%;
+    }
+
+    #accordion-open {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        background-color: #ff7500;
+        width: 160px;
+        padding: 10px;
+        padding-right:20px;
+        color: #fff;
+        margin-left: -100px;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        border-radius:4px;
+        background-image:url({template_images}/open_accord_down.png);
+        background-repeat:no-repeat;
+        background-position: 138px 15px;
+    }
+
+    #accordion-wrapper .hotspot {
+        display: none;
+        position: absolute;
+        height: 45px;
+        width: 45px;
+        background-color: transparent;
+        background-image: url({template_images}/hot_spot.png);
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    #accordion-wrapper.accordion-opened:hover .hotspot {
+        display: block;
+    }
+
+    #accordion-carousel .carousel-control {
+        width: 5%;
+    }
+
+    #accordion-carousel .left,
+    #accordion-carousel .right {
+        background-repeat: no-repeat;
+        background-position: 50%;
+    }
+
+    #accordion-carousel .left {
+        background-image: url({template_images}/left_arrow.png);
+    }
+
+    #accordion-carousel .right {
+        background-image: url({template_images}/right_arrow.png);
+    }
+    
+    .carousel-inner > .item > img, .carousel-inner > .item > a > img 
+    {
+    	width:100%;
+    }
+    
+</style>
+
+{tokens.accordion}
+
+<div class="box">
+    {if:title}
+    {if:more}<a href="{more_link}">{endif:more}
+    {tokens.box_title}
+    {if:more}</a>{endif:more}
+    {endif:title}
+
+    {if:menu}
+    <div id="accordion-wrapper" class="accordion-closed">
+        <div id="accordion-carousel" class="carousel slide">
+            <div class="carousel-inner">
+            {loop:menu}
+                <div class="item" rel="{__loop__}" sid="{sid}">
+                    <img src="{uimages}/{img}" />
+                    {loop:menu:s}
+                    <div class="hotspot" rel="{description}" sid="{sid}" tooltip="<table><tr><td>{if:href}<a href='{href}'>{endif:href}<img src='{uimages}/{img}'/>{if:href}</a>{endif:href}</td><td>{if:href}<a href='{href}'>{endif:href}{alt}{if:href}</a>{endif:href}</td></tr></table>"></div>
+                    {endloop:menu:s}
+                </div>
+            {endloop:menu}
+            </div>
+            <a class="left carousel-control" href="#accordion-carousel" data-slide="prev"></a>
+            <a class="right carousel-control" href="#accordion-carousel" data-slide="next"></a>
+        </div>
+        <div id="accordion-thumbs-wrapper">
+            <span id="accordion-thumbs">
+            {loop:menu}
+                <img src="{uimages}/{imga}" rel="{__loop__}" sid="{sid}" />
+            {endloop:menu}
+            </span>
+        </div>
+        <div id="accordion-close"></div>
+        <div id="accordion-open"></div>
+    </div>
+    {endif:menu}
+    {plain}
+ </div>
