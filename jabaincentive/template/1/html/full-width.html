@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+  <meta charset="utf-8">
+ {include:head.html}
+ </head>
+
+<body{if:page.class} class="{page.class}"{endif:page.class}>
+
+{with:header} {include:header.html} {endwith:header}
+
+{with:body}
+
+ <!----- banner container ----->
+ <div class="row">
+  <div class="banner container">
+   <div class="col-md-12 hidden-sm hidden-xs">{level3}</div>
+  </div>
+ </div>
+ <!----- /banner container ----->
+
+ <!----- main content ----->
+ 
+  <div class="row">
+   <div class="container">
+   <section id="main">{level4}</section>
+  </div>
+ </div>
+  
+  <div class="row">
+   <div class="container" id="main-bottom">
+   <div class="col-md-6 col-sm-6">{level2}</div>
+   <div class="col-md-6 col-sm-6">{level6}</div>
+  </div>
+ </div>
+ {endwith:body}
+ <!----- /main content ----->
+
+{with:footer} {include:footer.html} {endwith:footer}
+
+</body>
+</html>

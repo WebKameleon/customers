@@ -1,0 +1,82 @@
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+{with:slideshowWidget}
+{if:webtd.menu}
+<style type="text/css">
+    #bxslider{webtd.sid}-wrapper .bx-caption {
+        background : rgba(80, 80, 80, {data.text_opacity});
+		background-color: {data.background_color};
+        text-align : {data.text_align};
+        {if:data.text_position=top}
+        top : 0;
+        bottom : auto;
+        {endif:data.text_position=top}
+        {if:data.text_position=bottom}
+        top : auto;
+        bottom : 0;
+        {endif:data.text_position=bottom}
+    }
+
+    #bxslider{webtd.sid}-wrapper .bx-caption span {
+        font-size : {data.text_size}px;
+		color: {data.text_color};
+    }
+
+    #bxslider{webtd.sid}-wrapper .bx-pager {
+        {if:data.text_position=top}
+        top : 0;
+        {endif:data.text_position=top}
+        {if:data.text_position=bottom}
+        bottom : 0;
+        {endif:data.text_position=bottom}
+        {if:data.text_align=left}
+        right : 0;
+        {endif:data.text_align=left}
+        {if:data.text_align=right}
+        left : 0;
+        {endif:data.text_align=right}
+    }
+
+    #bxslider{webtd.sid}-wrapper .bx-pager .bx-pager-link {
+        {if:data.pager_style=square}
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+        {endif:data.pager_style=square}
+    }
+</style>
+{if:level=1}
+<div id="bxslider{webtd.sid}-wrapper" class="bxslider-wrapper">
+    <ul id="bxslider{webtd.sid}" class="bxslider">
+        {loop:webtd.menu}
+        <li>
+            {if:page_target}<a href="{href}">{endif:page_target}
+                <div class="col-md-8 col-sm-8"><img src="{imagesUrl}/{img}"  /></div>
+		<div class="col-md-4 col-sm-4">{if:alt}{alt}{endif:alt}</div>
+            {if:page_target}</a>{endif:page_target}
+        </li>
+        {endloop:webtd.menu}
+    </ul>
+</div>
+ {define:level_found=1}
+{endif:level=1}
+
+{if:!level_found}
+<div id="bxslider{webtd.sid}-wrapper" class="bxslider-wrapper">
+    <ul id="bxslider{webtd.sid}" class="bxslider">
+        {loop:webtd.menu}
+        <li>
+            {if:page_target}<a href="{href}">{endif:page_target}
+                <img src="{imagesUrl}/{img}" {if:alt}alt="{alt}"{endif:alt} />
+            {if:page_target}</a>{endif:page_target}
+        </li>
+        {endloop:webtd.menu}
+    </ul>
+</div>
+{endif:!level_found}
+<script type="text/javascript">
+jQueryKam(function ($) {
+    $("#bxslider{webtd.sid}").bxSlider({js_options});
+});
+</script>
+{endif:webtd.menu}
+{endwith:slideshowWidget}
