@@ -1,0 +1,20 @@
+
+/* ==========================================================================
+   Editor CSS for WBPiCAK by Karol Huszal, 2014
+   ========================================================================== */
+
+#sidebar .km_dragbox {
+    float: left;
+    width: 100%;
+}
+
+#newsletter h1, #newsletter h2, #newsletter h3 {
+    margin-top: 0px;
+}
+
+#commercial {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+article.pg_faq .kmw_article_plain {display: block;}

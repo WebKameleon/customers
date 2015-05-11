@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+  <meta charset="utf-8">
+ {include:head.html}
+ </head>
+
+<body{if:page.class} class="{page.class}"{endif:page.class}>
+
+{with:header} {include:header.html} {endwith:header}
+
+ <!----- main content ----->
+ {with:body}
+ 
+  <div class="container">
+   <div class="container-fluid wrapper">
+    
+   <section id="banner" class="col-md-12 col-sm-12">{level3}</section>
+   <div class="clearfix"></div>
+   
+   <section id="sidebar-left" class="col-md-3 col-sm-3 hidden-xs">{level1}</section>
+   <section id="main" class="col-md-9 col-sm-9">{level2}</section>
+   <section id="sidebar-left" class="col-md-3 col-sm-3 visible-xs">{level1}</section>
+   
+   <div class="clearfix"></div>
+   
+  </div>
+ </div>
+ {endwith:body}
+ <!----- /main content ----->
+
+{with:footer} {include:footer.html} {endwith:footer}
+
+</body>
+</html>

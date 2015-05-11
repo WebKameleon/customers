@@ -1,0 +1,13 @@
+<h3><a href="javascript:" onclick="objmapid({obiekt.id})">{obiekt.nazwa}</a></h3>
+<p>
+    {obiekt.ulica} </br>
+    {obiekt.kod} {obiekt.miasto}
+    {if:obiekt.powiat}<br/>powiat {obiekt.powiat}{endif:obiekt.powiat}
+</p>
+<p>
+    {if:obiekt.telefon}Telefon: {obiekt.telefon} <br/>{endif:obiekt.telefon}
+    {if:obiekt.www}WWW: <a target="_blank" href="http://{obiekt.www}">{obiekt.www}</a> <br/>{endif:obiekt.www}
+    {if:obiekt.email}E-mail: <a href="mailto:{obiekt.email}">{obiekt.email}</a> <br/>{endif:obiekt.email}
+</p>
+
+<div class="jakdojade"><a href="javascript:" onclick="objmapid({obiekt.id})">Jak dojechać</a></div>

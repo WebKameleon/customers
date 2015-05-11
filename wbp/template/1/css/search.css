@@ -1,0 +1,159 @@
+
+/* ==========================================================================
+   Search CSS for WBPiCAK by Karol Huszal, 2014
+   ========================================================================== */
+
+#cse-search-form {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	vertical-align: middle;
+	background-color: #fff;
+	color: #1d1d1d;
+	border:1px solid #dfdfdf;
+	height:32px;
+	max-width:300px;
+	float:right;
+}
+
+.gsc-input * {
+	background-image:none !important;
+	border:0px;
+}
+
+.gsc-search-box * {
+	background-image:none !important;
+	border:0px;
+}
+
+.gsc-input-box {
+	border: 0px;
+	background: #fff;
+	height: 30px;
+	padding:0px;
+	margin:0px;
+	vertical-align:top;
+}
+
+.gsc-search-button {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.cse input.gsc-search-button, input.gsc-search-button {
+    background: url(../images/search-icon.png) no-repeat !important;
+    text-indent: -9999em;
+    border: none !important;
+	margin:0px;
+	width: 0px;
+	height: 0px !important;
+	padding: 0px;
+	margin: 0px;
+	padding: 15px 10px;
+}
+
+.gsib_a {
+	width: 100%;
+	padding: 0px 0px 0;
+}
+
+
+/* SOWA SEARCH */
+#search-catalog-form {
+	box-sizing: content-box;
+	vertical-align: middle;
+	background-color: #fff;
+	color: #1d1d1d;
+	border: 1px solid #dfdfdf;
+	height: 32px;
+	max-width: 300px;
+	width: 300px;
+	float: right;
+	margin-top: 20px 
+}
+
+#search-catalog-form #search-catalog-form-txt {
+	border: 0px;
+	width: 88%;
+	float: left;
+	height: 30px;
+	font-size: 16px;
+}
+
+#search-catalog-form  .search-catalog-form-btn {
+	background: url(../images/search-icon.png) no-repeat !important;
+	text-indent: -9999em;
+	border: none !important;
+	margin:0px;
+	width: 0px;
+	height: 0px !important;
+	padding: 0px;
+	margin: 0px;
+	float:right;
+	padding: 15px 15px;
+	margin-right: 3px;
+}
+
+/* end SOWA SEARCH */
+
+/* WYNIKI WYSZUKIWANIA */
+
+/* google search box and results */
+.gs-web-image-box-landscape img.gs-image  {
+	max-width: 170px;
+	max-height: 150px;
+}
+
+.gs-web-image-box-portrait img.gs-image {
+	max-height: 170px;
+	max-width: 110px;
+	height: 170px !important;
+	width: 110px !important;
+}
+
+.gsc-result .gs-title {
+	height: 1.5em;
+}
+
+.gs-webResult div.gs-visibleUrl, .gs-imageResult div.gs-visibleUrl {
+	color: #bc382e !important;
+	margin-bottom:10px;
+}
+
+a.gs-title, a.gs-title b {
+	color:#176095 !important;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 700;
+	font-size:20px !important;
+	text-decoration:none !important;
+}
+
+.gs-image-box.gs-web-image-box.gs-web-image-box-landscape {
+	width: 180px !important;
+	height:115px !important;
+}
+
+.gs-image-box.gs-web-image-box.gs-web-image-box-portrait {
+	height: 180px !important;
+	width:115px !important;
+}
+
+.gsc-webResult.gsc-result,
+.gsc-webResult.gsc-result:hover {
+	margin-bottom:25px;
+	border-bottom:5px solid #dedede;
+}
+
+.gsc-selected-option-container.gsc-inline-block {
+	width:110px !important;
+}
+
+.cse .gsc-control-cse, .gsc-control-cse {
+	padding: 0px !important;
+}
+
+.gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top {
+	padding-left: 0px !important;
+}
+

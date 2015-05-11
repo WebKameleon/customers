@@ -1,0 +1,13 @@
+{if:!mode}headerback(['{server.http_url}/','<link rel="stylesheet" href="{template_dir}/css/inject_hf.css">
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700|Open+Sans:400,600,700,800,300&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <div class="wbp_inject_header">
+  {include:header.html}
+</div>']);{endif:!mode}{if:mode}<html>
+<head>
+  <meta charset="utf-8">
+  {include:head.html}
+</head>
+<body>
+  {include:header.html}
+</body>
+</html>{endif:mode}

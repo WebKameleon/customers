@@ -1,0 +1,5 @@
+<ul class="dropdown-menu">{loop:menu}
+  <li{if:active} class="active"{endif:active}><a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title}{if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}</a>
+	{if:menu}{include:submenu.html}{endif:menu}
+  </li>{endloop:menu}
+</ul>

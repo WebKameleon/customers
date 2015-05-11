@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+  <meta charset="utf-8">
+ {include:head.html}
+ </head>
+
+<body{if:page.class} class="{page.class}"{endif:page.class}>
+ 
+
+
+ {include:header.html}
+
+ <!----- main content ----->
+{with:body}
+
+ <div class="row">
+ <!----- breadcrumbs ----->
+  {if:level8}<div class="container"><div id="breadcrumbs" class="col-md-12 hidden-xs">{level8}</div></div>{endif:level8}
+ <!----- end breadcrumbs ----->
+
+<div class="clearfix"></div>
+ 
+   </div>
+  </div>
+  {endif:level7}
+  <div class="container">
+   <section id="main" class="col-md-12">{level1}</section>
+  </div>
+ </div>
+   
+ <div class="clearfix"></div>
+ 
+{endwith:body}
+ <!----- /main content ----->
+
+{include:footer.html}
+{include:footer-js.html}
+
+<span id="scroll-top"><a class="scrollup"><i class="icomoon-arrow-up"></i></a></span>
+
+</body>
+</html>
