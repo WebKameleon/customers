@@ -1,0 +1,318 @@
+{if:menu}
+
+{if:level=12}
+<div class="tab-pane fade {if:mode=(2,3)} in active{endif:mode=(2,3)}{if:first_child} in active{endif:first_child}" id="{plain}">
+{if:title}<h3 class="main">{title}</h3>{endif:title}
+{if:!title}{if:name}<h3 class="main">{name}</h3>{endif:name}{endif:!title}
+
+<ul class="nav nav-stacked">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{alt}{endif:img}
+        {if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+
+</div>
+
+{define:level_found=1}
+{endif:level=12}
+
+{if:level=11}
+<ul class="nav nav-tabs nav-stacked" role="tablist">
+  {loop:menu}
+  <li {if:active} class="active"{endif:active}><a href="{href}" role="tab" data-toggle="tab">{alt}</a></li>
+  {endloop:menu}
+</ul>
+{define:level_found=1}
+{endif:level=11}
+
+
+{if:level=7}
+<div class="booking">
+    <p class="select-info">termin:</p>
+    <div class="container-fluid">
+    <select class="form-control mySelect input-lg" role="tablist" id="myTab">
+    {loop:menu}
+     <option value="date{__index__}" {if:first_child}class="selected"{endif:first_child}>{alt}</option>
+    {endloop:menu}
+    </select>
+    </div>
+    
+    
+    <div class="tab-content">
+    {loop:menu}    
+    <div id="date{__index__}" {if:first_child}style="display:block;"{endif:first_child} class="tab-pane date{__index__}">
+     
+    <div class="container-fluid">
+     
+     <table class="table table-responsive table-condensed">
+   <tbody>
+    {if:confirm}
+    <tr>
+     <td>Status:</td>
+     <td>Potwierdzone</td>
+    </tr>
+    {endif:confirm}
+    {if:!confirm}
+    <tr>
+     <td>Status:</td>
+     <td>Niepotwierdzone</td>
+    </tr>
+    {endif:!confirm}
+    {if:price}
+    <tr>
+     <td>Cena:</td>
+     <td>{price} PLN</td>
+    </tr>
+    {endif:price}
+    {if:days}
+   <tr>
+     <td>Ilość dni:</td>
+     <td>{days}</td>
+   </tr>
+   {endif:days}
+    {if:group}
+   <tr>
+     <td>Grupa:</td>
+     <td>{group} osób</td>
+   </tr>
+   {endif:group}
+   {if:from}
+    <tr>
+     <td>Wylot:</td>
+     <td>{from}</td>
+   </tr>
+   {endif:from}
+   {if:care}
+    <tr>
+     <td>Opieka:</td>
+     <td><span class="{care}"></span></td>
+   </tr>
+    {endif:care}
+
+ </tbody></table>
+     
+    </div>
+      <!-- <a type="button" class="btn" data-toggle="modal" href="#myModal">Zapytaj</a> -->
+      
+
+<div class="collapse yobboo-form" id="CForm{lp}">
+  <form class="col-md-12">
+    <div class="form-group">
+    <label for="InputName">Imię i nazwisko</label>
+    <input type="text" class="form-control" id="InputName" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="InputEmail">Addres email</label>
+    <input type="email" class="form-control" id="InputEmail" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="InputPhone">Telefon</label>
+    <input type="phone" class="form-control" id="InputPhone" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="InputMessage">Wiadomość</label>
+    <textarea class="form-control" rows="3"></textarea>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> wyrażam zgodę na przetwarzanie moich danych osobowych
+    </label>
+  </div>
+  
+</form>
+  
+  <div class="clearfix"></div>
+</div>
+      
+      
+    <a class="btn btn-primary button-col" data-toggle="collapse" href="#CForm{lp}" aria-expanded="false" aria-controls="collapseForm{lp}">Zapytaj</a>
+
+
+    
+    </div> 
+    {endloop:menu}
+    
+    
+    
+    </div>
+    {if:plain}<div class="price-info">{plain}</div>{endif:plain}
+    
+    
+    <script>
+    jQueryKam(function ($) {
+    $('.mySelect').change(function(){
+	var selected = $(this).find(':selected');
+	 $('.optionvalue').fadeOut(function(){
+         $('.optionvalue').html(selected.html()).fadeIn()
+        .attr('class', 'optionvalue '+selected.val());   
+	});
+	
+	var count = $('.booking .tab-pane').length;
+	    $('.booking .tab-pane').fadeOut(function(){
+	        if(!--count) {
+	        $('.'+selected.val()).fadeIn();
+	    }
+	});
+    });
+    //$('.mySelect').val('date2');
+    //alert($('#date1').attr("id"));
+    $('#date1').css("display","block");
+    
+    $('a.button-col').click(function() {
+    if ( $(this).next('.yobboo-form').hasClass('in') ) {
+        $(this).text('Zamknij');
+    } else {
+        $(this).text('Wyślij');
+    }
+});
+    });
+    
+    </script>
+</div>
+
+
+ {define:level_found=1}
+{endif:level=7}
+
+{if:level=5}
+<ul class="nav menu-sidebar {if:class} {class}{endif:class}">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {alt}	
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+ {define:level_found=1}
+{endif:level=5}
+
+{if:level=4}
+<ul class="nav menu-agent {if:class} {class}{endif:class}">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {alt}	
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+ {define:level_found=1}
+{endif:level=4}
+
+{if:level=203}
+{if:title}<h4>{title}</h4>{endif:title}
+{if:!title}{if:name}<h4>{name}</h4>{endif:name}{endif:!title}
+<ul class="footer-social">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+ {define:level_found=1}
+{endif:level=203}
+
+{if:level=202}
+{if:title}<h4>{title}</h4>{endif:title}
+{if:!title}{if:name}<h4>{name}</h4>{endif:name}{endif:!title}
+<ul class="footer-menu">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+ {define:level_found=1}
+{endif:level=202}
+
+{if:level=101}
+<ul class="main-menu">
+ {loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+ {endloop:menu}
+</ul>
+{define:level_found=1}
+{endif:level=101}
+
+{if:!level_found}
+<ul class="nav nav-justified">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+{endif:!level_found}
+
+{endif:menu}

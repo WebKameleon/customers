@@ -1,0 +1,198 @@
+function wyprawy_form_fill(data,req) {
+
+    $('.form-wyprawy select').empty().append('<option value="">Wybierz</option>');
+    
+    var countries=data.countries;
+    for(var key in data.struct)
+    {   
+        $('.form-wyprawy select[name="wyprawy.continent"]').append('<option>'+key+'</option>');
+        if (typeof(req.continent)!='undefined' && key==req.continent) {
+            countries=data.struct[key].countries;
+            $('.form-wyprawy select[name="wyprawy.continent"]').val(key);
+        }
+    }
+    
+    for (var i=0;i<countries.length;i++)
+    {
+        $('.form-wyprawy select[name="wyprawy.country"]').append('<option>'+countries[i]+'</option>');
+        if (typeof(req.country)!='undefined' && req.country==countries[i]) {
+            $('.form-wyprawy select[name="wyprawy.country"]').val(countries[i]);   
+        }
+    }
+    
+    if (typeof(req.d_from)!='undefined')
+        $('.form-wyprawy input[name="wyprawy.d_from"]').val(req.d_from);
+        
+    if (typeof(req.d_to)!='undefined')
+        $('.form-wyprawy input[name="wyprawy.d_to"]').val(req.d_to);
+        
+    if (typeof(req.confirm)!='undefined' && req.confirm=='1')
+        $('.form-wyprawy input[name="wyprawy.confirm"]').attr('checked',true);
+        
+    if (typeof(req.pilot)!='undefined' && req.pilot!='')
+    {
+        $('.form-wyprawy input[name="wyprawy.pilot"]').attr('checked',true);
+    }
+    
+}
+
+function smekta(pattern,vars) {
+    
+    for (key in vars)
+    {
+        if (vars[key]==null)  vars[key]='';
+        
+        re=new RegExp('\\[if:'+key+'\\](.|[\r\n])+\\[endif:'+key+'\\]',"g");
+        if (vars[key].length==0 || vars[key]==null) pattern=pattern.replace(re,'');
+        
+        re=new RegExp('\\['+key+'\\]',"g");
+        pattern=pattern.replace(re,vars[key]);
+        
+        
+        pattern=pattern.replace('[if:'+key+']','');
+        pattern=pattern.replace('[endif:'+key+']','');
+        
+    }
+    
+    return pattern;
+
+}
+
+var wyprawy_grid_limit;
+var wyprawy_grid_offset=0;
+var wyprawy_grid_form;
+var wyprawy_grid_template;
+var wyprawy_grid_results;
+var wyprawy_grid_ajax;
+var wyprawy_grid_lazyload=false;
+
+
+function wyprawy_grid_load(txt)
+{
+    if (txt==null) {
+        txt=$('#'+wyprawy_grid_form).serialize();
+    }
+    
+    var url=wyprawy_grid_ajax+'&limit='+wyprawy_grid_limit+'&offset='+wyprawy_grid_offset+'&'+txt;
+    
+    $.get(url,function (r) {
+        var html=$('#'+wyprawy_grid_template).html();
+        
+        data=r.data;
+        for(i=0;i<data.length;i++)
+        {
+            html2='<div style="display: none">'+smekta(html,data[i])+'</div>';
+            $(html2).appendTo('#'+wyprawy_grid_results).fadeIn();
+            wyprawy_grid_offset++;
+            
+        }
+        var div='<div id="wyprawy_grid_scroll_to"></div>';
+        
+        if (r.total>wyprawy_grid_offset && wyprawy_grid_lazyload) $('#'+wyprawy_grid_results).append(div);
+        
+        var navi='<ul>';
+        var pages=Math.ceil(r.total/r.limit);
+        var current_page=1+Math.ceil(r.offset/r.limit);
+
+        
+        var from=current_page-4;
+        var to=current_page+5;
+        while (from<=0)
+        {
+            from++;to++;
+        }
+        while (to>pages)
+        {
+            to--;
+            if (from>1) from--;
+        }
+        
+        
+        if (from!=1) {
+            navi+='<li class="first">';
+            navi+='<a href="javascript:wyprawy_grid_jump('+0+')">'+1+'</a></li>';
+            navi+='<li class="break">...</li>';
+        }
+        
+        for (i=from; i<=to; i++)
+        {
+            var c='';
+            if (i==current_page) c='active'
+            if (i==1) {
+                if (c.length>0) c+=' ';
+                c+='first';
+            }
+            if (i==pages) {
+                if (c.length>0) c+=' ';
+                c+='last';
+            }
+            navi+='<li class="'+c+'">';
+            navi+='<a href="javascript:wyprawy_grid_jump('+(i-1)*r.limit+')">'+i+'</a></li>';
+        }
+
+        if (to!=pages) {
+            navi+='<li class="break">...</li>';
+            navi+='<li class="last">';
+            navi+='<a href="javascript:wyprawy_grid_jump('+(pages-1)*r.limit+')">'+pages+'</a></li>';
+            
+        }
+        
+        navi+='</ul>';
+        if (pages==1) {
+            navi='';
+        }
+        $('.wyprawy_grid_navi').html(navi);
+    });   
+}
+
+function wyprawy_grid_jump(offset)
+{
+    wyprawy_grid_offset=offset;
+    $('#'+wyprawy_grid_results).html('');
+    wyprawy_grid_load(null);
+}
+
+function wyprawy_grid_scroll()
+{
+    var scroll_to = $('#wyprawy_grid_scroll_to');
+
+    if (typeof(scroll_to.get(0))=='undefined') return; 
+    
+    var hT = scroll_to.offset().top,
+        hH = scroll_to.outerHeight(),
+        wH = $(window).height(),
+        wS = $(window).scrollTop();
+  
+    if (wS > (hT+hH-wH)){
+        $('#wyprawy_grid_scroll_to').remove();
+        wyprawy_grid_load(null);
+    }
+}
+
+
+
+function wyprawy_grid(form,template,results,limit,ajax,lazyload,req)
+{
+    wyprawy_grid_limit = limit;
+    wyprawy_grid_ajax = ajax;
+    wyprawy_grid_form = form;
+    wyprawy_grid_template = template;
+    wyprawy_grid_results = results;
+    wyprawy_grid_lazyload = lazyload;
+    
+    
+    $('#'+wyprawy_grid_form+' select,#'+wyprawy_grid_form+' input').change(function() {
+        wyprawy_grid_offset=0;
+        $('#'+wyprawy_grid_results).html('');
+        wyprawy_grid_load(null);
+    });
+    
+
+    wyprawy_grid_load(req);
+
+    $(window).scroll(wyprawy_grid_scroll);
+    $('#preview-content').scroll(wyprawy_grid_scroll); //kameleon mode
+}
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+  <meta charset="utf-8">
+ {include:head.html}
+ </head>
+
+<body{if:page.class} class="{page.class}"{endif:page.class}>
+
+{with:header} {include:header.html} {endwith:header}
+
+{with:body}
+ <!----- menu continents ----->
+ <div class="menu-continents"><div class="container">{level1}</div></div>
+ <!----- /menu continents ----->
+ 
+ <!----- menu continents ----->
+ <div class="row"><div class="container breadcrumbs">{level6}</div></div>
+ <!----- /menu continents ----->
+ 
+ <!----- banner container ----->
+ <div class="row">
+  <div class="banner container">
+   <div class="col-md-3 col-sm-3">{level2}</div>
+   <div class="col-md-9 col-sm-9">{level3}</div>
+  </div>
+ </div>
+ <!----- /banner container ----->
+
+ <!----- main content ----->
+ 
+  <div class="row">
+   <div class="container">
+   <section id="main">{level4}</section>
+  </div>
+ </div>
+ {endwith:body}
+ <!----- /main content ----->
+
+{with:footer} {include:footer.html} {endwith:footer}
+
+<span id="scroll-top"><a class="scrollup"><i class="icomoon-arrow-up"></i></a></span>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+	
+    <div class="clearfix"></div>
+    
+    <!----- footer ----->
+    <footer class="footer">
+     <div class="row">
+     <div class="container">
+      <div class="col-md-4 col-sm-4">{level201}</div>
+      <div class="col-md-4 col-sm-4">{level202}</div>
+      <div class="col-md-4 col-sm-4">{level203}</div>
+     </div>
+     </div>
+    </footer>
+    
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="mySmallModalLabel">Formularz<a class="anchorjs-link" href="#mySmallModalLabel"><span class="anchorjs-icon"></span></a></h4>
+        </div>
+        <div class="modal-body">
+          <table class="table table-responsive table-condensed">
+   <tbody>
+    {if:confirm}
+    <tr>
+     <td>Status:</td>
+     <td>Potwierdzone</td>
+    </tr>
+    {endif:confirm}
+    {if:!confirm}
+    <tr>
+     <td>Status:</td>
+     <td>Niepotwierdzone</td>
+    </tr>
+    {endif:!confirm}
+    {if:price}
+    <tr>
+     <td>Cena:</td>
+     <td>{price} PLN</td>
+    </tr>
+    {endif:price}
+    {if:days}
+   <tr>
+     <td>Ilość dni:</td>
+     <td>{days}</td>
+   </tr>
+   {endif:days}
+    {if:group}
+   <tr>
+     <td>Grupa:</td>
+     <td>{group} osób</td>
+   </tr>
+   {endif:group}
+   {if:from}
+    <tr>
+     <td>Wylot:</td>
+     <td>{from}</td>
+   </tr>
+   {endif:from}
+   {if:care}
+    <tr>
+     <td>Opieka:</td>
+     <td><span class="{care}"></span></td>
+   </tr>
+    {endif:care}
+
+ </tbody></table>
+        </div>
+	<div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+  </div>
+</div>
+    
+    <div class="under-footer">
+     <div class="container"><div class="col-md-12">{level200}</div></div>
+    </div>
+    <!----- /footer ----->
+
+    <!----- js ----->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{template_dir}/js/bootstrap.min.js"></script>
+    <script src="{template_dir}/js/moment-with-locales.js"></script>
+    <script src="{template_dir}/js/bootstrap-datetimepicker.js"></script>
+    <script src="{template_dir}/js/main.js"></script> 
+    <!----- /js ----->
+    
+    <!----- google search style ----->
+    <link rel="stylesheet" href="{template_dir}/css/search.css">
+    <!----- /google search style ----->
+
+    
+    

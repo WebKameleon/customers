@@ -1,0 +1,49 @@
+    
+    <title>{page.title}</title>
+    {if:page.description}<meta name="description" content="{page.description}" />{endif:page.description}	
+    {if:page.keywords}<meta name="keywords" content="{page.keywords}" />{endif:page.keywords}
+    
+    <meta name="author" content="webkameleon.com">
+    
+    {if:page.og_desc}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{page.title}"/> 
+    <meta property="og:site_name" content="{server.http_url}" />
+    <meta property="og:description" content="{page.og_desc}" />
+    {if:page.og_image}<meta property="og:image" content="{uimages}/{page.og_image}" />{endif:page.og_image}
+    {endif:page.og_desc}
+    
+    <meta name="Robots" content="all" />
+    <meta name="generator" content="{generator}" />
+    <meta name="webkameleonId" content="server={page.server}; page={page.id}; ver={page.ver}; lang={page.lang}; ftp={page.nd_ftp|kameleon.datetime}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!----- font Source Sans Pro ----->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!----- /font Source Sans Pro ----->
+    
+    <!----- bcg ----->
+	<style>
+        body {
+                padding-top: 0px;
+                padding-bottom: 0px;
+                {if:server.background}background-image:url('{uimages}/{server.background}');background-repeat:no-repeat; background-attachment:fixed;background-position: top center;{endif:server.background}
+                {if:page.background}background:url('{uimages}/{page.background}');background-attachment:fixed;background-repeat: repeat-y; background-position: center 100px;{endif:page.background}
+                {if:server.bgcolor}background-color:#{server.bgcolor} !important;{endif:server.bgcolor}
+                {if:page.bgcolor}background-color:#{page.bgcolor} !important;{endif:page.bgcolor}
+        }
+    </style>
+    <!----- /bcg ----->
+    
+    <!----- css ----->
+    <link rel="stylesheet" href="{template_dir}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{template_dir}/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{template_dir}/css/main.css">
+    <!----- /css ----->
+	
+    <!----- favicon ----->
+    <link rel="shortcut icon" href="{template_dir}/images/favicon.ico">
+    <!----- /favicon ----->
+
+

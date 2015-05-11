@@ -1,0 +1,32 @@
+<div id="wyprawy_results" class="promo-trips row"></div>
+
+<div id="wyprawy_results_template" style="display:none">
+    <div class="col-md-4 col-sm-6" style="display:none">
+        <div class="promo-box">
+            [if:confirm]
+            <a href="[url]"><div class="confirm-stamp-[confirm-clr]">&nbsp;</div></a>
+            [endif:confirm]
+            <div class="promo-title"><a href="[url]">[country]</a></div>
+
+            <div class="promo-img">
+                <a href="[url]">
+                    <img class="img-responsive" src="[img]" />
+                </a>
+            </div>
+
+            <div class="promo-subtitle">[name]</div>
+
+            <div class="row term-price-line">
+                <div [if:flag1]style="display: none"[endif:flag1] class="col-md-4 col-sm-4[if:!confirm] big[endif:!confirm][if:confirm2] small[endif:confirm2]">
+                    [if:confirm3][alt][endif:confirm3]
+                    [if:!confirm2][days] dni[endif:!confirm2]
+                </div>
+
+                <div class="col-md-8 col-sm-8">
+                    [if:price-from]<span>od</span>[endif:price-from]
+                    [if:price]<span class="super-price" rel="[currency]">[price]</span> PLN[endif:price]
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

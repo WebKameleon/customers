@@ -1,0 +1,31 @@
+	
+    <div class="clearfix"></div>
+    
+    <!----- footer ----->
+    <footer class="footer">
+     <div class="row">
+     <div class="container">
+      <div class="col-md-4 col-sm-4">{level201}</div>
+      <div class="col-md-4 col-sm-4">{level202}</div>
+      <div class="col-md-4 col-sm-4">{level203}</div>
+     </div>
+     </div>
+    </footer>
+    
+    <div class="under-footer">
+     <div class="container"><div class="col-md-12">{level200}</div></div>
+    </div>
+    <!----- /footer ----->
+
+    <!----- js ----->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="{template_dir}/js/bootstrap.min.js"></script>
+    <!----- <script src="{template_dir}/js/main.js"></script> ----->
+    <!----- /js ----->
+    
+    <!----- google search style ----->
+    <link rel="stylesheet" href="{template_dir}/css/search.css">
+    <!----- /google search style ----->
+
+    
+    

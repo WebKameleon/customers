@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+  <meta charset="utf-8">
+ {include:head.html}
+ </head>
+
+<body class="holliday{if:page.class} {page.class}{endif:page.class}">
+
+{with:header} {include:header.html} {endwith:header}
+
+{with:body}
+ <!----- menu continents ----->
+ <div class="menu-continents"><div class="container">{level1}</div></div>
+ <!----- /menu continents ----->
+ 
+  <!----- breadcrumbs ----->
+ <div class="row"><div class="container breadcrumbs">{level6}</div></div>
+ <!----- /breadcrumbs ----->
+ 
+ <!----- main content ----->
+ <div class="row">
+  <div class="banner container">
+   <div class="col-md-9 col-sm-8">{level4}<div class="clearfix"></div><div class="tab-content">{level12}</div></div>
+   <div class="col-md-3 col-sm-4 hidden-xs">{level7}<div class="clearfix"></div>{level5}<div class="clearfix"></div>{level11}</div>
+  </div>
+ </div>
+ <!----- /main content ----->
+ 
+ {endwith:body}
+ 
+{with:footer} {include:footer.html} {endwith:footer}
+
+<span id="scroll-top"><a class="scrollup"><i class="icomoon-arrow-up"></i></a></span>
+
+</body>
+</html>

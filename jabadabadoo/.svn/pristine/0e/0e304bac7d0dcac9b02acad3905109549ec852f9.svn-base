@@ -1,0 +1,25 @@
+<?php
+
+    if (isset($_POST['flags'][$sid]))
+    {
+        $webtd=new webtdModel($sid);
+        $costxt=$webtd->costxt=base64_encode(serialize($_POST['flags'][$sid]));
+        $webtd->save();
+    }
+    
+    $flags=unserialize(base64_decode($costxt));
+?>
+<form method="post">
+    <input type="hidden" name="flags[<?php echo $sid?>][noflag]" value=""/>
+    <input type="checkbox" name="flags[<?php echo $sid?>][homepage]" value="1" <?php if (isset($flags['homepage']) && $flags['homepage']) echo 'checked';?>/>
+    homepage,
+    <input type="checkbox" name="flags[<?php echo $sid?>][flag1]" value="1" <?php if (isset($flags['flag1']) && $flags['flag1']) echo 'checked';?>/>
+    flag1,
+    <input type="checkbox" name="flags[<?php echo $sid?>][flag2]" value="1" <?php if (isset($flags['flag2']) && $flags['flag2']) echo 'checked';?>/>
+    flag2
+    
+    <br/>
+    
+    <input value="zapisz" type="submit"/>
+</form>
+

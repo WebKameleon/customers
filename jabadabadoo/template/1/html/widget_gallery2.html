@@ -1,0 +1,41 @@
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+{with:gallery2Widget}
+{if:webtd.menu}
+
+{if:level=4}
+<div id="gallery{webtd.sid}" class="gallery-yobboo row">
+{loop:webtd.menu}<div class="col-md-12" {if:!first_child}style="display: none;"{endif:!first_child}><a class="fancybox{webtd.sid} gallery-tooltip" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}"{endif:alt}>
+<div class="gallery-icon"></div><img src="{uimages}/{img}" {if:alt}alt="{alt}"{endif:alt} class="img-responsive"/></a></div>
+{endloop:webtd.menu}
+</div>
+<div class="clearfix"></div>
+ {define:level_found=1}
+{endif:level=4}
+
+{if:!level_found}
+<div id="gallery{webtd.sid}" class="gallery2 row">
+{loop:webtd.menu}<div class="col-md-3 col-sm-4"><a class="fancybox{webtd.sid} gallery-tooltip" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}"{endif:alt}>
+<img src="{thumbsUrl}/{img}" {if:alt}alt="{alt}"{endif:alt} class="img-responsive"/></a></div>
+{endloop:webtd.menu}
+</div>
+<div class="clearfix"></div>
+{endif:!level_found}
+
+<script type="text/javascript">
+jQueryKam(function ($) {
+        
+	$(".fancybox{webtd.sid}").fancybox({
+		openEffect	: '{data.effect}',
+		closeEffect	: '{data.effect}',
+		{if:data.slideshow_autostart}autoPlay	: '{data.slideshow_autostart}',{endif:data.slideshow_autostart}
+		{if:data.animation_speed}playSpeed	: '{data.animation_speed}',{endif:data.animation_speed}
+		openSpeed	: 'normal',
+		closeSpeed	: 'normal'
+	});
+	
+	//$('[data-toggle="tooltip"]').tooltip()
+        
+});
+</script>
+{endif:webtd.menu}
+{endwith:gallery2Widget}

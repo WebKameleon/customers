@@ -1,0 +1,23 @@
+<div id="wyprawy_results" class="promo-trips row"></div>
+
+<div id="wyprawy_results_template" style="display:none">
+    <div class="col-md-4 col-sm-6">
+        <div class="promo-box">
+            <div class="promo-title"><a href="[url]">[country]</a></div>
+
+            <div class="promo-img">
+                <a href="[url]">
+                    <img class="img-responsive" src="[img]" />
+                </a>
+            </div>
+
+            <div class="promo-subtitle">[name]</div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 big">[days] dni</div>
+
+                <div class="col-md-8 col-sm-8">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>

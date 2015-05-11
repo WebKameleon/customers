@@ -1,0 +1,135 @@
+;**********************************
+; template config.ini file
+; by Karol Huszal 
+;**********************************
+
+;********** application **********
+;********** do not publish files or folders below **********
+template.exclude = "config.ini,index.html,.preview.jpg,.thumbnail.jpg,.template.wkz,src,php"
+
+
+;********** path.images = 'path to your template images after publishing' **********
+path.images = 'img/_'
+
+;********** path.uimages = 'path to user uploaded images through file manager after publishing' **********
+path.uimages = 'img'
+
+;********** template.css_files[] = array of css files linked to ckeditor **********
+template.css_files[] = 'css/style.css'
+
+webpage.follow_next = true
+default.directory_index[] = 'index.html'
+default.directory_index[] = 'index.php'
+
+header_footer.multi = false
+
+level.body.1 = 'menu continents'
+level.body.2 = 'search box'
+level.body.3 = 'banner'
+level.body.4 = 'main'
+level.body.5 = 'sidebar'
+level.body.6 = 'breadcrumbs'
+
+level.body.7 = 'trip menu'
+
+level.body.11 = 'tab menu'
+level.body.12 = 'tab content'
+
+level.body.20 = 'parallax'
+
+default.level.header = 100
+default.level.body = 4
+default.level.footer = 200
+
+weblink.user.666.days.label = "Ilość dni"
+weblink.user.666.days.values = "2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21"
+
+weblink.user.666.flag1.label = "Wyświetlaj dni"
+weblink.user.666.flag1.values = "0|1"
+
+weblink.user.666.d_from.label = "Od daty"
+weblink.user.666.d_from.values = "calendar"
+
+weblink.user.666.d_to.label = "Do daty"
+weblink.user.666.d_to.values = "calendar"
+
+weblink.user.666.price.label = "Cena"
+
+weblink.user.666.price-from.label = "Cena od"
+weblink.user.666.price-from.values = "0|1"
+
+weblink.user.666.from.label ="Wylot"
+
+weblink.user.666.pilot.label = "Pilot"
+weblink.user.666.pilot.values = "angielski|polski|multilanguage"
+
+weblink.user.666.group.label ="Minimalna ilość osób"
+weblink.user.666.group.values = "1|2|3|4|5|6|7|8|9|10|11|12|13|14"
+
+weblink.user.666.confirm.label = "Potwierdzone"
+weblink.user.666.confirm.values = "0|1"
+
+weblink.user.666.confirm-clr.label = "Kolor potwierdzenia"
+weblink.user.666.confirm-clr.values = "white|red|black"
+
+weblink.user.666.homepage.label = "Pierwsza strona"
+weblink.user.666.homepage.values = "0|1"
+
+weblink.user.666.flag2.label = "Flaga 2"
+weblink.user.666.flag2.values = "0|1"
+
+weblink.user.666.nego.label ="Do uzgodnienia"
+
+;weblink.user.*.onclick.label = "Java script when clicked"
+
+level.header.100 = 'logo'
+level.header.101 = 'main menu'
+
+level.footer.200 = 'under footer'
+level.footer.201 = 'footer can1'
+level.footer.202 = 'footer can2'
+level.footer.203 = 'footer can3'
+
+webpage.type.0.name = 'Homepage'
+webpage.type.0.filename = 'index.html'
+
+webpage.type.1.name = 'Sidebar Right'
+webpage.type.1.filename = 'sidebar-right.html'
+
+webpage.type.2.name = 'Sidebar Left'
+webpage.type.2.filename = 'sidebar-left.html'
+
+webpage.type.3.name = 'Landing Page'
+webpage.type.3.filename = 'holidays.html'
+
+webpage.type.4.name = 'Full Width'
+webpage.type.4.filename = 'full-width.html'
+
+style.0.name = 'Holliday'
+style.0.class = 'holliday'
+
+style.1.name = 'Print Download'
+style.1.class = 'print-download nav-pills nav-justified'
+
+style.2.name = 'Special'
+style.2.class = 'special'
+
+
+
+webtd.type.31501.name = "Search"
+webtd.type.31501.add_title = 0
+webtd.type.31501.widget = "merlin/search"
+webtd.type.31501.parent = "Merlin"
+
+webtd.type.31504.name = "Results"
+webtd.type.31504.add_title = 0
+webtd.type.31504.widget = "merlin/results"
+webtd.type.31504.parent = "Merlin"
+
+webtd.type.31509.name = "Hotel"
+webtd.type.31509.add_title = 0
+webtd.type.31509.widget = "merlin/hotel"
+webtd.type.31509.parent = "Merlin"
+
+webtd.widget.transfer.merlin = 'merlin'
+

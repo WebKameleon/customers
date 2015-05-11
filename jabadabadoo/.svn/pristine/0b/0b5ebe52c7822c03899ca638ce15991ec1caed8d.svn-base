@@ -1,0 +1,30 @@
+
+
+<table class="table table-search">
+	<tbody>
+		<tr>
+			<th>&nbsp;</th>
+			<th>Program</th>
+			<th>Termin</th>
+			<th>Cena</th>
+			<th>&nbsp;</th>
+		</tr>
+                <tr id="wyprawy_results"></tr>
+		<tr id="wyprawy_results_template" style="display:none">
+			<td class="img"><a href="[url]"><img alt="[country]" src="[img]" /></a></td>
+			<td class="place">
+			<h6><a href="[url]">[country]</a></h6>
+
+			<p><a href="[url]">[name]</a></p>
+			</td>
+			<td class="date">
+                        [if:!flag1][days][endif:!flag1]
+                        [if:flag1]<p>[d_from]</p>
+			<p>[d_to]</p>[endif:flag1]
+                        </td>
+			<td class="price">[if:price-from]<span>od</span>[endif:price-from] [if:price][price] PLN[endif:price] [if:confirm]<span class="confirm">Potwierdzona</span>[endif:confirm]</td>
+			[if:!confirm]<td class="action"><button class="btn ask">Zapytaj</button></td>[endif:!confirm]
+                        [if:confirm]<td class="action"><button class="btn book">Rezerwuj</button></td>[endif:confirm]
+		</tr>
+	</tbody>
+</table>

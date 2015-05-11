@@ -1,0 +1,16 @@
+{with:shareWidget}
+
+<ul class="kmw_share {data.class}">
+    {loop:media}
+    {if:checked}<li class="{data.class}_{__loop__}"><a href="{if:type=mail}{url}{endif:type=mail}{if:type=popup}javascript:void(0){endif:type=popup}" {if:type=popup}onclick="return wkw_share('{url}')"{endif:type=popup} target="blank" title="{name}">{name}</a></li>{endif:checked}
+    {endloop:media}
+</ul>
+
+<script>
+    function wkw_share(url) {
+        window.open(url, "", "width=520, height=300, toolbar=no, scrollbars=no, resizable=yes");
+        return false;
+    }
+</script>
+
+{endwith:shareWidget}

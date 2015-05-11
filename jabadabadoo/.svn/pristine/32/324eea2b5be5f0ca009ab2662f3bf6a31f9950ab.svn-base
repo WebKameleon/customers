@@ -1,0 +1,54 @@
+
+
+<table class="table table-search">
+	<thead>
+		<tr>
+			<th>&nbsp;</th>
+			<th>Program</th>
+			<th>Termin</th>
+			<th>Cena</th>
+			<th>&nbsp;</th>
+		</tr>
+        </thead>
+        
+        <tbody id="wyprawy_results"></tbody>
+
+</table>
+
+
+<table class="table table-search table-responsive" style="display:none">
+    <tbody id="wyprawy_results_template">
+        <tr>
+                <td class="img">
+                    <a href="[url]"><img alt="[country]" src="[img]" /></a>
+                </td>
+                <td class="place">
+                    <h6><a href="[url]">[country]</a></h6>
+    
+                    <p><a href="[url]">[name]</a></p>
+                </td>
+                <td class="date">
+                    [if:!flag1][days] dni[endif:!flag1]
+                    [if:flag1]<p>[d_from]</p>
+                    <p>[d_to]</p>[endif:flag1]
+                </td>
+                <td class="price">
+                    [if:price-from]<span>od</span>[endif:price-from]
+                    [if:price][price] PLN[endif:price]
+                    [if:confirm]
+                        <span class="confirm">Potwierdzona</span>
+                    [endif:confirm]
+                </td>
+                
+                <td class="action">
+                    [if:confirm2]
+                        <button class="btn book">Rezerwuj</button>
+                    [endif:confirm2]
+                    
+                    [if:!confirm]
+                        <button class="btn ask">Zapytaj</button>
+                    [endif:!confirm]
+                </td>
+        </tr>
+    </tbody>
+</table>
