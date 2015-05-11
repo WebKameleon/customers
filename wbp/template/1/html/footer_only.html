@@ -1,0 +1,11 @@
+{if:!mode}footerback(['{server.http_url}/','<div class="wbp_inject_footer">
+  {include:footer.html}
+</div>']);{endif:!mode}{if:mode}<html>
+<head>
+  <meta charset="utf-8">
+  {include:head.html}
+</head>
+<body>
+  {include:footer.html}
+</body>
+</html>{endif:mode}

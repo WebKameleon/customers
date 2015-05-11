@@ -1,0 +1,97 @@
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+{with:galleryWidget}
+{if:webtd.menu}
+<style>
+/* Tiny Carousel */
+#slider{webtd.sid} {
+    height: 1%;
+    margin: 30px 0 0;
+    overflow: hidden;
+    position: relative;
+    padding: 0 50px 10px;
+}
+
+#slider{webtd.sid} .viewport {
+    height: 125px;
+    overflow: hidden;
+    position: relative;
+}
+
+#slider{webtd.sid} .buttons {
+    display: block;
+    position: absolute;
+    top: 35%;
+    left: 0;
+    width: 32px;
+    height: 32px;
+}
+
+#slider{webtd.sid} .next {
+    right: 0;
+    left: auto;
+    top: 35%;
+}
+
+#slider{webtd.sid} .buttons:hover {
+    color: #C01313;
+    background: #fff;
+}
+
+#slider{webtd.sid} .disable {
+    visibility: hidden;
+}
+
+#slider{webtd.sid} .overview {
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 240px;
+    left: 0;
+    top: 0;
+}
+
+#slider{webtd.sid} .overview li {
+    float: left;
+    margin: 0 20px 0 0;
+    padding: 1px;
+    height: 121px;
+    border: 0px;
+ }
+
+</style>
+
+
+
+<div id="slider{webtd.sid}">
+		<a class="buttons prev" href="#"><img src="{template_dir}/images/arrow-left.png"></a>
+		<div class="viewport">
+			<ul class="overview">
+				{loop:webtd.menu}
+				<li><a {if:mode=(0,1)}
+               {if:href}href="{href}"{if:target} target="{target}"{endif:target}{endif:href}
+               {if:!href}href="{imagesUrl}/{img}" rel="fancybox_group" fancybox="1"{endif:!href}
+               {endif:mode=(0,1)}{if:mode=(2,3)}
+               href="{imagesUrl}/{img}" fancybox="1"
+               {endif:mode=(2,3)}><img src="{thumbsUrl}/{img}" {if:alt}title="{alt}" alt="{alt}"{endif:alt} width="{w}" height="{data.thumb_height}" /></a></li>
+				{endloop:webtd.menu}
+			</ul>
+		</div>
+		<a class="buttons next" href="#"><img src="{template_dir}/images/arrow-right.png"></a>
+	</div>
+
+<script type="text/javascript">
+		jQueryKam(function($)
+		{
+			$(document).ready(function()
+			{
+				$('#slider{webtd.sid}').tinycarousel();
+			});
+			
+			//$('#slider{webtd.sid}').tinycarousel();
+		}
+		);
+</script>
+{endif:webtd.menu}
+{endwith:galleryWidget}
+{plain}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+  <meta charset="utf-8">
+ {include:head.html}
+ </head>
+
+<body{if:page.class} class="{page.class}"{endif:page.class}>
+
+{with:header} {include:header.html} {endwith:header}
+
+ <!----- main content ----->
+ {with:body}
+ 
+  <div class="row">
+   
+   <!--- top banner --->
+   <div class="container">
+    <div class="banner">{level3}</div>
+   </div>
+   <!--- end top banner --->
+   
+   <div class="container main">
+   
+   <section id="main" class="col-md-9 col-sm-9">{level1}</section>
+   <section id="sidebar" class="col-md-3 col-sm-3">{level2}</section>
+   
+   <div class="clearfix"></div>
+   
+   <div class="line"></div>
+  
+  </div>
+ </div>
+ {endwith:body}
+ <!----- /main content ----->
+
+{with:footer} {include:footer.html} {endwith:footer}
+
+</body>
+</html>

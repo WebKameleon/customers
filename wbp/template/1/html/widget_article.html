@@ -1,0 +1,77 @@
+{with:articleWidget}
+
+{if:level=(200, 201, 202)}
+     <article class="article">
+     <div class="row">
+	  <div class="col-md-12">{if:title}<h6>{title}<h6>{endif:title}</div>
+	  {if:bgimg}<img class="img-responsive" src="{uimages}/{bgimg}" alt="" />{endif:bgimg}
+      {plain}{tokens.html}{if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore pull-right">{translates.More}</a><div class="clearfix"></div>{endif:more}
+	  <div class="clearfix"></div>
+     </div>
+    </article>
+{define:level_found=1}
+{endif:level=(200, 201, 202)}
+
+{if:level=9}
+     <article class="article">
+      <div class="row">
+       <div class="col-md-12">{if:title}<h3>{title}</h3>{endif:title}</div>
+	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{uimages}/{bgimg}" alt="" /></a>{endif:bgimg}
+       <div class="clearfix"></div><p>{plain}{tokens.html}{if:more}<a href="{more_link}" class="magicmore"> {translates.More} &raquo;</a><div class="clearfix"></div>{endif:more}</p>
+       <div class="clearfix"></div>
+     </div>
+    </article>
+{define:level_found=1}
+{endif:level=9}
+
+{if:level=199}
+<!--[if lt IE 8]>
+<div class="oldbrowser">
+ {if:title}<h3>{title}</h3>{endif:title}
+ <p>{plain}</p>
+</div>
+<![endif]-->
+{define:level_found=1}
+{endif:level=199}
+
+{if:level=(2, 3, 4)}
+	<article class="article">
+     <div class="row">
+	  <div class="col-md-12">{if:title}<h3>{if:more}<a href="{more_link}" class="magicmore">{endif:more}{title}{if:more}</a>{endif:more}</h3>{endif:title}</div>
+	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{uimages}/{bgimg}" alt="" /></a>{endif:bgimg}
+      <div class="clearfix"></div><p>{plain}{tokens.html}{if:more}<a {if:level=3}style="display:none;"{endif:level=3} href="{more_link}" class="magicmore"> {if:moretxt}{moretxt}{endif:moretxt} {if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}</p>
+	  <div class="clearfix"></div>
+     </div>
+    </article>
+{define:level_found=1}
+{endif:level=(2, 3, 4)}
+
+{if:level=100}
+	<article class="logo">
+     {if:title}<h1>{title}</h1>{endif:title}
+     {plain}{tokens.html}
+	  <div class="clearfix"></div>
+    </article>
+{define:level_found=1}
+{endif:level=100}
+
+{if:!level_found}
+    <article class="article {tokens.wbp_pageclass}{if:mode=(2,3)} kmw_article_kameleon{endif:mode=(2,3)}{if:class} {class}{endif:class}">
+     <div class="row kmw_article_content">
+	  {if:title}<{tokens|h1:1}>{title}</{tokens|h1:1}>{endif:title}
+	  {if:bgimg}
+           <a class="kmw_article_photo" href="{uimages}/{bgimg}" fancybox="1"><img src="{thumbsUrl}/{bgimg}"/></a>
+          {endif:bgimg}
+	  
+	  {if:costxt}<h5 class="kmw_article_author">{costxt}</h5>{endif:costxt}
+	  <div class="kmw_article_plain">{plain}{tokens.html}</div>
+	  {if:attachment}<div class="kmw_article_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
+	  <div class="clearfix"></div>
+	  {if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore">{translates.More}</a><div class="clearfix"></div>{endif:more}
+	  <div class="clearfix"></div>
+     </div>
+    </article>
+		
+{endif:!level_found}
+
+{endwith:articleWidget}

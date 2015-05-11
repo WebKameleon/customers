@@ -1,0 +1,94 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-family: 'Open Sans', sans-serif;	
+}
+
+#main h1,
+#main h2,
+#main h3,
+#main h4,
+#main h5,
+#main h6 {
+	font-size:36px;
+}
+
+#main-bottom-can1 h1,
+#main-bottom-can1 h2,
+#main-bottom-can1 h3,
+#main-bottom-can1 h4,
+#main-bottom-can1 h5,
+#main-bottom-can1 h6,
+#main-bottom-can2 h1,
+#main-bottom-can2 h2,
+#main-bottom-can2 h3,
+#main-bottom-can2 h4,
+#main-bottom-can2 h5,
+#main-bottom-can2 h6,
+#main-bottom-can3 h1,
+#main-bottom-can3 h2,
+#main-bottom-can3 h3,
+#main-bottom-can3 h4,
+#main-bottom-can3 h5,
+#main-bottom-can3 h6 {
+	font-size:30px;
+}
+
+#main img {
+	margin-bottom:25px;
+}
+
+.article img {
+	width:100%;
+	height:auto;
+	display:block;
+}
+
+/* NAV */
+.navbar-fixed-top {
+	position:static;
+}
+
+.navbar-brand {
+	float: left;
+	padding: 11px 15px;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+@media (min-width: 768px) {
+.navbar-collapse {
+	float:right;	
+}
+
+.container>.navbar-header {
+	padding-left:15px;
+}
+}
+
+/* end NAV */
+
+/* MAIN */
+.row {
+	margin:0px;
+}
+/* end MAIN */
+
+/* FOOTER */
+#footer, .under-footer {
+	padding-bottom:25px;
+}
+/* end FOOTER */
+
+
+
+
+
+
+
+
+
+
+
+

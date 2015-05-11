@@ -1,0 +1,145 @@
+
+/* ==========================================================================
+   Print CSS for WBPiCAK by Karol Huszal, 2014
+   ========================================================================== */
+
+/* Kameleon Preview */
+#preview-toolbar, #preview-toggle {display: none;}
+
+/* Reset quotes */
+q {quotes: none}
+q:before, q:after {content: ""}   
+
+/* Hide everything unneeded */
+header h1, header nav, img, .librarian-reader-zone, .main-bottom, #cse-search-form, .article-list-indicators, .font-size, .print, #cse-search-form, .radio, #sidebar-right, #sidebar-left {display: none}
+a[href]:after { display:none; } 
+a.articlelist-block-more {display: none !important;}
+/* font sizes */
+body {
+	font: 12pt Georgia, "Times New Roman", Times, serif;
+	line-height: 1.3;
+	color: #000;
+}
+
+h1 {font-size: 24pt}
+
+h2 {font-size: 14pt; margin-top: 25px}
+
+aside h2 {font-size: 18pt}
+
+/* Show printer-frindly logo. */
+.logo a img {display: block !important;}
+
+/* If you like things a little bit easier and more semantic you can alternatively just leave the h1 of the header visible, switch off the margin and make it bigger than the rest of the headlines */
+/*header nav, footer, img {display: none}
+
+header h1 {
+	margin: 0;
+	font-size: 30pt;
+}*/
+
+/* Some browsers like to show a border around images. Switch it off */
+img {border: 0}
+
+/* Mover the header a little bit awy from the content */
+header {margin-bottom: 40px}
+
+/* Display the URL of the site so that the user knows where the printout came from */
+header:after {display: block; content: "www.smashing-winery.com"}
+
+/* Additionally/optionally a little message could be displayed */
+/*header:before {
+	display: block;
+	content: "Thank your for printing our content at www.smashing-winery.com. Please check back soon for new offers about delicious wine from our winery.";
+	margin-bottom: 10px;
+	border: 1px solid #bbb;
+	padding: 3px 5px;
+	font-style: italic;
+}*/
+
+/* Separate blockquotes a little bit from the rest */
+blockquote {
+	font-size: 13pt;
+	font-style: italic;
+}
+
+/* By default links are blue. For optimal legibility change them to black */
+p a {color: #000}
+
+/* Show the URL after each link, whereby internal links are preceeded by the site's URL */
+p a:after {
+	content: " (http://www.smashing-winery.com/" attr(href) ")";
+	font-size: 80%;
+	word-wrap: break-word;
+}
+
+/* External links don't get this treatment */
+p a[href^="http://"]:after, p a[href^="https://"]:after {
+	content: " (" attr(href) ")";
+}
+
+/* Append the source of the citation */
+q:after {content: " (" attr(cite) ")"}
+
+/* The Sidebar is placed under the content automatically. To distinguish it from the rest a border and a gap is set before */
+aside {
+	border-top: 1px solid #bbb;
+	margin-top: 30px;
+	display: block;
+	/*page-break-before: always; */ /* Moves the sidebar to new page */
+}
+
+/* Other blocks */
+.articlelist-block {
+	height: 200px !important;
+	height: auto !important;
+	border-top: 1px solid #dedede;
+	padding-bottom: 15px;
+}
+
+.articlelist-block .articlelist-block-text {
+	height: auto !important;
+}
+
+.footer-can-1, footer-can-2, .footer-can-3, .footer-can-4  {
+	width: auto !important;
+	float: left;
+	padding: 0px !important;
+	margin:  0px !important;
+	padding-left: 0px !important;
+	padding-right: 25px !important;
+}
+
+ul#wbp_shop_results li {
+	width: 33.33333333%;
+	padding-right: 0x;
+	padding-left: 15px;
+	float: left;
+	text-align: center;
+	border:0px !important;
+}
+
+ul#wbp_shop_results li a:last-child {
+	display: none !important;
+}
+
+ul#wbp_shop_results li img {
+	float: none !important;
+}
+
+#footer {
+	background: #f1f1f1;
+	border-top: 1px solid #dedede;
+	clear: both;
+	margin-top: 25px;
+}
+
+#footer .col-md-8 {
+	width: 100% !important;
+}
+
+#footer img {
+	display: block !important;
+}
+
+.articlelist-statement a.articlelist-statement-more {display: none;}

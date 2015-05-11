@@ -1,0 +1,4 @@
+<?php
+/*
+a:4:{s:3:"sid";s:3:"460";s:5:"title";s:33:"Mały konkursik, ale wielkie idee";s:6:"tokens";a:2:{s:5:"drive";O:8:"stdClass":5:{s:12:"access_token";s:83:"ya29.vABZ4gXrO8-yibuhaPX11Vhcr4YKo36diZUxC61IYYvk3GfHbD4d3Ly16BsqK8UDpGBzOE-qga3rqw";s:10:"token_type";s:6:"Bearer";s:10:"expires_in";i:3600;s:13:"refresh_token";s:45:"1/369XFh6MbpQVGi--vyw15d6AovkRVhQAkStR3YeVs1w";s:7:"created";i:1415795988;}s:12:"spreadsheets";O:8:"stdClass":5:{s:12:"access_token";s:83:"ya29.twDCaEgyrCuX1Nt1O7e8SVU6r4T_Vaccrl3u_aP6eLUCcqGf5RUbph_4KJPR2lWi5RPvStuixLKlAg";s:10:"token_type";s:6:"Bearer";s:10:"expires_in";i:3600;s:13:"refresh_token";s:45:"1/369XFh6MbpQVGi--vyw15d6AovkRVhQAkStR3YeVs1w";s:7:"created";i:1415355603;}}s:5:"drive";a:6:{s:2:"id";s:44:"1e2DF-G45udprVXaOfiVG6VrJxBmh5bezMeSQ5TOqaM4";s:4:"name";s:7:"konkurs";s:7:"img_min";s:1:"1";s:7:"img_max";s:1:"0";s:9:"price_pln";s:3:"0.1";s:9:"price_eur";s:4:"0.02";}}
+*/

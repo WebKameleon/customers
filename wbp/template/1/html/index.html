@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+  <meta charset="utf-8">
+ {include:head.html}
+ </head>
+
+<body{if:page.class} class="{page.class}"{endif:page.class}>
+
+ {include:header.html}
+
+ <!----- main content ----->
+{with:body}
+
+ <div class="row banner">
+ <!----- breadcrumbs ----->
+  {if:level8}<div class="container"><div id="breadcrumbs" class="col-md-12 hidden-xs">{level8}</div></div>{endif:level8}
+ <!----- end breadcrumbs ----->
+ </div>
+
+  {endif:level8}
+  <div class="container">
+   <div id="banner" class="col-md-8 col-sm-12 hidden-xs">{level4}</div>
+   <div id="sidebar" class="col-md-4 col-sm-12 col-xs-12">{level9}</div>
+  </div>
+    
+ <div class="clearfix"></div>
+ 
+ <div class="container">
+  <div id="content">{level1}</div>
+ </div>
+ 
+ <div class="clearfix"></div>
+ 
+ <div id="main"> 
+  <div class="container">
+   <section id="main-can1" class="col-md-6 col-sm-6">{level2}</section>
+   <section id="main-can2" class="col-md-6 col-sm-6">{level3}</section>
+  </div>
+ </div>
+    
+ <div class="clearfix"></div>
+ 
+ <div class="main-bottom"> 
+  <div class="container">
+   <section id="newsletter" class="col-md-2 col-sm-4">{level6}</section>
+   <section id="commercial" class="col-md-10 col-sm-8">{level7}</section>
+  </div>
+ </div>
+{endwith:body}
+ <!----- /main content ----->
+
+{include:footer.html}
+{include:footer-js.html}
+
+<span id="scroll-top"><a class="scrollup"><i class="icomoon-arrow-up"></i></a></span>
+
+</body>
+</html>

@@ -1,0 +1,427 @@
+{if:menu}
+
+{if:level=9}
+{if:menu:special}
+<div class="row">
+    <ul class="menu-reviews">
+    {loop:menu}
+    
+    {define:cl}col-md-6 col-sm-6{enddefine:cl}
+    {define:clearfix} {if:!__index__|%:2}<div class="clearfix"></div>{endif:!__index__|%:2}{enddefine:clearfix}
+    
+    <li class="{cl}">
+	<a class="menu-boxes-link-title-txt" href="{href}" class="menu-boxes-link-title">{alt}</a>
+    {if:submenu_id:s3}
+	 {include:submenu4.html}
+	{endif:submenu_id:s3}
+    </li>
+    {endloop:menu}
+    </ul>
+</div>
+{define:level_found=1}
+{endif:level=9}
+
+{if:level=8} 
+{if:menu:special}
+<!--{if:title}<{tokens|h1:1} class="menu-boxes-title">{title}</{tokens|h1:1}>{endif:title}
+{if:plain}<{tokens|h1:1} class="menu-header">{plain}</{tokens|h1:1}>{endif:plain} -->
+<ul class="menu-boxes">
+ {loop:menu}
+ 
+   {if:!submenu_id}
+   {if:!img}
+   <li class="text-link">
+    <a class="menu-boxes-link-title-txt" href="{href}" class="menu-boxes-link-title">{alt}</a>
+    {if:submenu_id:s3}
+	 {include:submenu.html}
+	{endif:submenu_id:s3}
+   </li>
+   {endif:!img}
+ 
+ 	{if:!size}{define:size=4}{endif:!size}
+
+	{if:size=1}
+		{define:cl}col-md-12{enddefine:cl}
+		{define:clearfix}<div class="clearfix"></div>{enddefine:clearfix}
+	{endif:size=1}
+	{if:size=2}
+		{define:cl}col-md-6 col-sm-6{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:2}<div class="clearfix"></div>{endif:!__index__|%:2}{enddefine:clearfix}
+	{endif:size=2}
+	{if:size=3}
+		{define:cl}col-md-4 col-sm-4{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:3}<div class="clearfix"></div>{endif:!__index__|%:3}{enddefine:clearfix}
+	{endif:size=3}
+	{if:size=4}
+		{define:cl}col-md-3 col-sm-3{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:4}<div class="clearfix"></div>{endif:!__index__|%:4}{enddefine:clearfix}
+	{endif:size=4}
+	{if:size=5}
+		{define:cl}col-md-5 col-sm-5{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:5}<div class="clearfix"></div>{endif:!__index__|%:5}{enddefine:clearfix}
+	{endif:size=5}
+	{if:size=6}
+		{define:cl}col-md-2 col-sm-2{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:6}<div class="clearfix"></div>{endif:!__index__|%:6}{enddefine:clearfix}
+	{endif:size=6}
+
+  {if:img}
+  <li class="{cl}">
+   <div class="row">
+    
+    <!-- Menu img -->
+    <div class="col-md-4 col-sm-4">
+    <!--{if:atelier}<div class="atelier"><img src="{template_images}/atelier.png" alt="spektakl Atelier" /></div>{endif:atelier}
+    {if:wznowienie}<div class="atelier"><img src="{template_images}/renew.png" alt="wznowienie spektaklu" /></div>{endif:wznowienie}-->
+    <a {if:imga} href="{uimages}/{imga}" fancybox="1"{endif:imga} {if:!imga} href="{href}"{endif:!imga}>
+     <img src="{uimages}/{img}" alt="{alt}" class="img-responsive" />
+    </a>
+    </div>
+    <!-- /Menu img -->
+    
+    <!-- Menu info -->
+    <div class="col-md-8 col-sm-8">
+     <a class="menu-boxes-title" href="{href}">{alt}</a>
+     <div class="clearfix"></div>
+    <!-- {if:alt_title}<p class="menu-boxes-box-txt">{alt_title}<div class="clearfix"></div></p>{endif:alt_title} -->
+    
+    {if:titlea}<p class="menu-boxes-box-txt">{titlea}</p>{endif:titlea}
+    {if:alt_title}<p class="menu-boxes-box-txt2">{alt_title}</p>{endif:alt_title}
+    {if:titlec}<p class="menu-boxes-box-txt3">{titlec}</p>{endif:titlec}
+    <!--{if:titlec}<div class="clearfix"></div>
+    <a class="menu-boxes-more" href="{titlec}">{translates.email}</a>{endif:titlec}
+    {if:page_target}<div class="clearfix"></div>
+    <a class="menu-boxes-more" href="{href}">{translates.more}</a>{endif:page_target}
+    {if:ufile_target}<div class="clearfix"></div>
+    <a class="menu-boxes-more" href="{ufiles}/{ufile_target}" target="_blank">{if:lang=pl}dla prasy{endif:lang=pl}{if:lang=en}for press{endif:lang=en}</a>{endif:ufile_target}
+    <div class="clearfix"></div>-->
+    
+    <div class="clearfix"></div>
+    </div>
+    <!-- Menu info -->
+   </div>
+  </li>
+   {clearfix} 
+   {endif:img}
+   {endif:!submenu_id}
+   
+   {if:submenu_id}
+   
+   <li class="col-md-3 col-sm-3">
+   <div class="menu-boxes-box-text">
+    <a class="menu-boxes-link-title">{alt}</a>
+    <div class="clearfix"></div>
+    {include:submenu.html}
+   </div>
+  </li>
+   
+   {endif:submenu_id}
+   
+   
+ {endloop:menu}
+ <div class="clearfix"></div>
+</ul>
+ <div class="clearfix"></div>
+{define:level_found=1}
+{endif:level=8}
+
+{if:level=7}
+<!--{if:title}<{tokens|h1:1} class="menu-boxes-title">{title}</{tokens|h1:1}>{endif:title}
+{if:plain}<{tokens|h1:1} class="menu-header">{plain}</{tokens|h1:1}>{endif:plain} -->
+<ul class="menu-boxes">
+ {loop:menu}
+ 
+   {if:!submenu_id}
+   {if:!img}
+   <li class="text-link">
+    <a class="menu-boxes-link-title-txt" href="{href}" class="menu-boxes-link-title">{alt}</a>
+    {if:submenu_id:s3}
+	 {include:submenu.html}
+	{endif:submenu_id:s3}
+   </li>
+   {endif:!img}
+ 
+ 	{if:!size}{define:size=4}{endif:!size}
+
+	{if:size=1}
+		{define:cl}col-md-12{enddefine:cl}
+		{define:clearfix}<div class="clearfix"></div>{enddefine:clearfix}
+	{endif:size=1}
+	{if:size=2}
+		{define:cl}col-md-6 col-sm-6{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:2}<div class="clearfix"></div>{endif:!__index__|%:2}{enddefine:clearfix}
+	{endif:size=2}
+	{if:size=3}
+		{define:cl}col-md-4 col-sm-4{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:3}<div class="clearfix"></div>{endif:!__index__|%:3}{enddefine:clearfix}
+	{endif:size=3}
+	{if:size=4}
+		{define:cl}col-md-3 col-sm-3{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:4}<div class="clearfix"></div>{endif:!__index__|%:4}{enddefine:clearfix}
+	{endif:size=4}
+	{if:size=5}
+		{define:cl}col-md-5 col-sm-5{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:5}<div class="clearfix"></div>{endif:!__index__|%:5}{enddefine:clearfix}
+	{endif:size=5}
+	{if:size=6}
+		{define:cl}col-md-2 col-sm-2{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:6}<div class="clearfix"></div>{endif:!__index__|%:6}{enddefine:clearfix}
+	{endif:size=6}
+
+  {if:img}
+  <li class="{cl}">
+   <div class="row">
+    
+    <!-- Menu img -->
+    {if:href}<a href="{href}" {if:target}target="{target}"{endif:target}>{endif:href}
+    <img src="{uimages}/{img}" alt="{alt}" class="img-responsive" />
+    {if:href}</a>{endif:href}
+    <!-- /Menu img -->
+
+   </div>
+  </li>
+   {clearfix} 
+   {endif:img}
+   {endif:!submenu_id}
+   
+   {if:submenu_id}
+   
+   <li class="col-md-3 col-sm-3">
+   <div class="menu-boxes-box-text">
+    <a class="menu-boxes-link-title">{alt}</a>
+    <div class="clearfix"></div>
+    {include:submenu.html}
+   </div>
+  </li>
+   
+   {endif:submenu_id}
+   
+   
+ {endloop:menu}
+ <div class="clearfix"></div>
+</ul>
+ <div class="clearfix"></div>
+ {define:level_found=1}
+{endif:level=7}
+
+{if:level=6}
+<ul class="reviews">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li><a href="{href}" class="{if:active}active{endif:active}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu4.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+ {define:level_found=1}
+{endif:level=6}
+
+{if:level=5}
+<ul class="nav{if:class} {class}{endif:class}">
+    {if:plain}<h3>{plain}</h3>{endif:plain}
+{loop:menu}
+
+    <li class="{if:active}active{endif:active}">
+        <span>{alt}</span>
+	<a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{titlea}</a>        
+    </li>
+
+{endloop:menu}
+</ul>
+ {define:level_found=1}
+{endif:level=5}
+
+{if:level=1} 
+
+{if:menu:special}
+<ul class="main-menu">
+
+{loop:menu}
+ {if:!menu}
+  
+   <li{if:active} class="active"{endif:active}><a  class="{if:active}active current{endif:active}" href="{href}">{alt}</a></li>
+
+    {if:submenu_id}
+    <ul class="submenu collapse{if:active} in{endif:active}">{loop:menu:s2}
+     <li class="{if:active}active{endif:active}">
+	<a href="{href}" class="{if:active}active current{endif:active}"{if:alt_title} title="{alt_title}"{endif:alt_title}{if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}</a>
+      {if:submenu_id:s3}
+       {include:submenu2.html}
+      {endif:submenu_id:s3}
+     </li>{endloop:menu:s2}
+    </ul>
+    {endif:submenu_id}
+
+
+
+ {endif:menu}
+{endloop:menu}  
+</ul>
+{define:menu_done=1}
+{endif:menu:special}
+
+{define:level_found=1}
+{endif:level=1}
+
+{if:level=2} 
+{if:menu:special}
+<!--{if:title}<{tokens|h1:1} class="menu-boxes-title">{title}</{tokens|h1:1}>{endif:title}
+{if:plain}<{tokens|h1:1} class="menu-header">{plain}</{tokens|h1:1}>{endif:plain} -->
+<ul class="menu-boxes">
+ {loop:menu}
+ 
+   {if:!submenu_id}
+   {if:!img}
+   <li class="text-link">
+    <a class="menu-boxes-link-title-txt" href="{href}" class="menu-boxes-link-title">{alt}</a>
+    {if:submenu_id:s3}
+	 {include:submenu.html}
+	{endif:submenu_id:s3}
+   </li>
+   {endif:!img}
+ 
+ 	{if:!size}{define:size=4}{endif:!size}
+
+	{if:size=1}
+		{define:cl}col-md-12{enddefine:cl}
+		{define:clearfix}<div class="clearfix"></div>{enddefine:clearfix}
+	{endif:size=1}
+	{if:size=2}
+		{define:cl}col-md-6 col-sm-6{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:2}<div class="clearfix"></div>{endif:!__index__|%:2}{enddefine:clearfix}
+	{endif:size=2}
+	{if:size=3}
+		{define:cl}col-md-4 col-sm-4{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:3}<div class="clearfix"></div>{endif:!__index__|%:3}{enddefine:clearfix}
+	{endif:size=3}
+	{if:size=4}
+		{define:cl}col-md-3 col-sm-3{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:4}<div class="clearfix"></div>{endif:!__index__|%:4}{enddefine:clearfix}
+	{endif:size=4}
+	{if:size=5}
+		{define:cl}col-md-5 col-sm-5{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:5}<div class="clearfix"></div>{endif:!__index__|%:5}{enddefine:clearfix}
+	{endif:size=5}
+	{if:size=6}
+		{define:cl}col-md-2 col-sm-2{enddefine:cl}
+		{define:clearfix} {if:!__index__|%:6}<div class="clearfix"></div>{endif:!__index__|%:6}{enddefine:clearfix}
+	{endif:size=6}
+
+  {if:img}
+  <li class="{cl}">
+   <div class="row">
+    
+    <!-- Menu img -->
+    <div class="col-md-4 col-sm-4">
+    <!--{if:atelier}<div class="atelier"><img src="{template_images}/atelier.png" alt="spektakl Atelier" /></div>{endif:atelier}
+    {if:wznowienie}<div class="atelier"><img src="{template_images}/renew.png" alt="wznowienie spektaklu" /></div>{endif:wznowienie}-->
+    <a {if:imga} href="{uimages}/{imga}" fancybox="1"{endif:imga} {if:!imga} href="{href}"{endif:!imga}>
+     <img src="{uimages}/{img}" alt="{alt}" class="img-responsive" />
+    </a>
+    </div>
+    <!-- /Menu img -->
+    
+    <!-- Menu info -->
+    <div class="col-md-8 col-sm-8">
+     <a class="menu-boxes-title" href="{href}">{alt}{if:titlea} {titlea}{endif:titlea}</a>
+  
+    <div class="clearfix"></div>
+    </div>
+    <!-- Menu info -->
+   </div>
+  </li>
+   {clearfix} 
+   {endif:img}
+   {endif:!submenu_id}
+   
+   {if:submenu_id}
+   
+   <li class="col-md-3 col-sm-3">
+   <div class="menu-boxes-box-text">
+    <a class="menu-boxes-link-title">{alt}</a>
+    <div class="clearfix"></div>
+    {include:submenu.html}
+   </div>
+  </li>
+   
+   {endif:submenu_id}
+   
+   
+ {endloop:menu}
+ <div class="clearfix"></div>
+</ul>
+ <div class="clearfix"></div>
+{define:level_found=1}
+{endif:level=2}
+
+{if:level=102}
+
+<ul class="social-menu">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+ 
+ {define:level_found=1}
+{endif:level=102}
+
+{if:level=101}
+
+<ul class="home-menu">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+	{if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+{endloop:menu}
+</ul>
+ 
+ {define:level_found=1}
+{endif:level=101}
+
+{if:!level_found} 
+<ul class="nav">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+{endif:!level_found}
+
+{endif:menu}

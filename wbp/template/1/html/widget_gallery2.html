@@ -1,0 +1,35 @@
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+{with:gallery2Widget}
+{if:webtd.menu}
+
+<div id="gallery{webtd.sid}" class="gallery2">
+{loop:webtd.menu}
+<figure class="col-md-4">
+  <a class="fancybox{webtd.sid}" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}"{endif:alt}>
+  <img class="img-responsive" src="{thumbsUrl}/{img}" {if:alt}title="{alt}"{endif:alt}>
+  </a>
+  <div class="clearfix"></div>
+  {if:alt}<figcaption>{alt}</figcaption>
+  <div class="gallery-line"></div>{endif:alt}
+  {if:!alt}<div class="gallery-no-line"></div>{endif:!alt}
+</figure>
+{endloop:webtd.menu}
+</div>
+<div class="clearfix"></div>
+
+<script type="text/javascript">
+jQueryKam(function ($) {
+        
+	$(".fancybox{webtd.sid}").fancybox({
+		openEffect	: '{data.effect}',
+		closeEffect	: '{data.effect}',
+		{if:data.slideshow_autostart}autoPlay	: '{data.slideshow_autostart}',{endif:data.slideshow_autostart}
+		{if:data.animation_speed}playSpeed	: '{data.animation_speed}',{endif:data.animation_speed}
+		openSpeed	: 'normal',
+		closeSpeed	: 'normal'
+	});
+        
+});
+</script>
+{endif:webtd.menu}
+{endwith:gallery2Widget}

@@ -1,0 +1,238 @@
+{with:articlelistWidget}
+    
+{if:page_id=0}
+{if:level=1}
+<div class="article-list">
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+<div class="row">
+
+<!-- SLIDER -->
+
+<div id="myCarousel" class="carousel slide">
+ <div class="carousel-inner">
+
+{tokens|wbp_counter:0}
+{loop:articles}
+{if:!__loop__|%5} 
+{tokens|wbp_counter:1}
+{if:__loop__}
+</div></div>
+{endif:__loop__}
+ <div class="item {if:first} active{endif:first}">
+    <div class="row">
+{endif:!__loop__|%5}
+
+  <div class="articlelist-block col-md-5ths col-sm-5ths">
+    <div class="articlelist-block-content">
+    {if:bgimg}<a class="articlelist_photo" href="{more_link}#{title}"><img src="{thumbsUrl}/{bgimg}"/></a>{endif:bgimg}
+    <div class="clearfix"></div>
+    {if:title}<h3><a href="{more_link}#{title}">{title}</a></h3>{endif:title}
+    <div class="clearfix"></div>
+	
+    {if:nd_custom_date}<p class="articlelist-block-date">{nd_custom_date|kameleon.date}{if:nd_custom_date_end} - {nd_custom_date_end|kameleon.date}{endif:nd_custom_date_end}</p>{endif:nd_custom_date}
+    <div class="clearfix"></div>
+  
+    <div class="articlelist-block-text">{plain}</div>
+    <div class="clearfix"></div>
+    
+    <a href="{more_link}#{title}" class="articlelist-block-more">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>
+    <div class="clearfix"></div>
+    </div>
+   </div>
+  
+{endloop:articles}
+</div></div>
+
+ </div> <!-- /carousel-inner -->
+
+<div class="container-fluid">
+<ul class="article-list-indicators">
+ <a class="left article-list-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
+{loop:tokens.wbp_counter}<li data-target="#myCarousel" data-slide-to="{loop|-1}" {if:active} class="active"{endif:active}><a href="#">{__index__}</a></li>{endloop:tokens.wbp_counter}
+ <a class="right article-list-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a> 
+ </ul>
+</div>
+
+ 
+</div> <!-- /myCarousel -->
+<!-- end SLIDER -->
+</div>
+{plain}
+</div>
+
+{define:level_found=1}
+{endif:level=1}
+{endif:page_id=0}
+
+{if:level=10}
+<div class="article-list">
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+<div class="row">
+
+<!-- SLIDER -->
+
+<div id="myCarousel" class="carousel slide">
+ <div class="carousel-inner">
+
+{tokens|wbp_counter:0}
+{loop:articles}
+{if:!__loop__|%5} 
+{tokens|wbp_counter:1}
+{if:__loop__}
+</div></div>
+{endif:__loop__}
+ <div class="item {if:first} active{endif:first}">
+    <div class="row">
+{endif:!__loop__|%5}
+
+  <div class="articlelist-block col-md-5ths col-sm-5ths">
+    <div class="articlelist-block-content">
+    {if:bgimg}<a class="articlelist_photo" href="{more_link}#{title}"><img src="{thumbsUrl}/{bgimg}"/></a>{endif:bgimg}
+    <div class="clearfix"></div>
+    {if:title}<h3><a href="{more_link}#{title}">{title}</a></h3>{endif:title}
+    <div class="clearfix"></div>
+	
+    {if:nd_custom_date}<p class="articlelist-block-date">{nd_custom_date|kameleon.date}{if:nd_custom_date_end} - {nd_custom_date_end|kameleon.date}{endif:nd_custom_date_end}</p>{endif:nd_custom_date}
+    <div class="clearfix"></div>
+  
+    <div class="articlelist-block-text">{plain}</div>
+    <div class="clearfix"></div>
+    
+    <a href="{more_link}#{title}" class="articlelist-block-more">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>
+    <div class="clearfix"></div>
+    </div>
+   </div>
+  
+{endloop:articles}
+</div></div>
+
+ </div> <!-- /carousel-inner -->
+
+<div class="container-fluid">
+<ul class="article-list-indicators">
+ <a class="left article-list-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
+{loop:tokens.wbp_counter}<li data-target="#myCarousel" data-slide-to="{loop|-1}" {if:active} class="active"{endif:active}><a href="#">{__index__}</a></li>{endloop:tokens.wbp_counter}
+ <a class="right article-list-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a> 
+ </ul>
+</div>
+
+ 
+</div> <!-- /myCarousel -->
+<!-- end SLIDER -->
+</div>
+{plain}
+</div>
+
+{define:level_found=1}
+{endif:level=10}
+
+
+{if:page_id=0}
+{if:level=2}
+<div class="article-list">
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+<div class="row">
+
+<!-- SLIDER -->
+
+<div id="myCarousel2" class="carousel slide">
+ <div class="carousel-inner">
+
+{tokens|wbp_counter:0}
+{loop:articles}
+{if:!__loop__|%3} 
+{tokens|wbp_counter:1}
+{if:__loop__}
+</div></div>
+{endif:__loop__}
+ <div class="item {if:first} active{endif:first}">
+    <div class="row">
+{endif:!__loop__|%3}
+
+  <div class="articlelist-statement col-md-12 col-sm-12">
+    <div class="articlelist-statement-content">
+    
+    <div class="clearfix"></div>
+    {if:title}<h3><a href="{more_link}#{title}">{title}</a></h3>{endif:title}
+    <div class="clearfix"></div>
+	
+    {if:nd_custom_date}<p class="articlelist-statement-date">{nd_custom_date|kameleon.date}{if:nd_custom_date_end} - {nd_custom_date_end|kameleon.date}{endif:nd_custom_date_end}</p>{endif:nd_custom_date}
+    <div class="clearfix"></div>
+  
+    <div class="articlelist-statement-text">{plain}</div>
+    <div class="clearfix"></div>
+  
+    <a href="{more_link}#{title}" class="articlelist-statement-more">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>
+    <div class="clearfix"></div>
+    </div>
+   </div>
+  
+{endloop:articles}
+</div></div>
+
+ </div> <!-- /carousel-inner -->
+
+<div class="container-fluid"> 
+<ul class="article-list-indicators">
+ <a class="left article-list-control" href="#myCarousel2" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
+{loop:tokens.wbp_counter}<li data-target="#myCarousel2" data-slide-to="{loop|-1}" {if:first} class="first"{endif:first}><a href="#">{__index__}</a></li>{endloop:tokens.wbp_counter}
+ <a class="right article-list-control" href="#myCarousel2" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a> 
+ </ul>
+</div>
+
+ 
+</div> <!-- /myCarousel -->
+<!-- end SLIDER -->
+</div>
+{plain}
+</div>
+
+{define:level_found=1}
+{endif:level=2}
+{endif:page_id=0}
+
+
+{if:!level_found}
+
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+
+{if:nav}<div class="kmw_articlelist_nav" rel="{nav_limit}">
+<ul>{loop:nav}
+<li><a rel="{loop}">{loop}</a></li>
+{endloop:nav}</ul>
+</div>{endif:nav}
+
+{loop:articles}
+<div class="kmw_articlelist {tokens.wbp_pageclass}" {if:nav}style="display:none"{endif:nav}>    
+    <div class="kmw_articlelist_content">
+	{if:bgimg}
+	<a class="kmw_articlelist_photo" href="{more_link}#{title}"><img src="{thumbsUrl}/{bgimg}"/></a>
+	{endif:bgimg}
+        {if:title}<h3><a href="{more_link}#{title}">{title}</a></h3>{endif:title}
+	{if:costxt}<h5 class="kmw_articlelist_author">{costxt}</h5>{endif:costxt}
+	
+	{if:nd_custom_date}<p class="kmw_articlelist_date"><i>{nd_custom_date|kameleon.date}{if:nd_custom_date_end} - {nd_custom_date_end|kameleon.date}{endif:nd_custom_date_end}</i></p>{endif:nd_custom_date}
+        
+	<div class="kmw_articlelist_text">{plain}</div>
+        
+	{if:attachment}<div class="kmw_articlelist_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
+	
+	<div class="clearfix"></div>
+	
+        <a href="{more_link}#{title}" class="kmw_articlelist_more">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>
+        <div class="clearfix"></div>
+    </div>    
+</div>
+{endloop:articles}
+
+{if:nav}<div class="kmw_articlelist_nav" rel="{nav_limit}">
+<ul>{loop:nav}
+<li><a rel="{loop}">{loop}</a></li>
+{endloop:nav}</ul>
+</div>{endif:nav}
+
+{plain}
+
+{endif:!level_found}
+
+{endwith:articlelistWidget}

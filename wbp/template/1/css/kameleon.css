@@ -1,0 +1,74 @@
+.k_td_conf ul {
+	list-style:square;
+}
+
+.k_td_conf ul li {
+	padding-bottom:15px;
+	margin-bottom:15px;
+	border-bottom:1px solid #dedede;
+}
+
+.k_td_conf input[type=date] {
+	line-height: 20px;
+	margin:0 10px 0 10px;
+}
+
+.k_td_conf select {
+	font-size:12px;
+	max-width:350px;
+	height: 25px;
+}
+
+.k_td_conf button, 
+.k_td_conf  html input[type=button], 
+.k_td_conf input[type=reset], 
+.k_td_conf input[type=submit] {
+	-webkit-appearance: button;
+	cursor: pointer;
+	padding:5px 15px 5px 15px;
+	text-transform:uppercase;
+	font-weight:bold;
+	color:#fff;
+	border:0px;
+	border-bottom:3px solid #042c48;
+	background-color:#176095;
+	margin:0 0 20px 0px;
+}
+
+.k_td_conf button:hover, 
+.k_td_conf  html input[type=button]:hover, 
+.k_td_conf input[type=reset]:hover, 
+.k_td_conf input[type=submit]:hover {
+	background-color:#418cc4;
+}
+
+.k_td_conf .warning {
+	background-color: #ee1b24;
+	color: #fff;
+	border-bottom: 4px solid #de1821;
+	font-size: 14px;
+	margin-left: 5px;
+	font-weight: 700;
+	text-transform: uppercase;
+	display:inline-block;
+	padding: 5px 0 5px 0;
+}
+
+.k_td_conf .warning span {
+	padding: 5px 15px 5px 15px;
+}
+
+.k_td_conf form ul {
+	list-style: none !important;
+	padding: 0px;
+	padding-left: 0px !important;
+	margin: 0px;
+}
+
+.k_td_conf form label {
+	margin-right: 10px;
+}
+
+.k_td_conf select {
+	margin-bottom: 10px;
+}
