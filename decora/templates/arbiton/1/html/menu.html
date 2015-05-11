@@ -1,0 +1,52 @@
+<div class="box {class}">
+    <div class="menu-title">{plain}</div>
+    {if:title}{if:more}<a href="{more_link}">{endif:more}
+    {tokens.box_title}
+    {if:more}</a>{endif:more}{endif:title}
+
+    {if:menu}<ul class="megamenu menu">
+     
+        {loop:menu}
+            <li class="{class}{if:hide_phone} hidden-xs{endif:hide_phone}">
+            <a class="main-link" href="{if:href}{href}{endif:href}"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:onclick}onclick="{onclick}"{endif:onclick}>{alt}</a>
+            {if:img}<a href="{href}"><img src="{uimages}/{img}"></a>{endif:img}   
+            {if:description}<p class="menu-short-descr">{description}</p>{endif:description}
+            <a class="add-link" href="{href}"><img src="{template_images}/plus_icon.png"></a>
+                
+                {if:menu:s1}
+                    
+                    <div class="megamenu-menu-bg submenu-1"><!-- ul / div-->
+                    
+                        {loop:menu:s1}
+                            
+                            <div class="custom-column" id="a{__loop__}"> <!-- li div -->
+                                {if:img}<a href="{href}"><img class="menu-image hidden-xs" src="{uimages}/{img}"></a>{endif:img}
+                                {if:imga}<a href="{href}"><img class="menu-image-alt visible-xs" src="{uimages}/{imga}"></a>{endif:imga}
+                                {if:alt}<a href="{href}" class="custom-column-link"><h5>{alt}</h5></a>{endif:alt}
+                                
+                                {if:menu:s2}
+                                  <ul class="submenu-2 hidden-xs">
+                                      {loop:menu:s2}
+                                          <li id="b{__loop__}"><a href="{if:href}{href}{endif:href}" alt="{uimages}/{img}">{alt}</a></li>
+                                      {endloop:menu:s2}
+                                  </ul>
+                                {endif:menu:s2}
+                                  
+                                {if:description}<p class="menu-short-descr hidden-xs">{description}</p>{endif:description}
+                              
+                            </div>    <!-- li div-->
+    
+                        {endloop:menu:s1}
+                    
+                    </div><!-- /ul  div -->
+                    
+                {endif:menu:s1}
+            </li>
+        {endloop:menu}    
+    
+    
+    </ul>{endif:menu}
+    
+    
+    
+</div>

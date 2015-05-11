@@ -1,0 +1,12 @@
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+{with:facebookWidget}
+{if:pluginUrl}
+<iframe src="{pluginUrl}" width="{data.width}" height="{data.height}" frameborder="0" allowtransparency="true" scrolling="no" id="facebook_{sid}"></iframe>
+{endif:pluginUrl}
+{if:hprc}
+<script type="text/javascript">
+    document.getElementById('facebook_{sid}').width='100%';
+</script>
+{endif:hprc}
+{endwith:facebookWidget}
+{plain}

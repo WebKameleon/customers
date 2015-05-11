@@ -1,0 +1,43 @@
+
+<!-- include tabs jquery ui -->
+
+<script type="text/javascript" src="<?php echo $IMAGES?>/js/decora/karnisze.js"></script>
+
+<!-- end of include tabs jquery ui -->
+
+<div class="one-product">
+	<div class="container"><h1 class="title">{collection} <span class="end-title">{name_www}</span></h1></div>
+	
+	<div class="full-image">
+		<img class="begin-img {product.collection_i}-noshow" xwidth="630" xheight="312" src="{uimages}/products/karnisze/full/begin_{color_key}_{collection_i}.jpg"><img class="end-img  {product.collection_i}" xwidth="340" xheight="312" src="{uimages}/products/karnisze/full/{ean}_full.png">
+	</div>
+
+	
+	<div class="colors-list" id="tab-container">
+    
+    <div class="container" id="tab-container">
+		<div class="colors-list-title">{translate.Colors}:</div>
+        <ul class="colors-tabs" id="tabs">
+			{loop:karnisze}
+				<li class="tab" data="{uimages}/products/karnisze/full/begin_{color.key}_{collection_i}.jpg"><a class="color-tab-title" href="#tabs-{color.key}">{color.name}</a></li>
+			{endloop:karnisze}			
+		</ul>
+    </div>
+        <div class="gray-line-top"></div>
+		 
+    	{loop:karnisze}
+		<div id="tabs-{color.key}" class="tabs-div">
+			<ul class="color-tab-list">
+				{loop:items}
+					<li data-title="{name_www}" rel="{collection}"><a class="product-link" href="{next}?product={color_a.key}_{ean}"><img class="color-tab-one-color" alt="{name_www}" src="{uimages}/products/karnisze/thumb/{ean}_thumb.png" data="{uimages}/products/karnisze/full/{ean}_full.png"></a></li>
+				{endloop:items}
+				
+			</ul>
+			
+		</div>
+		{endloop:karnisze}	
+									
+	</div>
+        <div class="gray-line"></div>
+	 
+</div>

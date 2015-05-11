@@ -1,0 +1,38 @@
+{if:menu}
+   
+      <div id="myCarousel" class="carousel slide {class}">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+{loop:menu:s0}
+        
+        <li data-target="#myCarousel" data-slide-to="{__loop__}" ></li>
+        <!-- {if:first_child}class="active"{endif:first_child} -->
+{endloop:menu:s0}          
+
+      </ol>
+       
+      <div class="carousel-inner">
+        {loop:menu:s1}
+        <div class="item ">
+        	<!-- {if:first_child}active{endif:first_child} -->
+          <img src="{uimages}/{img}" data-src="holder.js/100%x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              {if:imga}<div class="news-big-img">{if:href}<a href="{href}">{endif:href}<img src="{uimages}/{imga}">{if:href}</a>{endif:href}</div>{endif:imga}
+              {if:alt_title}<div class="news-txt">{endif:alt_title}
+              	{if:alt_title}<div class="news-date">{if:href}<a href="{href}">{endif:href}{alt_title}{if:href}</a>{endif:href}</div>{endif:alt_title}
+              <h4>{if:href}<a href="{href}">{endif:href}{alt} {if:href}</a>{endif:href}<span class="visible-xs slider-counter">{__loop__} / 4</span></h4>
+              {if:description}<div class="news-desc">{if:href}<a href="{href}">{endif:href}{description}{if:href}</a>{endif:href}</div>{endif:description}
+            	{if:alt_title}{if:href}<a class="art-read-more" href="{href}">{endif:href}{translation.More} &gt;{if:href}</a>{endif:href}</div>{endif:alt_title}
+            </div>
+          </div>
+        </div>
+        {endloop:menu:s1} 
+        
+</div>
+      
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><img src="{template_images}/left_arrow.png"></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><img src="{template_images}/right_arrow.png"></a>
+    </div><!-- /.carousel -->
+    
+{endif:menu}

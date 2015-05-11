@@ -1,0 +1,202 @@
+<!doctype html>
+{with:page}{if:id}{if:next}{if:config.webpage.follow_next}{if:mode=0}<?php header('Location: {tokens|href:,,$next}');?>{endif:mode=0}{if:mode=1}<script>location.href='{tokens|href:,,$next}'</script>{endif:mode=1}{endif:config.webpage.follow_next}{endif:next}{endif:id}{endwith:page}
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
+    <meta charset="{charset}"/>
+
+    <title>{page.title} - Vidella</title>
+    <meta name="Robots" content="all" />
+    <meta name="generator" content="{generator}" />
+    <meta name="WebKameleonId" content="server={page.server}; page={page.id}; ver={page.ver}; lang={page.lang}; ftp={page.nd_ftp|kameleon.datetime}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+    <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
+    <link href="{template_images}/vidella.ico" rel="shortcut icon" />
+    <link rel="stylesheet" href="{template_images}/css/bootstrap.css" media="screen"/>
+    <link rel="stylesheet" href="{template_images}/css/jquery.megamenu.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{template_images}/css/vidella.css" media="screen"/>
+    <link rel="stylesheet" href="{template_images}/css/jquery.jscrollpane.css" media="screen"/>
+    
+    {if:editmode=2}
+    <link rel="stylesheet" href="{template_images}/css/kameleon.css" />
+    {endif:editmode=2}
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript">
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="{template_images}/js/jquery.megamenu.js" type="text/javascript"></script>
+    <script src="{template_images}/js/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="{template_images}/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen"/>
+    <script type="text/javascript" src="{template_images}/js/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script src="{template_images}/js/jquery.jscrollpane.js" type="text/javascript"></script>
+    <script src="{template_images}/js/spin.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+      var UIMAGES = '{uimages}';
+      var IMAGES = '{template_images}';
+    </script>
+    
+    <script type="text/javascript">
+      jQuery(function(){
+            jQuery("#top_menu_holder ul.megamenu").megamenu(
+                {
+                    'enable_js_shadow':false,
+                    'shadow_size':0,
+                }
+            );
+            
+             //jQuery('.inspiration-filter ul').removeClass('menu megamenu');
+
+      });
+    </script>
+
+  </head>
+
+  <body>
+ 
+  <div id="super-main">
+      <div id="main" class="container" >
+
+   
+      {with:header}
+      
+        <div class="row" id="header">
+          <div class="col-md-2" id="logo_holder">
+            {tokens.logo}
+            <!--<div class="small-search visible-xs">
+                <img src="{template_images}/loop2.png">{level2}
+            </div>-->
+          </div>
+          <div class="col-md-10 col-sm-12" id="top_box_holder">      
+              <div class="row">
+                 <div class="col-md-9" id="top_menu_holder" >
+                     {level1}
+                 </div>
+                 <div class="col-md-3" id="top_search_holder" >
+                     {level2}
+                     <!--<form role="form">
+                         <input class="my-search-form-control" type="search">
+                     </form> -->
+                 </div>
+             </div>
+            </div>
+        </div>
+
+
+      {endwith:header}      
+
+      </div> <!-- div main -->
+
+    {with:body}
+            
+    <!-- Accordion left  - full size 100% width
+    ================================================== -->
+    <div class="row carrow">
+        {level1}
+    </div>
+    
+    <div class="all-width">
+    	<div class="upper-whole">
+		{level5}
+		<div class="clearfix"></div>
+		{level6}
+		</div>
+    </div>
+	
+	<!--
+	<div class="all-width">
+    	<div class="upper-left">{level5}</div>
+    	<div class="upper-right">{level6}</div>
+    </div>
+	-->
+	
+	<div class="container">
+		<div class="col-md-12 partner-left">
+		{level3}
+		<div class="clearfix"></div>
+		{level4}
+		</div>
+	</div>
+	
+	<!--
+	<div class="container">
+		<div class="col-md-6 partner-left">{level3}</div>
+		<div class="col-md-6 partner-right">{level4}</div>
+	</div>
+	-->
+
+    <div class="container" id="bottom-container">
+        
+        <div id="bottom-container-inner-box" class="hidden-xs">
+            {level2}
+        </div>
+    </div> 
+
+
+
+      {endwith:body}
+      
+<!-- FOOTER  -------------------------------------------------------------------->
+
+{with:footer}
+       <div id="before-footer-vidella">
+		<div class="visible-xs">
+            <div class="row">
+            <div class="col-xs-12">
+                <!--<div class="languages">Languages</div>-->
+				{level8}
+            </div>
+			</div>
+        </div>
+		</div>
+
+<div id="footer-vidella">
+
+
+    <div class="container">
+        <div class="row hidden-xs" id="footer-container">
+            <div class="col-md-6">
+                {level1}
+            </div>
+            <div class="col-md-6 footer-prizes hidden-xs">
+                {level2}
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="visible-xs">
+        <!--    <div class="row">
+            <div class="col-xs-12">
+            				{level8}
+            </div>
+        </div>-->
+        <div class="row">
+            <!--<div class="mobile-version"><a href="javascript:void(0)">Wersja mobilna</a> / <a class="full-selected" href="javascript:void(0)">Pełna wersja strony</a></div>-->
+            <div class="policy hidden-xs"><a href="javascript:void(0)">Polityka prywatności </a>/ <a href="javascript:void(0)">Kontakt</a></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <hr class="footer-hr">
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 footer-copy hidden-xs">
+            {level3}
+        </div>
+        <div class="col-md-6 footer-logos hidden-xs">
+            {level4}
+        </div>
+    </div>
+</div>
+
+</div>
+
+{endwith:footer}
+      
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{template_images}/js/bootstrap.js"></script>
+    <script src="{template_images}/js/main_vidella.js"></script>
+  </body>
+</html>

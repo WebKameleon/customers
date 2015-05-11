@@ -1,0 +1,43 @@
+{if:title}
+<h1>{tokens.box_title}</h1>
+{endif:title}
+<div>{plain}<div>
+{if:more}
+<a href="{more_link}" class="btn btn-primary btn-mg">{translate.More} &raquo;</a>
+{endif:more}
+<div class="who">
+{if:autor_update}{autor_update|kameleon.fullname}{endif:autor_update}{if:!autor_update}{autor|kameleon.fullname}{endif:!autor_update}
+{if:nd_update}{translate.Updated}: {nd_update|kameleon.datetime}{endif:nd_update}
+{if:!nd_update}{translate.Created}: {nd_create|kameleon.datetime}{endif:!nd_update}
+</div>
+
+<!--
+
+<div class="webox" id="webtd_sid_{pri}">
+{if:title}
+{tokens.box_title}
+{endif:title}
+<div class="txt">{plain}{if:menu_id}
+<div class="sitemenu_c"><ul class="sitemenu">
+{loop:menu}
+    <li {if:class}class="{class}"{endif:class}>
+        <a href="{href}">{alt}</a>
+    </li>
+{endloop:menu}
+</ul></div>
+{endif:menu_id}{tokens.html}</div>
+<div class="option">
+{if:more}
+<div class="std_more"><a href="{more_link}">{translate.More} &raquo;</a></div>
+{endif:more}
+{if:level=1}{if:body}{if:cartman_jest_madry}
+<a class="print" href="javascript:drukuj('{sid}')" title="{translate.print}">{translate.print}</a>
+<div class="who">
+{if:autor_update}{autor_update|kameleon.fullname}{endif:autor_update}{if:!autor_update}{autor|kameleon.fullname}{endif:!autor_update}
+{if:nd_update}{translate.Updated}: {nd_update|kameleon.datetime}{endif:nd_update}
+{if:!nd_update}{translate.Created}: {nd_create|kameleon.datetime}{endif:!nd_update}
+</div>
+{endif:cartman_jest_madry}{endif:body}{endif:level=1}
+</div>
+</div>
+-->

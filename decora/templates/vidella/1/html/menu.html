@@ -1,0 +1,77 @@
+{if:level=52}
+<div role="tabpanel" class="tab-pane fade {if:first_child}in active{endif:first_child}" id="tab-{sid}" aria-labelledby="{sid}-tab">
+{endif:level=52}
+
+<div class="box {class}">
+
+    {if:title}{if:more}<a href="{more_link}">{endif:more}
+    {tokens.box_title}
+    <div class="menu-title">{plain}</div>
+    {if:more}</a>{endif:more}{endif:title}
+
+    {if:menu}
+	<ul class="megamenu menu">{if:level=1}<li class="back-to-home"><a href="/"></a></li>{endif:level=1}
+        {loop:menu}
+			
+            <li class="{class}{if:hide_phone} hidden-xs{endif:hide_phone}" id="panel-{__loop__}" {if:description}data="{description}"{endif:description}>
+            
+			{if:level=2}
+			<a class="{if:white_color}link-white{endif:white_color} main-link {if:is_new}menu-short-descr{endif:is_new} {class}" href="{if:href}{href}{endif:href}"{if:titlea} title="{titlea}"{endif:titlea} {if:onclick}onclick="{onclick}"{endif:onclick}>{titlea}</a>
+            {if:alt}<a class="{if:white_color}link-white{endif:white_color} alt-link" href="{if:href}{href}{endif:href}">{alt}</a>{endif:alt}
+            {if:img}<a class="a-img-link" href="{if:href}{href}{endif:href}"><img class="img-link" src="{uimages}/{img}" data="{uimages}/{imga}"></a>{endif:img}   
+            {if:titleb}<a class="{if:white_color}link-white{endif:white_color} alt-link2" href="{if:href}{href}{endif:href}"><span>{titleb}</span></a>{endif:titleb}
+            {if:description}<p class="menu-short-descr">{description}</p>{endif:description}
+            <a class="add-link" href="{href}"><img src="{template_images}/plus_icon.png"></a>
+            {endif:level=2}    
+			
+			{if:!level=2}
+			<a class="{if:white_color}link-white{endif:white_color} main-link {if:is_new}menu-short-descr{endif:is_new}" href="{if:href}{href}{endif:href}"{if:titlea} title="{titlea}"{endif:titlea} {if:onclick}onclick="{onclick}"{endif:onclick}>{alt}</a>
+            {if:titlea}<a class="{if:white_color}link-white{endif:white_color} alt-link" href="{if:href}{href}{endif:href}"><span>{titlea}</span></a>{endif:titlea}
+            {if:img}<a class="a-img-link" href="{if:href}{href}{endif:href}"><img class="img-link" src="{uimages}/{img}" data="{uimages}/{imga}"></a>{endif:img}   
+            {if:description}<p class="menu-short-descr">{description}</p>{endif:description}
+            <a class="add-link" href="{href}"><img src="{template_images}/plus_icon.png"></a>
+            {endif:!level=2}
+			
+                {if:menu:s1}
+                    
+                    <div class="megamenu-menu-bg submenu-1"><!-- ul / div-->
+                    
+                        {loop:menu:s1}
+                            
+                            <div class="custom-column" id="a{__loop__}"> <!-- li div -->
+                                {if:img}<a href="{href}"><img class="menu-image hidden-xs" src="{uimages}/{img}"></a>{endif:img}
+                                <!--{if:imga}<a href="{href}"><img class="menu-image-alt hidden-xs" src="{uimages}/{imga}"></a>{endif:imga}-->
+                                {if:alt}<a href="{href}" class="custom-column-link" {if:onclick}onclick="{onclick}"{endif:onclick}><h5>{alt}</h5></a>{endif:alt}
+                                
+                                {if:menu:s2}
+                                  <ul class="submenu-2 hidden-xs">
+                                      {loop:menu:s2}
+                                          <li id="b{__loop__}"><a href="{if:href}{href}{endif:href}" alt="{uimages}/{img}">{alt}</a></li>
+                                      {endloop:menu:s2}
+                                  </ul>
+                                {endif:menu:s2}
+                                  
+                                {if:description}<p class="menu-short-descr hidden-xs">{description}</p>{endif:description}
+                              
+                            </div>    <!-- li div-->
+    
+                        {endloop:menu:s1}
+                    
+                    </div><!-- /ul  div -->
+                    
+                {endif:menu:s1}
+            </li>
+        {endloop:menu}    
+    
+    </ul>{endif:menu}
+    
+    <div id="thumb-prev"></div>
+	<div id="thumb-next"></div>
+	
+	{tokens.html}
+    
+</div>
+
+{if:level=52}
+</div>
+{endif:level=52}

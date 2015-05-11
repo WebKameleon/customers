@@ -1,0 +1,1 @@
+ALTER TABLE decora_imports ADD title Text;

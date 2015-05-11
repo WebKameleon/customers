@@ -1,0 +1,212 @@
+<style type="text/css">
+    #accordion-wrapper-{sid} {
+        background-color : #000;
+        position: relative;
+        /*overflow: hidden;*/
+    }
+
+    .accordion-opened {
+        height: 100%;
+    }
+
+    #accordion-carousel-{sid} {
+        margin-bottom : 10px;
+    }
+
+    #accordion-thumbs-{sid} img {
+        border : 2px solid transparent;
+    }
+
+    #accordion-thumbs-{sid} img.active {
+        border : 2px solid #ff7500;
+    }
+
+    #accordion-close-{sid} {
+        text-align: center;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
+
+    #accordion-open-{sid} {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        background-color: #ff7500;
+        width: 200px;
+        padding: 10px;
+        color: #fff;
+        margin-left: -100px;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        border-radius:3px;
+        background-image:url({template_images}/down_arrow.png);
+        background-repeat:no-repeat;
+        background-position: 175px 15px;
+    }
+
+    #accordion-wrapper-{sid} .hotspot {
+        display: none;
+        position: absolute;
+        height: 45px;
+        width: 45px;
+        background-color: transparent;
+        background-image: url({template_images}/hot_spot.png);
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    #accordion-wrapper-{sid}.accordion-opened:hover .hotspot {
+        display: block;
+    }
+
+    #accordion-carousel-{sid} .carousel-control {
+        width: 5%;
+    }
+
+    #accordion-carousel-{sid} .left,
+    #accordion-carousel-{sid} .right {
+        background-repeat: no-repeat;
+        background-position: 50%;
+    }
+
+    #accordion-carousel-{sid} .left {
+        background-image: url({template_images}/left_arrow.png);
+    }
+
+    #accordion-carousel-{sid} .right {
+        background-image: url({template_images}/right_arrow.png);
+    }
+    
+    #accordion-wrapper-{sid} .carousel-inner > .item > img, #accordion-wrapper-{sid} .carousel-inner > .item > a > img 
+    {
+    	width:100%;
+    }
+</style>
+<script>
+	$(document).ready(function(){
+		
+		
+
+			/*
+
+		console.log($(window));
+	
+		//manipulate thumbnails position
+		$(window).resize(function(){
+			console.log("window resized");
+			console.log("Window height " + $(window).height());
+			console.log("Windows scrollTop " + $('body').scrollTop());
+		});
+		
+		$('div#super-main').on('scroll', function(e){
+			console.log("scrolled");
+		})
+		
+		var $win = $(window);
+		$('div#preview-content').on('scroll', function(e){
+			console.log("scrolled");
+		})
+		
+		$(window).on('mousewheel', function(e){
+			console.log("scrolled musewheel");
+		})
+		
+		$win.scroll(function(){
+			if($win.scrollTop() == 0)
+				alert("Do gróry");
+			else if($win.height() + $win.scrollTop() == $(document).height())
+			{
+				alert("To the bottom");
+			}
+		});
+		*/
+
+
+
+	});
+
+</script>
+
+{if:level=52}
+<div role="tabpanel" class="tab-pane {if:mode=(0,1)}fade{endif:mode=(0,1)} {if:first_child}in active{endif:first_child}" id="tab-{sid}" aria-labelledby="{sid}-tab">
+{endif:level=52}
+
+<div class="box">
+    {if:title}
+    {if:more}<a href="{more_link}">{endif:more}
+    {tokens.box_title}
+    {if:more}</a>{endif:more}
+    {endif:title}
+    
+    
+    {if:menu}
+
+    {if:level=52}<div class="col-sm-8">{endif:level=52}
+	<div id="accordion-wrapper-{sid}" class="accordion-opened">
+	    <div id="accordion-carousel-{sid}" class="carousel slide">
+		
+		<div class="carousel-inner">
+		    
+		{loop:menu}
+		    <div class="item" rel="{__loop__}" sid="{sid}">
+		    
+			<img src="{uimages}/{img}" />
+			{loop:menu:s}
+			<div class="hotspot" rel="{description}" sid="{sid}" tooltip="<table><tr><td>{if:href}<a href='{href}'>{endif:href}<img src='{uimages}/{img}'/>{if:href}</a>{endif:href}</td><td>{alt}<br>{if:titlea}<span class='tooltip-alt'>{if:href}<a href='{href}'>{endif:href}{titlea}{if:href}</a>{endif:href}</span>{endif:titlea}</td></tr></table>"></div>
+			
+			{endloop:menu:s}
+		    </div>
+		{endloop:menu}
+		
+		</div>
+		
+		<a class="left carousel-control" href="#accordion-carousel-{sid}" data-slide="prev"></a>
+		<a class="right carousel-control" href="#accordion-carousel-{sid}" data-slide="next"></a>
+
+	    </div>
+	</div>
+	<div id="accordion-thumbs-wrapper-{sid}" class="accordion-thumbs-wrapper">
+	    <span id="accordion-thumbs-{sid}">
+		<div class="jThumbnailScroller">
+		    <div class="jTscrollerContainer">
+			<div class="jTscroller">
+			{loop:menu}
+			    <a href="javascript:void(0)"><img class="thumb" src="{uimages}/{imga}" rel="{__loop__}" sid="{sid}" data="{description}" /></a>
+			{endloop:menu}
+			</div>
+		    </div>
+		    <a href="javascript:void(0)" class="jTscrollerPrevButton"></a>
+		    <a href="javascript:void(0)" class="jTscrollerNextButton"></a>
+		</div>
+	    </span>
+	</div>
+	
+	{endif:menu}
+    {if:level=52}</div>
+    <div class="col-sm-4">
+	{loop:menu}
+	<div class="item-description" sid="{sid}">
+	    <h3>{alt}</h3>
+	    <p>{description}</p>
+	</div>
+	{endloop:menu}
+    </div>{endif:level=52}
+    
+    {if:!level=52}{plain}{endif:!level=52}
+ </div>
+{tokens.accordion}
+<script type="text/javascript">
+    jQuery(function ($) {
+	init_accordion('{sid}');
+	init_inspirations('{sid}');
+    })
+</script>
+
+{if:level=52}
+</div>
+{endif:level=52}

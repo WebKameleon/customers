@@ -1,0 +1,16 @@
+<div class="box {if:class}{class}{endif:class}">
+    <div id="box-special-container-outer" {if:img}data="{uimages}/{img}"{endif:img}><div id="box-special-container">{if:title}{if:more}<a href="{more_link}">{endif:more}
+    {tokens.box_title}
+    {if:more}</a>{endif:more}{endif:title}
+    {if:bgimg}{if:more}<a href="{more_link}">{endif:more}<div class="front-img" id="{uniqueid}" ><img src="{uimages}/{bgimg}"></div>{if:more}</a>{endif:more}{endif:bgimg}
+    {if:menu}<ul>
+    {loop:menu}
+        <li {if:class}class="{class}"{endif:class}>
+           <a data-id="{uniqueid}" href="{href}"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:bgimg}onclick="return false;" {endif:bgimg} {if:onclick}onclick="{onclick}"{endif:onclick} {if:description} data="{description}" {endif:description} {if:imga}data="{uimages}/{imga}"{endif:imga}>{if:img}<img src="{uimages}/{img}">{endif:img}{alt}</a>
+        </li>
+    {endloop:menu}    
+    </ul>{endif:menu}
+    </div>
+   </div>
+   {if:more}<a class="no-change" href="{more_link}">{endif:more}<div class="special-for-plain">{plain}</div>{if:more}</a>{endif:more}{tokens.html}
+</div>

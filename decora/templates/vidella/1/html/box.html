@@ -1,0 +1,60 @@
+{if:level=52}
+{if:!html=tabs.php}
+<div role="tabpanel" class="tab-pane fade {if:first_child}in active{endif:first_child}" id="tab-{sid}" aria-labelledby="{sid}-tab">
+{endif:!html=tabs.php}
+{endif:level=52}
+
+<div class="box {class}">
+    <div id="box-special-container-outer"><div id="box-special-container">{if:title}{if:more}<a href="{more_link}">{endif:more}
+    {tokens.box_title}
+    {if:more}</a>{endif:more}{endif:title}
+
+    {if:menu}<ul>
+    
+    {if:level=(30,31)}
+    
+    <select name="select" class="select" onchange="location = this.options[this.selectedIndex].value;">
+     {loop:menu}
+     <option value="{href}" {if:active}selected{endif:active}>{alt}</option> 
+     {endloop:menu}
+    </select>
+
+     {define:level_found=1}
+    {endif:level=(30,31)}
+    
+    {if:!level=(30,31)}
+     
+    {loop:menu}
+        <li {if:class}class="{class}"{endif:class}>
+            {if:img}<a href="{href}" class="img-link" {if:alt_title} title="{alt_title}"{endif:alt_title}{if:onclick} onclick="{onclick}"{endif:onclick} {if:description} data="{description}" {endif:description}><img src="{uimages}/{img}"></a>{endif:img}
+            <a href="{href}" class="upper-main-link" {if:alt_title} title="{alt_title}"{endif:alt_title}{if:onclick} onclick="{onclick}"{endif:onclick} {if:description} data="{description}" {endif:description}>{alt}</a>
+        	{if:menu:s1}
+
+        		<ul>
+        			{loop:menu:s1}
+				
+        				<li {if:class}class="{class}"{endif:class}>
+        				    {if:img}<a href="{href}" class="img-link" {if:alt_title} title="{alt_title}"{endif:alt_title}{if:onclick} onclick="{onclick}"{endif:onclick} {if:description} data="{description}" {endif:description}>{if:titleb}<span>{titleb}</span>{endif:titleb}<img src="{uimages}/{img}"></a>{endif:img}
+        					<a href="{href}" class="main-link" {if:alt_title} title="{alt_title}"{endif:alt_title}{if:onclick} onclick="{onclick}"{endif:onclick} {if:description} data="{description}" {endif:description}>{alt}</a>
+        				</li>
+			
+        			{endloop:menu:s1}
+        		</ul>
+
+        	{endif:menu:s1}
+        </li>
+	
+    {endloop:menu}
+
+    {endif:!level=(30,31)}    
+    </ul>{endif:menu}
+    </div>
+    </div>
+    {tokens.html}<div class="container deko"><div class="special-for-plain">{plain}</div></div>
+</div>
+
+{if:level=52}
+{if:!html=tabs.php}
+</div>
+{endif:!html=tabs.php}
+{endif:level=52}

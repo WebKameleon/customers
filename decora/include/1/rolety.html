@@ -1,0 +1,28 @@
+
+<script type="text/javascript" src="<?php echo $IMAGES?>/js/decora/rolety.js"></script>
+ 
+ <div id="main-container-rolets">
+    	<div class="outer-filter-list">
+	    	<div class="filter-list">
+	    		<h3>{translate.Transparency}:</h3>
+	  
+	    		<ul>
+	    			<li><a href="javascript:void(0)" data="Wszystko">{translate.All}</a></li>
+	    			{loop:transparency}
+					{if:label.name}
+	    				<li><a href="javascript:void(0)" data="{key}">{label.name}</a></li>
+					{endif:label.name}
+	    			{endloop:transparency}
+	    		</ul>
+	    		
+	    	</div>
+    	</div>
+    	
+    	<div class="container"><div class="article-special">{plain}</div></div>
+    	
+    	<div class="rolets-list">
+    		<ul>
+
+    		</ul>
+    	</div>
+</div>

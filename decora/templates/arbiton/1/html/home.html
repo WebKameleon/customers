@@ -1,0 +1,174 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# blog: http://ogp.me/ns/blog#">
+    <meta charset="{charset}"/>
+
+    <title>{page.title} - Arbiton</title>
+    <meta name="Robots" content="all"/>
+    <meta name="generator" content="{generator}"/>
+    <meta name="WebKameleonId" content="server={page.server}; page={page.id}; ver={page.ver}; lang={page.lang}; ftp={page.nd_ftp|kameleon.datetime}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Merriweather+Sans:400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
+    <link href="{template_images}/arbiton.ico" rel="shortcut icon" />
+    <link rel="stylesheet" href="{template_images}/css/bootstrap.css" media=""/>
+    <link rel="stylesheet" href="{template_images}/css/jquery.megamenu.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{template_images}/css/arbiton.css" media=""/>
+    {if:editmode=2}
+    <link rel="stylesheet" href="{template_images}/css/kameleon.css"/>
+    {endif:editmode=2}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script src="{template_images}/js/jquery.megamenu.js" type="text/javascript"></script>
+    <script src="{template_images}/js/interiors.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+      var UIMAGES = '{uimages}';
+      var IMAGES = '{template_images}';
+    </script>
+    
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $(".megamenu").megamenu({
+                'enable_js_shadow': false,
+                'shadow_size': 0
+            });
+        });
+    </script>
+    <style type="text/css">
+        .accordion-closed {
+            height: 0px;
+        }
+        #accordion-open {
+            height: 0px;
+        }
+    </style>
+</head>
+
+<body>verifica
+{with:header}
+<div id="main" class="container">
+    <div class="row" id="header">
+        <div class="col-md-2" id="logo_holder">
+            {tokens.logo}
+            <div class="small-search visible-xs">
+                <img src="{template_images}/loop2.png">
+            </div>
+        </div>
+        <div class="col-md-10 col-sm-12" id="top_box_holder">
+            <div class="row">
+                <div class="col-md-9" id="top_menu_holder">
+                    {level1}
+                </div>
+                <div class="col-md-3" id="top_search_holder">
+                    {level2}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- div main -->
+
+<div>
+    <div class="orange-line">&nbsp;</div>
+</div>
+
+<div class="row">{level4}</div>
+
+{endwith:header}
+
+{with:body}
+
+<!-- Carousel  - full size 100% width
+================================================== -->
+<div class="row carrow">
+    {level1}
+</div>
+
+
+<div class="container" id="bottom-container">
+
+    <div class="row" id="bottom-container-inner">
+        <div id="bottom-container-inner-box">
+            {level2}
+        </div>
+    </div>
+</div>
+
+
+{endwith:body}
+
+<!-- FOOTER  -------------------------------------------------------------------->
+
+{with:footer}
+
+<div id="footer-arbiton">
+    <div class="container" id="footer-new-container">
+        <div class="row white-bg" id="bottom-container-various">
+            <div class="col-md-4 special-bg">
+                {level5}
+            </div>
+            <div class="col-md-4 special-bg-middle">
+                {level6}
+            </div>
+            <div class="col-md-4 special-bg-right">
+                {level7}
+            </div>
+        </div>
+        <div class="row orange-bg" id="orange-bg"></div>
+    </div>
+
+    <div class="container">
+        <div class="row hidden-xs" id="footer-container">
+            <div class="col-md-6">
+                {level1}
+            </div>
+            <div class="col-md-6 footer-prizes hidden-xs">
+                {level2}
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="visible-xs">
+            <div class
+            "row">
+            <div class="col-xs-6">
+                <div class="client-zone">Strefa klienta</div>
+            </div>
+            <div class="col-xs-6">
+                <div class="languages">Languages</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mobile-version"><a href="#">Wersja mobilna</a> / <a class="full-selected" href="#">Pełna wersja strony</a></div>
+            <div class="policy"><a href="#">Polityka prywatności </a>/ <a href="#">Kontakt</a></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <hr class="footer-hr">
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 footer-copy">
+            {level3}
+        </div>
+        <div class="col-md-6 footer-logos hidden-xs">
+            {level4}
+        </div>
+    </div>
+</div>
+
+</div>
+
+{endwith:footer}
+
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{template_images}/js/bootstrap.js"></script>
+<script src="{template_images}/js/main_arbiton.js"></script>
+
+</body>
+</html>

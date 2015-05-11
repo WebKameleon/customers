@@ -1,0 +1,56 @@
+<div class="gmap-box">
+{if:title}<h2 class="widget_h">{title}</h2>{endif:title}
+{if:options.link}
+<iframe class="kmw_gmap" {if:gmapWidget.data.width} width="{gmapWidget.data.width}"{endif:gmapWidget.data.width}{if:gmapWidget.data.height} height="{gmapWidget.data.height}"{endif:gmapWidget.data.height} frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="{gmapWidget.data.link}&amp;output=embed"></iframe>
+{endif:options.link}
+{if:!options.link}
+<div class="container">
+	<div {if:mode=(0,1)}class="col-md-12"{endif:mode=(0,1)} {if:mode=(2,3)}class="col-md-7"{endif:mode=(2,3)}>
+	<div id="km_w2_{sid}" class="kmw_gmap" style="{if:gmapWidget.data.width}width: {gmapWidget.data.width}px;{endif:gmapWidget.data.width}{if:gmapWidget.data.height} height: {gmapWidget.data.height}px{endif:gmapWidget.data.height}"></div>
+		<script type='text/javascript'>
+		var km_w2_{sid}_marker;
+		var km_w2_{sid}_mapa;
+		
+		function km_w2_{sid}_start() {
+		    var km_w2_wspolrzedne_{sid} = new google.maps.LatLng({gmapWidget.data.lat}, {gmapWidget.data.lng});
+		    var km_w2_opcjeMapy_{sid} = {
+		        zoom : {gmapWidget.data.zoom},
+		        center : km_w2_wspolrzedne_{sid},
+		        mapTypeId : "{gmapWidget.data.type}"
+		    };
+		    km_w2_{sid}_mapa = new google.maps.Map(document.getElementById("km_w2_{sid}"), km_w2_opcjeMapy_{sid});
+		    {if:img}
+		    var km_w2_{sid}_ikona = new google.maps.MarkerImage(
+		        "{uimages}/{img}",
+		        new google.maps.Size({img_w}, {img_h}),
+		        new google.maps.Point(0, 0),
+		        new google.maps.Point({img_w|gmapTokens.devby2}, {img_h|gmapTokens.devby2})
+		    );
+		    {endif:img}
+		    km_w2_{sid}_marker = new google.maps.Marker({
+		        position : new google.maps.LatLng({gmapWidget.data.lat}, {gmapWidget.data.lng}),
+		        {if:img}
+		        icon: km_w2_{sid}_ikona,
+		        {endif:img}
+		        map : km_w2_{sid}_mapa,
+		        visible : !!{gmapWidget.data.marker}
+		    });
+		}
+		
+		(function () {
+		    if (window.addEventListener)
+		        window.addEventListener('load', km_w2_{sid}_start, false);
+		    else if (window.attachEvent)
+		        window.attachEvent('onload', km_w2_{sid}_start);
+		})();
+		</script>
+	</div>
+{endif:!options.link}
+	<!--<div class="cold-md-5">
+		<div class="contact-plain">
+			{plain}
+		</div>
+	</div>-->
+	</div>
+    
+</div>

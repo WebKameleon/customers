@@ -1,0 +1,138 @@
+<script type="text/javascript">
+	var roleta_name='{product.name}';
+
+	{if:_GET.r_title}{if:_GET.r_href}
+	$('.breadcrumbs ul').append('<li><a href="{_GET.r_href}">{_GET.r_title}</a></li>');
+	{endif:_GET.r_href}{endif:_GET.r_title}
+
+</script>
+
+<script type="text/javascript" src="<?php echo $IMAGES?>/js/decora/roleta.js"></script>
+
+
+  <style>
+  
+  .products-rolets #box-special-container-outer
+  {
+  	display:none;
+  }
+  
+  .jqzoom
+  {
+
+	text-decoration:none;
+	float:left;
+   }
+  
+  </style>
+
+<div class="selected-product">
+	
+	<div class="col-md-4 moved-left">
+		<h1 class="title1">
+			<span class="collection-title">{product.name}</span> <span class="color-title"></span>
+			<span class="color-name1">{product.name_www?}</span>
+		</h1>
+		<a href="{uimages}/products/rolety/zoom/{product.ean}_full.jpg" class="jqzoom" rel='gal1'  title="zoom" >
+			<img class="normal-photo" src="{uimages}/products/rolety/full/{product.ean}_full.jpg" width="303" height="550" title="zoom" >
+		</a>
+	</div>
+	
+	<div class="col-md-3">
+		<strong class="colors-strong">{translate.Colors}:</strong>
+		<div class="color-features">
+			<ul>
+				{loop:products}
+					<li data-title="{color_a.name}"><a href="javascript:void(0)" rel="{gallery: 'gal1', smallimage: '{uimages}/products/rolety/full/{ean}_full.jpg',largeimage: '{uimages}/products/rolety/zoom/{ean}_full.jpg'}"><img src="{uimages}/products/rolety/colors/{ean}.jpg"  name="{name}" data="{name_www?}" rel="{ean}" price="{price}" width="60" height="60"></a></li>
+				{endloop:products}
+			</ul>
+		</div>
+		
+	</div>
+	
+	<div class="col-md-5">
+		<div class="col-md-8">
+			<div>
+			<strong>{product.desc_short}</strong>
+				<div class="additional-features">
+					{product.desc|nl2br}
+				</div>
+			</div>
+			{if:product.price}
+			<div class="suggested-price">
+				{translate.suggested_price}{loop:product.dimension_a:1}{dimesion} {translate.cm}{endloop:product.dimension_a:1}:
+			</div>
+			<div class="price">
+				{product.price|ceil} {translate.currency}
+			</div>
+			{endif:product.price}
+
+                        {if:product.price_desc}
+                        <div class="price-info">
+                                {product.price_desc}
+                        </div>
+                        {ednif:product.price_desc}
+
+			
+			<div class="see-links">{translate.seealso}</div>
+			<ul class="price-links">
+			{if:product.video}
+	      		<li class="product-video {product.collection}"><a class="video-box" href="{product.video}">{translate.video}</a>
+	      		</li>
+			{endif:product.video}
+	      		<!--<li class="product-instruction"><a href="javascript:void(0)">{translate.instruction}</a></li>
+	      		<li class="product-other"><a href="javascript:void(0)">{translate.lorem}</a></li>-->
+	      	</ul>
+            
+            <ul class="price-links roleta-price-link">
+	      		<li><a href="{next}">{translate.where_to_buy}</a></li>
+	      	</ul>
+			
+		</div>
+		<div class="col-md-4">
+			{define:dim}{loop:product.dimension_a}<li>{dimesion} {translate.cm}</li>{endloop:product.dimension_a}{if:product.dim}<li>{product.dim}</li>{endif:product.dim}{enddefine:dim}
+			{if:dim}<strong>{translate.Dimmensions}:</strong>{endif:dim}
+			<div class="dimmension-fetures">
+				<ul>
+					{dim}
+				</ul>
+			</div>
+		</div>
+        
+        <div class="clearfix"></div>
+        <div class="product-features col-md-12">
+	      	<h2 class="title">{translate.features_product_assembly}</h2>
+	      	
+	      	<div class="karnisze-features">
+	      		<ul class="karnisze-features-right">
+	      		{loop:product.features_a}
+	      			<li data-title="{name}"><img src="{uimages}/products/feature_icons/{key}.jpg" width="64" height="64"></li>
+	      		{endloop:product.features_a}
+	      		</ul>
+	      	</div>
+	</div>
+	</div>
+	
+	
+	<!--<div class="row bottom-line">
+		
+	</div>
+	
+	<div class="product-features col-md-6">
+	      	<h2 class="title">{translate.features_product_assembly}</h2>
+	      	
+	      	<div class="karnisze-features">
+	      		<ul>
+	      		{loop:product.features_a}
+	      			<li data-title="{name}"><img src="{uimages}/products/feature_icons/{key}.jpg" width="64" height="64"></li>
+	      		{endloop:product.features_a}
+	      		</ul>
+	      	</div>
+	</div>
+	      
+	      
+	<div class="row bottom-line">
+		
+	</div>  -->
+	
+</div>

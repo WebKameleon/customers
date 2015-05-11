@@ -1,0 +1,19 @@
+{if:menu}
+<ul class="nav nav-justified">
+{loop:menu}
+   {if:!menu}
+    <li class="{if:active}active{endif:active}">
+        <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>
+        {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}
+        {if:!img}{alt}{endif:!img}
+        </a>
+    </li>
+    {endif:!menu}
+    {if:menu}
+	<li class="dropdown"><a href="{href}" class="dropdown-toggle {if:active}active{endif:active}" data-toggle="dropdown"{if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}<b class="caret"></b></a>
+		{include:submenu.html}
+	</li>
+    {endif:menu}
+{endloop:menu}
+</ul>
+{endif:menu}

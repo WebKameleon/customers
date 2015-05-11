@@ -1,0 +1,57 @@
+<div class="selected-product">
+	<h1 class="title">{product.name_www} <span class="color-title">{translate.color}: </span><span class="color-name">{color.name}</span></h1>
+	
+	<div class="full-image">
+		<img class="begin-img {product.collection_i}-noshow" xwidth="630" xheight="312" src="{uimages}/products/karnisze/full/begin_{begin}_{product.collection_i}.jpg"><img class="end-img {product.collection}" xwidth="340" xheight="312" src="{uimages}/products/karnisze/full/{product.ean}_full.png">
+	</div>
+	
+	  <div class="gray-line">
+      	
+      </div>
+      <div class="product-info container">
+	      <div class="product-features col-md-6">
+	      	<h2 class="title">{translate.features_product_assembly}</h2>
+	      	
+	      	<div class="karnisze-features">
+	      		<ul>
+	      		{loop:product.features_a}
+	      			<li data-title="{name}"><img width="64" height="64" src="{uimages}/products/feature_icons/{key}.jpg" ></li>
+	      		{endloop:product.features_a}
+	      		</ul>
+	      	</div>
+	      </div>
+	      <div class="product-length col-md-2">
+	      	<h2 class="title">{translate.lengths}</h3>
+	      	<ul>
+	      	{loop:product.dimension_a}
+	      		<li>{dimesion} {unit}</li>
+	      	{endloop:product.dimension_a}
+	      	</ul>
+	      </div>
+	      <div class="product-price-tag col-md-4">
+	      	<h2 class="title">{product.collection} <span class="end-title">{product.name_www}</span></h3>
+		{if:product.price}
+	      	<div class="price-description">{translate.suggested_set_price} {loop:product.dimension_a}{if:first}{dimesion} {unit}{endif:first}{endloop:product.dimension_a}</div>
+	      	<div class="price">{product.price|ceil} {translate.currency}</div>
+		{endif:product.price}
+                        {if:product.price_desc}
+                        <div class="price-info">
+                                {product.price_desc}
+                        </div>
+                        {ednif:product.price_desc}
+
+	      	<div class="price-info">{product.access_a.name}</div>
+	      	<ul class="price-links">
+	      		<li><a href="{next}">{translate.where_to_buy}</a></li>
+	      		<li><a href="javascript:void(0)">{translate.proposition}</a></li>
+	      	</ul>
+	      </div>
+      </div>
+      
+      <div class="gray-line">
+      	
+      </div>
+      
+	
+	
+</div>
