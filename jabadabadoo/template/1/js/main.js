@@ -142,6 +142,18 @@ function wyprawy_grid_load(txt)
             navi='';
         }
         $('.wyprawy_grid_navi').html(navi);
+        
+        
+        $('button.ask').click(function(){
+           console.log('pizda');
+           var name=encodeURIComponent($('p.place-name a').html());
+           var termin=encodeURIComponent($('p.d_from').text());
+       
+           window.open('http://form.jotformpro.com/form/51124013104938?nazwaHotelu='+name+'&termin='+termin, 'blank',          'scrollbars=yes,toolbar=no,width=700,height=800');
+       });
+
+        
+        
     });   
 }
 
@@ -238,13 +250,7 @@ $(document).ready(function() {
         window.open('http://form.jotformpro.com/form/51124013104938?nazwaHotelu='+name+'&termin='+termin, 'blank','scrollbars=yes,toolbar=no,width=700,height=800');
      })
      
-     $('button.ask').click(function(){
-        console.log('pizda');
-    var name=encodeURIComponent($('p.place-name a').html());
-    var termin=encodeURIComponent($('p.d_from').text());
-    
-    window.open('http://form.jotformpro.com/form/51124013104938?nazwaHotelu='+name+'&termin='+termin, 'blank','scrollbars=yes,toolbar=no,width=700,height=800');
-});
+
      
    
    var loc=location.href;
