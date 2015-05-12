@@ -56,5 +56,6 @@
 
 <style>
     .term-price-line {display: none}
+    .promo-subtitle {height:50px}
 </style>
 
