@@ -54,7 +54,7 @@ if ( ($pagetype==1 || $pagetype==3) && !is_pttAdmin() && !$KAMELEON_MODE && !sal
 
 $CYKLE_NAKLAD=array("A:C");
 
-$CYKLE=array("A"=>"16.08-23.08.14");
+$CYKLE=array("A"=>"22-29.08.2015");
 
 $ile_dajemy_czasu=15; 	//dni
 $czas_przejscia=20;	//min
