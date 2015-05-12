@@ -239,6 +239,7 @@ $(document).ready(function() {
      })
      
      $('button.ask').click(function(){
+        console.log('pizda');
     var name=encodeURIComponent($('p.place-name a').html());
     var termin=encodeURIComponent($('p.d_from').text());
     
