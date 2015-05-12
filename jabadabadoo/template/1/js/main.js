@@ -248,3 +248,22 @@ $(document).ready(function() {
 });
 
 
+function waluty_set(waluty) {
+    if (typeof(waluty)=='string') waluty=JSON.parse(waluty);
+
+    
+    $('.super-price').each(function() {
+        var rel=$(this).attr('rel');
+        var cena=parseFloat($(this).text());
+        if (cena>0 && rel.length && typeof(waluty[rel])!='undefined') {
+            if (parseFloat(waluty[rel])>0) {
+                cena=Math.round(parseFloat(waluty[rel])*cena);
+                $(this).html(cena);
+                $(this).attr('rel','');
+            }
+
+        }
+        
+    });
+}
+
