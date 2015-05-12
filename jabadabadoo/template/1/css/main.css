@@ -850,6 +850,7 @@ blockquote h6 {
     color: #555;
     font-weight: 300;
     border-bottom: 1px solid #fff;
+    height: 32px !important;
 }
 
 .promo-trips .promo-box .col-md-4.col-sm-4 {
