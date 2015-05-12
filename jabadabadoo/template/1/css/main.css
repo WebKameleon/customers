@@ -485,6 +485,10 @@ a img:hover {
     border-left: 1px solid #dedede;
 }
 
+.without-print .print-download {
+    display: none;]
+}
+
 .holliday h1,
 .full h1{
     font-size: 43px;
