@@ -145,9 +145,9 @@ function wyprawy_grid_load(txt)
         
         
         $('button.ask').click(function(){
-           console.log('pizda');
+ 
            var name=encodeURIComponent($('p.place-name a').html());
-           var termin=encodeURIComponent($('p.d_from').text());
+           var termin=encodeURIComponent($(this).parent().parent().find('.p.d_from').text());
        
            window.open('http://form.jotformpro.com/form/51124013104938?nazwaHotelu='+name+'&termin='+termin, 'blank',          'scrollbars=yes,toolbar=no,width=700,height=800');
        });
