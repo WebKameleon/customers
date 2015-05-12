@@ -149,7 +149,7 @@ function wyprawy_grid_load(txt)
            var name=encodeURIComponent($('p.place-name a').html());
            var termin=encodeURIComponent($(this).parent().parent().find('.p.d_from').text());
        
-           window.open('http://form.jotformpro.com/form/51124013104938?nazwaHotelu='+name+'&termin='+termin, 'blank',          'scrollbars=yes,toolbar=no,width=700,height=800');
+           window.open('http://form.jotformpro.com/form/51124013104938?nazwaImprezy='+name+'&termin='+termin, 'blank',          'scrollbars=yes,toolbar=no,width=700,height=800');
        });
 
         
@@ -216,7 +216,7 @@ $('a.button-col').click(function() {
     var termin=encodeURIComponent($('.booking select option:selected').text());
 
 
-    window.open('http://form.jotformpro.com/form/51124013104938?nazwaHotelu='+name+'&termin='+termin, 'blank','scrollbars=yes,toolbar=no,width=700,height=800');
+    window.open('http://form.jotformpro.com/form/51124013104938?nazwaImprezy='+name+'&termin='+termin, 'blank','scrollbars=yes,toolbar=no,width=700,height=800');
     
 });
 
@@ -224,7 +224,7 @@ $('a.button-col-hotel').click(function(){
     var name=encodeURIComponent($('h1').html());
     var termin=encodeURIComponent($('.booking .termin-hotel').text());
     
-    window.open('http://form.jotformpro.com/form/51124013104938?nazwaHotelu='+name+'&termin='+termin, 'blank','scrollbars=yes,toolbar=no,width=700,height=800');
+    window.open('http://form.jotformpro.com/form/51124013104938?nazwaImprezy='+name+'&termin='+termin, 'blank','scrollbars=yes,toolbar=no,width=700,height=800');
 });
 
 
@@ -247,7 +247,7 @@ $(document).ready(function() {
         var termin=encodeURIComponent($(this).parent().parent().find('.different-date').text());
         
          
-        window.open('http://form.jotformpro.com/form/51124013104938?nazwaHotelu='+name+'&termin='+termin, 'blank','scrollbars=yes,toolbar=no,width=700,height=800');
+        window.open('http://form.jotformpro.com/form/51124013104938?nazwaImprezy='+name+'&termin='+termin, 'blank','scrollbars=yes,toolbar=no,width=700,height=800');
      })
      
 
