@@ -485,7 +485,8 @@ a img:hover {
     border-left: 1px solid #dedede;
 }
 
-.holliday h1 {
+.holliday h1,
+.full h1{
     font-size: 43px;
     font-weight: 300;
     color: #232323;
