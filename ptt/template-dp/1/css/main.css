@@ -226,7 +226,14 @@ ul.social-menu li {
     .kmw_articlelist .col-md-3.col-sm-4 {
 	padding-left: 0px;
 	padding-right: 15px;
-}
+    }
+    .navbar-brand {
+      height: 75px;   
+    }
+    .navbar-nav {
+	margin: 15px 15px
+    }
+    
 }
 
 .kmw_articlelist .col-md-9.col-sm-8 {
@@ -1003,4 +1010,17 @@ thead {
 img.foto {
     margin: 0 15px 10px 0;
     float: left;
+}
+
+
+
+@media (max-width:480px) {
+    #sidebar {
+      border-left: 0px;
+    }
+    
+    html, body, #main, #sidebar {
+	 height: 100%;
+     min-height: 100px;
+    }	
 }
