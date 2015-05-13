@@ -218,6 +218,17 @@ ul.social-menu li {
     height: 150px;
 }
 
+@media (max-width:480px) {
+    .kmw_articlelist .col-md-3.col-sm-4 img {
+        width: 60px;
+        height: 60px;
+    }
+    .kmw_articlelist .col-md-3.col-sm-4 {
+	padding-left: 0px;
+	padding-right: 15px;
+}
+}
+
 .kmw_articlelist .col-md-9.col-sm-8 {
 	padding-left: 0px;
 }
