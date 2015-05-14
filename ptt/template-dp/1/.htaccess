@@ -1,8 +1,8 @@
 php_value short_open_tag 1
 php_value error_reporting 7
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -l [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^.*$ - [NC,L]
-RewriteRule ^.*$ http://www.ptt-poznan.pl/ [R=301,NC,L]
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} -f [OR]
+#RewriteCond %{REQUEST_FILENAME} -l [OR]
+#RewriteCond %{REQUEST_FILENAME} -d
+#RewriteRule ^.*$ - [NC,L]
+#RewriteRule ^.*$ http://www.ptt-poznan.pl/ [R=301,NC,L]
