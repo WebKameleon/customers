@@ -1222,6 +1222,39 @@ table th[class*="col-"] {
 
 /* /TABELE */
 
+@media (max-width:767px) {
+    #sidebar {
+      border-left: 0px;
+    }
+    
+    html, body, #main, #sidebar {
+	 height: 100%;
+     min-height: 100px;
+    }
+    
+        .kmw_articlelist .col-md-3.col-sm-4 img {
+        width: 60px;
+        height: 60px;
+    }
+    .kmw_articlelist .col-md-3.col-sm-4 {
+	padding-left: 0px;
+	padding-right: 15px;
+    }
+    .navbar-brand {
+      height: 75px;   
+    }
+    .navbar-nav {
+	margin: 15px 15px
+    }
+    
+    .newsletter p {
+  margin-top: 0px;
+}
+ul.nav {
+    margin-top: 30px;
+}
+}
+
 @media (max-width:480px) {
     #sidebar {
       border-left: 0px;
