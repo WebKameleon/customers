@@ -1,5 +1,6 @@
 function wyprawy_form_fill(data,req) {
 
+
     $('.form-wyprawy select').empty().append('<option value="">Wybierz</option>');
     
     var countries=data.countries;
@@ -21,10 +22,11 @@ function wyprawy_form_fill(data,req) {
     }
     
     if (typeof(req.d_from)!='undefined')
-        $('.form-wyprawy input[name="wyprawy.d_from"]').val(req.d_from);
-        
+    {
+        $('.form-wyprawy input[name="d_from"]').attr('data-value',req.d_from);
+    }   
     if (typeof(req.d_to)!='undefined')
-        $('.form-wyprawy input[name="wyprawy.d_to"]').val(req.d_to);
+        $('.form-wyprawy input[name="d_to"]').attr('data-value',req.d_to);
         
     if (typeof(req.confirm)!='undefined' && req.confirm=='1')
         $('.form-wyprawy input[name="wyprawy.confirm"]').attr('checked',true);
@@ -34,7 +36,16 @@ function wyprawy_form_fill(data,req) {
         $('.form-wyprawy input[name="wyprawy.pilot"]').attr('checked',true);
     }
     
+    $('.dpick').pickadate({
+        format: 'dddd, dd mmm',
+        formatSubmit: 'yyyy-mm-dd',
+        hiddenPrefix: 'wyprawy.',
+        hiddenSuffix: '',
+        selectYears: false,
+    });
 }
+
+
 
 function smekta(pattern,vars) {
     
@@ -260,6 +271,12 @@ $(document).ready(function() {
        $("#first-tab").removeClass("active");
        $("#second-tab").addClass("active");
    }
+   
+
+    
+    
+   
+ 
 });
 
 
