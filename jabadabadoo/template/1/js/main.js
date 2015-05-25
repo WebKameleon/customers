@@ -287,11 +287,14 @@ function waluty_set(waluty) {
     $('.super-price').each(function() {
         var rel=$(this).attr('rel');
         var cena=parseFloat($(this).text());
-        if (cena>0 && rel.length && typeof(waluty[rel])!='undefined') {
+        if (typeof(waluty[rel])=='undefined' || rel.length==0) {
+            rel='EUR';
+        }
+        if (cena>0 && rel!='-') {
             if (parseFloat(waluty[rel])>0) {
                 cena=Math.round(parseFloat(waluty[rel])*cena);
                 $(this).html(cena);
-                $(this).attr('rel','');
+                $(this).attr('rel','-');
             }
 
         }
