@@ -18,6 +18,8 @@
     flag1,
     <input type="checkbox" name="flags[<?php echo $sid?>][flag2]" value="1" <?php if (isset($flags['flag2']) && $flags['flag2']) echo 'checked';?>/>
     flag2
+    <input type="checkbox" name="flags[<?php echo $sid?>][confirm]" value="1" <?php if (isset($flags['confirm']) && $flags['confirm']) echo 'checked';?>/>
+    potwierdzone
     
     <br/>
     
