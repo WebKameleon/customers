@@ -290,17 +290,21 @@ function waluty_set(waluty) {
         var rel=$(this).attr('rel');
         var cena=parseFloat($(this).text());
 
+        console.log(cena+': '+rel);
         if (typeof(waluty[rel])=='undefined' || rel.length==0 || rel=='{currency}' || rel=='[currency]') {
             rel='EUR';
         }
-        if (cena>0 && rel!='-') {
+        if (cena>0 && rel!='PLN') {
             if (parseFloat(waluty[rel])>0) {
+                
+                $(this).attr('title',cena+' '+rel);
                 cena=Math.round(parseFloat(waluty[rel])*cena);
                 $(this).html(cena);
                 
             }
+            $(this).attr('rel','PLN');    
         }
-        $(this).attr('rel','PLN');
+        
         
     });
 }
