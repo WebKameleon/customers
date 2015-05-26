@@ -163,6 +163,8 @@ function wyprawy_grid_load(txt)
            window.open('http://form.jotformpro.com/form/51124013104938?nazwaImprezy='+name+'&termin='+termin, 'blank',          'scrollbars=yes,toolbar=no,width=700,height=800');
        });
 
+       
+       waluty_get();
         
         
     });   
@@ -287,6 +289,7 @@ function waluty_set(waluty) {
     $('.super-price').each(function() {
         var rel=$(this).attr('rel');
         var cena=parseFloat($(this).text());
+
         if (typeof(waluty[rel])=='undefined' || rel.length==0 || rel=='{currency}' || rel=='[currency]') {
             rel='EUR';
         }
