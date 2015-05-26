@@ -164,7 +164,7 @@ function wyprawy_grid_load(txt)
        });
 
        
-       waluty_get();
+       //waluty_get();
         
         
     });   
