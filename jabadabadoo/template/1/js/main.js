@@ -297,10 +297,10 @@ function waluty_set(waluty) {
             if (parseFloat(waluty[rel])>0) {
                 cena=Math.round(parseFloat(waluty[rel])*cena);
                 $(this).html(cena);
-                $(this).attr('rel','-');
+                
             }
-
         }
+        $(this).attr('rel','-');
         
     });
 }
