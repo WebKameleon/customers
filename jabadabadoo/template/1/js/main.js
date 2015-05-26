@@ -300,7 +300,7 @@ function waluty_set(waluty) {
                 
             }
         }
-        $(this).attr('rel','-');
+        $(this).attr('rel','PLN');
         
     });
 }
