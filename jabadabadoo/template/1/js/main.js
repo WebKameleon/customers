@@ -287,7 +287,7 @@ function waluty_set(waluty) {
     $('.super-price').each(function() {
         var rel=$(this).attr('rel');
         var cena=parseFloat($(this).text());
-        if (typeof(waluty[rel])=='undefined' || rel.length==0) {
+        if (typeof(waluty[rel])=='undefined' || rel.length==0 || rel=='{currency}' || rel=='[currency]') {
             rel='EUR';
         }
         if (cena>0 && rel!='-') {
