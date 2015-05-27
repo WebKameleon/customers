@@ -1157,7 +1157,7 @@ ul#merlin-results-nav-here li.active a {
 
 /* PRINT CSS */
 @media print {
-     #preview {
+     #preview, .menu-continents, .breadcrumbs {
 	display: none;
      }
 }
