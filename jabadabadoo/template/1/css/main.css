@@ -879,6 +879,12 @@ blockquote h6 {
     height: 45px;
 }
 
+.promo-trips .promo-box .col-md-8.col-sm-8 .super-price {
+    float: none;
+    text-align: right;
+    font-size: 30px;
+}
+
 .promo-trips .promo-box .col-md-8.col-sm-8.big {
     font-size: 30px;    
 }
