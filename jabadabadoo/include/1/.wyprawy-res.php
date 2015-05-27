@@ -12,44 +12,63 @@
 ?>
 <form method="post">
     <input type="hidden" name="flags[<?php echo $sid?>][noflag]" value=""/>
-    <input type="checkbox" name="flags[<?php echo $sid?>][homepage]" value="1" <?php if (isset($flags['homepage']) && $flags['homepage']) echo 'checked';?>/>
-    homepage,
-    <input type="checkbox" name="flags[<?php echo $sid?>][flag1]" value="1" <?php if (isset($flags['flag1']) && $flags['flag1']) echo 'checked';?>/>
-    flag1,
-    <input type="checkbox" name="flags[<?php echo $sid?>][flag2]" value="1" <?php if (isset($flags['flag2']) && $flags['flag2']) echo 'checked';?>/>
-    flag2
-    <input type="checkbox" name="flags[<?php echo $sid?>][confirm]" value="1" <?php if (isset($flags['confirm']) && $flags['confirm']) echo 'checked';?>/>
-    potwierdzone
     
-    <br/>
+    <div class="row">
     
-    <input type="checkbox" name="flags[<?php echo $sid?>][_uni]" value="1" <?php if (isset($flags['_uni']) && $flags['_uni']) echo 'checked';?>/>
-    unikalne
+    <div class="col-md-2 col-sm-2">
+     <input type="checkbox" name="flags[<?php echo $sid?>][homepage]" value="1" <?php if (isset($flags['homepage']) && $flags['homepage']) echo 'checked';?>/>
+     <label>Strona główna</label>
+    </div>
     
-    <br/>
+    <div class="col-md-2 col-sm-2">
+     <input type="checkbox" name="flags[<?php echo $sid?>][flag1]" value="1" <?php if (isset($flags['flag1']) && $flags['flag1']) echo 'checked';?>/>
+     <label>Wyświetlaj dni</label>
+    </div>
+    
+    <!--<input type="checkbox" name="flags[<?php echo $sid?>][flag2]" value="1" <?php if (isset($flags['flag2']) && $flags['flag2']) echo 'checked';?>/>
+    flag2-->
+    
+    <div class="col-md-2 col-sm-2">
+     <input type="checkbox" name="flags[<?php echo $sid?>][confirm]" value="1" <?php if (isset($flags['confirm']) && $flags['confirm']) echo 'checked';?>/>
+     <label>Potwierdzone</label>
+    </div>
+    
+    
+    <div class="col-md-2 col-sm-2">
+     <input type="checkbox" name="flags[<?php echo $sid?>][_uni]" value="1" <?php if (isset($flags['_uni']) && $flags['_uni']) echo 'checked';?>/>
+     <label>Unikalne oferty</label>
+    </div>
+    
+    <div class="col-md-2 col-sm-2">
+     <input type="checkbox" name="flags[<?php echo $sid?>][_kaf]" value="1" <?php if (isset($flags['_kaf']) && $flags['_kaf']) echo 'checked';?>/>
+     <label>Kafelki</label>
+    </div>
+    
 
-    <input type="checkbox" name="flags[<?php echo $sid?>][_kaf]" value="1" <?php if (isset($flags['_kaf']) && $flags['_kaf']) echo 'checked';?>/>
-    kafelki
-    
-    <br/>
-
-    
-    <input type="checkbox" name="opt[<?php echo $sid?>][lazyload]" value="1" <?php if ($cos) echo 'checked';?>/>
-    leniwy ładunek
-    
-    <br/>
-    
-    <input type="checkbox" name="flags[<?php echo $sid?>][_hide_term]" value="1" <?php if (isset($flags['_hide_term']) && $flags['_hide_term']) echo 'checked';?>/>
-    ukryj linię z terminem    
-    
-    <br/>    
-  
-    <input type="text" placeholder="Kontynent" name="flags[<?php echo $sid?>][continent]" value="<?php if (isset($flags['continent']) && $flags['continent']) echo $flags['continent'];?>"/>
     
     
-    <br/>
+    </div>
     
+    <div class="row" style="margin-top:25px;">
+        
+        <div class="col-md-3 col-sm-3">
+     <input type="checkbox" name="opt[<?php echo $sid?>][lazyload]" value="1" <?php if ($cos) echo 'checked';?>/>
+     <label>Doczytuj oferty dynamicznie</label>
+    </div>
+        
+    <div class="col-md-3 col-sm-3">
+     <input type="checkbox" name="flags[<?php echo $sid?>][_hide_term]" value="1" <?php if (isset($flags['_hide_term']) && $flags['_hide_term']) echo 'checked';?>/>
+     <label>Ukryj linię z terminem</label>
+    </div>
+   
+    <div class="col-md-3 col-sm-3">
+     <input type="text" placeholder="Kontynent" name="flags[<?php echo $sid?>][continent]" value="<?php if (isset($flags['continent']) && $flags['continent']) echo $flags['continent'];?>"/>
+    </div>
+       
+    <div class="col-md-3 col-sm-3">
+     <input value="Zapisz" type="submit" class="btn btn-default"/>
+    </div> 
     
-    <input value="zapisz" type="submit"/>
+    </div>
 </form>
 
