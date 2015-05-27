@@ -1374,5 +1374,5 @@ ul#merlin-results-nav-here li.active a {
       page-break-after: always;
     }
     
-    .tab-content > .tab-pane {display: block !important; opacity: 1 !important;}
+    .tab-content > .tab-pane {display: block !important; opacity: 1 !important;height: 10000px!important;}
 }
