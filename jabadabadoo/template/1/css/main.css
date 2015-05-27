@@ -1151,3 +1151,13 @@ ul#merlin-results-nav-here li.active a {
 .kmw_article {
     overflow: visible;
 }
+
+
+
+
+/* PRINT CSS */
+@media print {
+     #preview {
+	display: none;
+     }
+}
