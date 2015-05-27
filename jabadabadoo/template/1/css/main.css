@@ -1157,7 +1157,7 @@ ul#merlin-results-nav-here li.active a {
 
 /* PRINT CSS */
 @media print {
-     #preview, .menu-continents, .breadcrumbs, .col-md-3.col-sm-4.hidden-xs {
+     #preview, .menu-continents, .breadcrumbs, .col-md-3.col-sm-4.hidden-xs, .footer {
 	display: none;
      }
      a:after { 
