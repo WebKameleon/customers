@@ -1147,3 +1147,7 @@ ul#merlin-results-nav-here li.active a {
 .picker__button--clear, .picker__button--close, .picker__button--today {
   font-size: .6em;
 }
+
+.kmw_article {
+    overflow: visible;
+}
