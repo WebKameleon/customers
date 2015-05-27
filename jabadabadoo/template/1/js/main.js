@@ -309,3 +309,8 @@ function waluty_set(waluty) {
     });
 }
 
+
+function printFunction() {
+    window.print();
+}
+
