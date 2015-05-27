@@ -1165,7 +1165,7 @@ ul#merlin-results-nav-here li.active a {
       text-decoration: none;
       display: inline;
     }
-    .container { 
+    body { 
       height: 100%!important; 
       overflow: -moz-scrollbars-vertical;
       overflow-y: scroll;
