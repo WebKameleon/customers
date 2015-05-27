@@ -1139,3 +1139,11 @@ ul#merlin-results-nav-here li.active a {
 .picker__frame {
   max-width: 300px;
 }
+
+.picker__day {
+  padding: .0125em 0;
+}
+
+.picker__button--clear, .picker__button--close, .picker__button--today {
+  font-size: .6em;
+}
