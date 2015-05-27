@@ -1171,6 +1171,14 @@ ul#merlin-results-nav-here li.active a {
       float: none !important;
       width: auto;
       
+      margin: 0;
+      border: initial;
+      border-radius: initial;
+      width: initial;
+      min-height: initial;
+      box-shadow: initial;
+      background: initial;
+      page-break-after: always;
     }
     
     .tab-content > .tab-pane {display: block !important; opacity: 1 !important;}
