@@ -1170,7 +1170,5 @@ ul#merlin-results-nav-here li.active a {
       overflow:hidden !important;
     }
     
-    .tab-pane {
-	display: block;
-    }
+    .tab-content > .tab-pane {display: block !important; opacity: 1 !important;}
 }
