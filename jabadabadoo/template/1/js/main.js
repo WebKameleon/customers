@@ -82,6 +82,10 @@ function wyprawy_grid_load(txt)
 {
     if (txt==null) {
         txt=$('#'+wyprawy_grid_form).serialize();
+        var lh=location.href;
+        var pyt=lh.indexOf('?');
+        if (pyt>0) lh=lh.substr(0,pyt);
+        history.pushState('', 'Wyprawy', lh+'?'+txt);
     }
     
     var url=wyprawy_grid_ajax+'&limit='+wyprawy_grid_limit+'&offset='+wyprawy_grid_offset+'&'+txt;
@@ -290,7 +294,7 @@ function waluty_set(waluty) {
         var rel=$(this).attr('rel');
         var cena=parseFloat($(this).text());
 
-        console.log(cena+': '+rel);
+        //console.log(cena+': '+rel);
         if (typeof(waluty[rel])=='undefined' || rel.length==0 || rel=='{currency}' || rel=='[currency]') {
             rel='EUR';
         }
