@@ -63,6 +63,7 @@
                    'url'=>$t['file_name'],
                    'img'=>$img];
             
+            $base['url']=preg_replace('/index.[a-z]+$/','',$base['url']);
             
             foreach($terms AS $term)
             {
