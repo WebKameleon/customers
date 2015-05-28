@@ -1359,7 +1359,6 @@ ul#merlin-results-nav-here li.active a {
       display: inline;
     }
     body, .banner.container .col-md-9.col-sm-8 { 
-      height: 100%!important;
       overflow:hidden !important;
       float: none !important;
       width: auto;
