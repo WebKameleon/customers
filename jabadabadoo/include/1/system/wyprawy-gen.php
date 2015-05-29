@@ -72,8 +72,6 @@
                 $trm['_to']=strtotime($trm['d_to']);
                 
              
-                  
-                
                 if (!$trm['_from'] || !$trm['_to'] || $trm['_to']<time()) continue;
 
                 
