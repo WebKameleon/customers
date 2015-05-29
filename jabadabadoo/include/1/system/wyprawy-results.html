@@ -28,9 +28,18 @@
                     <p class="place-name"><a href="[url]">[name]</a></p>
                 </td>
                 <td class="date">
+		   [if:nego]
                     [if:!confirm][days] dni[endif:!confirm]
                     [if:confirm2]<p class="d_from">[d_from]</p>
                     <p>[d_to]</p>[endif:confirm2]
+		   [endif:nego]
+		   
+		   [if:!nego]
+                    [if:!confirm]<p class="d_from">[d_from]</p>
+                    <p>[d_to]</p>[endif:!confirm]
+                    [if:confirm2]<p class="d_from">[d_from]</p>
+                    <p>[d_to]</p>[endif:confirm2]
+		   [endif:!nego]
                 </td>
                 <td class="price">
                     [if:price-from]<span>od</span>[endif:price-from]
