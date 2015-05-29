@@ -430,6 +430,20 @@ a img:hover {
     margin-top: 8px;
 }
 
+.food p {
+  border: 0px;
+  width: 100%;
+  font-size: 18px;
+  color: #767676;
+  font-weight: 300;
+  padding-left: 0px;
+}
+
+.food p:last-child {
+  color: #232323;
+  padding-left: 0px;
+}
+
 .menu-sidebar,
 .nav.nav-tabs {
     border: 1px solid #dedede;
