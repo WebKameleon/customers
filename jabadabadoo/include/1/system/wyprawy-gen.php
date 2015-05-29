@@ -30,14 +30,14 @@
                     $name=$td['title'];
                     $country=trim(preg_replace('/<[^>]*>/','',$td['plain']));
                 }
-                if ($td['level']=$menu_level && $td['type']==666 && $td['menu_id']>0)
+                if ($td['level']==$menu_level && $td['type']==666 && $td['menu_id']>0)
                 {
-                    $terms=$weblink->getAll($td['menu_id']);
+                    $terms=$weblink->getAll($td['menu_id'],0);
                 }
                 
                 if (!$img && ($td['widget']=='slideshow' || strstr($td['widget'],'gallery')))
                 {
-                    $gal=$weblink->getAll($td['menu_id'])?:[];
+                    $gal=$weblink->getAll($td['menu_id'],0)?:[];
                     if (count($gal) && $gal[0]['img'] ) $img=$gal[0]['img'];
                 }
             }
@@ -75,7 +75,7 @@
                   
                 
                 if (!$trm['_from'] || !$trm['_to'] || $trm['_to']<time()) continue;
-
+                
                 
                 $trm['alt']=$term['alt'];
                 
