@@ -71,7 +71,11 @@
                 $trm['_from']=strtotime($trm['d_from']);
                 $trm['_to']=strtotime($trm['d_to']);
                 
+             
+                  
+                
                 if (!$trm['_from'] || !$trm['_to'] || $trm['_to']<time()) continue;
+
                 
                 $trm['alt']=$term['alt'];
                 
