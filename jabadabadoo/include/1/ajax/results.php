@@ -81,6 +81,8 @@
                 $row['url']=$_REQUEST['home_link'].$row['url'];
             }
             
+            $row['url'].='?f='.$row['f_from'];
+            
             if (isset($row['confirm'])) $row['confirm']+=0;
             if (isset($row['confirm'])) $row['confirm2']=$row['confirm3']=$row['confirm'];
             

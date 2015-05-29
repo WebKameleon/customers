@@ -44,7 +44,7 @@
     <div class="container-fluid">
     <select class="form-control mySelect input-lg" role="tablist" id="myTab">
     {loop:menu}
-     <option value="date{__index__}" {if:first_child}class="selected"{endif:first_child}>{alt}</option>
+     <option rel="{d_from}" value="date{__index__}" {if:first_child}class="selected"{endif:first_child}>{alt}</option>
     {endloop:menu}
     </select>
     </div>
@@ -151,12 +151,27 @@
     
     
     <script>
+	
+    function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	    results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }	
+    
     jQueryKam(function ($) {
+	
+	var f=getParameterByName('f');
+	
+	if (f.length>0) {
+	    $('.mySelect option[rel="'+f+'"]').prop('selected', true);
+	}
+	
+	
     $('.mySelect').change(function(){
 	var selected = $(this).find(':selected');
 	 $('.optionvalue').fadeOut(function(){
-         $('.optionvalue').html(selected.html()).fadeIn()
-        .attr('class', 'optionvalue '+selected.val());   
+	    $('.optionvalue').html(selected.html()).fadeIn().attr('class', 'optionvalue '+selected.val());   
 	});
 	
 	var count = $('.booking .tab-pane').length;
@@ -165,6 +180,7 @@
 	        $('.'+selected.val()).fadeIn();
 	    }
 	});
+
     });
     //$('.mySelect').val('date2');
     //alert($('#date1').attr("id"));
