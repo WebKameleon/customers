@@ -1,7 +1,12 @@
 
 $(function() {
-    var monthNames = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
-    var dayNames = ["Po", "Wt", "Śr", "Cz", "Pi", "So", "Ni"];
+    if (LANG=='pl') {
+    	var monthNames = ["Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Październik", "Listopad", "Grudzień"];
+    	var dayNames = ["Po", "Wt", "Śr", "Cz", "Pi", "So", "Ni"];
+    } else {
+    	var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    	var dayNames = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+    }
     
     
     
