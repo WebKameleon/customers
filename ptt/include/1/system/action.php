@@ -3,6 +3,7 @@
 $action=isset($_REQUEST['action'])?$_REQUEST['action']:'';
 
 if ($pagetype==3 || strlen($AUTH_PASS)) include ("$INCLUDE_PATH/action/login.php");
+//if ($pagetype==3 ) include ("$INCLUDE_PATH/action/login.php");
 
 
 
