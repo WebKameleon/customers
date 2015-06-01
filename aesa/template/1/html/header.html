@@ -1,0 +1,25 @@
+<div class="background">
+    <!----- bcg ----->
+    <img src="{if:server.background}{uimages}/{server.background}{endif:server.background} {if:page.background}{uimages}/{page.background}{endif:page.background}" class="img-responsive" />
+    <!----- /bcg ----->
+</div>
+
+
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!----- Logo ----->
+          <div class="navbar-brand">{level100}</div>
+          <!----- /Logo ----->
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          {level101}
+        </div><!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->

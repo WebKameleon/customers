@@ -1,0 +1,56 @@
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+{with:articlelistWidget}
+
+{if:nav}<div class="kmw_articlelist_nav" rel="{nav_limit}">
+<ul>{loop:nav}
+<li><a rel="{loop}">{loop}</a></li>
+{endloop:nav}</ul>
+</div>{endif:nav}
+
+<div class="row">
+{loop:articles}
+
+
+<noindex>
+<!--googleoff: all-->
+
+<div class="col-xs-6 col-lg-4">
+    {if:bgimg}
+    <div class="col-md-3 col-sm-4">
+	<a class="kmw_articlelist_photo" href="{more_link}#{title|urlencode}"><img src="{thumbsUrl}/{bgimg}" class="img-responsive"/></a>
+	<div class="clearfix"></div>
+    </div>
+    {endif:bgimg}
+    <div class="kmw_articlelist_content {if:bgimg}col-md-9 col-sm-8{endif:bgimg}">
+        {if:title}<h3><a href="{more_link}#{title|urlencode}">{title}</a></h3>{endif:title}
+	
+	{if:nd_custom_date}<p class="kmw_articlelist_date">{nd_custom_date|kameleon.date}{if:nd_custom_date_end} - {nd_custom_date_end|kameleon.date}{endif:nd_custom_date_end}</p>{endif:nd_custom_date}
+        <div class="kmw_articlelist_text">{plain}</div>
+	
+	
+	{if:attachment}<div class="kmw_articlelist_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
+	
+        {if:costxt}<a href="{more_link}#{title|urlencode}" class="buy-ticket">{costxt}</a>{if:costxt}
+    </div>
+</div>
+<!--googleon: all-->
+
+
+</noindex>
+
+{if:__index__=3}
+</div>
+<div class="collapse row" id="more-articles">
+
+{endif:__index__=3}
+
+{endloop:articles}
+
+</div>
+<div class="clearfix"></div>
+<a class="btn more-articles  btn btn-default" data-toggle="collapse" href="#more-articles" aria-expanded="false" aria-controls="more-articles">
+  {if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}
+</a>
+
+{endwith:articlelistWidget}
+{plain}
