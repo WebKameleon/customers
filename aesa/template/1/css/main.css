@@ -108,8 +108,59 @@ body {
 	background-repeat:repeat;
 }
 
+.navbar-inverse {
+  background:url(../images/top-bg.png);
+  border:0px;
+  padding: 25px 0 25px 0;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #333;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.navbar-brand {
+  margin-top:-6px;
+}
 
 
+.jumbotron,
+.jumbotron a {
+  background: none;
+  color: #fff;
+  text-shadow: 0 0 4px #333;
+  font-family: 'Oswald', sans-serif;
+  font-size: 60px;
+  text-align: right;
+}
+
+.jumbotron a.btn.btn-default {
+  font-size: 18px;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-color: #fff;
+}
+
+.blue {
+  background:url(../images/blue-bg.png);
+  width: 33%;
+}
+
+.white {
+  background: #fff;
+  font-family: 'Oswald', sans-serif;
+  color: #333;
+}
+
+.blue, .blue h1, .blue h2, .blue h3, .blue h4, .blue h5, .blue h6 {
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  padding: 10px;
+  margin: 0px;
+}
 
 
 /* Kameleon Walkaround */
