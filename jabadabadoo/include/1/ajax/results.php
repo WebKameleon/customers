@@ -87,10 +87,18 @@
             if (isset($row['confirm'])) $row['confirm2']=$row['confirm3']=$row['confirm'];
             
             if (isset($row['confirm'])) $row['!confirm']=1-$row['confirm'];
+            else $row['!confirm']=1;
+            
             if (isset($row['!confirm'])) $row['!confirm2']=$row['!confirm3']=$row['!confirm'];
             
             if (isset($row['flag1'])) $row['!flag1']=1-$row['flag1'];
+            else $row['!flag1']=1;
+            
             if (isset($row['flag2'])) $row['!flag2']=1-$row['flag2'];
+            else $row['!flag2']=1;
+            
+            if (isset($row['nego'])) $row['!nego']=1-$row['nego'];
+            else $row['!nego']=1;
             
             $result2[]=$row;
             
