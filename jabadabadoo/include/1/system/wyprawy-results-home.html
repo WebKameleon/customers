@@ -17,7 +17,7 @@
             <div class="promo-subtitle">[name]</div>
 
             <div class="row term-price-line">
-                <div [if:flag1]style="display: none"[endif:flag1] class="col-md-4 col-sm-4[if:!confirm] big[endif:!confirm][if:confirm2] small[endif:confirm2]">
+                <div [if:flag1]style="display: none"[endif:flag1] class="col-md-4 col-sm-4[if:nego] big[endif:nego][if:!nego] small[endif:!nego]">
                     [if:nego][alt][endif:nego]
                     [if:!nego][days] dni[endif:!nego]
                 </div>
@@ -30,3 +30,5 @@
         </div>
     </div>
 </div>
+
+{debu}
