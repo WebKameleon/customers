@@ -729,7 +729,7 @@ blockquote h6 {
     margin-top: 50px;
 }
 
-.landing .special {
+.landing .special .special {
     background-color:rgba(255,255,255,0.7);
     padding: 25px;
     -webkit-border-radius: 4px 4px 4px 4px;
@@ -739,9 +739,12 @@ blockquote h6 {
     margin-bottom: 65px;
 }
 
+.landing .special h1,
 .landing .special h2 {
     margin-top:0px;
     font-weight: 300;
+    font-size: 30px;
+    color: #333;
 }
 
 .landing .banner.container .col-md-3.col-sm-3 form {
