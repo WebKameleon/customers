@@ -802,6 +802,16 @@ blockquote h6 {
     display: none;
 }
 
+.landing .form-horizontal .form-group {
+  margin-right: 0px;
+  margin-left: 0px;
+  background-color: #fff;
+}
+
+.landing .form-horizontal .form-group label {
+    font-size: 14px;
+}
+
 .agent .kmw_article_text,
 .agent .kmw_article_text p,
 .agent .kmw_article_text span{
