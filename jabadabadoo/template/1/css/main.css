@@ -802,7 +802,8 @@ blockquote h6 {
     display: none;
 }
 
-.agent .kmw_article_text p {
+.agent .kmw_article_text p,
+.agent .kmw_article_text span{
   font-size: 18px;
   font-weight: 300;
   font-family: 'Source Sans Pro', sans-serif;
