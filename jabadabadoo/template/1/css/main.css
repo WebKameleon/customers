@@ -721,6 +721,14 @@ blockquote h6 {
     margin-top: 50px;
 }
 
+.landing .kmw_article_text {
+    font-size: 62px;
+    line-height: 1;
+    font-weight: 100;
+    max-width: 600px;
+    margin-top: 50px;
+}
+
 .landing .special {
     background-color:rgba(255,255,255,0.7);
     padding: 25px;
