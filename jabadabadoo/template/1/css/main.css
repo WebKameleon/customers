@@ -801,6 +801,12 @@ blockquote h6 {
 .landing .banner.container .kmw_article_more {
     display: none;
 }
+
+.agent .kmw_article_text p {
+  font-size: 18px;
+  font-weight: 300;
+  font-family: 'Source Sans Pro', sans-serif;
+}
 /* /Landing Page */
 
 /* Homepage Promo Boxes */
