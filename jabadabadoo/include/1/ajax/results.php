@@ -100,11 +100,14 @@
             if (isset($row['nego'])) $row['!nego']=1-$row['nego'];
             else $row['!nego']=1;
             
-            if (isset($row['nego1'])) $row['!nego1']=1-$row['nego1'];
-            else $row['!nego1']=1;
+            if (isset($row['nego'])) $row['nego']+=0;
+            if (isset($row['nego'])) $row['nego2']=$row['nego3']=$row['nego'];
             
-            if (isset($row['nego2'])) $row['!nego2']=1-$row['nego2'];
-            else $row['!nego2']=1;
+            if (isset($row['nego'])) $row['!nego']=1-$row['nego'];
+            else $row['!nego']=1;
+            
+            if (isset($row['!nego'])) $row['!nego2']=$row['!nego2']=$row['!nego'];
+
             
             $result2[]=$row;
             
