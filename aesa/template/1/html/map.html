@@ -8,35 +8,7 @@
   <!----- head ----->
   {include:head.html}
   <!----- /head ------>
-  
-  <style>
    
-   #google-map {
-    position: absolute;
-    top:0;
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    z-index: -100;
-   }
-   
-   .map-footer {
-    position: fixed;
-    bottom: 0;
-    background-color:rgba(0,0,0,0.5);
-    width: 100%;
-   }
-   
-   .map-footer footer {
-    display: none;
-   }
-   
-   .map-header {
-    background-color:rgba(0,0,0,0.5);
-   }
-  </style>
-  
 </head>
 
 <body{if:page.class} class="{page.class}"{endif:page.class}>
@@ -65,6 +37,10 @@
  <!----- /main content ----->
 
  <!----- footer ----->
+
+<button class="btn btn-primary btn-footer" type="button" data-toggle="collapse" data-target="#collapseFooter" aria-expanded="false" aria-controls="collapseFooter">
+  Button
+</button>
  <div class="map-footer">
  {with:footer} {include:footer.html} {endwith:footer}
  </div>

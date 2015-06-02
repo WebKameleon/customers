@@ -12,6 +12,12 @@
 
 <body{if:page.class} class="{page.class}"{endif:page.class}>
   
+      <div class="background">
+     <!----- bcg ----->
+     <img src="{if:server.background}{uimages}/{server.background}{endif:server.background} {if:page.background}{uimages}/{page.background}{endif:page.background}" class="img-responsive" />
+     <!----- /bcg ----->
+    </div>
+  
  <!----- header ----->
  {with:header} {include:header.html} {endwith:header}
  <!----- /header ----->

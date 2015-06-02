@@ -162,6 +162,32 @@ body {
   margin: 0px;
 }
 
+/* Map */
+   #google-map {
+    position: absolute;
+    top:0;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    z-index: 0;
+   }
+   
+   .map-footer {
+    position: fixed;
+    bottom: 0;
+    background-color:rgba(0,0,0,0.5);
+    width: 100%;
+   }
+   
+   .map-footer footer {
+    /*display: none;*/
+   }
+   
+   .map-header {
+    background-color:rgba(0,0,0,0.5);
+   }
+/* /Map */
 
 /* Kameleon Walkaround */
 #preview {
@@ -170,4 +196,28 @@ body {
   left: 0;
   top: 0;
   z-index:99999;
+}
+
+.km_ruler_x {
+  position: relative;
+  z-index: 99996;
+}
+
+.wk-toolbar-bg-color {
+  position: relative;
+  z-index: 99997;
+}
+
+.wk-bg-grey, .btn-footer {
+  position: relative;
+  z-index: 99998;
+}
+
+.col-md-12.wk-container.wk-bg-grey {
+  z-index: 99999;
+}
+
+.btn-footer {
+  bottom: 0px;
+  position: absolute;
 }
