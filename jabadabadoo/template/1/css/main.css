@@ -802,6 +802,7 @@ blockquote h6 {
     display: none;
 }
 
+.agent .kmw_article_text,
 .agent .kmw_article_text p,
 .agent .kmw_article_text span{
   font-size: 18px;
