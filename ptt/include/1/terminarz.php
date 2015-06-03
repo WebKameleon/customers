@@ -106,4 +106,4 @@
 	$webtd->xml=json_encode($adr);
 	$webtd->save();
         
-	include(__DIR__.'/terminarz.html');
+	include(__DIR__.'/terminarz-'.$lang.'.html');
