@@ -1,0 +1,34 @@
+
+ [
+		{
+			name : "PPO Tarnawa",
+			coords : [52.33518173393839,
+					14.901022911071777],
+			description : [
+					"23 km na wschód od Świecka",
+					"23 km east of Świecko" ]
+		},
+		{
+			name : "PPO Gołuski",
+			coords : [52.350480230160294,
+					16.731812953948975],
+			description : [
+					"152 km na wschód od Świecka",
+					"152 km east of Świecko" ]
+		},
+		{
+			name : "PPO Nagradowice",
+			coords : [52.31076134635855,
+					17.15140700340271],
+			description : [
+					"181 km na wschód od Świecka",
+					"181 km east of Świecko" ]
+		},
+		{
+			name : "PPO Lądek",
+			coords : [52.22185166339437,
+					17.950791120529175],
+			description : [
+					"238 km na wschód od Świecka",
+					"238 km east of Świecko" ]
+		} ]

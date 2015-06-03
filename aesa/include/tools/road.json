@@ -1,0 +1,141 @@
+
+
+ [
+		{
+			name : "Słupca",
+			coords : [52.253139, 17.824673],
+			type : "fullNode",
+			description : [
+					"229 km na wschód od Świecka<br>Skrzyżowanie z drogą wojewódzką nr 466",
+					"229 km east of Świecko" ]
+		},
+		{
+			name : "Poznań Wschód",
+			name_en : "Poznan East",
+			coords : [52.320533741936586,
+					17.11948871612549],
+			type : "fullNode",
+			description : [
+					"180 km na wschód od Świecka<br>Skrzyżowanie z drogą ekspresową nr S-5<br>oddanie do użytku - 06.2012",
+					"180 km east of Świecko" ]
+		},
+		{
+			name : "Poznań Zachód",
+			name_en : "Poznan West",
+			coords : [52.35050644411929,
+					16.76786184310913],
+			type : "fullNode",
+			description : [
+					"154 km na wschód od Świecka<br>Skrzyżowanie z drogą ekspresową nr S-11<br>oddanie do użytku - 05.2012",
+					"154 km east of Świecko" ]
+		},
+		{
+			name : "Modła",
+			coords : [52.162939, 18.206812],
+			type : "fullNode",
+			description : [
+					"257 km na wschód od Świecka<br>Skrzyżowanie z drogą krajową nr 25",
+					"257 km east of Świecko" ]
+		},
+		{
+			name : "Nowy Tomyśl",
+			coords : [52.35859270832136,
+					16.09823226928711],
+			type : "fullNode",
+			description : [
+					"108 km na wschód od Świecka<br>Skrzyżowanie z drogą wojewódzką nr 305",
+					"108 km east of Świecko" ]
+		},
+		{
+			name : "Buk",
+			coords : [52.376388889, 16.566388889],
+			type : "fullNode",
+			description : [
+					"140 km na wschód od Świecka<br>Skrzyżowanie z drogą wojewódzką nr 307",
+					"140 km east of Świecko" ]
+		},
+		{
+			name : "Komorniki",
+			coords : [52.350277778, 16.836944444],
+			type : "fullNode",
+			description : [
+					"159 km na wschód od Świecka<br>Skrzyżowanie z drogą krajową nr 5",
+					"159 km east of Świecko" ]
+		},
+		{
+			name : "Dębina",
+			coords : [52.353888889, 16.901944444],
+			type : "fullNode",
+			description : [
+					"164 km&nbspna&nbspwschód&nbspod&nbspŚwiecka<br>Skrzyżowanie z drogą wojewódzką nr 430",
+					"164 km east of Świecko" ]
+		},
+		{
+			name : "Krzesiny",
+			coords : [52.345833333, 16.999166667],
+			type : "fullNode",
+			description : [
+					"170 km na wschód od Świecka<br>Skrzyżowanie z drogą krajową nr 11",
+					"170 km east of Świecko" ]
+		},
+		{
+			name : "Września",
+			coords : [52.315277778, 17.533333333],
+			type : "fullNode",
+			description : [
+					"208 km na wschód od Świecka<br>Skrzyżowanie z drogą krajową nr 92",
+					"208 km east of Świecko" ]
+		},
+		{
+			name : "Sługocin",
+			coords : [52.205, 18.021388889],
+			type : "fullNode",
+			description : [
+					"243 km na wschód od Świecka<br>Skrzyżowanie z drogą wojewódzką nr 467",
+					"243 km east of Świecko" ]
+		},
+		{
+			name : "Trzciel",
+			coords : [52.32894501868009,
+					15.871896743774414],
+			type : "fullNode",
+			description : [
+					"91 km na wschód od Świecka<br>Skrzyżowanie z drogą powiatową F1339",
+					"91 km east of Świecko" ]
+		},
+		{
+			name : "Jordanowo",
+			coords : [52.32400930869265,
+					15.535354614257812],
+			type : "fullNode",
+			description : [
+					"69 km na wschód od Świecka<br>skrzyżowanie z drogą ekspresową S3",
+					"69 km east of Świecko" ]
+		},
+		{
+			name : "Torzym",
+			coords : [52.325242085647034,
+					15.085923671722412],
+			type : "fullNode",
+			description : [
+					"35 km na wschód od Świecka<br>Skrzyżowanie z drogą wojewódzką nr 138",
+					"35 km east of Świecko" ]
+		},
+		{
+			name : "Rzepin",
+			coords : [52.333398531374435,
+					14.88072395324707],
+			type : "fullNode",
+			description : [
+					"21 km na wschód od Świecka<br>skrzyżowanie z DK Nr 2<br>oraz drogą powiatową F1254",
+					"21 km east of Świecko" ]
+		},
+		{
+			name : "Świecko",
+			coords : [52.323484712336324,
+					14.616494178771973],
+			type : "fullNode",
+			description : [
+					"3 km na wschód od Świecka<br>Skrzyżowanie z drogą krajową nr 29",
+					"3 km east of Świecko" ]
+		} ]
