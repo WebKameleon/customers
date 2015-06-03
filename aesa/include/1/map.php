@@ -11,9 +11,10 @@
 ?>
 <ul class="map-markers">
     <?php foreach ($data['markers'] AS $m) if ($m['Icon']) {?>
-    <li class="<?php echo $m['Type']?>"><img src="<?php echo $IMAGES.'/'.$m['Icon'];?>"/></li>
+    <li class="<?php echo $m['Type']; if ($m['VisibleStart']) echo ' active'; ?>" title="<?php echo $m[$lang]?>"><img src="<?php echo $IMAGES.'/map/'.$m['Icon'];?>"/></li>
     <?php } ?>
 </ul>
 <script>
     var map_json='<?php echo $include.'/'.$file;?>';
+    var map_icons='<?php echo $IMAGES.'/map/';?>';
 </script>
