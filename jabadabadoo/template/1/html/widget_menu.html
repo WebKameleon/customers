@@ -42,14 +42,19 @@
 <div class="booking">
     <p class="select-info">termin:</p>
     <div class="container-fluid">
+    {if:menu}
     <select class="form-control mySelect input-lg" role="tablist" id="myTab">
     {loop:menu}
      <option rel="{d_from}" value="date{__index__}" {if:first_child}class="selected"{endif:first_child}>{alt}</option>
     {endloop:menu}
-    {if:!menu}
-     <option rel="test" value="test" class="selected">Brak terminu</option>
-    {endif:!menu}
     </select>
+    {endif:menu}
+    
+    {if:!menu}
+    <select class="form-control mySelect input-lg">
+     <option class="selected">Brak terminu</option>
+    </select>
+    {endif:!menu}
     </div>
     
     
