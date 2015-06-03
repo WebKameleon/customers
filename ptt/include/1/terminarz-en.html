@@ -1,0 +1,23 @@
+<table class="table table-responsvie table-striped">
+ <tr>
+  <th class="col-md-3 col-sm-6">Event</th>
+  <th class="col-md-2 col-sm-4">Date</th>
+  <th class="col-md-2 hidden-sm hidden-xs">City</th>
+  <th class="col-md-3 hidden-sm hidden-xs">Place</th>
+  <th class="col-md-2 col-sm-2">&nbsp;</th>
+ </tr>
+ 
+ {loop:events}
+ <tr>
+  <td class="col-md-3 col-sm-6">{SUMMARY}</td>
+  <td class="col-md-2 col-sm-4">{date}{if:time}, {time}{endif:time}</td>
+  <td class="col-md-2 hidden-sm hidden-xs">{if:city}{city}{endif:city}{if:country}, {country}{endif:country}</td>
+  <td class="col-md-3 hidden-sm hidden-xs"><a href="{map}" target="_blank">{place}</a></td>
+  {if:ticket}<td class="col-md-2 col-sm-2 buy-ticket"><a href="{ticket}" target="_blank">BUY TICKET</a></td>{endif:ticket}
+  {if:!ticket}<td class="col-md-2 col-sm-2 buy-ticket">&nbsp;</td>{endif:!ticket}
+ </tr>
+ {endloop:events}
+ 
+</table>
+
+
