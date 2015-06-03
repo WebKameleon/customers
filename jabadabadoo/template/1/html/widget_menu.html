@@ -46,6 +46,9 @@
     {loop:menu}
      <option rel="{d_from}" value="date{__index__}" {if:first_child}class="selected"{endif:first_child}>{alt}</option>
     {endloop:menu}
+    {if:!menu}
+     <option rel="test" value="test" class="selected">Brak terminu</option>
+    {endif:!menu}
     </select>
     </div>
     
@@ -104,38 +107,7 @@
  </tbody></table>
      
     </div>
-      <!-- <a type="button" class="btn" data-toggle="modal" href="#myModal">Zapytaj</a> -->
-      
-<!-- 
-<div class="collapse yobboo-form" id="CForm{lp}">
-  <form class="col-md-12">
-    <div class="form-group">
-    <label for="InputName">Imię i nazwisko</label>
-    <input type="text" class="form-control" id="InputName" placeholder="">
-  </div>
-  <div class="form-group">
-    <label for="InputEmail">Addres email</label>
-    <input type="email" class="form-control" id="InputEmail" placeholder="">
-  </div>
-  <div class="form-group">
-    <label for="InputPhone">Telefon</label>
-    <input type="phone" class="form-control" id="InputPhone" placeholder="">
-  </div>
-  <div class="form-group">
-    <label for="InputMessage">Wiadomość</label>
-    <textarea class="form-control" rows="3"></textarea>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> wyrażam zgodę na przetwarzanie moich danych osobowych
-    </label>
-  </div>
-  
-</form>
-  
-  <div class="clearfix"></div>
-</div>-->
-      
+     
       
     <a class="btn btn-primary button-col" href="#CForm{lp}">Zapytaj</a>
 
@@ -143,6 +115,52 @@
     
     </div> 
     {endloop:menu}
+    
+    {if:!menu}
+    <div id="test" style="display:block;" class="tab-pane test">
+     
+    <div class="container-fluid">
+     
+     <table class="table table-responsive table-condensed">
+   <tbody>
+
+    <tr>
+     <td>Status:</td>
+     <td>Niepotwierdzone</td>
+    </tr>
+
+    <tr>
+     <td>Cena:</td>
+     <td><span class="super-price">Brak danych</span></td>
+    </tr>
+ 
+   <tr>
+     <td>Ilość dni:</td>
+     <td>Brak danych</td>
+   </tr>
+
+   <tr>
+     <td>Grupa min.:</td>
+     <td>Brak danych</td>
+   </tr>
+
+    <tr>
+     <td>Wylot:</td>
+     <td>Brak danych</td>
+   </tr>
+
+
+ </tbody></table>
+     
+    </div>
+     
+      
+    <a class="btn btn-primary button-col" href="#CForm{lp}">Zapytaj</a>
+
+
+    
+    </div>
+    {endif:!menu}
     
     
     
