@@ -1,37 +1,37 @@
 
 [
 		{
-			name : "OUA Kotowo",
-			coords : [52.351388889, 16.843888889],
-			description : [
+			"name" : "OUA Kotowo",
+			"coords" : [52.351388889, 16.843888889],
+			"description" : [
 					"160 km na wschód od Świecka",
 					"160 km east of Świecko" ]
 		},
 		{
-			name : "OUA Sługocin ",
-			coords : [52.206666667, 18.019444444],
-			description : [
+			"name" : "OUA Sługocin ",
+			"coords" : [52.206666667, 18.019444444],
+			"description" : [
 					"243 km na wschód od Świecka",
 					"243 km east of Świecko" ]
 		},
 		{
-			name : "OUA Bolewice",
-			coords : [52.360555556, 16.098055556],
-			description : [
+			"name" : "OUA Bolewice",
+			"coords" : [52.360555556, 16.098055556],
+			"description" : [
 					"108 km na wschód od Świecka",
 					"108 km east of Świecko" ]
 		},
 		{
-			name : "OUA Biały Mur",
-			coords : [52.298777031, 15.652181206],
-			description : [
+			"name" : "OUA Biały Mur",
+			"coords" : [52.298777031, 15.652181206],
+			"description" : [
 					"76 km na wschód od Świecka",
 					"76 km east of Świecko" ]
 		},
 		{
-			name : "OUA Ilanka",
-			coords : [52.323438711, 15.084758664],
-			description : [
+			"name" : "OUA Ilanka",
+			"coords" : [52.323438711, 15.084758664],
+			"description" : [
 					"35 km na wschód od Świecka",
 					"35 km east of Świecko" ]
 		} ]

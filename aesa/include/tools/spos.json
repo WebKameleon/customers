@@ -2,48 +2,48 @@
 
 [
 		{
-			name : "SPO Buk",
-			coords : [52.376388889, 16.566388889],
-			description : [
+			"name" : "SPO Buk",
+			"coords" : [52.376388889, 16.566388889],
+			"description" : [
 					"140 km na wschód od Świecka",
 					"140 km east of Świecko" ]
 		},     
 		{
-			name : "SPO Nowy Tomyśl",
-			coords : [52.35859270832136,
+			"name" : "SPO Nowy Tomyśl",
+			"coords" : [52.35859270832136,
 					16.09823226928711],
-			description : [
+			"description" : [
 					"108 km na wschód od Świecka",
 					"108 km east of Świecko" ]
 		},
 		{
-			name : "SPO Trzciel",
-			coords : [52.32894501868009,
+			"name" : "SPO Trzciel",
+			"coords" : [52.32894501868009,
 					15.871896743774414],
-			description : [
+			"description" : [
 					"91 km na wschód od Świecka",
 					"91 km east of Świecko" ]
 		},
 		{
-			name : "SPO Jordanowo",
-			coords : [52.32400930869265,
+			"name" : "SPO Jordanowo",
+			"coords" : [52.32400930869265,
 					15.535354614257812],
-			description : [
+			"description" : [
 					"69 km na wschód od Świecka",
 					"69 km east of Świecko" ]
 		},
 		{
-			name : "SPO Torzym",
-			coords : [52.325242085647034,
+			"name" : "SPO Torzym",
+			"coords" : [52.325242085647034,
 					15.085923671722412],
-			description : [
+			"description" : [
 					"26 km na wschód od Świecka",
 					"26 km east of Świecko" ]
 		},
 		{
-			name : "SPO Słupca",
-			coords : [52.253139, 17.824673],
-			description : [
+			"name" : "SPO Słupca",
+			"coords" : [52.253139, 17.824673],
+			"description" : [
 					"229 km na wschód od Świecka",
 					"229 km east of Świecko" ]
 		} ]

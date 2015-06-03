@@ -1,341 +1,341 @@
 [
 		{
-			namePl : "Gnilec",
-			cordinates : [52.325301, 14.651295],
-			contentEn : "5 km east<br>of Świecko",
-			contentPl : "5 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : true,
-				gas : true,
-				cafe : true
+			"namePl" : "Gnilec",
+			"cordinates" : [52.325301, 14.651295],
+			"contentEn" : "5 km east<br>of Świecko",
+			"contentPl" : "5 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : true,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Sosna",
-			cordinates : [52.323948, 14.653914],
-			contentEn : "5 km east<br>of Świecko",
-			contentPl : "5 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : true,
-				gas : true,
-				cafe : true
+			"namePl" : "Sosna",
+			"cordinates" : [52.323948, 14.653914],
+			"contentEn" : "5 km east<br>of Świecko",
+			"contentPl" : "5 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : true,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Chociszewo",
-			cordinates : [52.313384, 15.781606],
-			contentEn : "85 km east<br>of Świecko",
-			contentPl : "85 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : true,
-				gas : true,
-				cafe : true
+			"namePl" : "Chociszewo",
+			"cordinates" : [52.313384, 15.781606],
+			"contentEn" : "85 km east<br>of Świecko",
+			"contentPl" : "85 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : true,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Rogoziniec",
-			cordinates : [52.312423, 15.782388],
-			contentEn : "85 km east<br>of Świecko",
-			contentPl : "85 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : true,
-				gas : true,
-				cafe : true
+			"namePl" : "Rogoziniec",
+			"cordinates" : [52.312423, 15.782388],
+			"contentEn" : "85 km east<br>of Świecko",
+			"contentPl" : "85 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : true,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Koryta",
-			cordinates : [52.32532, 15.161596],
-			contentEn : "41 km east<br>of Świecko",
-			contentPl : "41 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"namePl" : "Koryta",
+			"cordinates" : [52.32532, 15.161596],
+			"contentEn" : "41 km east<br>of Świecko",
+			"contentPl" : "41 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Walewice",
-			cordinates : [52.326432, 15.161907],
-			contentEn : "41 km east<br>of Świecko",
-			contentPl : "41 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"namePl" : "Walewice",
+			"cordinates" : [52.326432, 15.161907],
+			"contentEn" : "41 km east<br>of Świecko",
+			"contentPl" : "41 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Kozielaski",
-			cordinates : [52.3672222222222,
+			"namePl" : "Kozielaski",
+			"cordinates" : [52.3672222222222,
 					16.1894444444444],
-			contentEn : "114 km east<br>of Świecko",
-			contentPl : "114 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"contentEn" : "114 km east<br>of Świecko",
+			"contentPl" : "114 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Wytomyśl",
-			cordinates : [52.3680555555556, 16.19],
-			contentEn : "114 km east<br>of Świecko",
-			contentPl : "114 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"namePl" : "Wytomyśl",
+			"cordinates" : [52.3680555555556, 16.19],
+			"contentEn" : "114 km east<br>of Świecko",
+			"contentPl" : "114 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Zalesie",
-			cordinates : [52.3863888888889,
+			"namePl" : "Zalesie",
+			"cordinates" : [52.3863888888889,
 					16.4761111111111],
-			contentEn : "134 km east<br>of Świecko",
-			contentPl : "134 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : true,
-				gas : true,
-				cafe : true
+			"contentEn" : "134 km east<br>of Świecko",
+			"contentPl" : "134 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : true,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Sędzinko",
-			cordinates : [52.3877777777778, 16.475],
-			contentEn : "134 km east<br>of Świecko",
-			contentPl : "134 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : true,
-				cafe : true
+			"namePl" : "Sędzinko",
+			"cordinates" : [52.3877777777778, 16.475],
+			"contentEn" : "134 km east<br>of Świecko",
+			"contentPl" : "134 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Konarzewo",
-			cordinates : [52.3494444444444,
+			"namePl" : "Konarzewo",
+			"cordinates" : [52.3494444444444,
 					16.7141666666667],
-			contentEn : "151 km east<br>of Świecko",
-			contentPl : "151 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"contentEn" : "151 km east<br>of Świecko",
+			"contentPl" : "151 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Krzyżowniki",
-			cordinates : [52.3275, 17.0927777777778],
-			contentEn : "177 km east<br>of Świecko",
-			contentPl : "177 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : true,
-				cafe : true
+			"namePl" : "Krzyżowniki",
+			"cordinates" : [52.3275, 17.0927777777778],
+			"contentEn" : "177 km east<br>of Świecko",
+			"contentPl" : "177 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Tulce",
-			cordinates : [52.32945162887316,
+			"namePl" : "Tulce",
+			"cordinates" : [52.32945162887316,
 					17.092537879943848],
-			contentEn : "177 km east<br>of Świecko",
-			contentPl : "177 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : true,
-				gas : true,
-				cafe : true
+			"contentEn" : "177 km east<br>of Świecko",
+			"contentPl" : "177 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : true,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Targowa Górka",
-			cordinates : [52.3175, 17.4208333333333],
-			contentEn : "200 km east<br>of Świecko",
-			contentPl : "200 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"namePl" : "Targowa Górka",
+			"cordinates" : [52.3175, 17.4208333333333],
+			"contentEn" : "200 km east<br>of Świecko",
+			"contentPl" : "200 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Chwałszyce",
-			cordinates : [52.318592551880876,
+			"namePl" : "Chwałszyce",
+			"cordinates" : [52.318592551880876,
 					17.41830825805664],
-			contentEn : "200 km east<br>of Świecko",
-			contentPl : "200 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"contentEn" : "200 km east<br>of Świecko",
+			"contentPl" : "200 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Gozdowo",
-			cordinates : [52.2936111111111, 17.6525],
-			contentEn : "216 km east<br>of Świecko",
-			contentPl : "216 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"namePl" : "Gozdowo",
+			"cordinates" : [52.2936111111111, 17.6525],
+			"contentEn" : "216 km east<br>of Świecko",
+			"contentPl" : "216 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Sołeczno",
-			cordinates : [52.2947222222222,
+			"namePl" : "Sołeczno",
+			"cordinates" : [52.2947222222222,
 					17.6530555555556],
-			contentEn : "216 km east<br>of Świecko",
-			contentPl : "216 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"contentEn" : "216 km east<br>of Świecko",
+			"contentPl" : "216 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Lądek",
-			cordinates : [52.22634048519531,
+			"namePl" : "Lądek",
+			"cordinates" : [52.22634048519531,
 					17.931082248687744],
-			contentEn : "237 km east<br>of Świecko",
-			contentPl : "237 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"contentEn" : "237 km east<br>of Świecko",
+			"contentPl" : "237 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Skarboszewo",
-			cordinates : [52.2611111111111,
+			"namePl" : "Skarboszewo",
+			"cordinates" : [52.2611111111111,
 					17.7883333333333],
-			contentEn : "226 km east<br>of Świecko",
-			contentPl : "226 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"contentEn" : "226 km east<br>of Świecko",
+			"contentPl" : "226 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		},
 		{
-			namePl : "Osiecza II",
-			cordinates : [52.18, 18.1244444444444],
-			contentEn : "251 km east<br>of Świecko",
-			contentPl : "251 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : true,
-				gas : true,
-				cafe : true
+			"namePl" : "Osiecza II",
+			"cordinates" : [52.18, 18.1244444444444],
+			"contentEn" : "251 km east<br>of Świecko",
+			"contentPl" : "251 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : true,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Osiecza III",
-			cordinates : [52.1788888888889,
+			"namePl" : "Osiecza III",
+			"cordinates" : [52.1788888888889,
 					18.1216666666667],
-			contentEn : "251 km east<br>of Świecko",
-			contentPl : "251 km <br>od Świecka",
-			pointerPosition : "top",
-			pattern : {
-				parking : true,
-				hotel : true,
-				wc : true,
-				restaurant : true,
-				gas : true,
-				cafe : true
+			"contentEn" : "251 km east<br>of Świecko",
+			"contentPl" : "251 km <br>od Świecka",
+			"pointerPosition" : "top",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : true,
+				"wc" : true,
+				"restaurant" : true,
+				"gas" : true,
+				"cafe" : true
 			}
 		},
 		{
-			namePl : "Dopiewiec",
-			cordinates : [52.3502777777778,
+			"namePl" : "Dopiewiec",
+			"cordinates" : [52.3502777777778,
 					16.7141666666667],
-			contentEn : "151 km east<br>of Świecko",
-			contentPl : "151 km <br>od Świecka",
-			pointerPosition : "bottom",
-			pattern : {
-				parking : true,
-				hotel : false,
-				wc : true,
-				restaurant : false,
-				gas : false,
-				cafe : false
+			"contentEn" : "151 km east<br>of Świecko",
+			"contentPl" : "151 km <br>od Świecka",
+			"pointerPosition" : "bottom",
+			"pattern" : {
+				"parking" : true,
+				"hotel" : false,
+				"wc" : true,
+				"restaurant" : false,
+				"gas" : false,
+				"cafe" : false
 			}
 		} ]
