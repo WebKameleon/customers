@@ -97,11 +97,10 @@
             if (isset($row['flag2'])) $row['!flag2']=1-$row['flag2'];
             else $row['!flag2']=1;
             
-            if (isset($row['nego'])) $row['!nego']=1-$row['nego'];
+            if (isset($row['nego'])) $row['!nego']=$row['nego']?0:1;
             else $row['!nego']=1;
             
-            if (isset($row['nego'])) $row['nego']+=0;
-            else $row['nego']=0;
+            if (!isset($row['nego'])) $row['nego']=0;
             
             if (isset($row['nego'])) $row['nego1']=$row['nego2']=$row['nego3']=$row['nego'];
             if (isset($row['!nego'])) $row['!nego1']=$row['!nego2']=$row['!nego3']=$row['!nego'];
