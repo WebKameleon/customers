@@ -7,6 +7,7 @@
     
     $data=json_decode(file_get_contents($argv[1]),1);
     
+    $first=true;
     foreach($data AS $d) 
     {
         $rec=[];
@@ -23,10 +24,14 @@
             $rec['en']=$desc[1];
         }
         foreach ($pointTypes AS $t) $rec[$t]=false;
-        $pattern=get($d,['pattern']);
+        $patern=get($d,['pattern']);
         if (is_array($patern)) {
             foreach ($patern AS $k=>$b) if ($b) $rec[$k]=true;
+        } else {
+            $fname=str_replace('.json','',$argv[1]);
+            $rec[$fname]=true;
         }
+        if ($first && isset($argv[2])) echo '"'.implode('","',array_keys($rec)).'"'."\n";
+        $first=false;
+        echo '"'.implode('","',$rec).'"'."\n";
     }
-    
-    print_r($rec);
