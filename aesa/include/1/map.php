@@ -17,4 +17,5 @@
 <script>
     var map_json='<?php echo $include.'/'.$file;?>';
     var map_icons='<?php echo $IMAGES.'/map/';?>';
+    var map_lang='<?php echo $lang;?>';
 </script>
