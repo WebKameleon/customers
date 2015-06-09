@@ -1,5 +1,54 @@
 {with:articleWidget}
 
+{if:level=10}
+<style>
+#parallax { 
+   background: url({uimages}/{bgimg}) 50% 0 fixed; 
+   height: auto;  
+   margin: 0 auto; 
+   width: 100%; 
+   position: relative; 
+   box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+   padding: 50px 0;
+}
+</style>
+<section id="parallax" data-speed="4" data-type="background">
+ <div class="inner-parallax">
+ <div class="container">
+    {plain}
+ </div>
+ </div>
+</section>
+
+<script>
+ $(document).ready(function(){
+   // cache the window object
+   $window = $(window);
+ 
+   $('section[data-type="background"]').each(function(){
+     // declare the variable to affect the defined data-type
+     var $scroll = $(this);
+                     
+      $(window).scroll(function() {
+        // HTML5 proves useful for helping with creating JS functions!
+        // also, negative value because we're scrolling upwards                            
+        var yPos = -($window.scrollTop() / $scroll.data('speed'));
+         
+        // background position
+        var coords = '50% '+ yPos + 'px';
+ 
+        // move the background
+        $scroll.css({ backgroundPosition: coords });   
+      }); // end window scroll
+   });  // end section function
+}); // close out script
+
+/* Create HTML5 element for IE */
+document.createElement("section");
+</script>
+{define:level_found=1}
+{endif:level=10}
+
 {if:level=2}
  <div class="jumbotron">
   {if:bgimg}
@@ -29,7 +78,7 @@
         <div class="kmw_article_text">{plain}{tokens.php}</div>
         
         {if:attachment}<div class="kmw_article_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
-	{if:more}<a href="{more_link}" class="btn btn-default">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>{endif:more}
+	{if:more}<a href="{more_link}" class="readmore">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>{endif:more}
     </div>
 </div>
 {endif:!level_found}

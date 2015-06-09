@@ -14,23 +14,27 @@
 <noindex>
 <!--googleoff: all-->
 
-<div class="col-xs-6 col-lg-4">
+<div class="col-xs-6 col-lg-3">
+    {if:nd_custom_date}<p class="kmw_articlelist_date">{nd_custom_date|kameleon.date}{if:nd_custom_date_end} - {nd_custom_date_end|kameleon.date}{endif:nd_custom_date_end}</p>{endif:nd_custom_date}
     {if:bgimg}
-    <div class="col-md-3 col-sm-4">
-	<a class="kmw_articlelist_photo" href="{more_link}#{title|urlencode}"><img src="{thumbsUrl}/{bgimg}" class="img-responsive"/></a>
-	<div class="clearfix"></div>
-    </div>
+    <a class="kmw_articlelist_photo" href="{more_link}#{title|urlencode}"><img src="{uimages}/{bgimg}" class="img-responsive"/></a>
+    <div class="clearfix"></div>
     {endif:bgimg}
-    <div class="kmw_articlelist_content {if:bgimg}col-md-9 col-sm-8{endif:bgimg}">
+    {if:!bgimg}
+    <a class="kmw_articlelist_photo" href="{more_link}#{title|urlencode}"><img src="{template_dir}/images/no-photo.jpg" class="img-responsive"/></a>
+    <div class="clearfix"></div>
+    {endif:!bgimg}
+    <div class="kmw_articlelist_content">
         {if:title}<h3><a href="{more_link}#{title|urlencode}">{title}</a></h3>{endif:title}
 	
-	{if:nd_custom_date}<p class="kmw_articlelist_date">{nd_custom_date|kameleon.date}{if:nd_custom_date_end} - {nd_custom_date_end|kameleon.date}{endif:nd_custom_date_end}</p>{endif:nd_custom_date}
+	
         <div class="kmw_articlelist_text">{plain}</div>
 	
 	
 	{if:attachment}<div class="kmw_articlelist_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
 	
-        {if:costxt}<a href="{more_link}#{title|urlencode}" class="buy-ticket">{costxt}</a>{if:costxt}
+        {if:costxt}<a href="{more_link}#{title|urlencode}" class="readmore">{costxt}</a>{if:costxt}
+	<div class="clearfix"></div>
     </div>
 </div>
 <!--googleon: all-->
@@ -38,17 +42,17 @@
 
 </noindex>
 
-{if:__index__=3}
+{if:__index__=4}
 </div>
 <div class="collapse row" id="more-articles">
 
-{endif:__index__=3}
+{endif:__index__=4}
 
 {endloop:articles}
 
 </div>
 <div class="clearfix"></div>
-<a class="btn more-articles  btn btn-default" data-toggle="collapse" href="#more-articles" aria-expanded="false" aria-controls="more-articles">
+<a class="btn more-articles" href="{more_link}">
   {if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}
 </a>
 
