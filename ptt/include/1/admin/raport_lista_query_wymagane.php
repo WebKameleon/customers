@@ -38,7 +38,7 @@
 	//echo $costxt;
 	$head=explode(":",$costxt);
 
-	echo "<table class=\"table table-responsive table-striped\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">";
+	echo "<div class=\"table-responsive\"><table class=\"table table-responsive table-striped\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">";
 
 	
 	echo "<thead><tr>";
@@ -182,7 +182,7 @@
 
 	}
 
-	echo "</tbody></table>";
+	echo "</tbody></table></div>";
 
 
 	if ($size && $ile>$size)

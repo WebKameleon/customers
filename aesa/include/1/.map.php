@@ -14,6 +14,7 @@
         
         $webtd=new webtdModel($sid);
         $costxt=$webtd->costxt=$_REQUEST['map_doc_id'][$sid];
+        $webtd->staticinclude=1;
         $webtd->save();
         
         $wrksh=Spreadsheet::listWorksheets($costxt);
