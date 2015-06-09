@@ -38,7 +38,7 @@
 	//echo $costxt;
 	$head=explode(":",$costxt);
 
-	echo "<div class=\"table-responsive\"><table class=\"table table-responsive table-striped\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">";
+	echo "<div class=\"table-responsive\"><table style=\"font-size:10px;\" class=\"table table-responsive table-striped\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">";
 
 	
 	echo "<thead><tr>";
