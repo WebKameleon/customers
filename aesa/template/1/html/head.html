@@ -25,6 +25,23 @@
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700|Roboto:400,700,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!----- /fonts ----->
     
+    <!----- bcg ----->
+	<style>
+    body {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        {if:server.background}background-image:url('{uimages}/{server.background}');background-repeat:no-repeat; background-attachment:fixed;background-position: top center;{endif:server.background}
+        {if:page.background}background:url('{uimages}/{page.background}');background-attachment:fixed;background-repeat: repeat-y; background-position: top center;{endif:page.background}
+        {if:server.bgcolor}background-color:#{server.bgcolor} !important;{endif:server.bgcolor}
+        {if:page.bgcolor}background-color:#{page.bgcolor} !important;{endif:page.bgcolor}
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+       -o-background-size: cover;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+    </style>
+    
     <!----- css ----->
     <!----- Bootstrap core CSS ----->
     <link href="{template_dir}/css/bootstrap.min.css" rel="stylesheet">

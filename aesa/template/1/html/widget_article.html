@@ -56,7 +56,7 @@ document.createElement("section");
         <img{if:itemtype} itemprop="image"{endif:itemtype} src="{imagesUrl}/{bgimg}" class="img-responsive" />
     </a>
   {endif:bgimg}
-  {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}>{if:more}<a href="{more_link}">{endif:more}{title}{if:more}</a>{endif:more}</{tokens.h1}>{endif:title}
+  {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}>{title}</{tokens.h1}>{endif:title}
   <p>{plain}{tokens.php}</p>
         
   {if:attachment}<div class="kmw_article_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
@@ -68,14 +68,18 @@ document.createElement("section");
 {if:!level_found}
 {if:title}<a name="{title}"></a>{endif:title}
 <div class="kmw_article{if:class} {class}{endif:class}">
-    {if:bgimg}
-    <a class="kmw_article_photo" href="{uimages}/{bgimg}" fancybox="1">
+    
+    <div class="kmw_article_content">
+        {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}>{if:more}<a href="{more_link}">{endif:more}{title}{if:more}</a>{endif:more}</{tokens.h1}>{endif:title}
+        <div class="kmw_article_text">
+	 
+	 {if:bgimg}
+    <a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1">
         <img{if:itemtype} itemprop="image"{endif:itemtype} src="{imagesUrl}/{bgimg}" />
     </a>
     {endif:bgimg}
-    <div class="kmw_article_content">
-        {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}>{if:more}<a href="{more_link}">{endif:more}{title}{if:more}</a>{endif:more}</{tokens.h1}>{endif:title}
-        <div class="kmw_article_text">{plain}{tokens.php}</div>
+	 
+	 {plain}{tokens.php}</div>
         
         {if:attachment}<div class="kmw_article_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
 	{if:more}<a href="{more_link}" class="readmore">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>{endif:more}

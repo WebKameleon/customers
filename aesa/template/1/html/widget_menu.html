@@ -24,6 +24,9 @@
 
 {if:level=3}
 <div class="list-group">
+{if:title}<h6>{title}</h6>{endif:title}
+{if:name}<h6>{name}</h6>{endif:name}
+    
 {loop:menu}
  <a href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title} {if:target} target="{target}"{endif:target} class="list-group-item {if:active} active{endif:active}">
  {if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}

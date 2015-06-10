@@ -18,7 +18,10 @@
 
  <!----- main content ----->
  {with:body}
+ {if:mode=(0,1)}<div class="push"></div>{endif:mode=(0,1)}
   <div class="container">
+   <div class="content">
+    <div class="row"><div class="breadcrumbs">{level11}</div></div>
    <div class="row row-offcanvas row-offcanvas-right">
   
    <div class="col-xs-12 col-sm-9">
@@ -28,16 +31,24 @@
    
    {level2}
    <!----- main level ----->
-   <div class="row"><div class="col-md-12">{level1}</div></div>
+   <div class="row"><div class="main col-md-12"><div class="white-block">{level1}</div></div></div>
    <!----- /main level ----->
-   </div><!--/.col-xs-12.col-sm-9-->
+   </div>
    
    <!----- sidebar ----->
    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">{level3}</div>
    <!----- /sidebar ----->
   
-  </div> <!-- /row end -->
- </div> <!-- /container end -->
+  </div> <!----- /row end ----->
+  </div> <!----- /content ----->
+ </div> <!----- /container end ----->
+ 
+  <div class="clearfix"></div>
+ 
+ <!----- parallax ----->
+ <div class="parallax">{level10}</div>
+ <!----- /parallax ----->
+ 
  {endwith:body}
  <!----- /main content ----->
 
