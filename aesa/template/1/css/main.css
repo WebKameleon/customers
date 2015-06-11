@@ -730,6 +730,125 @@ table caption {
    }
 /* /Map */
 
+/* Calc */
+.calc {
+  background: url('../images/calc/calc-bg.jpg');
+}
+
+.calc-title {
+  background: #1c488c;
+  color: #fff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px;
+}
+
+.calc ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.calc ul li .radio {
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 40px;
+}
+
+.calc ul li .radio input {
+  display: block;
+  width: 100%;
+  height: 30px;
+  width:30px;
+  margin: 5px;
+  text-align: left;
+}
+
+.calc ul li.kat1 .radio {
+  background: url('../images/calc/kat1.png');
+  background-repeat: no-repeat;
+  display: block;
+  height: 40px;
+  background-color: #c4c4c4;
+  background-position: 50px 0;
+}
+
+.calc ul li.kat2 .radio {
+  background: url('../images/calc/kat2.png');
+  background-repeat: no-repeat;
+  display: block;
+  height: 40px;
+  background-color: #c4c4c4;
+  background-position: 50px 0;
+}
+
+.calc ul li.kat3 .radio {
+  background: url('../images/calc/kat3.png');
+  background-repeat: no-repeat;
+  display: block;
+  height: 40px;
+  background-color: #c4c4c4;
+  background-position: 50px 0;
+}
+
+.calc ul li.kat4 .radio {
+  background: url('../images/calc/kat4.png');
+  background-repeat: no-repeat;
+  display: block;
+  height: 40px;
+  background-color: #c4c4c4;
+  background-position: 50px 0;
+}
+
+.calc ul li.kat5 .radio {
+  background: url('../images/calc/kat5.png');
+  background-repeat: no-repeat;
+  display: block;
+  height: 40px;
+  background-color: #c4c4c4;
+  background-position: 50px 0;
+}
+
+.calc ul li.current .radio {
+  background-color: transparent;
+}
+
+.calc select {
+  font-family: 'Oswald', sans-serif;
+  color: #131313;
+  font-size: 30px;
+  height: auto;
+  margin-top: 70px;
+}
+
+.calc .arrow {
+  background: url('../images/calc/arrow.png');
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  margin-top:75px;
+}
+
+
+.calc .prize {
+  font-family: 'Oswald', sans-serif;
+  color: #1e498c;
+  font-size: 48px;
+  text-align: center;
+  margin-top: 65px;
+  font-weight: 700;
+}
+
+.calc .col-md-3.col-sm-3 {
+  padding-left: 0px;
+}
+/* /Calc */
+
 /* Kameleon Walkaround */
 #preview {
   position: fixed !important;
