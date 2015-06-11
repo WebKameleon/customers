@@ -3,16 +3,17 @@
     
     <!----- footer ----->
     <div class="container">
-      {if:page_id=16}<div class="map-legend">{level205}</div>
-     <hr>{endif:page_id=16}
-     <footer {if:page_id=16}class="collapse" id="collapseFooter"{endif:page_id=16}>
+      {if:page.type=3}<div class="map-legend">{level205}</div>
+     <hr>{endif:page.type=3}
+     {if:!page.type=3}
+     <footer class="collapse" id="collapseFooter">
         <div class="row">
           <div class="col-md-3 col-sm-3">{level200}</div>
           <div class="col-md-3 col-sm-3">{level201}</div>
           <div class="col-md-3 col-sm-3">{level202}</div>
           <div class="col-md-3 col-sm-3">{level203}</div>
         </div>
-     </footer>
+     </footer>{endif:!page.type=3}
     </div>
     <!----- /footer ----->
     

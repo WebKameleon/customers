@@ -736,7 +736,7 @@ table caption {
 }
 
 .calc-title {
-  background: #1c488c;
+  background: #c5c5c5;
   color: #fff;
   font-family: 'Oswald', sans-serif;
   font-size: 18px;
@@ -747,12 +747,12 @@ table caption {
 
 .calc ul {
   list-style: none;
-  padding: 0px;
+  padding: 10px;
   margin: 0px;
 }
 
 .calc ul li .radio {
-  padding: 0px;
+  padding: 0;
   margin: 0px;
   width: 100%;
   height: 40px;
@@ -772,8 +772,8 @@ table caption {
   background-repeat: no-repeat;
   display: block;
   height: 40px;
-  background-color: #c4c4c4;
-  background-position: 50px 0;
+  
+  background-position: 50px 0px;
 }
 
 .calc ul li.kat2 .radio {
@@ -781,8 +781,8 @@ table caption {
   background-repeat: no-repeat;
   display: block;
   height: 40px;
-  background-color: #c4c4c4;
-  background-position: 50px 0;
+  
+  background-position: 50px 0px;
 }
 
 .calc ul li.kat3 .radio {
@@ -790,8 +790,8 @@ table caption {
   background-repeat: no-repeat;
   display: block;
   height: 40px;
-  background-color: #c4c4c4;
-  background-position: 50px 0;
+  
+  background-position: 50px 0px;
 }
 
 .calc ul li.kat4 .radio {
@@ -799,8 +799,8 @@ table caption {
   background-repeat: no-repeat;
   display: block;
   height: 40px;
-  background-color: #c4c4c4;
-  background-position: 50px 0;
+  
+  background-position: 50px 0px;
 }
 
 .calc ul li.kat5 .radio {
@@ -808,8 +808,8 @@ table caption {
   background-repeat: no-repeat;
   display: block;
   height: 40px;
-  background-color: #c4c4c4;
-  background-position: 50px 0;
+  
+  background-position: 50px 0px;
 }
 
 .calc ul li.current .radio {
@@ -819,9 +819,9 @@ table caption {
 .calc select {
   font-family: 'Oswald', sans-serif;
   color: #131313;
-  font-size: 30px;
+  font-size: 24px;
   height: auto;
-  margin-top: 70px;
+  margin-top: 85px;
 }
 
 .calc .arrow {
@@ -831,7 +831,8 @@ table caption {
   height: 48px;
   width: 48px;
   text-align: center;
-  margin-top:75px;
+  margin: 0 auto;
+  margin-top:85px;  
 }
 
 
@@ -840,12 +841,106 @@ table caption {
   color: #1e498c;
   font-size: 48px;
   text-align: center;
-  margin-top: 65px;
+  margin-top: 75px;
   font-weight: 700;
 }
 
 .calc .col-md-3.col-sm-3 {
   padding-left: 0px;
+}
+
+.calc-table {
+  margin-top: 30px;
+}
+
+.calc-table table {
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+.calc-table table .blank {
+  background-color: #c5c5c5 !important;
+}
+
+.calc-table table tbody tr td {
+  text-align: center;
+}
+
+.calc-table table tbody tr td:first-child {
+  font-weight: bold;
+  text-align: right;
+}
+
+.calc-table table thead tr th {
+  text-align: center;
+}
+
+.calc-table .bs-component ul li a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.section {
+  padding-top: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.section h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.section h3 span {
+  font-size: 12px;
+  font-style: italic;
+  color: #c5c5cc5;
+}
+
+.section table {
+  table-layout: fixed;
+  word-wrap: break-word;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.section table tbody tr th {
+  text-align: center;
+}
+
+.section table tbody tr th.kat1 {
+  background: url('../images/calc/kat1.png');
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.section table tbody tr th.kat2 {
+  background: url('../images/calc/kat2.png');
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.section table tbody tr th.kat3 {
+  background: url('../images/calc/kat3.png');
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.section table tbody tr th.kat4 {
+  background: url('../images/calc/kat4.png');
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.section table tbody tr th.kat5 {
+  background: url('../images/calc/kat5.png');
+  background-repeat: no-repeat;
+  display: block;
 }
 /* /Calc */
 
