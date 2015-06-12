@@ -62,10 +62,56 @@ function add_markers(kind) {
 }
 
 function initialize() {
+    
+    var styles = [
+    {
+        "featureType": "water",
+        "stylers": [
+            { "color": "#0e3d8a" }
+        ]
+    },{
+        "featureType": "landscape",
+        "stylers": [
+            { "color": "#ffffff" }
+        ]
+    },{
+        "featureType": "poi",
+        "stylers": [
+            { "color": "#f3f3f3" }
+        ]
+    },{
+        "featureType": "road.highway",
+        "stylers": [
+            { "color": "#0e3d8a" }
+        ]
+
+    }
+    ]
+    
+    var styledMap = new google.maps.StyledMapType(styles,
+    {name: "Styled Map"});
+
+      /* var mapOptions = {
+        zoom: 11,
+        center: new google.maps.LatLng(55.6468, 37.581),
+        mapTypeControlOptions: {
+          mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']  
+    }
+  };
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+    mapOptions);
+
+  //Associate the styled map with the MapTypeId and set it to display.
+  map.mapTypes.set('map_style', styledMap);
+  map.setMapTypeId('map_style'); */
+    
     var aesaLatlng = new google.maps.LatLng(52.1769581,17.1201913);
     var mapOptions = {
         zoom: 8,
         center: aesaLatlng
+        
+    
+    
     }
     map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
     
