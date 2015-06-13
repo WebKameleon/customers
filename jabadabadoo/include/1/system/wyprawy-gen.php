@@ -42,19 +42,22 @@
                 }
             }
             
-            if (!$img) $img='wyprawy/Maroko/maroko-005.jpg';
-            
-            
-            
-
-            
-            $img_file=$session['uimages_path'].'/'.$img;
-            $w=360;
-            $h=168;
-            $dstDir=$session['uimages_path'].'/wyprawy-results/'.dirname($img);
-            $dst_img=Tools::check_image(basename($img_file),dirname($img_file),$dstDir,$w,$h,0777,true,true);
-            $img=substr($dst_img,strlen($session['uimages_path']));
-  
+            if (!$img) {
+                echo '<a href="'.Bootstrap::$main->tokens->page_href($t['id']).'">Na stronie '.$t['id'].' brakuje obrazka</a><br/>';
+            } else {
+                $img_file=$session['uimages_path'].'/'.$img;
+                if (!file_exists($img_file)) {
+                    echo '<a href="'.Bootstrap::$main->tokens->page_href($t['id']).'">Na stronie '.$t['id'].' brakuje obrazka</a><br/>';
+                    $img='';
+                } else {
+                    $w=360;
+                    $h=168;
+                    $dstDir=$session['uimages_path'].'/wyprawy-results/'.dirname($img);
+                    $dst_img=Tools::check_image(basename($img_file),dirname($img_file),$dstDir,$w,$h,0777,true,true);
+                    $img=substr($dst_img,strlen($session['uimages_path']));
+                }
+            }
+      
             $base=[
                    'page'=>$t['id'],
                    'continent'=>$continent,
