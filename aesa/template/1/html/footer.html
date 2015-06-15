@@ -3,9 +3,9 @@
     
     <!----- footer ----->
     <div class="container">
-      {if:page.type=3}<div class="map-legend">{level205}</div>{endif:page.type=3}
+      {if:page.type=3}<div class="map-legend">{level205}</div>{define:page.type=3}{endif:page.type=3}
      {if:!page.type=3}
-     <footer class="collapse" id="collapseFooter">
+     <footer>
         <div class="row">
           <div class="col-md-3 col-sm-3">{level200}</div>
           <div class="col-md-3 col-sm-3">{level201}</div>

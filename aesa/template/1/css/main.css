@@ -1,6 +1,6 @@
 
 /* ==========================================================================
-   Author's custom styles
+   CSS by Karol Huszal, 2015.
    ========================================================================== */
 
 /*
@@ -125,6 +125,7 @@ body {
 	position: relative;
 }
 
+/* Nav */
 .navbar-inverse {
   background:url(../images/top-bg.png);
   border:0px;
@@ -140,14 +141,73 @@ body {
   border-color: transparent;
 }
 
-.navbar-inverse .navbar-nav>li>a:hover {
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
   border-bottom: 1px solid #1d1d1d;
   color: #1d1d1d;
+  background: none;
 }
 
 .navbar-brand {
   margin-top:-6px;
 }
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+  color: #0e3d8a;
+  background:none;
+  border: 1px solid #0e3d8a;
+  padding-bottom: 14px;
+}
+
+.navbar-nav>li>.dropdown-menu {
+  margin-top: 25px;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.dropdown-menu {
+   padding: 0px;
+}
+
+.dropdown-menu>li>a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  border-left:3px solid #fff;
+}
+
+.dropdown-menu>li>a:hover {
+  border-left:3px solid #0e3d8a;
+  color: #0e3d8a;
+}
+
+.caret {
+  margin-left: 7px;
+}
+
+.navbar-custom .nav li a {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li.active {
+    outline: 0;
+    background-color: rgba(255,255,255,.2);
+}
+
+.navbar-toggle {
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.navbar-toggle:focus,
+.navbar-toggle:active {
+    outline: 0;
+}
+/* /Nav */
 
 .jumbotron {
   margin-top:100px;
@@ -388,6 +448,7 @@ body {
   color:#fff;
   font-family: 'Oswald', sans-serif;
   font-size: 14px;
+  z-index: 9;
 }
 .news .kmw_articlelist_text {
   padding: 0 15px 15px 15px;
@@ -606,6 +667,13 @@ footer ul.menu-footer {
 #sidebar .list-group a {
   background: none;
   border-color: transparent;
+}
+
+#sidebar .list-group a.active {
+  border: 1px solid #0e3d8a;
+  color: #0e3d8a;
+  border-radius: 0px;
+  font-weight: bold;
 }
 
 #sidebar .list-group a:before {
