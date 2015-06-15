@@ -65,28 +65,83 @@ function initialize() {
     
     var styles = [
     {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },{
         "featureType": "water",
         "stylers": [
             { "color": "#0e3d8a" }
         ]
     },{
         "featureType": "landscape",
+        "elementType": "all",
         "stylers": [
-            { "color": "#ffffff" }
+            {
+                "color": "#f2f2f2"
+            }
         ]
     },{
         "featureType": "poi",
         "stylers": [
-            { "color": "#f3f3f3" }
+            {
+                "visibility": "off"
+            }
         ]
     },{
         "featureType": "road.highway",
+        "elementType": "geometry",
         "stylers": [
-            { "color": "#0e3d8a" }
+            {
+                "color": "#0e3d8a"
+            },
+            {
+                "visibility": "simplified"
+            }
         ]
-
+    },{
+        "featureType": "road.highway",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },{
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },{
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },{
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#0e3d8a"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
     }
     ]
+    
+    
     
     var styledMap = new google.maps.StyledMapType(styles,
     {name: "Styled Map"});
