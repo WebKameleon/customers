@@ -1,0 +1,41 @@
+
+{with:breadcrumbsWidget}
+{if:breadcrumbs}
+<div class="breadcrumbs">
+    <ul>
+        {if:title}<li>{title}</li>{endif:title}
+        {loop:breadcrumbs}
+        <li {if:self}class="active"{endif:self}>
+            {if:href}<a href="{href}">{endif:href}
+            {title}
+            {if:href}</a>{endif:href}
+
+            {if:neighbors}
+            <span></span>
+            <ul>
+                {loop:neighbors}
+                <li {if:self}class="active"{endif:self}>
+                {if:href}<a href="{href}">{endif:href}
+                {title}
+                {if:href}</a>{endif:href}
+                </li>
+                {endloop:neighbors}
+            </ul>
+            {endif:neighbors}
+        </li>
+        {endloop:breadcrumbs}
+    </ul>
+    {if:plain}<div class="plain">{plain}</div>{endif:plain}
+    <div class="clear"></div>
+    
+</div>
+<script type="text/javascript">
+jQueryKam(function ($) {
+    $(".breadcrumbs > ul > li > span").on("click", function (e) {
+        var ul = $(this).next("ul").slideToggle();
+        $(".breadcrumbs > ul > li > ul").not(ul).slideUp();
+    });
+});
+</script>
+{endif:breadcrumbs}
+{endwith:breadcrumbsWidget}

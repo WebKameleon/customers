@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!----- head ----->
+  {include:head.html}
+  <!----- /head ------>
+</head>
+
+<body{if:page.class} class="{page.class}"{endif:page.class}>
+  
+ <!----- header ----->
+ {with:header} {include:header.html} {endwith:header}
+ <!----- /header ----->
+
+ <!----- main content ----->
+ {with:body}
+ {if:mode=(0,1)}<div class="push"></div>{endif:mode=(0,1)}
+  <div class="container">
+   <div class="content">
+    <div class="row"><div class="breadcrumbs">{level11}</div></div>
+   <div class="row row-offcanvas row-offcanvas-right">
+    
+   <!----- sidebar ----->
+   <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">{level3}</div>
+   <!----- /sidebar -----> 
+  
+   <div class="col-xs-12 col-sm-9">
+   <p class="pull-right visible-xs">
+    <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+   </p>
+   
+   {level2}
+   <!----- main level ----->
+   <div class="row"><div class="main col-md-12"><div class="white-block">{level1}</div></div></div>
+   <!----- /main level ----->
+   </div>
+   
+   
+  
+  </div> <!----- /row end ----->
+  </div> <!----- /content ----->
+ </div> <!----- /container end ----->
+ 
+  <div class="clearfix"></div>
+ 
+ <!----- parallax ----->
+ <div class="parallax">{level10}</div>
+ <!----- /parallax ----->
+ 
+ {endwith:body}
+ <!----- /main content ----->
+
+ <!----- footer ----->
+ {with:footer} {include:footer.html} {endwith:footer}
+ <!----- /footer ----->
+
+</body>
+</html>

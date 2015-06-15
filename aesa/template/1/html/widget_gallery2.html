@@ -1,0 +1,49 @@
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+{with:gallery2Widget}
+{if:webtd.menu}
+
+{endif:level=8}
+<div id="gallery{webtd.sid}" class="row">
+{loop:webtd.menu}
+<div class="col-md-4 col-sm-4">
+ <a class="fancybox{webtd.sid} gallery-tooltip" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}"{endif:alt}>
+  <p>
+   <h7>{alt}</h7>
+   <span>{titlea}</span>
+  </p>
+  <img class="img-responsive" src="{thumbsUrl}/{img}" {if:alt}alt="{alt}"{endif:alt} />
+ </a>
+</div>
+{endloop:webtd.menu}
+</div>
+{define:level_found=1}
+{endif:level=8}
+
+
+{if:!level_found}
+<div id="gallery{webtd.sid}" class="gallery2 row">
+{loop:webtd.menu}<div class="col-md-3 col-sm-4"><a class="fancybox{webtd.sid} gallery-tooltip" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}"{endif:alt}>
+<img src="{thumbsUrl}/{img}" {if:alt}alt="{alt}"{endif:alt} /></a></div>
+{endloop:webtd.menu}
+</div>
+{endif:!level_found}
+<div class="clearfix"></div>
+
+<script type="text/javascript">
+jQueryKam(function ($) {
+        
+	$(".fancybox{webtd.sid}").fancybox({
+		openEffect	: '{data.effect}',
+		closeEffect	: '{data.effect}',
+		{if:data.slideshow_autostart}autoPlay	: '{data.slideshow_autostart}',{endif:data.slideshow_autostart}
+		{if:data.animation_speed}playSpeed	: '{data.animation_speed}',{endif:data.animation_speed}
+		openSpeed	: 'normal',
+		closeSpeed	: 'normal'
+	});
+	
+	//$('[data-toggle="tooltip"]').tooltip()
+        
+});
+</script>
+{endif:webtd.menu}
+{endwith:gallery2Widget}
