@@ -728,6 +728,41 @@ table caption {
    .map-header {
     background-color:rgba(0,0,0,0.5);
    }
+   
+   ul.map-markers {
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+   }
+   
+   ul.map-markers li img {
+    border: 0px !important;
+    border-radius: 0px !important;
+    cursor: pointer !important;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+   
+   ul.map-markers li.active img {
+    opacity: 0.4;
+    filter: alpha(opacity=40); /* For IE8 and earlier */
+  }
+   
+   .gm-style-iw ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+   }
+   
+   .gm-style-iw ul li {
+    display: inline-block;
+   }
+   
+   .gm-style-iw h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+   }
 /* /Map */
 
 /* Calc */
