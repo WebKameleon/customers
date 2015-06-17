@@ -22,7 +22,7 @@
 
 {if:!level_found}
 <div id="gallery{webtd.sid}" class="gallery2 row">
-{loop:webtd.menu}<div class="col-md-3 col-sm-4"><a class="fancybox{webtd.sid} gallery-tooltip" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}"{endif:alt}>
+{loop:webtd.menu}<div class="col-md-4 col-sm-4"><a class="fancybox{webtd.sid} gallery-tooltip" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}"{endif:alt}>
 <img src="{thumbsUrl}/{img}" {if:alt}alt="{alt}"{endif:alt} /></a></div>
 {endloop:webtd.menu}
 </div>
