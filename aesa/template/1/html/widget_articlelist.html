@@ -34,6 +34,7 @@
 	{if:attachment}<div class="kmw_articlelist_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
 	
         {if:costxt}<a href="{more_link}#{title|urlencode}" class="readmore">{costxt}</a>{if:costxt}
+	{if:!costxt}<a href="{more_link}#{title|urlencode}" class="readmore">{translates.More}</a>{if:!costxt}
 	<div class="clearfix"></div>
     </div>
 </div>
