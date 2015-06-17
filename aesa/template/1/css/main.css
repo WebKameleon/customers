@@ -21,7 +21,7 @@ a, img {
 	-moz-transition: all 0.5s ease; 
 	-o-transition: all 0.5s ease; 
 	transition: all 0.5s ease;
-	color:#138dc9;
+	color:#337ab7;
 }
 
 a img:hover {
@@ -1096,6 +1096,110 @@ table caption {
   display: block;
 }
 /* /Calc */
+
+/* Special List */
+#main ol.special-ordered-list,
+.kmw_article ol.special-ordered-list {
+    counter-reset: li; /* Initiate a counter */
+    list-style: none; /* Remove default numbering */
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+#main ol.special-ordered-list ol,
+.kmw_article ol.special-ordered-list ol {
+    margin: 0 0 0 2em; /* Add some left margin for inner lists */
+}
+
+#main ol.special-ordered-list li,
+.kmw_article ol.special-ordered-list li {
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em .8em;
+    *padding: .4em;
+    margin: .5em 0 .5em 2.5em;
+    background: #f1f1f1;
+    color: #444;
+    text-decoration: none;
+    transition: all .3s ease-out;   
+}
+
+#main ol.special-ordered-list li:hover,
+.kmw_article ol.special-ordered-list li:hover {
+    background: #eee;
+}   
+
+#main ol.special-ordered-list li:before,
+.kmw_article ol.special-ordered-list li:before {
+    content: counter(li);
+    counter-increment: li;
+    position: absolute; 
+    left: -2.5em;
+    top: 50%;
+    margin-top: -1em;
+    background: #1f4a8d;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+	color:#fff;
+	font-weight:normal;
+}
+
+#main ol.special-ordered-list li:after,
+.kmw_article ol.special-ordered-list li:after {
+    position: absolute; 
+    content: '';
+    border: .5em solid transparent;
+    left: -1em;
+    top: 50%;
+    margin-top: -.5em;
+    transition: all .3s ease-out;               
+}
+
+#main ol.special-ordered-list li:hover:after,
+.kmw_article ol.special-ordered-list li:hover:after {
+    left: -.5em;
+    border-left-color: #1f4a8d;             
+}   
+
+
+
+#main ul.special-ordered-list,
+.kmw_article ul.special-ordered-list{
+    list-style: none; /* Remove default numbering */
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    padding: 0px;
+}
+
+#main ul.special-ordered-list li,
+.kmw_article ul.special-ordered-list li { 
+    padding-left: 1em; 
+}
+
+#main ul.special-ordered-list li:before,
+.kmw_article ul.special-ordered-list li:before {
+    content: "›";
+    color: #1f4a8d; /* or whatever color you prefer */
+    margin-right: 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+}
+
+table.znaki {
+  border: 0px;
+}
+
+table.znaki img {
+  padding: 15px;
+}
+/* /Special List */
 
 /* Kameleon Walkaround */
 #preview {
