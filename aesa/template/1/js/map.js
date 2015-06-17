@@ -26,12 +26,15 @@ function add_marker(i,kind,icon) {
         html+='<ul>'+ul+'</ul>';
     }
     
+    /*
     var infowindow = new google.maps.InfoWindow({
         content: html
     });
+    */
     
     google.maps.event.addListener(m, 'click', function() {
-        infowindow.open(map,m);
+        //infowindow.open(map,m);
+        var infobox = new SmartInfoWindow({position: m.getPosition(), map: map, content: html});
     });
     
 }
