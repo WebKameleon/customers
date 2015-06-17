@@ -139,23 +139,23 @@ function initialize() {
             }
         ]
     }
-    ]
+    ];
     
     
     
-    var styledMap = new google.maps.StyledMapType(styles,
-    {name: "Styled Map"});
+    var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
 
     
     var aesaLatlng = new google.maps.LatLng(52.1769581,17.1201913);
     var mapOptions = {
         zoom: 8,
-        center: aesaLatlng,
+        center: aesaLatlng ,
         mapTypeControlOptions: {
           mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']  
         }
     }
     map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+    
     
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
@@ -214,6 +214,7 @@ $('ul.map-markers li').click(function() {
 
 
 google.maps.event.addDomListener(window, 'load', function() {
+    
     initialize();    
 });
 
