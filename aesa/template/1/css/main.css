@@ -1131,8 +1131,14 @@ table caption {
 }
 
 .ui-dialog,
-#km_jsdomenu{
+#km_jsdomenu,
+.km_dialog
+{
   z-index: 99999;
+}
+
+.ui-widget-content {
+  z-index: 99999 !important;
 }
 
 .push {
