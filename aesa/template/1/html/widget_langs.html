@@ -1,0 +1,17 @@
+{with:langsWidget}
+
+{if:data.autodetect}<script>var kmw_langs=[];</script>{endif:data.autodetect}
+<ul class="kmw_langs">
+    {loop:all_languages}
+    {if:data.autodetect}{if:!__loop__=$lang}<script>kmw_langs['{__loop__}']='{tokens|page_href:$__loop__\:$page_target}';</script>{endif:!__loop__=$lang}{endif:data.autodetect}
+    <li class="{if:__loop__=$lang}active{endif:__loop__=$lang}"><a href="{tokens|page_href:$__loop__\:$page_target}" title="{loop}" class="flag-{__loop__}-noflag">{__loop__}</a></li>
+    {endloop:all_languages}
+</ul>
+{if:data.autodetect}<script>
+{include:_goto.lang.js}
+{if:!webpage.id}
+{if:!mode}goto_lang(kmw_langs);{endif:!mode}
+{endif:!webpage.id}
+</script>{endif:data.autodetect}
+
+{endwith:langsWidget}

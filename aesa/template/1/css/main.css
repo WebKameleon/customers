@@ -122,7 +122,7 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a, h6 a:hover {
 body {
 	background:url(../images/bg.png);
 	background-repeat:repeat;
-	position: relative;
+	/*position: relative;*/
 }
 
 /* Nav */
@@ -132,6 +132,7 @@ body {
   padding: 25px 0 25px 0;
 }
 
+.navbar-inverse .navbar-nav>li>a,
 .navbar-inverse .navbar-nav>li>a {
   color: #333;
   font-family: 'Oswald', sans-serif;
@@ -142,7 +143,8 @@ body {
 }
 
 .navbar-inverse .navbar-nav>li>a:hover,
-.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover,
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
   border-bottom: 1px solid #1d1d1d;
   color: #1d1d1d;
   background: none;
@@ -160,7 +162,7 @@ body {
 }
 
 .navbar-nav>li>.dropdown-menu {
-  margin-top: 25px;
+  /*margin-top: 25px;*/
   border: 0px;
   border-radius: 0px;
 }
@@ -178,6 +180,21 @@ body {
 .dropdown-menu>li>a:hover {
   border-left:3px solid #0e3d8a;
   color: #0e3d8a;
+}
+
+.dropdown-menu>li.active>a,
+.dropdown-menu>li.active>a:hover {
+  border-left:3px solid #0e3d8a !important;
+  background: #0e3d8a !important;
+  background-color: #0e3d8a !important;
+  color: #fff !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    margin-top: 0px;
 }
 
 .caret {
@@ -207,7 +224,39 @@ body {
 .navbar-toggle:active {
     outline: 0;
 }
+
 /* /Nav */
+
+/* Langs */
+.kmw_langs {
+  float: right;
+  margin-top: 14px;
+  margin-left: 25px;
+}
+
+.kmw_langs li {
+  border-right: 1px solid #c5c5c5;
+}
+
+.kmw_langs li a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #c5c5c5;
+}
+
+.kmw_langs li:last-child {
+  border-right: 0px;
+}
+
+.kmw_langs li.active a {
+  color: #131313;
+}
+
+.kmw_langs .active {
+  opacity: 1.0;
+}
+/* /Langs */
 
 .jumbotron {
   margin-top:100px;
@@ -685,6 +734,7 @@ footer ul.menu-footer {
   background: #333;
   margin-right: 10px;
   margin-top: 8px;
+  margin-bottom: 15px;
 }
 
 #sidebar .list-group a:hover {
@@ -1080,7 +1130,8 @@ table caption {
   position: absolute;
 }
 
-.ui-dialog {
+.ui-dialog,
+#km_jsdomenu{
   z-index: 99999;
 }
 
