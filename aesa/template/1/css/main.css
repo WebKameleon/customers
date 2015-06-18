@@ -1201,6 +1201,20 @@ table.znaki img {
 }
 /* /Special List */
 
+/* Ludzie */
+.ludzie img {
+  border-radius: 50%;
+  float: left;
+  margin: 15px;
+}
+
+.ludzie p {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dedede;
+  margin-bottom: 15px;
+}
+/* /Ludzie */
+
 /* Kameleon Walkaround */
 #preview {
   position: fixed !important;
