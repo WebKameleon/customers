@@ -148,10 +148,13 @@ function initialize() {
     
     var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
 
+    var opt=aesa_map_opt.split(',');
+    if (opt.length<3) opt=[52.1769581,17.1201913,8];
+	console.log(opt);
     
-    var aesaLatlng = new google.maps.LatLng(52.1769581,17.1201913);
+    var aesaLatlng = new google.maps.LatLng(opt[0],opt[1]);
     var mapOptions = {
-        zoom: 8,
+        zoom: parseInt(opt[2]),
         center: aesaLatlng ,
         mapTypeControlOptions: {
           mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']  
