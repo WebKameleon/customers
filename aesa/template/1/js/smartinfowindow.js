@@ -74,35 +74,31 @@ SmartInfoWindow.prototype.draw = function() {
   switch (alignment) {
     case SmartInfoWindow.Align.ABOVE:
       this.width_ = 280;
-      this.height_ = 351;
+      this.height_ = 181;
       image = map_icons+'infobox_above.gif';
-      this.offsetX_ = -(this.width_ / 2 - 17);
-      this.offsetY_ = -(this.height_ + 12);
+      this.offsetX_ = -(this.width_ / 2 - 0);
+      this.offsetY_ = -(this.height_ + 37);
       break;
     case SmartInfoWindow.Align.BELOW:
       this.width_ = 280;
-      this.height_ = 351;
-      image = map_icons+'infobox_below.gif';
-      this.offsetX_ = -(this.width_ / 2 - 17);
-      this.offsetY_ = -15;
-      paddingTop = 20;
+      this.height_ = 181;
+      image = map_icons+'infobox_above.gif';
+      this.offsetX_ = -(this.width_ / 2 - 0);
+      this.offsetY_ = -(this.height_ + 37);
       break;
     case SmartInfoWindow.Align.LEFT:
-      this.width_ = 307;
-      this.height_ = 326;
-      image = map_icons+'infobox_left.gif';
-      this.offsetX_ = -(this.width_) + 10;
-      this.offsetY_ = -(this.height_ / 2 + 33);
-      widthLess = 20;
+      this.width_ = 280;
+      this.height_ = 181;
+      image = map_icons+'infobox_above.gif';
+      this.offsetX_ = -(this.width_ / 2 - 0);
+      this.offsetY_ = -(this.height_ + 37);
       break;
     case SmartInfoWindow.Align.RIGHT:
-      image = map_icons+'infobox_right.gif';
-      this.width_ = 307;
-      this.height_ = 326;
-      this.offsetX_ = 6;
-      this.offsetY_ = -(this.height_ / 2 + 33);
-      paddingLeft = 20;
-      widthLess = 20;
+      this.width_ = 280;
+      this.height_ = 181;
+      image = map_icons+'infobox_above.gif';
+      this.offsetX_ = -(this.width_ / 2 - 0);
+      this.offsetY_ = -(this.height_ + 37);
       break;
    }
 
@@ -113,14 +109,16 @@ SmartInfoWindow.prototype.draw = function() {
   this.div_.style.top = (pixPosition.y + this.offsetY_) + centerOffsetY + 'px';
   //this.div_.style.paddingTop = paddingTop + 'px';
   //this.div_.style.paddingLeft = paddingLeft + 'px';
-  this.div_.style.background = 'url("' + image + '")';
+  //this.div_.style.background = 'url("' + image + '")';
   this.div_.style.display = 'block';
+  this.div_.style.overflow = 'visible';
   
-  this.wrapperDiv_.style.width = (this.width_- widthLess) + 'px';
-  this.wrapperDiv_.style.height = this.height_ + 'px';
+  this.wrapperDiv_.className = 'map-info-box';
+  //this.wrapperDiv_.style.width = (this.width_- widthLess) + 'px';
+  //this.wrapperDiv_.style.height = this.height_ + 'px';
   this.wrapperDiv_.style.marginTop = paddingTop + 'px';
   this.wrapperDiv_.style.marginLeft = paddingLeft + 'px';
-  this.wrapperDiv_.style.overflow = 'hidden';
+  //this.wrapperDiv_.style.overflow = 'hidden';
   if (!this.panned_) {
     this.panned_ = true;
     this.maybePanMap();
