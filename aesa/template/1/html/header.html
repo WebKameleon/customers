@@ -1,9 +1,9 @@
-<div class="background">
+{if:!page.type=3}<div class="background">
      <!----- bcg ----->
      <img src="{if:!page.background}{if:server.background}{uimages}/{server.background}{endif:server.background}{endif:!page.background}
      {if:page.background}{uimages}/{page.background}{endif:page.background}" class="img-responsive" />
      <!----- /bcg ----->
-    </div>
+    </div>{endif:!page.type=3}
 
 
     <nav class="navbar navbar-custom navbar-fixed-top navbar-inverse" role="navigation">
