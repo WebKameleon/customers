@@ -21,6 +21,24 @@
     <!----- js ----->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="{template_dir}/js/bootstrap.min.js"></script>
+    <script>
++function($) {
+    'use strict';
+
+    $.fn.carousel.Constructor.prototype.pause = function(e) {
+        e || (this.paused = true)
+
+        if (this.$element.find('.next, .prev').length && $.support.transition) {
+            this.$element.trigger($.support.transition.end)
+            this.cycle(true)
+        }
+
+        this.interval = clearInterval(this.interval)
+
+        return this
+    }
+}(jQuery);
+</script>
     <script src="{template_dir}/js/moment-with-locales.js"></script>
     <script src="{template_dir}/js/picker.js"></script>
     <script src="{template_dir}/js/picker.date.js"></script>

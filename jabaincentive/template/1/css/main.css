@@ -3,9 +3,13 @@
    Karol Huszal 24.03.2015
    ========================================================================== */
 
-body {
+body, {
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden !important;
+}
+
+#km_wysiwyg_editor p {
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 a, img {
@@ -219,20 +223,58 @@ a img:hover {
 }
 
 .bxslider-wrapper .col-md-4.col-sm-4,
-.bxslider-wrapper .col-md-8.col-sm-8 {
+.bxslider-wrapper .col-md-8.col-sm-8,
+.bxslider-wrapper .col-md-4.col-sm-2,
+.bxslider-wrapper .col-md-8.col-sm-10,
+.bxslider-wrapper .col-md-3.col-sm-2,
+.bxslider-wrapper .col-md-9.col-sm-10,
+.bxslider-wrapper .col-md-3.col-sm-4,
+.bxslider-wrapper .col-md-9.col-sm-8{
     padding-left: 0px;
     padding-right: 0px;
 }
 
-.bxslider-wrapper .col-md-4.col-sm-4 {
+.bxslider-wrapper .col-md-4.col-sm-4,
+.bxslider-wrapper .col-md-4.col-sm-2,
+.bxslider-wrapper .col-md-3.col-sm-2,
+.bxslider-wrapper .col-md-3.col-sm-4{
     color: #fff;
-    font-size: 48px;
+    font-size: 36px;
     font-weight: 300;
     -webkit-box-shadow: -5px 0 15px 0 #131313;
     box-shadow: -5px 0 15px 0 #131313;
-    height: 365px;
     padding: 25px;
     line-height: 1;
+}
+
+@media (min-width:769px) {
+    .bxslider-wrapper .col-md-4.col-sm-4,
+.bxslider-wrapper .col-md-4.col-sm-2,
+.bxslider-wrapper .col-md-3.col-sm-2,
+.bxslider-wrapper .col-md-3.col-sm-4{
+    height: 225px;
+    font-size: 18px;
+}
+}
+
+@media (min-width:992px) {
+    .bxslider-wrapper .col-md-4.col-sm-4,
+.bxslider-wrapper .col-md-4.col-sm-2,
+.bxslider-wrapper .col-md-3.col-sm-2,
+.bxslider-wrapper .col-md-3.col-sm-4{
+    height: 333px;
+    font-size: 36px;
+}
+}
+
+@media (min-width:1200px) {
+    .bxslider-wrapper .col-md-4.col-sm-4,
+.bxslider-wrapper .col-md-4.col-sm-2,
+.bxslider-wrapper .col-md-3.col-sm-2,
+.bxslider-wrapper .col-md-3.col-sm-4{
+    height: 410px;
+    font-size: 36px;
+}
 }
 
 .bxslider-wrapper img {
@@ -1011,7 +1053,6 @@ a img:hover {
         padding-left: 15px;
     }
     
-    .bxslider-wrapper,
     .print-download {
         display: none;
     }
@@ -1028,9 +1069,18 @@ a img:hover {
         background: #f3f3f3;
     }
     
+    #main {
+	padding-left: 15px;
+	padding-right: 15px;
+    }
+    
 }
 
 .kmw_article_text,
 .ad-gallery {
     margin-bottom: 25px;
+}
+
+.gallery2 a {
+  border: 0px !important;
 }

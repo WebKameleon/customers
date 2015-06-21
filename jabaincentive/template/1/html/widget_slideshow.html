@@ -50,8 +50,8 @@
         {loop:webtd.menu}
         <li>
             {if:page_target}<a href="{href}">{endif:page_target}
-                <div class="col-md-8 col-sm-8"><img src="{imagesUrl}/{img}"  /></div>
-		<div class="col-md-4 col-sm-4">{if:alt}{alt}{endif:alt}</div>
+                <div class="col-md-9 col-sm-8 col-xs-12"><img src="{imagesUrl}/{img}"  /></div>
+		<div class="col-md-3 col-sm-4 hidden-xs">{if:alt}{alt}{endif:alt}</div>
             {if:page_target}</a>{endif:page_target}
         </li>
         {endloop:webtd.menu}
