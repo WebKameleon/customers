@@ -3,13 +3,9 @@
    Karol Huszal 24.03.2015
    ========================================================================== */
 
-body, {
+body {
     font-family: 'Source Sans Pro', sans-serif;
     overflow-x: hidden !important;
-}
-
-#km_wysiwyg_editor p {
-    font-family: 'Source Sans Pro', sans-serif;
 }
 
 a, img {
