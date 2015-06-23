@@ -161,6 +161,10 @@ body {
   padding-bottom: 14px;
 }
 
+.navbar-inverse .navbar-collapse {
+  float: right;
+}
+
 .navbar-nav>li>.dropdown-menu {
   /*margin-top: 25px;*/
   border: 0px;
@@ -450,20 +454,20 @@ body {
 /* /Gallery */
 
 /* News */
-.news .col-xs-6.col-lg-3 .kmw_articlelist_content {
+.news .col-xs-12.col-sm-6.col-lg-3 .kmw_articlelist_content {
   background: #fff;
 }
 
-.news .col-xs-6.col-lg-3 .kmw_articlelist_photo {
+.news .col-xs-12.col-sm-6.col-lg-3 .kmw_articlelist_photo {
   margin-right: 0px;
 }
 
-.news .col-xs-6.col-lg-3 h1,
-.news .col-xs-6.col-lg-3 h2,
-.news .col-xs-6.col-lg-3 h3,
-.news .col-xs-6.col-lg-3 h4,
-.news .col-xs-6.col-lg-3 h5,
-.news .col-xs-6.col-lg-3 h6 {
+.news .col-xs-12.col-sm-6.col-lg-3 h1,
+.news .col-xs-12.col-sm-6.col-lg-3 h2,
+.news .col-xs-12.col-sm-6.col-lg-3 h3,
+.news .col-xs-12.col-sm-6.col-lg-3 h4,
+.news .col-xs-12.col-sm-6.col-lg-3 h5,
+.news .col-xs-12.col-sm-6.col-lg-3 h6 {
   color:#161616;
   font-family: 'Oswald', sans-serif;
   font-size: 18px;
@@ -1313,3 +1317,110 @@ table.znaki img {
 .push {
   margin-bottom: 150px;
 }
+
+/* Main Queries */
+@media (max-width:1200px) {
+  .blue {
+    width: 50%;
+  }
+  
+  .blocks .readmore {
+    width: 25%;
+  }
+  
+  .gallery .col-md-4.col-sm-4 a p {
+    top: 20%;
+    text-align: center;
+  }
+}
+
+@media (max-width:991px) {
+  .nav>li>a {
+    padding: 10px 5px;
+  }
+  
+  .jumbotron {
+    margin-bottom: 0px;
+  }
+  
+  .blocks .readmore {
+    width: 35%;
+  }
+  
+  .gallery .col-md-4.col-sm-4 a p {
+    top: 10%;
+    text-align: center;
+  }
+  
+  .inner-parallax {
+    font-size: 36px;
+  }
+}
+
+@media (max-width:767px) {
+  .blue {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .navbar-inverse {
+    padding: 10px 0 10px 0;
+  }
+  
+  .navbar-inverse .navbar-toggle {
+    background-color: #0e3d8a;
+    margin-right: 30px;
+  }
+  
+  .kmw_langs {
+    display: none;
+  }
+  
+  .navbar-inverse .navbar-collapse {
+    float: none;
+  }
+  
+  .nav.navbar-nav {
+    margin-left: 15px;
+    margin-right: 30px;
+  }
+  
+  .jumbotron {
+    margin-top: 50px;
+  }
+  
+  .gallery .col-md-4.col-sm-4 a p,
+  .gallery .col-md-4.col-sm-4 a p h7,
+  .gallery .col-md-4.col-sm-4 a p span {
+    display: none;
+    background: none;
+  }
+  
+  .inner-parallax {
+    font-size: 24px;
+  }
+}
+
+@media (max-width:480px) {
+  .navbar-brand img {
+    width: 200px;
+  }
+  
+  .jumbotron {
+    padding: 15px 15px;
+  }
+  
+  .jumbotron h1 {
+    font-size: 24px;
+    margin-top: 0x;
+  }
+  
+  .jumbotron a.btn.btn-default {
+    font-size: 14px;
+  }
+  
+  .jumbotron p {
+    margin-bottom: 0px;
+  }
+}
+/* /Main Queries */
