@@ -1419,6 +1419,17 @@ table.znaki img {
     margin-left: 3px;
     margin-right: 3px;
   }
+  
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
+  .dropdown-menu {
+    margin-top: 0px;
+  }
+  
+  .caret {
+    display: none;
+  }
 }
 
 @media (max-width:480px) {
