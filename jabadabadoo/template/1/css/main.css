@@ -414,7 +414,7 @@ a img:hover {
     padding-left: 0px;
 }
 
-.booking table tr td span.en {
+.booking table tr td span.angielski {
     display: block;
     width: 25px;
     height: 13px;
@@ -422,7 +422,7 @@ a img:hover {
     margin-top:8px;
 }
 
-.booking table tr td span.pl {
+.booking table tr td span.polski {
     display: block;
     width: 25px;
     height: 13px;
