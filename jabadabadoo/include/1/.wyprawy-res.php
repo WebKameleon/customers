@@ -20,10 +20,10 @@
      <label>Strona główna</label>
     </div>
     
-    <div class="col-md-2 col-sm-2">
+    <!--<div class="col-md-2 col-sm-2">
      <input type="checkbox" name="flags[<?php echo $sid?>][flag1]" value="1" <?php if (isset($flags['flag1']) && $flags['flag1']) echo 'checked';?>/>
      <label>Wyświetlaj dni</label>
-    </div>
+    </div>-->
     
     <!--<input type="checkbox" name="flags[<?php echo $sid?>][flag2]" value="1" <?php if (isset($flags['flag2']) && $flags['flag2']) echo 'checked';?>/>
     flag2-->
@@ -44,28 +44,28 @@
      <label>Kafelki</label>
     </div>
     
-
+   <div class="col-md-4 col-sm-4">
+     <input type="checkbox" name="opt[<?php echo $sid?>][lazyload]" value="1" <?php if ($cos) echo 'checked';?>/>
+     <label>Doczytuj oferty dynamicznie</label>
+    </div>
     
     
     </div>
     
     <div class="row" style="margin-top:25px;">
         
-        <div class="col-md-3 col-sm-3">
-     <input type="checkbox" name="opt[<?php echo $sid?>][lazyload]" value="1" <?php if ($cos) echo 'checked';?>/>
-     <label>Doczytuj oferty dynamicznie</label>
-    </div>
+     
         
-    <div class="col-md-3 col-sm-3">
+    <div class="col-md-3 col-sm-4">
      <input type="checkbox" name="flags[<?php echo $sid?>][_hide_term]" value="1" <?php if (isset($flags['_hide_term']) && $flags['_hide_term']) echo 'checked';?>/>
      <label>Ukryj linię z terminem</label>
     </div>
    
-    <div class="col-md-3 col-sm-3">
+    <div class="col-md-3 col-sm-4">
      <input type="text" placeholder="Kontynent" name="flags[<?php echo $sid?>][continent]" value="<?php if (isset($flags['continent']) && $flags['continent']) echo $flags['continent'];?>"/>
     </div>
        
-    <div class="col-md-3 col-sm-3">
+    <div class="col-md-3 col-sm-4">
      <input value="Zapisz" type="submit" class="btn btn-default"/>
     </div> 
     

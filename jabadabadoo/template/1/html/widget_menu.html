@@ -72,12 +72,12 @@
      <td>Potwierdzone</td>
     </tr>
     {endif:confirm}
-    {if:!confirm}
+    <!-- {if:!confirm}
     <tr>
      <td>Status:</td>
      <td>Niepotwierdzone</td>
     </tr>
-    {endif:!confirm}
+    {endif:!confirm} -->
     {if:price}
     <tr>
      <td>Cena:</td>
@@ -93,7 +93,7 @@
     {if:group}
    <tr>
      <td>Grupa min.:</td>
-     <td>{group} osób</td>
+     <td>{group} osoby</td>
    </tr>
    {endif:group}
    {if:from}
@@ -102,12 +102,12 @@
      <td>{from}</td>
    </tr>
    {endif:from}
-   {if:care}
+   {if:pilot}
     <tr>
      <td>Opieka:</td>
-     <td><span class="{care}"></span></td>
+     <td><span class="{pilot}"></span></td>
    </tr>
-    {endif:care}
+    {endif:pilot}
 
  </tbody></table>
      
