@@ -286,7 +286,7 @@ $(document).ready(function() {
 });
 
 
-function waluty_set(waluty) {
+waluty_set = function(waluty) {
     if (typeof(waluty)=='string') waluty=JSON.parse(waluty);
 
     
@@ -304,9 +304,11 @@ function waluty_set(waluty) {
                 $(this).attr('title',cena+' '+rel);
                 cena=Math.round(parseFloat(waluty[rel])*cena);
                 $(this).html(cena);
+		$(this).parent().find('.price-currency').html('PLN');
                 
             }
             $(this).attr('rel','PLN');    
+		
         }
         
         
