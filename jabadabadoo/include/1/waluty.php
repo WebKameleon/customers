@@ -12,6 +12,8 @@
 ?>
 
 <script>
+	var waluty_set;
+
 	function waluty_get() {
 		$.get('<?php echo $ajax_str;?>',waluty_set);
 	}
