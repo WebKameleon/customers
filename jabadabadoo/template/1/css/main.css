@@ -375,6 +375,7 @@ a img:hover {
 
 .booking select {
     font-size: 18px;
+    font-weight: 300;
     text-align: right;
     color: #fba61a;
     padding: 0 15px 0 15px;
