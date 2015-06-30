@@ -374,11 +374,16 @@ a img:hover {
 }
 
 .booking select {
-    font-size: 24px;
+    font-size: 18px;
     text-align: right;
     color: #fba61a;
     padding: 0 15px 0 15px;
     margin-bottom: 10px;
+}
+
+select.input-lg {
+  height: 36px;
+  line-height: 36px;
 }
 
 .booking a.btn {
