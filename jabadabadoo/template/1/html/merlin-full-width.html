@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+  <meta charset="utf-8">
+ {include:head.html}
+ </head>
+
+<body class="full{if:page.class} {page.class}{endif:page.class} agent">
+
+{with:header} {include:header.html} {endwith:header}
+
+{with:body}
+ <!----- menu continents ----->
+ <div class="menu-continents"><div class="container">{level13}</div></div>
+ <!----- /menu continents ----->
+ 
+  <!----- breadcrumbs ----->
+ <div class="row"><div class="container breadcrumbs">{level6}</div></div>
+ <!----- /breadcrumbs ----->
+ 
+ <!----- main content ----->
+ <div class="row">
+  <div class="container">
+   <div class="col-md-12 col-sm-12">{level4}</div>
+  </div>
+ </div>
+ <!----- /main content ----->
+ 
+ {endwith:body}
+ 
+{with:footer} {include:footer.html} {endwith:footer}
+
+</body>
+</html>

@@ -105,6 +105,11 @@ a img:hover {
     background-color: #6F01C9 !important;
     color: #fff;
 }
+
+.menu-continents p {
+    padding: 10px;
+    font-size: 18px;
+}
 /* /Menu Continents */
 
 /* Breadcrumbs */
