@@ -700,6 +700,7 @@ footer ul.menu-footer {
   font-size: 14px;
   color: #767676;
   font-family: Tahoma, Geneva, sans-serif;
+  background-color: #f3f3f3;
 }
 /* /Subpage */
 
@@ -1462,5 +1463,64 @@ table.znaki img {
     margin-left: 15px;
     margin-right: 15px;
   }
+  
+  .calc select {
+  font-family: 'Oswald', sans-serif;
+  color: #131313;
+  font-size: 24px;
+  height: auto;
+  margin-top: 15px;
+}
+
+.calc .arrow {
+  background: url('../images/calc/arrow.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  height: 48px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top:15px;  
+}
+
+.calc .price {
+  font-family: 'Oswald', sans-serif;
+  color: #1e498c;
+  font-size: 48px;
+  text-align: center;
+  margin-top: 25px;
+  font-weight: 700;
+}
+
+.white-block h1 {
+  font-size: 30px;
+}
+
+.white-block h2 {
+  font-size: 24px;
+}
+
+.white-block h3 {
+  font-size: 22px;
+}
+
 }
 /* /Main Queries */
+
+.sub-menu-btn {
+  z-index: 99999;
+  position: relative;
+  margin-top: 8px;
+  background: #fff;
+  color: #204b8e;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  -webkit-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+  border: 0px;
+}
+
+.pull-right.visible-xs {
+  margin-bottom: 0px;
+}

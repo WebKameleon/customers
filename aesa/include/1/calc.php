@@ -29,7 +29,7 @@
     <div class="row">
         <div class="col-md-8 col-sm-8">
             <div class="row">
-                <div class="col-xs-5">
+                <div class="col-md-5 col-sm-5 col-xs-12">
                     <select class="form-control from">
                         {loop:data.1.0}
                         {if:!first}
@@ -39,11 +39,11 @@
                     </select>
                 </div>
 
-                <div class="col-xs-2">
+                <div class="col-md-2 col-sm-2 col-xs-12">
                     <div class="arrow">&nbsp;</div>
                 </div>
 
-                <div class="col-xs-5">
+                <div class="col-md-5 col-sm-5 col-xs-12">
                     <select class="form-control to">
                         {loop:data.1.0}
                         {if:!first}
