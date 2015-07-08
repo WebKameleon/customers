@@ -24,3 +24,7 @@ $(document).ready(function(){
 /* Create HTML5 element for IE */
 document.createElement("section");
 /* end Parallax */
+
+function scrollTo(hash) {
+    location.hash = "#" + hash;
+}

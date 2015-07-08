@@ -462,6 +462,8 @@ body {
   margin-right: 0px;
 }
 
+.news .col-xs-12.col-sm-6.col-lg-3 .kmw_articlelist_photo img {width: 100%;}
+
 .news .col-xs-12.col-sm-6.col-lg-3 h1,
 .news .col-xs-12.col-sm-6.col-lg-3 h2,
 .news .col-xs-12.col-sm-6.col-lg-3 h3,
