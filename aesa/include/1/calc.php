@@ -18,7 +18,7 @@
         <ul>
             {loop:data}
             <li class="kat{__loop__} {if:__loop__=1}current{endif:__loop__=1}">
-            <div class="radio"><input {if:__loop__=1}checked="checked"{endif:__loop__=1} id="optionsRadios{__loop__}" name="optionsRadios" type="radio" value="{__loop__}" /></div>
+            <div class="radio"><label><input {if:__loop__=1}checked="checked"{endif:__loop__=1} id="optionsRadios{__loop__}" name="optionsRadios" type="radio" value="{__loop__}" /></label></div>
             </li>
             {endloop:data}
             

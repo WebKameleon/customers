@@ -969,6 +969,11 @@ table caption {
   height: 40px;
 }
 
+.calc ul li .radio label {
+  width: 100%;
+  padding-left: 0px;
+}
+
 .calc ul li .radio input {
   display: block;
   width: 100%;
@@ -978,7 +983,7 @@ table caption {
   text-align: left;
 }
 
-.calc ul li.kat1 .radio {
+.calc ul li.kat1 .radio label {
   background: url('../images/calc/kat1.png');
   background-repeat: no-repeat;
   display: block;
@@ -987,7 +992,7 @@ table caption {
   background-position: 50px 0px;
 }
 
-.calc ul li.kat2 .radio {
+.calc ul li.kat2 .radio label  {
   background: url('../images/calc/kat2.png');
   background-repeat: no-repeat;
   display: block;
@@ -996,7 +1001,7 @@ table caption {
   background-position: 50px 0px;
 }
 
-.calc ul li.kat3 .radio {
+.calc ul li.kat3 .radio label  {
   background: url('../images/calc/kat3.png');
   background-repeat: no-repeat;
   display: block;
@@ -1005,7 +1010,7 @@ table caption {
   background-position: 50px 0px;
 }
 
-.calc ul li.kat4 .radio {
+.calc ul li.kat4 .radio label  {
   background: url('../images/calc/kat4.png');
   background-repeat: no-repeat;
   display: block;
@@ -1014,7 +1019,7 @@ table caption {
   background-position: 50px 0px;
 }
 
-.calc ul li.kat5 .radio {
+.calc ul li.kat5 .radio label  {
   background: url('../images/calc/kat5.png');
   background-repeat: no-repeat;
   display: block;
