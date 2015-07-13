@@ -38,7 +38,8 @@
 		$events2[$t]=$e;
 	}
 	$events=$events2;
-	krsort($events);
+	//krsort($events); //desc order
+        ksort($events); //asc order
 	
 	
         foreach ($events AS &$event)
