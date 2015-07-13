@@ -29,6 +29,18 @@
 		 'en'=>['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'],
 		];
         
+	
+	$events2=[];
+	foreach($events AS $e)
+	{
+		$t=$e['start'];
+		while (isset($events2[$t])) $t++;
+		$events2[$t]=$e;
+	}
+	$events=$events2;
+	krsort($events);
+	
+	
         foreach ($events AS &$event)
         {
 		$pos=strpos($event['LOCATION'],'(');
