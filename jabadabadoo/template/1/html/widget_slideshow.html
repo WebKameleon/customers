@@ -70,7 +70,7 @@
 <div id="bxslider{webtd.sid}-wrapper" class="bxslider-wrapper">
     <ul id="bxslider{webtd.sid}" class="bxslider">
         {loop:webtd.menu}
-        <li {if:titlea} class="caption-top"{endif:titlea}{if:titleb} class="caption-bottom"{endif:titleb}>
+        <li {if:titlea} class="caption-top"{endif:titlea}{if:titleb} class="caption-bottom"{endif:titleb} {if:page_target} onclick="location.href='{href}'" {endif:page_target}>
             {if:page_target}<a href="{href}">{endif:page_target}
                 <img src="{imagesUrl}/{img}" {if:alt}title="{alt}"{endif:alt} />
             {if:page_target}</a>{endif:page_target}
