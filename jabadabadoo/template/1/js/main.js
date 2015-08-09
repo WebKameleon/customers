@@ -294,15 +294,18 @@ waluty_set = function(waluty) {
         var rel=$(this).attr('rel');
         var cena=parseFloat($(this).text());
 
-        //console.log(cena+': '+rel);
         if (typeof(waluty[rel])=='undefined' || rel.length==0 || rel=='{currency}' || rel=='[currency]') {
             rel='EUR';
         }
+ //       console.log(cena+': '+rel);
         if (cena>0 && rel!='PLN') {
-            if (parseFloat(waluty[rel])>0) {
+//console.log(waluty);
+//console.log (waluty[rel.toLowerCase()]);
+
+            if (parseFloat(waluty[rel.toLowerCase()])>0) {
                 
                 $(this).attr('title',cena+' '+rel);
-                cena=Math.round(parseFloat(waluty[rel])*cena);
+                cena=Math.round(parseFloat(waluty[rel.toLowerCase()])*cena);
                 $(this).html(cena);
 		$(this).parent().find('.price-currency').html('PLN');
                 
