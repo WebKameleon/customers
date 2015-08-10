@@ -13,11 +13,15 @@
 
 <script>
 	var waluty_set;
+	var waluty_lock = 0;
 
 	function waluty_get() {
-		$.get('<?php echo $ajax_str;?>',waluty_set);
+		if (!waluty_lock)
+		{
+			$.get('<?php echo $ajax_str;?>',waluty_set);
+			waluty_lock = 1;
+		}
 	}
-	
 	if (window.addEventListener)
 	    window.addEventListener('load', waluty_get, false);
 	else if (window.attachEvent)

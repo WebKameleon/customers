@@ -26,6 +26,11 @@ function showResults(results)
         {
             html+='<span class="shop-hours-title">Niedziele: </span> <span class="shop-hours">&nbsp; ' + results[i].hours_su +'</span><br>';
         }
+        if(results[i].info)
+        {
+            html+='<span class="shop-phone">' + results[i].info +'</span>';
+        }
+
         
         html+='</p></div>';
         html+='<div class="img-data"><a href="javascript:showMap('+results[i].id+')"><img src="'+IMAGES+'/on_map.png"></a></div></div>';

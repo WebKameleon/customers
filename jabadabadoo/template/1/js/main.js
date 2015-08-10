@@ -288,17 +288,19 @@ $(document).ready(function() {
 
 waluty_set = function(waluty) {
     if (typeof(waluty)=='string') waluty=JSON.parse(waluty);
-
     
     $('.super-price').each(function() {
         var rel=$(this).attr('rel');
         var cena=parseFloat($(this).text());
 
-        if (typeof(waluty[rel])=='undefined' || rel.length==0 || rel=='{currency}' || rel=='[currency]') {
+/*        if (typeof(waluty[rel])=='undefined' || rel.length==0 || rel=='{currency}' || rel=='[currency]') {
             rel='EUR';
         }
- //       console.log(cena+': '+rel);
-        if (cena>0 && rel!='PLN') {
+*/
+
+//console.log(cena+': '+rel);
+       if (cena>0 && rel!='PLN') {
+
 //console.log(waluty);
 //console.log (waluty[rel.toLowerCase()]);
 
@@ -308,13 +310,10 @@ waluty_set = function(waluty) {
                 cena=Math.round(parseFloat(waluty[rel.toLowerCase()])*cena);
                 $(this).html(cena);
 		$(this).parent().find('.price-currency').html('PLN');
-                
+            	$(this).attr('rel','PLN');    
             }
-            $(this).attr('rel','PLN');    
-		
+            //$(this).attr('rel','PLN');    
         }
-        
-        
     });
 }
 

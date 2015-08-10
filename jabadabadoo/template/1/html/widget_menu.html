@@ -81,7 +81,7 @@
     {if:price}
     <tr>
      <td>Cena</td>
-     <!-- <td><span class="super-price" rel="{currency}">{price}</span> <span class="currency-txt">{currency}</span></td> -->
+<!--      <td><span class="super-price" rel="{currency}">{price}</span> <span class="currency-txt">{currency}</span></td> --> 
      <td><span class="super-price" rel="{currency}">{price}</span> <span class="price-currency">{currency?EUR}</span></td>
     </tr>
     {endif:price}
@@ -103,6 +103,12 @@
      <td>{from}</td>
    </tr>
    {endif:from}
+   {if:departure}
+    <tr>
+     <td>Wyjazd</td>
+     <td>{departure}</td>
+   </tr>
+   {endif:departure}
    {if:pilot}
     <tr>
      <td>Opieka</td>
