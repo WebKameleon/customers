@@ -25,7 +25,11 @@
             {
 
                 $weblink2=new weblinkModel($link['sid']);
-                $weblink2->alt=$link['nego']?:date('d.m',strtotime($link['d_from'])) .' - '. date('d.m',strtotime($link['d_to']));
+		if ($link['d_to'])
+                	$weblink2->alt=$link['nego']?:date('d.m',strtotime($link['d_from'])) .' - '. date('d.m',strtotime($link['d_to']));
+		else
+			$weblink2->alt=$link['nego']?:date('d.m',strtotime($link['d_from']));
+
                 $weblink2->name=$this->webpage['title'];
                 $weblink2->hidden = strtotime($link['d_from'])>time() || (strtotime($link['d_to'])>time() && !$link['confirm']) ? 0 : 1;
                 $weblink2->save();
