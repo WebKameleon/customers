@@ -41,7 +41,6 @@
                     if (count($gal) && $gal[0]['img'] ) $img=$gal[0]['img'];
                 }
             }
-            
             if (!$img) {
                 echo '<a href="'.Bootstrap::$main->tokens->page_href($t['id']).'">Na stronie '.$t['id'].' brakuje obrazka</a><br/>';
             } else {
@@ -74,8 +73,13 @@
                 $trm['_from']=strtotime($trm['d_from']);
                 $trm['_to']=strtotime($trm['d_to']);
                 
-             
-                if (!$trm['_from'] || !$trm['_to'] || $trm['_to']<time()) continue;
+            	//wymagana data od 
+                if (!$trm['_from']) continue;
+		//jesli brak daty do to daj date od - wyprawa 1 dzien
+		if (!$trm['d_to']) 
+			$trm['_to'] = $trm['_from'];
+		else 
+			if ($trm['_to']<time()) continue;
                 
                 
                 $trm['alt']=$term['alt'];
@@ -99,6 +103,6 @@
     file_put_contents(__DIR__.'/wyprawy.json',json_encode($res,JSON_NUMERIC_CHECK));
     register_shutdown_function(function() {
             $ftp=new ftpController();
-            $ftp->ftp_start('inc','',false);
-            $ftp->ftp_start('img','',false);
+            //$ftp->ftp_start('inc','',false);
+            //$ftp->ftp_start('img','',false);
         });
