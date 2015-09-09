@@ -103,6 +103,6 @@
     file_put_contents(__DIR__.'/wyprawy.json',json_encode($res,JSON_NUMERIC_CHECK));
     register_shutdown_function(function() {
             $ftp=new ftpController();
-            //$ftp->ftp_start('inc','',false);
-            //$ftp->ftp_start('img','',false);
+            $ftp->ftp_start('inc','',false);
+            $ftp->ftp_start('img','',false);
         });
