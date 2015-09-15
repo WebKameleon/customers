@@ -85,12 +85,14 @@
      <td><span class="super-price" rel="{currency}">{price}</span> <span class="price-currency">{currency?EUR}</span></td>
     </tr>
     {endif:price}
+   {if:!flag1}
     {if:days}
    <tr>
      <td>Ilość dni</td>
      <td>{days}</td>
    </tr>
    {endif:days}
+   {endif:!flag1}
     {if:group}
    <tr>
      <td>Grupa min.</td>
