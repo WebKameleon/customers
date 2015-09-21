@@ -156,6 +156,9 @@ a img:hover {
     -webkit-border-radius: 4px;
     border-radius: 4px;
 }
+.banner.container .col-md-9 .bxslider-wrapper .bx-caption {
+    cursor: pointer;
+}
 
 .bx-wrapper .bx-pager.bx-default-pager a {
     background: #fff !important;
