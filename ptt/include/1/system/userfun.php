@@ -118,7 +118,7 @@ function saleOff($cykl)
 	global $sale_rok;
 
 	$t=time();
-	$soff=mktime(10,0,0,8,16,$sale_rok);
+	$soff=mktime(10,0,0,8,21,$sale_rok);
 	if ($t>$soff) return true;
 	return 0;
 }

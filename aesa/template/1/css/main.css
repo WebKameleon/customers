@@ -1555,6 +1555,7 @@ a.kmw_article_photo img {
 
 
 /* KIR */
+/*
 img {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
@@ -1566,3 +1567,5 @@ img {
     background: url(../images/grey-bg.png);
     width: 33%;
 }
+*/
+

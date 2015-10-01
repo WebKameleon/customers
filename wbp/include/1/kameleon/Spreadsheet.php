@@ -27,7 +27,7 @@ class Spreadsheet extends Google {
     }
         
     
-    public static function getWorksheet($fileId, $worksheetId, $params='') {
+    public static function getWorksheet($fileId, $worksheetId, $params='',$firstRowIsHeader=false) {
         
         $url='https://spreadsheets.google.com/feeds/cells/'.$fileId.'/'.$worksheetId.'/private/full';
         //else $url='https://spreadsheets.google.com/feeds/worksheets/'.$fileId.'/private/full/'.$worksheetId;
@@ -62,6 +62,22 @@ class Spreadsheet extends Google {
         
         ksort($result);
 
+        if ($firstRowIsHeader && isset($result[0]) && is_array($result[0])) {
+            $header=$result[0];
+            unset($result[0]);
+            
+            foreach ($result AS $i=>$row)
+            {
+                foreach ($row AS $k=>$v)
+                {
+                    unset($result[$i][$k]);
+                    $result[$i][$header[$k]]=$v;
+                }
+                $result[$i-1]=$result[$i];
+            }
+            unset($result[$i]);
+            ksort($result);
+        }
         
     
         return $result;
