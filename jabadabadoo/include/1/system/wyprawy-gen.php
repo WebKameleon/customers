@@ -56,8 +56,13 @@
                     $img=substr($dst_img,strlen($session['uimages_path']));
                 }
             }
-      
-            $base=[
+        //oferta wystepuje w wiecej niz jednym kraju
+        $countries = explode(",", $country); 
+        foreach($countries AS $country)
+        {
+          //echo $coun;
+	    $country = trim($country);
+    	    $base=[
                    'page'=>$t['id'],
                    'continent'=>$continent,
                    'country'=>$country,
@@ -78,8 +83,8 @@
 		//jesli brak daty do to daj date od - wyprawa 1 dzien
 		if (!$trm['d_to']) 
 			$trm['_to'] = $trm['_from'];
-		else 
-			if ($trm['_to']<time()) continue;
+		//else 
+		//	if ($trm['_to']<time()) continue;
                 
                 
                 $trm['alt']=$term['alt'];
@@ -89,6 +94,7 @@
                 if (!isset($struct[$continent][$country])) $struct[$continent][$country]=0;
                 $struct[$continent][$country]++;
             }
+        } //countries
             
         }
         

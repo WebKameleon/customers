@@ -12,8 +12,8 @@
         $struct[$cont]=array('name'=>$cont,'countries'=>array_keys($c));
         
     }
-    ksort($struct);
-    ksort($countries);
+    ksort($struct, SORT_LOCALE_STRING);
+    ksort($countries, SORT_LOCALE_STRING);
     
     $out=array('struct'=>$struct,'countries'=>array_keys($countries));
     
