@@ -71,9 +71,9 @@
     <ul id="bxslider{webtd.sid}" class="bxslider">
         {loop:webtd.menu}
         <li {if:titlea} class="caption-top"{endif:titlea}{if:titleb} class="caption-bottom"{endif:titleb} {if:page_target} onclick="location.href='{href}'" {endif:page_target}>
-            {if:page_target}<a href="{href}">{endif:page_target}
+            {if:href}<a href="{href}">{endif:href}
                 <img src="{imagesUrl}/{img}" {if:alt}title="{alt}"{endif:alt} />
-            {if:page_target}</a>{endif:page_target}
+            {if:href}</a>{endif:href}
         </li>
         {endloop:webtd.menu}
     </ul>

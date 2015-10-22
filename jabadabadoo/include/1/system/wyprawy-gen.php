@@ -14,6 +14,7 @@
     foreach($continents AS $c)
     {
         $continent=$c['title'];
+	$sitemap=$c['nositemap'];
         $struct[$continent]=array();
         $trips=$webpage->getChildren($c['id']);
         foreach ($trips AS $t)
@@ -57,7 +58,9 @@
                 }
             }
         //oferta wystepuje w wiecej niz jednym kraju
-        $countries = explode(",", $country); 
+        $countries = explode(",", $country);
+	//zapamietaj orginal
+	$countryorg = $country; 
         foreach($countries AS $country)
         {
           //echo $coun;
@@ -65,7 +68,9 @@
     	    $base=[
                    'page'=>$t['id'],
                    'continent'=>$continent,
+		   'sitemap'=>$sitemap,
                    'country'=>$country,
+		   'countryorg'=>$countryorg,
                    'name'=>$name,
                    'url'=>$t['file_name'],
                    'img'=>$img];
@@ -90,9 +95,11 @@
                 $trm['alt']=$term['alt'];
                 
                 $db[]=array_merge($base,$trm);
-                
-                if (!isset($struct[$continent][$country])) $struct[$continent][$country]=0;
-                $struct[$continent][$country]++;
+                //jesli strona nie widoczna w mapie to ja pomin, aby nie pojawila sie w select kontynentu w wyszukiwarce
+		if ($sitemap != 1) {
+       		        if (!isset($struct[$continent][$country])) $struct[$continent][$country]=0;
+                	$struct[$continent][$country]++;
+		}
             }
         } //countries
             
@@ -101,11 +108,9 @@
     }
     
     foreach($struct AS $k=>$v) if(!count($v)) unset($struct[$k]);
-    
-    $res=array('struct'=>$struct,'db'=>$db);
-    
 
-    
+    $res=array('struct'=>$struct,'db'=>$db);
+        
     file_put_contents(__DIR__.'/wyprawy.json',json_encode($res,JSON_NUMERIC_CHECK));
     register_shutdown_function(function() {
             $ftp=new ftpController();

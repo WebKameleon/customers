@@ -28,6 +28,8 @@
             
             if ($g=='d_from') {
                 if ($v && strtotime($v)>$row['_to']) continue 2; 
+		//else
+		//if ($v && time() > $row['_to']) continue 2;
             } elseif ($g=='d_to') {
                 if ($v && strtotime($v)<$row['_from']) continue 2;
             } else {
@@ -35,9 +37,6 @@
             }
     
         }
-        
-        
-        
         $result[$k] = $row;
     }
     

@@ -68,6 +68,13 @@ function smekta(pattern,vars) {
     return pattern;
 
 }
+//sortuj tablice objektow po wskazanym kluczu
+function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key]; var y = b[key];
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
+}
 
 var wyprawy_grid_limit;
 var wyprawy_grid_offset=0;
@@ -93,7 +100,7 @@ function wyprawy_grid_load(txt)
     $.get(url,function (r) {
         var html=$('#'+wyprawy_grid_template).html();
         
-        data=r.data;
+        data=sortByKey(r.data, 'country');
         for(i=0;i<data.length;i++)
         {
             html2=smekta(html,data[i]);
