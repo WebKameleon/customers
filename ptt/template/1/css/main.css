@@ -1,6 +1,6 @@
 
 /* ==========================================================================
-   CSS by Karol Huszal - 16.02.2014
+   CSS by Karol Huszal - 16.02.2014 - 2.11.2015
    ========================================================================== */
 
 @font-face {
@@ -571,6 +571,56 @@ ul.main-menu > li > ul > li > ul > li > a {
 }
 .calendar .visualmonthyear {
     color: #000;
+}
+
+@media (max-width:1199px) {
+	.calendar .table>tbody>tr>td,
+	.calendar .table>tbody>tr>th,
+	.calendar .table>tfoot>tr>td,
+	.calendar .table>tfoot>tr>th,
+	.calendar .table>thead>tr>td,
+	.calendar .table>thead>tr>th {
+		padding: 4px !important;
+	}
+	
+	.calendar .event {
+		background: #b3b4b8 !important;
+		background-image:none !important;
+	}
+}
+
+@media (max-width:991px) {
+	.calendar .table>tbody>tr>td,
+	.calendar .table>tbody>tr>th,
+	.calendar .table>tfoot>tr>td,
+	.calendar .table>tfoot>tr>th,
+	.calendar .table>thead>tr>td,
+	.calendar .table>thead>tr>th {
+		padding: 0px !important;
+	}
+	
+	.calendar .event {
+		background: #b3b4b8 !important;
+		background-image:none !important;
+	}
+}
+
+@media (max-width:768px) {
+	.calendar .table>tbody>tr>td,
+	.calendar .table>tbody>tr>th,
+	.calendar .table>tfoot>tr>td,
+	.calendar .table>tfoot>tr>th,
+	.calendar .table>thead>tr>td,
+	.calendar .table>thead>tr>th {
+		padding: 7px !important;
+	}
+	
+	.calendar .event {
+		background: #f0f1f3 !important;
+		background: url('../images/circle.png') !important;
+		background-position:center center !important;
+		background-repeat:no-repeat !important;
+	}
 }
 /* /Calendar */
 
