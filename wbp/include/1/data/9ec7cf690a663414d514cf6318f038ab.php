@@ -1,0 +1,4 @@
+<?php
+/*
+a:4:{s:3:"sid";s:5:"98125";s:5:"title";s:8:"Dziecko ";s:5:"drive";a:7:{s:2:"id";s:44:"1wS0vvwEoouOCbCdfWocnVxQ73gT6eQwpr0ZLuSC2dBA";s:4:"name";s:12:"Dziecko 2015";s:7:"img_min";s:1:"1";s:7:"img_max";s:1:"3";s:9:"price_pln";s:2:"30";s:9:"price_eur";s:2:"10";s:5:"email";s:18:"foto@wbp.poznan.pl";}s:6:"tokens";a:2:{s:5:"drive";O:8:"stdClass":5:{s:12:"access_token";s:76:"ya29.IgJSCGy4nXwQkKHY2lIzrnbNfSG0-Ms3jlievQG8HdAqoLAUEsjgOpeRy-1I5dZFToKvmE0";s:10:"token_type";s:6:"Bearer";s:10:"expires_in";i:3600;s:13:"refresh_token";s:66:"1/jslvT7fTnn7YuSUZ2On9VND3lMk_CmvMEpClvG-8Ki7BactUREZofsF9C7PrpE-j";s:7:"created";i:1446637196;}s:12:"spreadsheets";O:8:"stdClass":5:{s:12:"access_token";s:76:"ya29.7gFIktOmJriSFe5q0VAICpYKNhmcKMoERYFsS3MN6AibTunWalBIzmwwXjqjRGG3vQc4PDo";s:10:"token_type";s:6:"Bearer";s:10:"expires_in";i:3600;s:13:"refresh_token";s:66:"1/jslvT7fTnn7YuSUZ2On9VND3lMk_CmvMEpClvG-8Ki7BactUREZofsF9C7PrpE-j";s:7:"created";i:1442213225;}}}
+*/
