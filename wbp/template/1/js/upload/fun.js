@@ -91,6 +91,7 @@ function count_files(obj)
     if (errors==0) {
         $("#upload").fadeIn();
         $("#noupload").fadeOut();
+        
     } else {
         $("#noupload").fadeIn();
         $("#upload").fadeOut();
@@ -218,14 +219,27 @@ function upload_done(e,data)
     
 }
 
+
+var contest_form_action='';
+var contest_form_url='';
+
+
 function foto_init_validation()
 {
     
     $('#fileupload')
-        .bind('fileuploadadd', function () {
+        .bind('fileuploadsend', function (e, data) {
+            data.url=contest_form_url;
+        }).bind('fileuploadadd', function (e, data) {
             setTimeout(count_files,300);
+            if (contest_form_url.length==0) {
+                $.get(contest_form_action,function(data) {
+                    contest_form_url=data;
+                });
+            }
+
             $('.fileinput-button').removeClass('error');
-        }).bind('fileuploadfail', function () {
+        }).bind('fileuploadfail', function (e, data) {
             setTimeout(count_files,300);
         }).bind('fileuploaddone', upload_done).bind('fileuploadsubmit', upload_started);
         
@@ -233,7 +247,6 @@ function foto_init_validation()
     
     $('#fileupload').find('input.required,select.required,textarea.required').on("change",count_files);
 
-    
     $('#noupload').click(cant_upload);
     $('#randid').val(Math.random());
 }

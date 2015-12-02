@@ -44,23 +44,25 @@ class Google {
 
     protected static function refreshAccessToken($token)
     {
+		
+		$post=array(
+			'refresh_token'=>$token->refresh_token,
+			'client_id'=>self::CLIENT_ID,
+			'client_secret'=>self::CLIENT_SECRET,
+			'grant_type'=>'refresh_token',
+		);
+	
+	
+		$t=self::request(self::TOKEN_ENDPOINT,'POST',$post,'','json-obj');
 
-	$post=array(
-	    'refresh_token'=>$token->refresh_token,
-	    'client_id'=>self::CLIENT_ID,
-	    'client_secret'=>self::CLIENT_SECRET,
-	    'grant_type'=>'refresh_token',
-	);
-
-        $t=self::request(self::TOKEN_ENDPOINT,'POST',$post,'','json-obj');
-
-    
-	if (isset($t->expires_in))
-        {
-            $t->expire=$t->expires_in+time();
-            $t->created=time();
-        }
-	return $t;
+			
+		
+		if (isset($t->expires_in))
+		{
+			$t->expire=$t->expires_in+time();
+			$t->created=time();
+		}
+		return $t;
 	
     }    
     
@@ -72,9 +74,12 @@ class Google {
     
     protected static function request($url,$method='GET',$data=null,$scope_required='',$return_kind='',$user=null, $header=array()) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
         
+		
+		curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 
         
         $h=array();
@@ -95,13 +100,18 @@ class Google {
         
             if ($method=='PUT') curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             else curl_setopt($ch, CURLOPT_POST,   1);
+			
             curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 
             if ($return_kind=='xml') $h[]='Content-Type: application/atom+xml; charset=UTF-8';
             if ($return_kind=='json') $h[]='Content-Type: application/json; charset=UTF-8';
         }
 
+		
         if (count($h)) curl_setopt($ch,CURLOPT_HTTPHEADER,$h);
+		
+
+		
         $ret = curl_exec($ch);
 
         curl_close($ch);
@@ -119,11 +129,11 @@ class Google {
     
     public static function setToken($token)
     {
+	
         if (is_object($token) && isset($token->created) && $token->created + $token->expires_in < time())
         {
             $token=self::refreshAccessToken($token);
-        }
-    
+        }   
         self::$token=$token;
         
         return $token;

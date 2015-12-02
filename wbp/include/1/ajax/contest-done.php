@@ -61,8 +61,6 @@
 	$mail.='<p>Po weryfikacji zdjęcia wezmą udział w konkursie <b>'.$td_data['title'].'</b></p>';
 	$mail.='<p>WBPiCAK - Dział FOTOGRAFIA</p>';
 	
-	$header="From: $from\r\nBcc: $from\r\nContent-type: text/html; charset=utf-8\r\nContent-transfer-encoding: base64";
-	$title='=?UTF-8?B?'.base64_encode($td_data['title']).'?=';
-	
-	mail($to,$title,base64_encode($mail),$header);
+	WBP::mail($from,$to,$td_data['title'],$mail);
+
 	

@@ -16,10 +16,7 @@
     $include=$KAMELEON_MODE?$session['uincludes_ajax']:$session['include_path'];
     $ajax_konkurs=$include.'/ajax/contest.php';
     
-    
-
-
-    
+    $ajax_konkurs_action=$include.'/ajax/contest-action.php';
 
     $configuration_file_name=md5($sid);
     $configuration=WBP::get_data($configuration_file_name);
@@ -346,6 +343,7 @@ window.onload = function() {
     
     switch_wbp_lang('<?php echo $default_lang?>');
     
+    contest_form_action='<?php echo $ajax_konkurs_action;?>';
     var max = max_images>0 ? max_images : null;
     $('#fileupload').fileupload({
         url: '<?php echo $ajax_konkurs?>',
@@ -353,7 +351,17 @@ window.onload = function() {
         maxNumberOfFiles: max,
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png|tiff?)$/i,
         maxFileSize: 25000000,  // 20 MB
-        minFileSize: 100000     // 100K
+        minFileSize: 100000,     // 100K
+        xadd: function (e, data) {
+            console.log(data);
+            data.url = 'customURL';
+            if (data.autoUpload || (data.autoUpload !== false &&
+                    $(this).fileupload('option', 'autoUpload'))) {
+                data.process().done(function () {
+                    data.submit();
+                });
+            }            
+        }
     });
 
     foto_init_validation();
@@ -362,8 +370,9 @@ window.onload = function() {
     
 
 
-    <?php if (isset($KAMELEON_MODE) && $KAMELEON_MODE==1):?>
     $('#fileupload').dblclick(fill_the_form);
+    <?php if (isset($KAMELEON_MODE) && $KAMELEON_MODE==1):?>
+    //$('#fileupload').dblclick(fill_the_form);
     <?php endif ?>
 
 }    

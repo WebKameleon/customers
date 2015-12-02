@@ -30,6 +30,12 @@
     $response_images=array();
  
     $debug=array();
+    $debug=false;
+    
+    if ($debug) $debug['data']=$data;
+    if ($debug) $debug['td_data']=$td_data;
+    if ($debug) $debug['sid']=$sid;
+    
     
     $done_uri=$_SERVER['REQUEST_URI'];
     if ($pos=strpos($done_uri,'?')) $done_uri=substr($done_uri,0,$pos);
@@ -48,6 +54,7 @@
     foreach($token AS $k=>$v) $td_data['tokens']['spreadsheets']->$k=$v;
     $_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
     
+    if ($debug) $debug['session']=$_SESSION;
     session_write_close();
     
     if (!$td_data['drive']['id']) contest_ret(array('files'=>array(),'error'=>'Brak arkusza'));
@@ -57,7 +64,7 @@
     Google::setToken($_SESSION['drive_access_token']);
     $file=Google::getFile($td_data['drive']['id']);  
     
-    if (!isset($file['parents'])) contest_ret(array('files'=>array(),'debug'=>$file));
+    if (!isset($file['parents'])) contest_ret(array('files'=>array(),'debug'=>$debug,'file'=>$file));
     
     foreach($file['parents'] AS $parent)
     {
@@ -70,6 +77,8 @@
     $parent_is_root=$parent['isRoot'];
     
     $lp=0;
+    
+    if ($debug) $debug['f']=$_FILES;
 
     foreach($_FILES AS $f)
     {
@@ -131,7 +140,7 @@
         }
         else
         {
-            contest_ret(array('files'=>array(),'debug'=>$gfile));    
+            contest_ret(array('files'=>array(),'debug'=>$debug,'gfile'=>$gfile));    
         }
         
     }
@@ -148,7 +157,7 @@
     
     $sheets=Spreadsheet::listWorksheets($td_data['drive']['id']);
     
-    if (!is_array($sheets)) contest_ret(array('files'=>array(),'debug'=>$sheets));
+    if (!is_array($sheets)) contest_ret(array('files'=>array(),'debug'=>$debug,'sheets'=>$sheets));
     
     //$debug['sheets']=$sheets;
     
@@ -169,15 +178,15 @@
         $worksheet_id=end(explode('/',$worksheet->id));
     }
     
-    //$debug['rows']=array();
+    if ($debug) $debug['rows']=array();
     foreach ($data_to_write_to_spreadsheet AS $row)
     {
         
         $header=Spreadsheet::getWorksheet($td_data['drive']['id'],$worksheet_id,'max-row=1');
         if (isset($header[0])) $header=$header[0];
         
-        //$debug['rows'][]=$row;
-        //$debug['header']=$header;
+        if ($debug) $debug['rows'][]=$row;
+        if ($debug) $debug['header']=$header;
         
         foreach ($row AS $k=>$v)
         {
