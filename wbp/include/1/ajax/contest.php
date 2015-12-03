@@ -97,7 +97,7 @@
         $dir_prefix=sys_get_temp_dir().$dir_suffix;
         if (!file_exists($dir_prefix)) mkdir($dir_prefix,0755);
     }
-    
+
 
     foreach($_FILES AS $f)
     {
@@ -107,7 +107,7 @@
             $range=explode('/',$range);
 		    $range[0]=explode('-',$range[0]);
 		    
-		    $token='chunk.'.md5($f['name'][$lp]).'.'.$range[1].'.'.$_SERVER['REMOTE_ADDR'];
+		    $token='chunk.'.md5($f['name'][$lp]).'.'.$range[1].'.'.$data['ip'];
             $total_size=$range[1];
             $chunk_size=$range[0][1]-$range[0][0]+1;
             $chunk=1+floor($range[0][0]/$chunk_size);

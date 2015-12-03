@@ -58,6 +58,8 @@
               
         <input type="hidden" name="sid" value="<?php echo md5($sid);?>"/>
         <input type="hidden" name="id" value="" id="randid"/>
+        <input type="hidden" name="ip" value="" id="fileuploadip"/>
+    
     
         <div class="personal">
             <div class="lang_selector"><img id="lang_selector_img" src="<?php echo $IMAGES?>/lang-<?php echo $default_lang?>.gif"/></div>

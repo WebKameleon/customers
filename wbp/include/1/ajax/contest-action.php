@@ -6,7 +6,9 @@
 
     if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
 		require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
-        die(CloudStorageTools::createUploadUrl($url, []));
-	} else {
-        die($url);
-    }
+        $url=CloudStorageTools::createUploadUrl($url, []);
+	} 
+    
+	Header('Content-type: application/json');    
+	die(json_encode(['url'=>$url,'ip'=>$_SERVER['REMOTE_ADDR']]));
+    

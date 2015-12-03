@@ -233,8 +233,9 @@ function foto_init_validation()
         }).bind('fileuploadadd', function (e, data) {
             setTimeout(count_files,300);
             if (contest_form_url.length==0) {
-                $.get(contest_form_action,function(data) {
-                    contest_form_url=data;
+                $.getJSON(contest_form_action,function(data) {
+                    contest_form_url=data.url;
+                    $('#fileuploadip').val(data.ip);
                 });
             }
 
