@@ -349,19 +349,11 @@ window.onload = function() {
         url: '<?php echo $ajax_konkurs?>',
         autoUpload: false,
         maxNumberOfFiles: max,
+        maxChunkSize: 1000000, // 1M
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png|tiff?)$/i,
-        maxFileSize: 25000000,  // 20 MB
-        minFileSize: 100000,     // 100K
-        xadd: function (e, data) {
-            console.log(data);
-            data.url = 'customURL';
-            if (data.autoUpload || (data.autoUpload !== false &&
-                    $(this).fileupload('option', 'autoUpload'))) {
-                data.process().done(function () {
-                    data.submit();
-                });
-            }            
-        }
+        maxFileSize: 10200000,  // 10 MB
+        minFileSize: 100000     // 100K
+        
     });
 
     foto_init_validation();

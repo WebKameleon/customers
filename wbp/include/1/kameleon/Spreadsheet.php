@@ -3,7 +3,7 @@
 class Spreadsheet extends Google {
 
 
-    protected static function request($url,$method='GET',$data=null,$headers=array())
+    protected static function request($url,$method='GET',$data=null,$scope_required='',$return_kind='',$user=null,$headers=array())
     {
         return parent::request($url,$method,$data,'spreadsheets','xml',null,$headers);
     }
@@ -156,7 +156,7 @@ class Spreadsheet extends Google {
                     <gs:cell row="'.$r.'" col="'.$c.'" inputValue="'.$value.'"/>
                 </entry>';
             
-        $result=self::request($url,'PUT',$entry,array('Content-Type'=>'application/atom+xml','If-Match'=>'*'));
+        $result=self::request($url,'PUT',$entry,'','',null,array('Content-Type'=>'application/atom+xml','If-Match'=>'*'));
     
     
         return $result;

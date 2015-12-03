@@ -1,4 +1,12 @@
 <?php
+    
+    //ini_set('display_errors',true);
+    
+    if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+        require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+    }
+    use google\appengine\api\cloud_storage\CloudStorageTools;
+
 
     require_once __DIR__.'/../kameleon/Google.php';
     require_once __DIR__.'/../kameleon/Spreadsheet.php';
@@ -47,6 +55,7 @@
     $token=Google::setToken($_SESSION['drive_access_token']);    
     foreach($token AS $k=>$v) $td_data['tokens']['drive']->$k=$v;
     $_SESSION['drive_access_token']=$td_data['tokens']['drive'];
+        
     
     Spreadsheet::setToken(null);
     if (!isset($_SESSION['spreadsheets_access_token'])) $_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
@@ -55,7 +64,7 @@
     $_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
     
     if ($debug) $debug['session']=$_SESSION;
-    session_write_close();
+    
     
     if (!$td_data['drive']['id']) contest_ret(array('files'=>array(),'error'=>'Brak arkusza'));
     
@@ -63,6 +72,7 @@
     // Drive part
     Google::setToken($_SESSION['drive_access_token']);
     $file=Google::getFile($td_data['drive']['id']);  
+     
     
     if (!isset($file['parents'])) contest_ret(array('files'=>array(),'debug'=>$debug,'file'=>$file));
     
@@ -79,16 +89,74 @@
     $lp=0;
     
     if ($debug) $debug['f']=$_FILES;
+    
+    $dir_suffix='/wbp_img_upload/';
+    if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+        $dir_prefix='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().$dir_suffix;
+    } else {
+        $dir_prefix=sys_get_temp_dir().$dir_suffix;
+        if (!file_exists($dir_prefix)) mkdir($dir_prefix,0755);
+    }
+    
 
     foreach($_FILES AS $f)
     {
+        
+        if (isset($_SERVER['HTTP_CONTENT_RANGE'])) {
+		    $range=str_replace('bytes ', '', $_SERVER['HTTP_CONTENT_RANGE']);
+            $range=explode('/',$range);
+		    $range[0]=explode('-',$range[0]);
+		    
+		    $token='chunk.'.md5($f['name'][$lp]).'.'.$range[1].'.'.$_SERVER['REMOTE_ADDR'];
+            $total_size=$range[1];
+            $chunk_size=$range[0][1]-$range[0][0]+1;
+            $chunk=1+floor($range[0][0]/$chunk_size);
+            
+            move_uploaded_file($f['tmp_name'][$lp],$dir_prefix.$token.'.'.$chunk);
+            if ($total_size-1 != $range[0][1]) {
+                contest_ret(array('files'=>array(),'chunk'=>$chunk));
+            }
+            
+            for ($j=0;$j<$chunk;$j++) { // czekamy tyle sekund, co chunków 
+                $size=0;
+                for ($i=1;$i<=$chunk;$i++) {
+                    $fi=$dir_prefix.$token.'.'.$i;
+                    if (file_exists($fi)) $size+=filesize($fi);
+                }
+                if ($total_size==$size) {
+                    $blob='';
+                    for ($i=1;$i<=$chunk;$i++) {
+                        $fi=$dir_prefix.$token.'.'.$i;
+                        if (file_exists($fi)) {
+                            $blob.=file_get_contents($fi);
+                            unlink($fi);
+                        }
+                    }
+                    break;
+                    
+                } else {
+                    sleep(1);
+                    continue;
+                }
+                die('<pre>'.print_r([$range,$size,$chunk_size,$chunk],1));
+            }
+  
+            
+        } else {
+            $tmp=$f['tmp_name'][$lp];
+            $blob=file_get_contents($tmp);
+            $size=$f['size'][$lp];
+        }
+        
+        
         $index=$f['name'][$lp];
         $type=$f['type'][$lp];
-        $size=$f['size'][$lp];
-        $tmp=$f['tmp_name'][$lp];
+        
+        
         $lp++;
         
         
+        @session_write_close();
         
         $row=array('date'=>date('d-m-Y H:i:s'));
         $row=array_merge($row,$data,$img_info[$index]);
@@ -115,9 +183,8 @@
         
         $row['filename']=$filename;
         
-        
-        $gfile=Google::uploadFile($filename,$type,file_get_contents($tmp),$parent_id);
-    
+        $gfile=Google::uploadFile($filename,$type,$blob,$parent_id);
+        $blob='';
     
         if (isset($gfile['id']))
         {
@@ -145,7 +212,7 @@
         
     }
     
-    
+    @session_write_close();
     
     
     // Spreadsheet part 

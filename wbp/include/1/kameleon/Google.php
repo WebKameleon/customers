@@ -75,7 +75,7 @@ class Google {
     protected static function request($url,$method='GET',$data=null,$scope_required='',$return_kind='',$user=null, $header=array()) {
         $ch = curl_init();
         
-		
+
 		curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
@@ -100,7 +100,7 @@ class Google {
         
             if ($method=='PUT') curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             else curl_setopt($ch, CURLOPT_POST,   1);
-			
+
             curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
 
             if ($return_kind=='xml') $h[]='Content-Type: application/atom+xml; charset=UTF-8';
@@ -110,10 +110,11 @@ class Google {
 		
         if (count($h)) curl_setopt($ch,CURLOPT_HTTPHEADER,$h);
 		
-
-		
+		//curl_setopt($ch, CURLOPT_VERBOSE, 1);
+		//curl_setopt($ch, CURLOPT_HEADER, 1);
+				
         $ret = curl_exec($ch);
-
+		
         curl_close($ch);
         
         //if ($method=='POST' || strstr($url,'cell') ) mydie(simplexml_load_string($ret),$url);
@@ -169,7 +170,7 @@ class Google {
 
     
     
-    public static function uploadFile($title,$type,$data,$folder=null,$convert=false)
+    public static function uploadFile($title,$type,&$data,$folder=null,$convert=false)
     {
 
         $boundary=md5(time());
@@ -186,11 +187,12 @@ class Google {
         
         $body.="\n\n--$boundary\nContent-Type: $type\n\n";
         
-        $body.=$data;
+		
+		$post="\n--$boundary--";
         
-        $body.="\n--$boundary--";
+
     
-        $ret=self::request($url,'POST',$body,'','',null,$header);
+        $ret=self::request($url,'POST',$body.$data.$post,'','',null,$header);
         
         return json_decode($ret,true);
     }
