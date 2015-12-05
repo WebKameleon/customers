@@ -228,7 +228,29 @@ class WBP {
 	static function mail($from,$to,$subject,$mail)
 	{
 		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+            $mail_options = [
+                "sender" => 'WBPiCAK@wbp-poznan-pl.appspotmail.com',
+                "to" => $to,
+                "subject" => $subject,
+                "htmlBody" => $mail,
+                "replyto" => $from,
+                "header" => ['Resent-From'=>$from]
+            ];
 			
+			try {
+                $message = new Message($mail_options);
+				/*
+                foreach ($att AS $a) foreach ($a AS $k=>$v)
+                {
+                    $message->addAttachment($k, $v);
+                }
+                */
+                return $message->send();
+            } catch (Exception $e) {
+                return false;
+            }
+
+
 		} else {
 			$header="From: $from\r\nBcc: $from\r\nContent-type: text/html; charset=utf-8\r\nContent-transfer-encoding: base64";
 			$title='=?UTF-8?B?'.base64_encode($subject).'?=';

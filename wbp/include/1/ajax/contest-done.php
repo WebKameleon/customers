@@ -51,7 +51,7 @@
 	    {
 		foreach ($data[$i] AS $k=>$v) $data[$i][$header[$k]]=$v;
 		if (strstr($data[$i]['email'],'@')) $to=trim($data[$i]['email']);
-		$foto_ul.='<li><img src="'.$data[$i]['thumbnail'].'"/> '.$data[$i]['title'].'</li>';
+		$foto_ul.='<li><img src="'.$data[$i]['thumbnail'].'" align="absmiddle"/> '.$data[$i]['title'].'</li>';
 	    }
 	}
 	

@@ -9,7 +9,7 @@ require $kameleon_prefix.'/application/classes/Tools.php';
  *
  linki do sklepów:
  
- http://www.wbp.poznan.pl/index.php?mode=towary&action=main&menu=4&category=2007&lang=PL
+ http://www.folklor.pl/index.php?mode=towary&action=main&menu=4&category=2007&lang=PL
  */
 
 
@@ -83,7 +83,7 @@ function kameleon_article($page,$title,$plain,$cats,$date,$date2='0000',$pri=1,$
     if (preg_match($pregex,$plain,$pm))
     {
 	
-	if (substr($pm[1],0,7)!='http://' || substr($pm[1],0,24)=='http://www.wbp.poznan.pl')
+	if (substr($pm[1],0,7)!='http://' || substr($pm[1],0,24)=='http://www.folklor.pl')
 	{
 	
 	    $plain=preg_replace($pregex,"\\1\\2".UIMAGES_TOKEN,$plain);
@@ -91,17 +91,19 @@ function kameleon_article($page,$title,$plain,$cats,$date,$date2='0000',$pri=1,$
 	    $p=explode(UIMAGES_TOKEN,$plain);
 	    $plain=$p[1];
 	    
-	    $p[0]=str_replace('http://www.wbp.poznan.pl/','',$p[0]); 
+	    $p[0]=str_replace('http://www.folklor.pl/','',$p[0]);
+		
+		$p[0]=str_replace('//','/',$p[0]);
 	    
 	    $bgimg=download($p[0]);
     
 	    $icon=$_SERVER['kameleon']['uimages'].'/widgets/article/gfx/icon/'.$bgimg;
 	    if (!file_exists($icon))
 	    {
-		@mkdir(dirname($icon),0775,true);
-		$w=$_SERVER['kameleon']['article_bgimg_w'];
-		$h=$_SERVER['kameleon']['article_bgimg_h'];
-		Tools::check_image(basename($_SERVER['kameleon']['uimages'].'/'.$bgimg), dirname($_SERVER['kameleon']['uimages'].'/'.$bgimg), dirname($icon), $w, $h, 0775, true);
+			@mkdir(dirname($icon),0775,true);
+			$w=$_SERVER['kameleon']['article_bgimg_w'];
+			$h=$_SERVER['kameleon']['article_bgimg_h'];
+			Tools::check_image(basename($_SERVER['kameleon']['uimages'].'/'.$bgimg), dirname($_SERVER['kameleon']['uimages'].'/'.$bgimg), dirname($icon), $w, $h, 0775, true);
 	    }
 	}
     
@@ -150,9 +152,9 @@ function kameleon_article($page,$title,$plain,$cats,$date,$date2='0000',$pri=1,$
     
     if ($att)
     {
-	$attachment=download('getfile.php?file='.$att);
-	$sql="UPDATE webtd SET attachment='$attachment' WHERE sid=$sid";
-	$_SERVER['kameleon']['dbh']->exec($sql);
+		$attachment=download('getfile.php?file='.$att);
+		$sql="UPDATE webtd SET attachment='$attachment' WHERE sid=$sid";
+		$_SERVER['kameleon']['dbh']->exec($sql);
     }
     
 }
@@ -162,13 +164,13 @@ function kameleon_article($page,$title,$plain,$cats,$date,$date2='0000',$pri=1,$
 function process_plain($plain)
 {
     $plain=preg_replace('~^<br[^>]*>~','',$plain);
-    $plain=str_replace('href="http://www.wbp.poznan.pl/files','href="'.UFILES_TOKEN,$plain);
+    $plain=str_replace('href="http://www.folklor.pl/files','href="'.UFILES_TOKEN,$plain);
     $plain=str_replace('href="files','href="'.UFILES_TOKEN,$plain);
-    $plain=str_replace('http://www.wbp.poznan.pl/index.php','index.php',$plain);
+    $plain=str_replace('http://www.folklor.pl/index.php','index.php',$plain);
     $plain=str_replace('href="?mode=','href="index.php?mode=',$plain);
-    $plain=str_replace('src="http://www.wbp.poznan.pl/','src="/',$plain);
+    $plain=str_replace('src="http://www.folklor.pl/','src="/',$plain);
     
-    
+    $plain=str_replace('rel="lightbox[images]"','fancybox="1"',$plain);
 
     $start=INSIDELINE_TOKEN.'begin';
     $end=INSIDELINE_TOKEN.'endotron';
@@ -185,6 +187,7 @@ function process_plain($plain)
         $file=substr($file,0,$endpos);
    
         $local=download($file,'files/','ufiles');
+		
    
         $plain=str_replace($start.$file.$end,$local,$plain);
     }
@@ -203,23 +206,23 @@ function process_plain($plain)
         
         $para=explode(INSIDELINE_TOKEN,$plain2);
 
-	if ($para[0]=='katalogi')
-	{
-	    $kat=katalogi($para[1]);
-	    
-	    $dir='/katalogi/'.Kameleon::str_to_url($kat['kategoria']);
-	    $ufile_dir=$_SERVER['kameleon']['ufiles'].$dir;
-	    $ext=end(explode('.',$kat['plik']));
-	    $file=Kameleon::str_to_url($kat['nazwa'],-1).'.'.$ext;
-	    
-	    if (!file_exists("$ufile_dir/$file"))
-	    {
-		$tmp=file_get_contents('http://www.wbp.poznan.pl/getfile.php?file='.$kat['plik']);
-		file_put_contents("$ufile_dir/$file",$tmp);
-	    }
-	    @mkdir($ufile_dir,0775,true);
-	    $plain=str_replace($start.$para[0].INSIDELINE_TOKEN.$para[1].$end,UFILES_TOKEN.$dir.'/'.$file,$plain);
-	}
+		if ($para[0]=='katalogi')
+		{
+			$kat=katalogi($para[1]);
+			
+			$dir='/katalogi/'.Kameleon::str_to_url($kat['kategoria']);
+			$ufile_dir=$_SERVER['kameleon']['ufiles'].$dir;
+			$ext=end(explode('.',$kat['plik']));
+			$file=Kameleon::str_to_url($kat['nazwa'],-1).'.'.$ext;
+			
+			if (!file_exists("$ufile_dir/$file"))
+			{
+			$tmp=file_get_contents('http://www.folklor.pl/getfile.php?file='.$kat['plik']);
+			file_put_contents("$ufile_dir/$file",$tmp);
+			}
+			@mkdir($ufile_dir,0775,true);
+			$plain=str_replace($start.$para[0].INSIDELINE_TOKEN.$para[1].$end,UFILES_TOKEN.$dir.'/'.$file,$plain);
+		}
         else {
 	    if (!isset($_SERVER['plus'][$para[0]]))
 	    {
@@ -252,7 +255,7 @@ function process_plain($plain)
         $img=substr($img,0,$endpos);
               
         if (substr($img,0,7)!='http://' && substr($img,0,9)!='http%3A//') $dst=UIMAGES_TOKEN.'/'.download($img);
-	else $dst=$img;
+		else $dst=$img;
         
         $plain=str_replace($start.$img.$end,$dst,$plain);
     }
@@ -285,7 +288,7 @@ function kameleon_galery($menu,$page_id,$title='')
     foreach($menu AS $m)
     {
         
-        $img=download('files/galeria/'.$m['GaleriaGrafika']);
+        $img=download('files/galeria/big/'.$m['GaleriaGrafika']);
         
         $sql="INSERT INTO weblink (server,ver,lang,menu_id,name,alt,img) VALUES (?,?,?,?,?,?,?)";
         $q=$_SERVER['kameleon']['dbh']->prepare($sql);
@@ -362,97 +365,104 @@ function kameleon_galery($menu,$page_id,$title='')
 function download($src_file,$src_prefix='',$dst_dir='uimages')
 {
     $base64prefix='data:image/';
+
+	$src_file=str_replace('//','/',$src_file);
+	if ($src_file[0]=='/') $src_file=substr($src_file,1);
+	
     
     if (strstr($src_file,'getfile.php?'))
     {
-	$dst_dir='ufiles';
-
-	$src='http://www.wbp.poznan.pl/'.$src_file;
-	$dst='x-archiwum/'.end(explode('file=',$src_file));
+		$dst_dir='ufiles';
 	
-	
-	if (!file_exists($_SERVER['kameleon'][$dst_dir].'/'.$dst))
-	{
-	    echo "Downloading $src -> ";
-	    $f=file_get_contents($src);
-	    $dir=dirname($_SERVER['kameleon'][$dst_dir].'/'.$dst);
-	    @mkdir($dir,0775,true);
-	    file_put_contents($_SERVER['kameleon'][$dst_dir].'/'.$dst,$f);
-	    echo $_SERVER['kameleon'][$dst_dir].'/'.$dst."\n";
-	}
+		$src='http://www.folklor.pl/'.$src_file;
+		$dst='x-archiwum/'.end(explode('file=',$src_file));
+		
+		$src=str_replace('//','/',$src);
+		$dst=str_replace('//','/',$dst);
+		
+		
+		if (!file_exists($_SERVER['kameleon'][$dst_dir].'/'.$dst))
+		{
+			echo "Downloading $src -> ";
+			$f=file_get_contents($src);
+			$dir=dirname($_SERVER['kameleon'][$dst_dir].'/'.$dst);
+			@mkdir($dir,0775,true);
+			file_put_contents($_SERVER['kameleon'][$dst_dir].'/'.$dst,$f);
+			echo $_SERVER['kameleon'][$dst_dir].'/'.$dst."\n";
+		}
 	
     }
     elseif (substr($src_file,0,strlen($base64prefix))==$base64prefix)
     {
-	$src_file=substr($src_file,strlen($base64prefix));
-	$pos=strpos($src_file,';');
+		$src_file=substr($src_file,strlen($base64prefix));
+		$pos=strpos($src_file,';');
+		
+		$ext=substr($src_file,0,$pos);
+		$src_file=substr($src_file,$pos);
+		$pos=strpos($src_file,',');
+		$src_file=substr($src_file,$pos+1);
 	
-	$ext=substr($src_file,0,$pos);
-	$src_file=substr($src_file,$pos);
-	$pos=strpos($src_file,',');
-	$src_file=substr($src_file,$pos+1);
-
-	
-	$img=base64_decode($src_file);
-	
-	$file_name=md5($img).'.'.$ext;
-	$dir=$_SERVER['kameleon'][$dst_dir].'/x-archiwum/base64';
-	@mkdir($dir,0775,true);
-	
-	$dst='x-archiwum/base64/'.$file_name;
-	
-	file_put_contents($_SERVER['kameleon'][$dst_dir].'/'.$dst,$img);
+		
+		$img=base64_decode($src_file);
+		
+		$file_name=md5($img).'.'.$ext;
+		$dir=$_SERVER['kameleon'][$dst_dir].'/x-archiwum/base64';
+		@mkdir($dir,0775,true);
+		
+		$dst='x-archiwum/base64/'.$file_name;
+		
+		file_put_contents($_SERVER['kameleon'][$dst_dir].'/'.$dst,$img);
     }
     else
     {
     
-    
-	$src = $src_prefix.$src_file;
-    
-	$src=str_replace('/',UIMAGES_TOKEN,$src);
-	$src=str_replace(' ',INSIDELINE_TOKEN,$src);
-	$src=urlencode($src);
-	$src=str_replace(UIMAGES_TOKEN,'/',$src);
-	$src=str_replace(INSIDELINE_TOKEN,'%20',$src);
-	
-	$src='http://www.wbp.poznan.pl/'.$src;
-	    
-	$dst=$src_file;
-	
-	$dst=preg_replace('~^files/~','',$dst);
-	$dst=preg_replace('~^uimages/[12]/~','archiwum/',$dst);
-	
-	
-	$dst='x-archiwum/'.$dst;
-	
-	for ($i=0;$i<4;$i++)
-	{
-	    $dst=str_replace(' /','/',$dst);
-	    $dst=str_replace('/ ','/',$dst);
-	}
-    
-	
-	$dst=preg_replace('/\.+/','.',$dst);
-	
-	$dst=str_replace('/',UIMAGES_TOKEN,$dst);
-	$dst=Kameleon::str_to_url($dst);
-	$dst=str_replace(UIMAGES_TOKEN,'/',$dst);
-	
-	$dst=str_replace('.jpg.jpg','.jpg',$dst);
-	$dst=str_replace('.png.png','.png',$dst);
-	
-	
-	
-	
-	if (!file_exists($_SERVER['kameleon'][$dst_dir].'/'.$dst))
-	{
-	    echo "Downloading $src -> ";
-	    $f=file_get_contents($src);
-	    $dir=dirname($_SERVER['kameleon'][$dst_dir].'/'.$dst);
-	    @mkdir($dir,0775,true);
-	    file_put_contents($_SERVER['kameleon'][$dst_dir].'/'.$dst,$f);
-	    echo $_SERVER['kameleon'][$dst_dir].'/'.$dst."\n";
-	}
+		
+		$src = $src_prefix.$src_file;
+		
+		$src=str_replace('/',UIMAGES_TOKEN,$src);
+		$src=str_replace(' ',INSIDELINE_TOKEN,$src);
+		$src=urlencode($src);
+		$src=str_replace(UIMAGES_TOKEN,'/',$src);
+		$src=str_replace(INSIDELINE_TOKEN,'%20',$src);
+		
+		$src='http://www.folklor.pl/'.$src;
+			
+		$dst=$src_file;
+		
+		$dst=preg_replace('~^files/~','',$dst);
+		$dst=preg_replace('~^uimages/[12]/~','archiwum/',$dst);
+		
+		
+		$dst='x-archiwum/'.$dst;
+		
+		for ($i=0;$i<4;$i++)
+		{
+			$dst=str_replace(' /','/',$dst);
+			$dst=str_replace('/ ','/',$dst);
+		}
+		
+		
+		$dst=preg_replace('/\.+/','.',$dst);
+		
+		$dst=str_replace('/',UIMAGES_TOKEN,$dst);
+		$dst=Kameleon::str_to_url($dst);
+		$dst=str_replace(UIMAGES_TOKEN,'/',$dst);
+		
+		$dst=str_replace('.jpg.jpg','.jpg',$dst);
+		$dst=str_replace('.png.png','.png',$dst);
+		
+		
+		
+		
+		if (!file_exists($_SERVER['kameleon'][$dst_dir].'/'.$dst))
+		{
+			echo "Downloading $src -> ";
+			$f=file_get_contents($src);
+			$dir=dirname($_SERVER['kameleon'][$dst_dir].'/'.$dst);
+			@mkdir($dir,0775,true);
+			file_put_contents($_SERVER['kameleon'][$dst_dir].'/'.$dst,$f);
+			echo $_SERVER['kameleon'][$dst_dir].'/'.$dst."\n";
+		}
     
     }
     

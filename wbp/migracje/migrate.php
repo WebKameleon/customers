@@ -1,8 +1,8 @@
 <?php
-	$kameleon_prefix='/www/kameleon2';
+	$kameleon_prefix='/home/piotr/www/kameleon';
 
-	$src_pdo = array('dsn'=>'mysql:host=localhost;charset=utf8;dbname=wbp','user'=>'root','pass'=>'spierdalaj');
-	$dst_pdo = array('dsn'=>'pgsql:host=localhost;dbname=cmspremium;port=5411','user'=>'cmsdecora','pass'=>'j4th84it44h8rg');
+	$src_pdo = array('dsn'=>'mysql:host=173.194.250.90;charset=utf8;dbname=folklorp_baza','user'=>'kiedymsza','pass'=>'crucemtuam');
+	$dst_pdo = array('dsn'=>'pgsql:host=localhost;dbname=cmspremium;port=5432','user'=>'cmsdecora','pass'=>'spierdalaj');
 
 	if (file_exists(__DIR__.'/const.php')) include  __DIR__.'/const.php';
 
@@ -22,7 +22,7 @@
 
 	$_SERVER['wbp']['dbh']=$src;
 
-	$kameleon_server='wbpicak';
+	$kameleon_server='folklor-pl';
 	
 	$kameleon_lang='pl';
 	$kameleon_level=1;
@@ -35,8 +35,8 @@
 	
 	echo "Kameleon website $kameleon_server = ".$server['id']."\n";
 	
-	$_SERVER['plus']['artykuly']=500;	
-	$_SERVER['plus']['aktualnosci_wbp']=1000;
+	$_SERVER['plus']['galeria']=-7000;	
+	$_SERVER['plus']['aktualnosci_folklor']=500;
 	$_SERVER['plus']['tworcy']=50000;
 	$_SERVER['plus']['katalogi']=55000;
 	
@@ -119,7 +119,11 @@
 				
 				case 'a':
 				    $next='wbp_gal';
-				    break;				
+				    break;
+			
+				case 'u':
+				    $next='kameleon_lang';
+				    break;					
 			}
 
 			continue;

@@ -3,7 +3,7 @@
 
 function usage($me)
 {
-    die("$me [-m] article|aktual [-i ID -a gallery] [-g ID] [-l limit] [-o offset] [-k kat] [-r like_expr] [-f] [-s]\n\t-g greater then ID\n\t-f = force rewrite\n\t-s = recursive\n");
+    die("$me [-m] article|aktual [-u lang] [-i ID -a gallery] [-g ID] [-l limit] [-o offset] [-k kat] [-r like_expr] [-f] [-s]\n\t-g greater then ID\n\t-f = force rewrite\n\t-s = recursive\n");
 }
 
 
