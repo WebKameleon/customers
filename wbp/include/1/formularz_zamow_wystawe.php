@@ -100,6 +100,8 @@
                 <div class="warning" style="display: none"></div>
                 
                 <input type="button" value="Zamów" class="order-button"/>
+                
+                
             </div>
 
             
@@ -128,7 +130,6 @@ window.onload = function() {
         }
     }
     
-    $('#wbp-form-loading label').html('Zamawianie ...');
     
     $('#exhibition-order input,#exhibition-order textarea,#exhibition-order select').change(function () {
         $(this).removeClass('error');
@@ -137,11 +138,13 @@ window.onload = function() {
     
     $('#exhibition-order .order-button').click(function() {
         
-        $('#wbp-form-loading').fadeIn();
+        var orderButton=$(this);
+        orderButton.val('Zamawianie, proszę czekać ...').addClass('order-button-gray');
+        
         $('#exhibition-order .warning').hide();
         var data=$('#exhibition-order').serialize();
         $.post('<?php echo $ajax_exhibition?>',data,function (resp) {
-            $('#wbp-form-loading').hide();
+            orderButton.val('Zamów').removeClass('order-button-gray');
             if (resp.error!=null) {
                 $('#exhibition-order .warning').html(resp.error).fadeIn();
                 $('#exhibition-order .'+resp.obj).addClass('error');

@@ -2219,6 +2219,10 @@ a.jotform_edit:hover {
 	margin-bottom:25px;
 	
 }
+#exhibition-order input.order-button-gray {
+	background-color:#404040 !important;
+	cursor: wait !important;
+}
 
 #exhibition-order input.order-button:hover, #exhibition-order input.order-button:focus, #exhibition-order input.order-button:active {
 	color: #fff;

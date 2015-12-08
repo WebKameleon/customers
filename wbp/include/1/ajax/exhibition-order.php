@@ -1,5 +1,5 @@
 <?php
-    
+    ini_set('display_errors',true);
     header('Content-type: application/json; charset=utf8');
     
     require_once __DIR__.'/../kameleon/Google.php';
@@ -138,7 +138,7 @@
     
     if (isset($td_data['drive']['email']) && $td_data['drive']['email'])
     {
-        mail ($td_data['drive']['email'],$td_data['title'],$file['alternateLink']);
+        WBP::mail($data['email'],$td_data['drive']['email'],$td_data['title'],$file['alternateLink']);
     }
     
     $resp=array('result'=>1,'error'=>null);

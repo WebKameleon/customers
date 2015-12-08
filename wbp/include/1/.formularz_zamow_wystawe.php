@@ -53,11 +53,20 @@
 
     if (isset($_POST['drive'][$sid]))
     {
+        //mydie($configuration,$configuration_file_name);
+        
+		echo "<script>km_preloader_show();</script>";
+		flush();
+		ob_end_flush();        
+        
+        
         WBP::put_data($configuration_file_name,$configuration);
         register_shutdown_function(function() {
             $ftp=new ftpController();
             $ftp->ftp_start('inc','',false);
+            echo "<script>km_preloader_hide();</script>";
         });
+        
     }    
 ?>
 
@@ -77,7 +86,7 @@
     </li>
 </ul>
 <div>
-    <input type="submit" value="Zapisz"/>
+    <input type="submit" value="Zapisz" onclick="km_preloader_show();"/>
     <p class="warning"><?php
         if (!$this->webtd['next']) echo "<span>Ustaw stronę następną</span>";    
     ?></p>

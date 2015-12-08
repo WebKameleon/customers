@@ -364,9 +364,9 @@ window.onload = function() {
     
 
 
-    $('#fileupload').dblclick(fill_the_form);
+
     <?php if (isset($KAMELEON_MODE) && $KAMELEON_MODE==1):?>
-    //$('#fileupload').dblclick(fill_the_form);
+    $('#fileupload').dblclick(fill_the_form);
     <?php endif ?>
 
 }    

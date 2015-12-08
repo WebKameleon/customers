@@ -76,11 +76,16 @@
     
     if (isset($_POST['drive'][$sid]))
     {
+		echo "<script>km_preloader_show();</script>";
+		flush();
+		ob_end_flush();		
+		
         WBP::put_data($configuration_file_name,$configuration);
         
         register_shutdown_function(function() {
             $ftp=new ftpController();
             $ftp->ftp_start('inc','',false);
+			echo "<script>km_preloader_hide();</script>";
         });
     }
     
@@ -151,7 +156,7 @@
     </li>    
     
 </ul>
-<p><input type="submit" value="Zapisz"/></p>
+<p><input type="submit" value="Zapisz" onclick="km_preloader_show();"/></p>
 </form>
 
 
