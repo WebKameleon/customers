@@ -1,2 +1,1 @@
-include/1/data/wystawy.php
-include/1/data/aktualne_wystawy.php
+include/1/data/*
