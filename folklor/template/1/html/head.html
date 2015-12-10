@@ -1,0 +1,58 @@
+<title>{page.title}</title>
+    {if:page.description}<meta name="description" content="{page.description}" />{endif:page.description}	
+    {if:page.keywords}<meta name="keywords" content="{page.keywords}" />{endif:page.keywords}
+    
+    <meta name="author" content="webkameleon.com">
+    
+    <!----- favicon ----->
+    <link rel="shortcut icon" href="{template_dir}/images/favicon.ico">
+    <!----- /favicon ----->
+    
+    {if:page.og_desc}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{page.title}"/> 
+    <meta property="og:site_name" content="{server.http_url}" />
+    <meta property="og:description" content="{page.og_desc}" />
+    {if:page.og_image}<meta property="og:image" content="{uimages}/{page.og_image}" />{endif:page.og_image}
+    {endif:page.og_desc}
+    
+    <meta name="Robots" content="all" />
+    <meta name="generator" content="{generator}" />
+    <meta name="webkameleonId" content="server={page.server}; page={page.id}; ver={page.ver}; lang={page.lang}; ftp={page.nd_ftp|kameleon.datetime}" />
+    
+    <!----- fonts ----->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!----- /fonts ----->
+    
+    <!----- bcg ----->
+	<style>
+    body {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        {if:server.background}background-image:url('{uimages}/{server.background}');background-repeat:no-repeat; background-attachment:fixed;background-position: top center;{endif:server.background}
+        {if:page.background}background:url('{uimages}/{page.background}');background-attachment:fixed;background-repeat: repeat-y; background-position: top center;{endif:page.background}
+        {if:server.bgcolor}background-color:#{server.bgcolor} !important;{endif:server.bgcolor}
+        {if:page.bgcolor}background-color:#{page.bgcolor} !important;{endif:page.bgcolor}
+    }
+    </style>
+    <!----- /bcg ----->
+    
+    <!----- css ----->
+    <!----- Bootstrap core CSS (v3.3.6) ----->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!----- /Bootstrap core CSS (v3.3.6) ----->
+    <!----- Main Template CSS ----->
+    <link rel="stylesheet" href="{template_dir}/css/main.css">
+    <!----- /Main Template CSS ----->
+    {if:mode=(2,3)}
+    <!----- WebKameleon Walkaround ----->
+    <link rel="stylesheet" href="{template_dir}/css/webkameleon.css">
+    <!----- /WebKameleon Walkaround ----->
+    {endif:mode=(2,3)}
+    <!----- /css ----->
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="{template_dir}/js/html5shiv.min.js"></script>
+      <script src="{template_dir}/js/respond.min.js"></script>
+    <![endif]-->

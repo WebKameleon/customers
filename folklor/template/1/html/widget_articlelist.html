@@ -1,0 +1,42 @@
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+{with:articlelistWidget}
+
+{if:nav}<div class="kmw_articlelist_nav" rel="{nav_limit}">
+<ul>{loop:nav}
+<li><a rel="{loop}">{loop}</a></li>
+{endloop:nav}</ul>
+</div>{endif:nav}
+
+{loop:articles}
+
+
+<noindex>
+<!--googleoff: all-->
+
+{if:title}<a name="{title}"></a>{endif:title}
+<div class="kmw_article_list">
+    {if:bgimg}
+        <img{if:itemtype} itemprop="image"{endif:itemtype} src="{imagesUrl}/{bgimg}" />
+    {endif:bgimg}
+
+        {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}><a href="{more_link}">{endif:more}{title}{if:more}</a></{tokens.h1}>{endif:title}
+        <div class="kmw_article_text">{plain}{tokens.php}</div>
+        <div class="clearfix"></div>
+	    <a href="{more_link}" class="read-more">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>
+
+</div>
+<!--googleon: all-->
+
+
+</noindex>
+
+{endloop:articles}
+
+<!--
+<div class="clearfix"></div>
+<a class="btn more-articles  btn btn-default" data-toggle="collapse" href="#more-articles" aria-expanded="false" aria-controls="more-articles">
+  {if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}
+</a> -->
+
+{endwith:articlelistWidget}
+{plain}
