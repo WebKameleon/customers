@@ -29,7 +29,7 @@
 		$id=$row['AktualnoscExtendedId'];
 		$page_id=$id+$id_plus;
 		
-		
+		//print_r($row);
 
 		$page_exists=kameleon_page_exists($page_id);
 	
@@ -98,7 +98,7 @@
 		
 		$att='';
 
-		
+		//die($html);
 		kameleon_article($page_id,$title,$html,$categories,$row['AktualnoscExtendedDataBPublikacji'],$row['AktualnoscExtendedDataEPublikacji'],1,null,null,null,'',$row['AktualnoscExtendedZajawka'],$att);
 
 	

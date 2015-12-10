@@ -56,8 +56,8 @@
 	$_SERVER['kameleon']['article_bgimg_h'] = 0;
 	$_SERVER['kameleon']['article_galery'] = 'gallery2';
 	$_SERVER['kameleon']['article_galery_plus']=100;
-	$_SERVER['kameleon']['article_galery_w'] = '100%';
-	$_SERVER['kameleon']['article_galery_h'] = 150;
+	$_SERVER['kameleon']['article_galery_w'] = 180;
+	$_SERVER['kameleon']['article_galery_h'] = 140;
 	
 	
 

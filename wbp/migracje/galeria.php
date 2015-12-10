@@ -76,7 +76,7 @@
 		
 		echo sprintf("[%05d]",$id)." $title ... $page_id\n";
 
-		break;	
+		//break;	
 	}
  
 	

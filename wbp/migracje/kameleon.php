@@ -172,8 +172,9 @@ function process_plain($plain)
     
     $plain=str_replace('rel="lightbox[images]"','fancybox="1"',$plain);
 	
-	$plain=preg_replace('~<!--\[if gte mso [0-9]+\]>.+?<!\[endif\]-->~s','',$plain);
+	$plain=preg_replace('~<!--\[if gte mso [0-9]+\]>.*?<!\[endif\]-->~s','',$plain);
 	
+	//die($plain);
     $start=INSIDELINE_TOKEN.'begin';
     $end=INSIDELINE_TOKEN.'endotron';
     
@@ -327,13 +328,16 @@ function kameleon_galery($menu,$page_id,$title='')
         }
 
         $icon=$_SERVER['kameleon']['uimages'].'/widgets/'.$widget.'/gfx/icon/'.$img;
-        if (!file_exists($icon))
+        if (!file_exists($icon) )
         {
             
             @mkdir(dirname($icon),0775,true);
-            $w=0;
-            Tools::check_image(basename($_SERVER['kameleon']['uimages'].'/'.$img), dirname($_SERVER['kameleon']['uimages'].'/'.$img), dirname($icon), $w, $height, 0777, true);
-        }
+            $w=$width;
+			$h=$height;
+			
+            Tools::check_image(basename($_SERVER['kameleon']['uimages'].'/'.$img), dirname($_SERVER['kameleon']['uimages'].'/'.$img), dirname($icon), $w, $h, 0777, true, true);
+	
+		}
         
     }
     
@@ -341,7 +345,7 @@ function kameleon_galery($menu,$page_id,$title='')
         'images'=>json_encode($images),
         'menu_id'=>$menu_id,
         'effect'=>'fade',
-        'width'=>$width,
+        'thumb_width'=>$width,
         'thumb_height'=>$height,
         'slideshow_autostart'=>0,
     );
