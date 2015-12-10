@@ -3009,10 +3009,10 @@ ul#wbp_shop_results li a:last-child:hover {
 #main-right .article img {
 	/*max-width: 33%;*/
 	max-width: 100%;
-	float: left;
+	/*float: left;*/
 	margin: 0 15px 15px 0;
 	height: auto !important;
-	display:block;
+	/*display:block;*/
 }
 
 #main-left .article #wbp_grid_wyniki img,

@@ -131,6 +131,8 @@
 		$$next=$argv[$i];
 	}
 
+	$_SERVER['kameleon']['lang'] = $kameleon_lang;
+	
 	if (!$wbp_module) usage($argv[0]);
 	
 	$wbp_module=preg_replace('/\.php$/','',$wbp_module);

@@ -171,7 +171,9 @@ function process_plain($plain)
     $plain=str_replace('src="http://www.folklor.pl/','src="/',$plain);
     
     $plain=str_replace('rel="lightbox[images]"','fancybox="1"',$plain);
-
+	
+	$plain=preg_replace('~<!--\[if gte mso [0-9]+\]>.+?<!\[endif\]-->~s','',$plain);
+	
     $start=INSIDELINE_TOKEN.'begin';
     $end=INSIDELINE_TOKEN.'endotron';
     
