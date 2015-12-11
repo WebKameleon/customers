@@ -1,3 +1,2 @@
-- url: .*index.php\?mode=.*
+- url: /index.php
   script: redirect.php
-
