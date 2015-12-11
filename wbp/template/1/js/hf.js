@@ -18,6 +18,10 @@ function wbp_inject(part)
       var re=/href="http/g;
       data=data.replace(re,'kajhskjsfsdjfvyegrdjfhgdf3423dwefer');
       
+      re=/src="http/g;
+      data=data.replace(re,'bisdcbj7yejsc6svasdt7u3hagsdva7sdta');
+      
+      
       re=/src="/g;
       data=data.replace(re,'src="'+website);
       
@@ -26,6 +30,9 @@ function wbp_inject(part)
       
       re=/kajhskjsfsdjfvyegrdjfhgdf3423dwefer/g;
       data=data.replace(re,'href="http');
+      
+      re=/bisdcbj7yejsc6svasdt7u3hagsdva7sdta/g;
+      data=data.replace(re,'src="http');      
       
       if (part=='header') $('body').prepend(data);
       else $('body').append(data);
