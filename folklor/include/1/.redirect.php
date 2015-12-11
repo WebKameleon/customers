@@ -30,14 +30,14 @@
         fwrite($f,"\n);");
         fclose($f);
         
-        echo '<pre>'.htmlspecialchars(file_get_contents(__DIR__.'/redirect.php')).'</pre>';
+        //echo '<pre>'.htmlspecialchars(file_get_contents(__DIR__.'/redirect.php')).'</pre>';
         
-        /*
+        
         register_shutdown_function(function() {
             $ftp=new ftpController();
             $ftp->ftp_start('inc','',false);
         });
-        */
+    
         
     }
     

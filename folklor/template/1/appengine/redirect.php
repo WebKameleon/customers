@@ -15,7 +15,7 @@
     if (isset($_GET['mode'])) switch ($_GET['mode']) {
         case 'aktualnosci_extended':
             if (isset($_GET['id']) && isset($_GET['lang'])) {
-                $token=strtolower($_GET['lang']).':'.$_GET['id'];
+                $token=strtolower($_GET['lang']).':'.($_GET['id']+500);
             }
             break;
             
