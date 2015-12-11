@@ -26,8 +26,7 @@
         case 'galeria':
             if (isset($_GET['d']) && isset($_GET['lang'])) {
                 $token=strtolower($_GET['lang']).':'.($_GET['d']-7000);
-            }
-            if (isset($_GET['id']) && isset($_GET['lang'])) {
+            } elseif (isset($_GET['id']) && isset($_GET['lang'])) {
                 if ($_GET['id']=='8033') $token=strtolower($_GET['lang']).':3';
                 if ($_GET['id']=='8030') $token=strtolower($_GET['lang']).':6';
             }
