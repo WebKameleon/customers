@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+<country id="CN" name="Chiny">
+	<item name="2006" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8012&amp;lang=PL" />
+</country>
+<country id="CZ" name="Czechy">
+	<item name="2003" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8059&amp;lang=PL" />
+</country>
+<country id="BG" name="Bułgaria">
+	<item name="2006" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8011&amp;lang=PL" />
+	<item name="1971" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8071&amp;lang=PL" />
+	<item name="1977" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8072&amp;lang=PL" />
+	<item name="1980" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8073&amp;lang=PL" />
+	<item name="1981" url="" />
+	<item name="1983" url="" />
+	<item name="1984" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8079&amp;lang=PL" />
+	<item name="1986" url="" />
+</country>
+<country id="EG" name="Egipt">
+	<item name="1989" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8082&amp;lang=PL" />
+</country>
+<country id="HR" name="Chorwacja">
+	<item name="2006" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8006&amp;lang=PL" />
+</country>
+<country id="DK" name="Dania">
+	<item name="1996" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8080&amp;lang=PL" />
+	<item name="1997" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8081&amp;lang=PL" />
+</country>
+<country id="TW" name="Tajwan">
+	<item name="2007" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8007&amp;lang=PL" />
+</country>
+<country id="TN" name="Tunezja">
+	<item name="2007" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8009&amp;lang=PL" />
+</country>
+<country id="TR" name="Turcja">
+	<item name="1995" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8096&amp;lang=PL" />
+	<item name="2008" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8067&amp;lang=PL" />
+</country>
+<country id="UA" name="Ukraina">
+	<item name="1994" url="" />
+	<item name="2002" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8065&amp;lang=PL" />
+</country>
+<country id="BE" name="Belgia">
+	<item name="2001" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8077&amp;lang=PL" />
+</country>
+<country id="BY" name="Białoruś">
+	<item name="1990" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8078&amp;lang=PL" />
+</country>
+<country id="GB" name="Wielka Brytania">
+	<item name="1971" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8068&amp;lang=PL" />
+	<item name="1985" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8069&amp;lang=PL" />
+	<item name="1989" url="" />
+	<item name="1997" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8070&amp;lang=PL" />
+</country>
+<country id="AT" name="Austria">
+	<item name="1974" url="" />
+	<item name="2005" url="" />
+	<item name="2006" url="" />
+</country>
+<country id="BA" name="Bośnia i Hercegowina">
+	<item name="2006" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8010&amp;lang=PL" />
+</country>
+<country id="BR" name="Brazylia">
+	<item name="1995" url="" />
+	<item name="2000" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8058&amp;lang=PL" />
+</country>
+<country id="FR" name="Francja">
+	<item name="1975" url="" />
+	<item name="1986" url="" />
+	<item name="1987" url="" />
+	<item name="1988" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8101&amp;lang=PL" />
+	<item name="1992" url="" />
+	<item name="1995" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8084&amp;lang=PL" />
+	<item name="1999" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8085&amp;lang=PL" />
+	<item name="1995" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8083&amp;lang=PL" />
+	<item name="1997" url="" />
+</country>
+<country id="GR" name="Grecja">
+	<item name="1996" url="" />
+</country>
+<country id="ES" name="Hiszpania">
+	<item name="1986" url="" />
+	<item name="1994" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8100&amp;lang=PL" />
+	<item name="2011(Majorka)" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8110&amp;lang=PL" />
+	<item name="2012" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8116&amp;lang=PL" />
+</country>
+<country id="NL" name="Holandia">
+	<item name="1971" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8086&amp;lang=PL" />
+	<item name="1997" url="" />
+	<item name="1991" url="" />
+	<item name="1989" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8087&amp;lang=PL" />
+</country>
+<country id="CA" name="Kanada">
+	<item name="1975" url="" />
+</country>
+<country id="KR" name="Korea Południowa">
+	<item name="2003" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8054&amp;lang=PL" />
+</country>
+<country id="LT" name="Litwa">
+	<item name="1989" url="" />
+	<item name="2011" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8114&amp;lang=PL" />
+</country>
+<country id="MY" name="Malezja">
+	<item name="2002" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8060&amp;lang=PL" />
+</country>
+<country id="NP" name="Nepal">
+	<item name="2004" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8061&amp;lang=PL" />
+</country>
+<country id="DE" name="Niemcy">
+	<item name="1992" url="" />
+	<item name="1994" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8090&amp;lang=PL" />
+	<item name="1995" url="" />
+	<item name="1996" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8057&amp;lang=PL" />
+	<item name="1999" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8091&amp;lang=PL" />
+	<item name="2004" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8063&amp;lang=PL" />
+	<item name="2006" url="" />
+	<item name="2006" url="" />
+	<item name="1998" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8062&amp;lang=PL" />
+	<item name="1996" url="" />
+	<item name="2013" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8121&amp;lang=PL" />
+</country>
+<country id="PT" name="Portugalia">
+	<item name="1990" url="" />
+	<item name="2005" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8055&amp;lang=PL" />
+</country>
+<country id="RO" name="Rumunia">
+	<item name="2004" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8064&amp;lang=PL" />
+</country>
+<country id="SI" name="Słowenia">
+	<item name="1994" url="" />
+</country>
+<country id="SE" name="Szwecja">
+	<item name="1965" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8094&amp;lang=PL" />
+	<item name="1987" url="" />
+	<item name="1992" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8095&amp;lang=PL" />
+</country>
+<country id="US" name="USA">
+	<item name="1975" url="" />
+</country>
+<country id="HU" name="Węgry">
+	<item name="1978" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8097&amp;lang=PL" />
+	<item name="1995" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8098&amp;lang=PL" />
+	<item name="1998" url="" />
+</country>
+<country id="IT" name="Włochy">
+	<item name="1996" url="" />
+	<item name="2001" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8066&amp;lang=PL" />
+</country>
+<country id="JO" name="Jordania">
+	<item name="2008" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8052&amp;lang=PL" />
+</country>
+<country id="PL" name="Polska">
+	<item name="" url="" />
+</country>
+<country id="RU" name="ZSRR">
+	<item name="1978" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8099&amp;lang=PL" />
+</country>
+<country id="KW" name="Kuwejt">
+	<item name="2008" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8053&amp;lang=PL" />
+</country>
+<country id="IN" name="Indie">
+	<item name="2008" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8076&amp;lang=PL" />
+</country>
+<country id="ME" name="Czarnogóra">
+	<item name="2009" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8104&amp;lang=PL" />
+</country>
+<country id="RS" name="Kosowo">
+	<item name="2009" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8105&amp;lang=PL" />
+</country>
+<country id="MT" name="Malta">
+	<item name="2009" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8107&amp;lang=PL" />
+</country>
+<country id="AL" name="Albania">
+	<item name="2010" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8108&amp;lang=PL" />
+</country>
+<country id="DZ" name="Algieria">
+	<item name="2010" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8109&amp;lang=PL" />
+</country>
+<country id="EE" name="Estonia">
+	<item name="2011" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8111&amp;lang=PL" />
+</country>
+<country id="SK" name="Słowacja">
+	<item name="2011" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8112&amp;lang=PL" />
+</country>
+<country id="GE" name="Gruzja">
+	<item name="2012" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8115&amp;lang=PL" />
+</country>
+<country id="MC" name="Monako">
+	<item name="2013" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8118&amp;lang=PL" />
+</country>
+<country id="CL" name="Chile">
+	<item name="2014" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8122&amp;lang=PL" />
+</country>
+<country id="AM" name="Armenia">
+	<item name="2014" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8123&amp;lang=PL" />
+</country>
+<country id="TH" name="Tajlandia">
+	<item name="2015" url="/index.php?mode=galeria&amp;action=main&amp;menu=174&amp;id=1&amp;d=8124&amp;lang=PL" />
+</country>
+</root>
