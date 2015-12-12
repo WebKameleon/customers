@@ -12,6 +12,7 @@
     right:0px;
     margin: 0 auto;
     margin-top: 150px;
+    padding:0px;
 }
 
 .popup:before {
@@ -43,5 +44,5 @@
 }
 
 .popup .kmw_article_text {
-    padding: 15px;
+    padding: 0px;
 }
