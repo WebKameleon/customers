@@ -181,25 +181,39 @@ body {
 	font-weight:normal;
 }
 
-.jumbotron h1 {
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3,
+.jumbotron h4,
+.jumbotron h5,
+.jumbotron h6 {
 	padding:0px;
 	margin:0px;
 	margin-bottom:10px;
-}
-
-.jumbotron h1 a {
-	color:#fff;
+    color:#fff;
 	text-transform:uppercase;
 	font-weight:bold;
 	font-size:16px;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bae41b+0,95b711+100 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bae41b+0,95b711+100 */
 	background: #bae41b; /* Old browsers */
 	background: -moz-linear-gradient(top,  #bae41b 0%, #95b711 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top,  #bae41b 0%,#95b711 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #bae41b 0%,#95b711 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bae41b', endColorstr='#95b711',GradientType=0 ); /* IE6-9 */
+    padding:10px 15px 10px 5px;
+}
+
+.jumbotron h1 a,
+.jumbotron h2 a,
+.jumbotron h3 a,
+.jumbotron h4 a,
+.jumbotron h5 a,
+.jumbotron h6 a {
+	color:#fff;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:16px;
 	display:block;
-	padding:10px 15px 10px 5px;
 }
 
 .breadcrumbs {
@@ -535,7 +549,7 @@ img.fl-rt {
 	filter:alpha(opacity=70); /* For IE8 and earlier */
 }
 
-.footer-menu .nav>li>a:focus, .nav>li>a:hover {
+.footer-menu .nav>li>a:focus, .footer-menu .nav>li>a:hover {
     text-decoration: none;
     background:none !important;
 }
@@ -826,3 +840,50 @@ a.gs-title, a.gs-title b {
     max-height: 140px;
     width: 100%;
 }
+
+
+
+
+/* Koncerty */
+.koncerty .date, .time, .location {
+  color: #5C5445;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  margin-right: 15px;
+}
+
+.koncerty .date {
+  padding-left: 10px;
+}
+
+.koncerty .summary {
+  color: #E2001A;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.koncerty .white .kmw_article_text {
+    border:1px solid #F7F6E5;
+}
+
+.koncerty .kmw_article h1,
+.koncerty .kmw_article h2 {
+  background: #FAFAF0;
+  color: #5C5445;
+  text-transform: capitalize;
+  margin: 0px;
+  padding: 0px;
+}
+
+.koncerty .kmw_article h1 {
+  padding: 10px 10px 0 10px;
+}
+
+.koncerty .kmw_article h2 {
+  font-size: 11px;
+  font-style: italic;
+  font-weight: normal;
+  padding: 0px 10px 10px 10px;
+}
+/* end Koncerty */
