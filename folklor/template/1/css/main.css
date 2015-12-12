@@ -181,25 +181,39 @@ body {
 	font-weight:normal;
 }
 
-.jumbotron h1 {
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3,
+.jumbotron h4,
+.jumbotron h5,
+.jumbotron h6 {
 	padding:0px;
 	margin:0px;
 	margin-bottom:10px;
-}
-
-.jumbotron h1 a {
-	color:#fff;
+    color:#fff;
 	text-transform:uppercase;
 	font-weight:bold;
 	font-size:16px;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bae41b+0,95b711+100 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bae41b+0,95b711+100 */
 	background: #bae41b; /* Old browsers */
 	background: -moz-linear-gradient(top,  #bae41b 0%, #95b711 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top,  #bae41b 0%,#95b711 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #bae41b 0%,#95b711 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bae41b', endColorstr='#95b711',GradientType=0 ); /* IE6-9 */
+    padding:10px 15px 10px 5px;
+}
+
+.jumbotron h1 a,
+.jumbotron h2 a,
+.jumbotron h3 a,
+.jumbotron h4 a,
+.jumbotron h5 a,
+.jumbotron h6 a {
+	color:#fff;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:16px;
 	display:block;
-	padding:10px 15px 10px 5px;
 }
 
 .breadcrumbs {
@@ -535,7 +549,7 @@ img.fl-rt {
 	filter:alpha(opacity=70); /* For IE8 and earlier */
 }
 
-.footer-menu .nav>li>a:focus, .nav>li>a:hover {
+.footer-menu .nav>li>a:focus, .footer-menu .nav>li>a:hover {
     text-decoration: none;
     background:none !important;
 }
@@ -570,259 +584,102 @@ footer .col-md-6:last-child {
 
 /* end Footer */
 
-
-
-
-/* Search */
-
-/* ==========================================================================
-   Search CSS for HAIK by Karol Huszal, 2014
-   ========================================================================== */
-
-#cse-search-form {
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
-	vertical-align: middle;
-	background-color: #b9e31b;
-	color: #1d1d1d;
-	border:0px;
-	border-bottom:1px solid #dfdfdf;
-	height:32px;
+/* Koncerty */
+.koncerty .date, .time, .location {
+  color: #5C5445;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  margin-right: 15px;
 }
 
-.gsc-input * {
-	background-image:none !important;
-	border:0px;
+.koncerty .date {
+  padding-left: 10px;
 }
 
-.gsc-search-box * {
-	background-image:none !important;
-	border:0px;
+.koncerty .summary {
+  color: #E2001A;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
 }
 
-.gsc-input-box {
-	border: 0px;
-	background: #fff;
-	height: 30px;
-	padding:0px;
-	margin:0px;
-	vertical-align:top;
+.koncerty .white .kmw_article_text {
+    border:1px solid #F7F6E5;
 }
 
-.gsc-search-button {
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
-}
-
-.cse input.gsc-search-button, input.gsc-search-button {
-    background-color: #808e95;
-    background: url(../../images/search-icon.png) no-repeat !important;
-    text-indent: -9999em;
-    border: none !important;
-	margin:0px;
-	width: 0px;
-	height: 0px !important;
-	padding: 0px;
-	margin: 0px;
-	padding: 10px 5px !important;
-}
-
-.gsib_a {
-	width: 100%;
-	padding: 0px 0px 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* google search box and results */
-
-#cse-search-form {
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
-	vertical-align: middle;
-	background-color: #b8e21b; /* kolor calego tr*/
-	color: 666; /*color fontu w inpucie*/
-}
-
-#cse-search-form {
-  margin-top:0px;
-}
-
-.gsc-search-box-tools .gsc-search-box .gsc-input {
-	padding-right: 0px;
-}
-
-
-.cse .gsc-search-button input.gsc-search-button-v2, input.gsc-search-button-v2 {
-	width: 13px;
-	height: 13px;
-	padding: 0px 0px;
-	min-width: 13px;
-	margin-top: 0px;
-}
-
-
-
-.cse .gsc-control-cse, .gsc-control-cse {
+.koncerty .kmw_article h1,
+.koncerty .kmw_article h2 {
+  background: #FAFAF0;
+  color: #5C5445;
+  text-transform: capitalize;
+  margin: 0px;
   padding: 0px;
-  font-size: 1em;
 }
 
-.gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top {
-  padding-left: 0px;
+.koncerty .kmw_article h1 {
+  padding: 10px 10px 0 10px;
 }
 
+.koncerty .kmw_article h2 {
+  font-size: 11px;
+  font-style: italic;
+  font-weight: normal;
+  padding: 0px 10px 10px 10px;
+}
+/* end Koncerty */
 
-.gsc-search-box-tools .gsc-search-box .gsc-input {
-	padding-right: 0px;
-}
-input.gsc-input {
-	font-size: 14px;
-	padding:0px;
-	border: 0px;
-	border-radius: 0px;
-	-moz-border-radius: 0px;
-	-webkit-border-radius: 0px;
-	background-image: none !important; /* usuwa t?o google */
-}
-.gsc-input-box {
-	border: 0px solid #D9D9D9;
+.white .menu-standard {
+  border: 1px solid #F6F5E0;
+  padding: 15px;
+  margin: 12px 0;
+  list-style: none;
 }
 
-
-/* google search box and results */
-
-#cse-search-form, #cse-search-form * {
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
-	  vertical-align: bottom;
-	background-color: #b8e21b; /* kolor ca?ego tr*/
-	color: #333; /*color fontu w inpucie*/
+.white .menu-standard li {
+  display: inline-block;
 }
 
-.gsc-search-box-tools .gsc-search-box .gsc-input {
-	padding-right: 0px;
+.white .menu-standard li a {
+  text-decoration: none;
+  color: #0C5890;
+  outline: none;
+  font-size: 11px;
+  display: inline-block;
 }
 
-
-
-.cse .gsc-control-cse, .gsc-control-cse {
-  padding: 0px;
-  font-size: 1em;
+.white .menu-standard li a:after {
+  content: '';
+  display: inline-block;
+  background: url('../images/bg-13.gif');
+  width: 5px;
+  height: 5px;
 }
 
-.gsc-table-result, .gsc-thumbnail-inside, .gsc-url-top {
-  padding-left: 0px;
+.white .menu-standard li a:hover {
+  text-decoration: underline;
 }
 
-
-.gsc-search-box-tools .gsc-search-box .gsc-input {
-	padding-right: 0px;
-}
-input.gsc-input {
-	font-size: 14px;
-	padding:0px;
-	border: 0px;
-	border-radius: 0px;
-	-moz-border-radius: 0px;
-	-webkit-border-radius: 0px;
-	background-image: none !important; /* usuwa t?o google */
-}
-.gsc-input-box {
-	border: 0px solid #D9D9D9;
-}
-.cse input.gsc-search-button, input.gsc-search-button {
-	padding: 7px 7px;
-	border: 1px solid #b3b3b3;
-	border-radius: 0px;
-	-moz-border-radius: 0px;
-	-webkit-border-radius: 0px;
-	margin:0px;
-	border-color: #808e95 !important;
-	background-image: -webkit-gradient(linear,left top,left bottom,from(#b3b3b3),to(#b3b3b3));
-	background-image: -webkit-linear-gradient(top,#b3b3b3,#b3b3b3);
-	background-image: -moz-linear-gradient(top,#b3b3b3,#b3b3b3);
-	background-image: -ms-linear-gradient(top,#b3b3b3,#b3b3b3);
-	background-image: -o-linear-gradient(top,#b3b3b3,#b3b3b3);
-	background-image: linear-gradient(top,#b3b3b3,#b3b3b3);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#b3b3b3',EndColorStr='#b3b3b3');
-
+.white .menu-standard li.active a {
+  font-weight: bold;
 }
 
-.gs-web-image-box-landscape img.gs-image  {
-	max-width: 170px;
-	max-height: 150px;
+.white h1,
+.white h2,
+.white h3,
+.white h4,
+.white h5,
+.white h6 {
+    font: bold 13px/16px Arial, sans-serif;
+    color: #010101;
+    margin: 12px 0 0;
 }
 
-.gs-web-image-box-portrait img.gs-image {
-	max-height: 170px;
-	max-width: 110px;
-	height: 170px !important;
-	width: 110px !important;
+.white .gallery2,
+.white .inner {
+    border: 1px solid #F6F5E0;
+    padding: 15px;
+    margin: 12px 0;
+    font: 11px/16px Tahoma, sans-serif;
+    color: #5C5445;
 }
 
-.gsc-result .gs-title {
-	height: 1.5em;
-}
-
-.gs-webResult div.gs-visibleUrl, .gs-imageResult div.gs-visibleUrl {
-	color: #c30000 !important;
-	margin-bottom:10px;
-}
-
-a.gs-title, a.gs-title b {
-	color:#131313 !important;
-	font-family: 'gulimregular', 'Open Sans', sans-serif;
-	font-weight: 300;
-	font-size:20px !important;
-	text-decoration:none !important;
-}
-
-.gs-image-box.gs-web-image-box.gs-web-image-box-landscape {
-	width: 180px !important;
-	height:115px !important;
-}
-
-.gs-image-box.gs-web-image-box.gs-web-image-box-portrait {
-	height: 180px !important;
-	width:115px !important;
-}
-
-.gsc-webResult.gsc-result {
-	margin-bottom:25px;
-	border-bottom:1px dotted #dedede;
-}
-
-.gsc-selected-option-container.gsc-inline-block {
-	width:100px !important;
-}
-
-.gsc-input-box table {
-  height: 30px;
-}
-
-#gs_tti50, #gs_tti50 * {
-  background-color: #fff !important;
-}
-
-.gsc-search-box-tools .gsc-search-box .gsc-input {
-    padding-right: 0px !important;
-}
-
-
-.gallery2 a img {
-    max-height: 140px;
-    width: 100%;
-}
