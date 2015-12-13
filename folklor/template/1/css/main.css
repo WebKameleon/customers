@@ -683,3 +683,29 @@ footer .col-md-6:last-child {
     color: #5C5445;
 }
 
+.white .inner a.read-more {
+    clear: both;
+    font: 11px/16px Tahoma, sans-serif;
+    color: #0C5890;
+    font-weight: bold;
+    padding-top: 15px;
+    border-top: 1px solid #F6F5E0;
+    display: block;
+    width: 100%;
+    margin: 15px 0 0 0;
+}
+
+.page-title h1,
+.page-title h2,
+.page-title h3,
+.page-title h4,
+.page-title h5,
+.page-title h6 {
+    font: 17px/21px Tahoma, sans-serif;
+    color: #ffffff;
+    margin: 11px 15px 7px;
+}
+
+.gallery2 a img {
+    height: 130px;
+}
