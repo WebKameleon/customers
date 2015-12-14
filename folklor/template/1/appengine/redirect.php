@@ -60,7 +60,7 @@
     
     
     
-    die('<a href="'.$url.'">'.$url.'</a>');
+    //die('<a href="'.$url.'">'.$url.'</a>');
     
     
     header("Location: ".$url,TRUE,301);
