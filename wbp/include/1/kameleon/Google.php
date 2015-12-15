@@ -186,7 +186,7 @@ class Google {
 
         $boundary=md5(time());
 		
-		$chunk_size=4 * 1024 * 1024;
+		$chunk_size=2 * 1024 * 1024;
 		$file_size=strlen($data);
 	
 		$metadata=array('title'=>$title,'mimeType'=>$type);
