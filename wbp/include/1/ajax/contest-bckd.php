@@ -1,6 +1,6 @@
 <?php
 
-    require_once __DIR__.'/kameleon/Google.php';
+    require_once __DIR__.'/../kameleon/Google.php';
     include_once __DIR__.'/../system/fun.php';
 
     $data=$_GET;
