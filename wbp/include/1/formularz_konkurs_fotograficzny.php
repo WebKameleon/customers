@@ -353,7 +353,7 @@ window.onload = function() {
         maxNumberOfFiles: max,
         maxChunkSize: 1000000, // 1M
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png|tiff?)$/i,
-        maxFileSize: 10200000,  // 10 MB
+        maxFileSize: 20200000,  // 20 MB
         minFileSize: 100000     // 100K
         
     });

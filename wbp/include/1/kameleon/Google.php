@@ -80,6 +80,7 @@ class Google {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
 
         
         $h=array();
@@ -110,9 +111,12 @@ class Google {
 		
         if (count($h)) curl_setopt($ch,CURLOPT_HTTPHEADER,$h);
 		
-		//curl_setopt($ch, CURLOPT_VERBOSE, 1);
-		//curl_setopt($ch, CURLOPT_HEADER, 1);
-				
+		if ($return_kind=='header')
+		{
+			//curl_setopt($ch, CURLOPT_VERBOSE, 1);
+			curl_setopt($ch, CURLOPT_HEADER, 1);
+		}
+		
         $ret = curl_exec($ch);
 		
         curl_close($ch);
@@ -122,7 +126,14 @@ class Google {
         if ($return_kind=='xml') return simplexml_load_string($ret);
         if ($return_kind=='json') return json_decode($ret,true);
         if ($return_kind=='json-obj') return json_decode($ret);
-        
+        if ($return_kind=='header') {
+			$a=[];
+			foreach(explode("\n",$ret) AS $line) {
+				$pos=strpos($line,':');
+				if ($pos) $a[substr($line,0,$pos)]=trim(substr($line,$pos+1));
+			}
+			$ret=$a;
+		}
         
         
         return $ret;        
@@ -174,27 +185,78 @@ class Google {
     {
 
         $boundary=md5(time());
-        
-        $url='https://www.googleapis.com/upload/drive/v2/files?uploadType=multipart&convert='.($convert?'true':'false');
-        
-        $header=array('Content-Type'=>'multipart/related; boundary="'.$boundary.'"');
-        
-        $metadata=array('title'=>$title,'mimeType'=>$type);
-        if ($folder) $metadata['parents']=array(array('id'=>$folder));
-        
-        $body="--$boundary\nContent-Type: application/json; charset=UTF-8\n\n";
-        $body.=json_encode($metadata);
-        
-        $body.="\n\n--$boundary\nContent-Type: $type\n\n";
-        
 		
-		$post="\n--$boundary--";
+		$chunk_size=4 * 1024 * 1024;
+		$file_size=strlen($data);
+	
+		$metadata=array('title'=>$title,'mimeType'=>$type);
+		if ($folder) $metadata['parents']=array(array('id'=>$folder));		
+		
+		if ($file_size < $chun_size) {
         
+			$url='https://www.googleapis.com/upload/drive/v2/files?uploadType=multipart&convert='.($convert?'true':'false');
+			
+			$header=array('Content-Type'=>'multipart/related; boundary="'.$boundary.'"');
+			
 
-    
-        $ret=self::request($url,'POST',$body.$data.$post,'','',null,$header);
-        
-        return json_decode($ret,true);
+			
+			$body="--$boundary\nContent-Type: application/json; charset=UTF-8\n\n";
+			$body.=json_encode($metadata);
+			
+			$body.="\n\n--$boundary\nContent-Type: $type\n\n";
+			
+			
+			$post="\n--$boundary--";
+			
+	
+		
+			$ret=self::request($url,'POST',$body.$data.$post,'','',null,$header);
+			
+			return json_decode($ret,true);
+		} else {
+			
+			$url='https://www.googleapis.com/upload/drive/v2/files?uploadType=resumable&convert='.($convert?'true':'false');
+			
+			$header=array(
+				'Content-Type'=>'application/json; charset=UTF-8',
+				'X-Upload-Content-Type'=> $type,
+				'X-Upload-Content-Length'=> $file_size
+			);
+			
+			
+			
+			$body=json_encode($metadata);
+			$ret=self::request($url,'POST',$body, '','header',null,$header);
+			
+			
+			
+			if (isset($ret['X-GUploader-UploadID']))
+			{
+				$upload_id=$ret['X-GUploader-UploadID'];
+			
+				for ($i=0;$i<ceil($file_size/$chunk_size); $i++)
+				{
+					
+					$blob_size=$i==ceil($file_size/$chunk_size)-1?$file_size-$i*$chunk_size:$chunk_size;
+					$blob=substr($data,$i*$chunk_size,$blob_size);
+					
+					$url='https://www.googleapis.com/upload/drive/v2/files?uploadType=resumable&upload_id='.$upload_id;
+
+					$header=array(
+						'Content-Type'=>$type,
+						'Content-Range'=> 'bytes '.($i*$chunk_size).'-'.($i*$chunk_size+$blob_size-1).'/'.$file_size,
+						'Content-Length'=> $blob_size
+					);
+					
+					$ret=self::request($url,'PUT',$blob, '','',null,$header);
+					
+					
+				}
+				return json_decode($ret,true);
+			}
+			
+		}
+		
     }
     
 }
