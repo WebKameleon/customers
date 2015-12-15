@@ -192,7 +192,7 @@ class Google {
 		$metadata=array('title'=>$title,'mimeType'=>$type);
 		if ($folder) $metadata['parents']=array(array('id'=>$folder));		
 		
-		if ($file_size < $chun_size) {
+		if ($file_size < $chunk_size) {
         
 			$url='https://www.googleapis.com/upload/drive/v2/files?uploadType=multipart&convert='.($convert?'true':'false');
 			
