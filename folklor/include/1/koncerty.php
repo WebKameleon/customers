@@ -6,8 +6,16 @@
 	
 	if (!$ics) return;
 	
+	$months=[
+		 'pl'=>['styczeń','luty','marzec','kwiecień','maj','czerwiec','lipiec','sierpień','wrzesień','październik','listopad','grudzień'],
+		 'en'=>['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'],
+		];	
+	
 	$ical=new calendar();
-	if (isset($_GET['date'])) $events=$ical->events($ics,strtotime($_GET['date']));
+	if (isset($_GET['date'])) {
+		$events=$ical->events($ics,strtotime($_GET['date']));
+		$display_date=date('d-m-Y',strtotime($_GET['date']));
+	}
 	else {
 		$year=date('Y');
 		$month=date('m');
@@ -18,6 +26,8 @@
             $next_year++;
         }
 		$events=$ical->events($ics,strtotime("01-$month-$year"),strtotime("01-$next_month-$next_year")-1);
+	
+		$display_date=$months[$lang][$month-1].' '.$year;	
 	}
 	
         
