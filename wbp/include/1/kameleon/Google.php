@@ -119,18 +119,19 @@ class Google {
 		
         $ret = curl_exec($ch);
 		
+		//die($method.': '.$url.'<pre>'.print_r($h,1).print_r($data,1).print_r($ret,1));	
         curl_close($ch);
-        
-        //if ($method=='POST' || strstr($url,'cell') ) mydie(simplexml_load_string($ret),$url);
+  
 
         if ($return_kind=='xml') return simplexml_load_string($ret);
         if ($return_kind=='json') return json_decode($ret,true);
         if ($return_kind=='json-obj') return json_decode($ret);
         if ($return_kind=='header') {
 			$a=[];
+			$ret=str_replace(['\\n','\\r'],["\n","\r"],$ret);
 			foreach(explode("\n",$ret) AS $line) {
 				$pos=strpos($line,':');
-				if ($pos) $a[substr($line,0,$pos)]=trim(substr($line,$pos+1));
+				if ($pos) $a[trim(substr($line,0,$pos))]=trim(substr($line,$pos+1));
 			}
 			$ret=$a;
 		}
@@ -186,7 +187,7 @@ class Google {
 
         $boundary=md5(time());
 		
-		$chunk_size=9 * 1024 * 1024;
+		$chunk_size=4 * 1024 * 1024;
 		$file_size=strlen($data);
 	
 		$metadata=array('title'=>$title,'mimeType'=>$type);
@@ -227,8 +228,6 @@ class Google {
 			
 			$body=json_encode($metadata);
 			$ret=self::request($url,'POST',$body, '','header',null,$header);
-			
-			
 			
 			if (isset($ret['X-GUploader-UploadID']))
 			{
