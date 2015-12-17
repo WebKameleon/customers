@@ -14,8 +14,17 @@
 	
 	$ical=new calendar();
 	if (isset($_GET['date'])) {
-		$events=$ical->events($ics,strtotime($_GET['date']));
+		$key='calevents:'.md5($ics."-".$_GET['date']);
+		$events=folklor_cache($key);
+		if (!$events) {
+			$events=folklor_cache($key,$ical->events($ics,strtotime($_GET['date'])));
+		}
+		
+		
 		$display_date=date('d-m-Y',strtotime($_GET['date']));
+		
+		
+		
 	}
 	else {
 		$year=date('Y');
@@ -26,8 +35,14 @@
             $next_month=1;
             $next_year++;
         }
-		$events=$ical->events($ics,strtotime("01-$month-$year"),strtotime("01-$next_month-$next_year")-1);
-	
+		
+		$key='calevents:'.md5($ics."-$month-$year");
+		
+		$events=folklor_cache($key);
+		if (!$events) {
+			$events=folklor_cache($key,$ical->events($ics,strtotime("01-$month-$year"),strtotime("01-$next_month-$next_year")-1));
+		}
+
 		$display_date=$months[$lang][$month-1].' '.$year;	
 	}
 	
@@ -66,7 +81,5 @@
 		
     }
 	
-
-	//mydie($events);
         
 	
