@@ -5,7 +5,7 @@
      
         $memcache = new Memcache;
         
-        if (is_null) return $memcache->get($key);
+        if (is_null($value)) return $memcache->get($key);
         $memcache->set($key,$value);
         return $value;
     }
