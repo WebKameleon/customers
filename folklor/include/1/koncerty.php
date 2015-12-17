@@ -1,5 +1,6 @@
 <?php
 	require_once __DIR__.'/system/calendar.php';
+	require_once __DIR__.'/system/cache.php';
 
 	
 	$ics=$costxt;
