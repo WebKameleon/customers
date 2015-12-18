@@ -83,6 +83,9 @@ function apply_wbp_lang()
 {
     var lang=wbp_photo_lang;
 
+    $('.contest-lang').hide();
+    $('.contest-'+lang).show();
+    
     $('#fileupload,#foto-contest-payment').find('label').each(function() {
         var f=$(this).attr('for');
         var c=$(this).attr('class');
