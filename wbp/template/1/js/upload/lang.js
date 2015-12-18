@@ -62,7 +62,7 @@ var wbp_photo_competition = {
         life:'Life',
         sport:'Sport',
         environment:'Environment',
-        error: 'Not every required fields was filled or you haven\'t uploaded minimum images',
+        error: 'Not all required fields have been filled or you haven\'t uploaded the minimum number of images',
         agreeauthor: 'I declare that I am the author of the above mentioned photos and that people portrayed therein have granted their permission for photos to be published in press.',
         agreeterms: 'I accept terms and conditions set out in the contest regulations and I grant my permission for my personal data to be published in line with Personal Data Protection Law dated 28 August 1997 (Journal of Laws, issue133, item 883.)',
         agreepublish: 'In order to popularize the event, the organizer reserves the right to free photo reproduction for the use in the catalog and press, on TV and the Internet, also on the Digital Library of Wielkopolska',
