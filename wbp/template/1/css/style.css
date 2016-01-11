@@ -216,7 +216,7 @@ a.navbar-brand:hover {
 }
 
 .navbar-inverse {
-	background-image: url('../images/white.png');
+	background-image: url('img/white.png');
 	background-repeat:repeat-x;
 	background-color: #176095;
 	border-bottom: 5px solid #042c48;
@@ -293,7 +293,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .print button {
-	background: url(../images/print-icon.png);
+	background: url(img/print-icon.png);
 	background-repeat:no-repeat;
 	border:none;
 	font-size:10px;
@@ -1245,7 +1245,7 @@ h5.kmw_article_author {
 
 /* ===== FOOTER ===== */
 #footer {
-	background:url(../images/footer-bg.jpg);
+	background:url(img/footer-bg.jpg);
 	background-repeat:repeat;
 	padding-top:50px;
 	padding-bottom:0px;
@@ -1933,7 +1933,7 @@ btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
 	z-index:9999;
 	width:100%;
 	height:100%;
-	background-image: url('../images/white-bg.png');
+	background-image: url('img/white-bg.png');
 	background-repeat:repeat;
 	text-align:center;
 	top:0px;
@@ -1962,7 +1962,7 @@ btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
 .btn.btn-primary.dotpay {
 	width: 120px;
 	height: 75px;
-	background: url('../images/dotpay.png');
+	background: url('ima/dotpay.png');
 	background-position: center center;
 	background-repeat: no-repeat;
 	border: 0px;
@@ -1974,7 +1974,7 @@ btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
 .btn.btn-primary.paypal {
 	width: 120px;
 	height: 75px;
-	background: url('../images/paypal.png');
+	background: url('ima/paypal.png');
 	background-position: center center;
 	background-repeat: no-repeat;
 	border: 0px;
@@ -2005,7 +2005,7 @@ btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
 .btn.btn-primary.traditional {
 	width: 120px;
 	height: 75px;
-	background: url('../images/przelew-tradycyjny.png');
+	background: url('img/przelew-tradycyjny.png');
 	background-position: center center;
 	background-repeat: no-repeat;
 	border: 0px;
@@ -2295,7 +2295,7 @@ a.jotform_edit:hover {
 	line-height:1;	
 	text-align:right;
 	margin-left:1px;
-	background:url(../images/arrow-down.png);
+	background:url(img/arrow-down.png);
 	background-repeat:no-repeat;
 	background-position:left center;
 	background-color:#042c48;
@@ -2552,14 +2552,14 @@ a.right.article-list-control {
 
 a.left.article-list-control {
 	float:left;
-	background:url(../images/arrow-left.png);
+	background:url(img/arrow-left.png);
 	background-repeat:no-repeat;
 	background-position:center center;
 }
 
 a.right.article-list-control {
 	float:right;
-	background:url(../images/arrow-right.png);
+	background:url(img/arrow-right.png);
 	background-repeat:no-repeat;
 	background-position:center center;
 }

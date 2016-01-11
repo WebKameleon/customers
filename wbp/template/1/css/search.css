@@ -42,7 +42,7 @@
 }
 
 .cse input.gsc-search-button, input.gsc-search-button {
-    background: url(../images/search-icon.png) no-repeat !important;
+    background: url(img/search-icon.png) no-repeat !important;
     text-indent: -9999em;
     border: none !important;
 	margin:0px;
@@ -82,7 +82,7 @@
 }
 
 #search-catalog-form  .search-catalog-form-btn {
-	background: url(../images/search-icon.png) no-repeat !important;
+	background: url(img/search-icon.png) no-repeat !important;
 	text-indent: -9999em;
 	border: none !important;
 	margin:0px;
