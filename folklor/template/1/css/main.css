@@ -173,6 +173,7 @@ body {
 	float:left;
 	border:2px solid #fff;
 	margin-right:15px;
+    width: 220px;
 }
 
 .jumbotron p {
