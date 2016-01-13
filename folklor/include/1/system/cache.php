@@ -1,7 +1,9 @@
 <?php
     function folklor_cache($key,$value=null) {
         
-        if (!isset($_SERVER['SERVER_SOFTWARE']) || !strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) return false;
+        if (!isset($_SERVER['SERVER_SOFTWARE']) || !strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+            return $value?:false;
+        }
      
         $memcache = new Memcache;
         
