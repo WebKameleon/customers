@@ -216,6 +216,10 @@ body {
 	display:block;
 }
 
+.nophoto .kmw_article_photo {
+  display: none;
+}
+
 .breadcrumbs {
   background: #fff;
   padding: 10px;
