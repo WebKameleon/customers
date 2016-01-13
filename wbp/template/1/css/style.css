@@ -3493,3 +3493,9 @@ ul.articlelist-nav {
 	display: block;
 	width: 50px;
 }
+
+
+/* -----==== google search trick ====----- */
+.gsc-control-searchbox-only {
+	display: none;
+}

@@ -21,19 +21,19 @@ function smekta(pattern,vars) {
 }
 
 function search_choosen(args) {
-    console.log($('#search-www').prop('checked'));
+    //console.log($('#search-www').prop('checked'));
 
-    if ($('#search-www').prop('checked') && $('#cse-search-form').css('display')=='none' ) {
+    if ($('#search-www').prop('checked') && $('.gsc-control-searchbox-only').css('display')=='none' ) {
         $('#search-catalog-form').hide();      
-        $('#cse-search-form .gsc-input[name="search"]').val($('#search-catalog-form input[name="q"]').val());
-        $('#cse-search-form').show();
+        $('.gsc-control-searchbox-only input.gsc-input[name="search"]').val($('#search-catalog-form input[name="q"]').val());
+        $('.gsc-control-searchbox-only').show();
         
         
     }
     if ($('#search-catalog').prop('checked') && $('#search-catalog-form').css('display')=='none' ) {
-        $('#cse-search-form').hide();
+        $('.gsc-control-searchbox-only').hide();
         
-        $('#search-catalog-form input[name="q"]').val($('#cse-search-form .gsc-input[name="search"]').val());
+        $('#search-catalog-form input[name="q"]').val($('.gsc-control-searchbox-only .gsc-input[name="search"]').val());
         $('#search-catalog-form').show();
     
         

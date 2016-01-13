@@ -1,5 +1,8 @@
 <?php
 use \google\appengine\api\mail\Message;
+use google\appengine\api\cloud_storage\CloudStorageTools;
+
+
 
 class WBP {
 
@@ -258,4 +261,15 @@ class WBP {
 		}
 		
 	}
+}
+
+
+
+if (isset($_POST) && count($_POST) && isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+
+	require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+	$file='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/post/'.date('Y-m').'/'.date('Y-m-d-h-i-s').'.txt';
+	file_put_contents($file,print_r($_POST,1));
+	
+	
 }

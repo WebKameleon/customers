@@ -18,18 +18,19 @@
 <div class="clearfix"></div>
 
 <script type="text/javascript">
-jQueryKam(function ($) {
-        
-	$(".fancybox{webtd.sid}").fancybox({
-		openEffect	: '{data.effect}',
-		closeEffect	: '{data.effect}',
-		{if:data.slideshow_autostart}autoPlay	: '{data.slideshow_autostart}',{endif:data.slideshow_autostart}
-		{if:data.animation_speed}playSpeed	: '{data.animation_speed}',{endif:data.animation_speed}
-		openSpeed	: 'normal',
-		closeSpeed	: 'normal'
-	});
-        
-});
+var kmw_Galery2Array;
+
+if(typeof(kmw_Galery2Array)=='undefined') kmw_Galery2Array=[];
+
+kmw_Galery2Array[kmw_Galery2Array.length]={
+	sid: {webtd.sid},
+	openEffect	: '{data.effect}',
+	closeEffect	: '{data.effect}',
+	{if:data.slideshow_autostart}autoPlay	: '{data.slideshow_autostart}',{endif:data.slideshow_autostart}
+	{if:data.animation_speed}playSpeed	: '{data.animation_speed}',{endif:data.animation_speed}
+	openSpeed	: 'normal',
+	closeSpeed	: 'normal'
+};
 </script>
 {endif:webtd.menu}
 {endwith:gallery2Widget}

@@ -88,6 +88,6 @@ class TemplateTokens extends Tokens {
             
             return $html;
         }
-        return $html;
+        return parent::code_change($html,$style);
     }
 }}

@@ -44,7 +44,7 @@
         {endif:data.pager_style=square}
     }
 </style>
-<div id="bxslider{webtd.sid}-wrapper" class="bxslider-wrapper">
+<div id="bxslider{webtd.sid}-wrapper" class="bxslider-wrapper" style="display: none">
     <ul id="bxslider{webtd.sid}" class="bxslider">
         {loop:webtd.menu}
         <li>
@@ -59,9 +59,9 @@
     </ul>
 </div>
 <script type="text/javascript">
-jQueryKam(function ($) {
-    $("#bxslider{webtd.sid}").bxSlider({js_options});
-});
+    var kmw_slideshowArray;
+    if(typeof(kmw_slideshowArray)=='undefined') kmw_slideshowArray=[];
+    kmw_slideshowArray[kmw_slideshowArray.length]= {sid:{sid},opt:{js_options}};  
 </script>
 {endif:webtd.menu}
 {endwith:slideshowWidget}

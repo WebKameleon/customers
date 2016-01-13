@@ -56,10 +56,10 @@
 	}
 	
 	
-	$mail='Dziękujemy za przesłanie następujących zdjęć <ul style="list-style: none">'.$foto_ul.'</ul>';
+	$mail='Dziękujemy za przesłanie następujących zdjęć / Thank you for submitting the following photographs<ul style="list-style: none">'.$foto_ul.'</ul>';
 	
-	$mail.='<p>Po weryfikacji zdjęcia wezmą udział w konkursie <b>'.$td_data['title'].'</b></p>';
-	$mail.='<p>WBPiCAK - Dział FOTOGRAFIA</p>';
+	$mail.='<p>Po weryfikacji zdjęcia wezmą udział w konkursie / After verification, the photographs will take part in the competition <b>'.$td_data['title'].'</b></p>';
+	$mail.='<p>WBPiCAK - Dział FOTOGRAFIA / WBPiCAK - Department of PHOTOGRAPHY</p>';
 	
 	WBP::mail($from,$to,$td_data['title'],$mail);
 

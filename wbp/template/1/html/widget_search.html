@@ -1,35 +1,27 @@
 {if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
 {with:searchWidget}
 {if:data.cx}
-{if:!data.type}
-<div id="cse">{translates.Loading}</div>
 
-<script type="text/javascript">
-google.load("search", "1", {
-    language: "{lang}",
-    style: google.loader.themes.V2_DEFAULT
-});
-google.setOnLoadCallback(function() {
-  var customSearchOptions = {};
-  var orderByOptions = {};
-  orderByOptions["keys"] = [{
-        label: "{translates.Relevance}", key: ""} , {
-        label: "{translates.Date}", key: "date"}];
-  customSearchOptions["enableOrderBy"] = true;
-  customSearchOptions["orderByOptions"] = orderByOptions;
-  customSearchOptions["overlayResults"] = true;
-  var customSearchControl =   new google.search.CustomSearchControl("{data.cx}", customSearchOptions);
-  customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-  customSearchControl.setLinkTarget (google.search.Search.LINK_TARGET_SELF);
-  var options = new google.search.DrawOptions();
-  options.setAutoComplete(true);
-  customSearchControl.draw("cse", options);
-}, true);
+{if:data.load_script}
+<script>
+(function() {
+  var cx = '{data.cx}'; 
+  var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+})();
 </script>
+{endif:data.load_script}
+
+
+{if:!data.type}
+<gcse:search linkTarget="_self" enableOrderBy="true"></gcse:search>
 
 {endif:!data.type}
 {if:data.type=1}
-<div id="cse-search-form">{translates.Loading}</div>
+
+
+<gcse:searchbox-only resultsUrl="{next_link}" queryParameterName="q" enableAutoComplete="true"></gcse:searchbox-only>
 
 <form id="search-catalog-form" style="display: none" target="_blank" action="http://www.poznan-wbp.sowwwa.pl/sowacgi.php">
     <input type="text" name="q" id="search-catalog-form-txt"/>
@@ -40,7 +32,6 @@ google.setOnLoadCallback(function() {
     <input type="hidden" name="view" value="7"/>
     <input type="submit" class="search-catalog-form-btn" title="wyszukaj" />
 
-    
 </form>
 <div class="clearfix">
 <div class="radio">  
@@ -52,33 +43,17 @@ google.setOnLoadCallback(function() {
 </div>
 
 
-<script type="text/javascript">
-google.load("search", "1", {
-    language: "{lang}",
-    style: google.loader.themes.V2_DEFAULT
-});
-google.setOnLoadCallback(function() {
-  var customSearchOptions = {};
-  var orderByOptions = {};
-  orderByOptions["keys"] = [{
-        label: "{translates.Relevance}", key: ""} , {
-        label: "{translates.Date}", key: "date"}];
-  
-  customSearchOptions["enableOrderBy"] = true;
-  customSearchOptions["orderByOptions"] = orderByOptions;
-  var customSearchControl =   new google.search.CustomSearchControl("{data.cx}", customSearchOptions);
-  customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-  customSearchControl.setLinkTarget (google.search.Search.LINK_TARGET_TOP);
-  var options = new google.search.DrawOptions();
-  options.enableSearchboxOnly("{next_link}", "q");
-  options.setAutoComplete(true);
-  customSearchControl.draw("cse-search-form", options);
-}, true);
-</script>
+
 
 {endif:data.type=1}
 
 {if:data.type=2}
+
+<gcse:searchresults-only linkTarget="_self" enableOrderBy="true"></gcse:searchresults-only>
+
+{endif:data.type=2}
+
+{if:data.type=22}
 
 <div id="cse">{translates.Loading}</div>
 
@@ -124,7 +99,7 @@ google.setOnLoadCallback(function() {
 </script>
 
 
-{endif:data.type=2}
+{endif:data.type=22}
 
 {endif:data.cx}
 {endwith:searchWidget}
