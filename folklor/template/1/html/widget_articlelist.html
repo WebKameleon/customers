@@ -1,6 +1,47 @@
 {if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
 {with:articlelistWidget}
 
+{if:level=2}
+
+{if:nav}<div class="kmw_articlelist_nav" rel="{nav_limit}">
+<ul>{loop:nav}
+<li><a rel="{loop}">{loop}</a></li>
+{endloop:nav}</ul>
+</div>{endif:nav}
+
+<noindex>
+<!--googleoff: all-->
+
+{loop:articles}
+
+
+
+
+{if:title}<a name="{title}"></a>{endif:title}
+<div class="jumbotron">
+	{if:title}<{tokens.h1}><a href="{more_link}">{endif:more}{title}{if:more}</a></{tokens.h1}>{endif:title}
+    
+	{if:bgimg}<a href="{more_link}"><img src="{imagesUrl}/{bgimg}" class="img-responsive"/></a>{endif:bgimg}
+   
+	<p>{plain}</p>
+	<div class="clearfix"></div>
+	
+</div>
+
+
+{endloop:articles}
+
+<!--googleon: all-->
+</noindex>
+
+
+
+{define:level_found=1}
+{endif:level=2}
+
+
+{if:!level_found}
+
 {if:nav}<div class="kmw_articlelist_nav" rel="{nav_limit}">
 <ul>{loop:nav}
 <li><a rel="{loop}">{loop}</a></li>
@@ -16,11 +57,11 @@
 {if:title}<a name="{title}"></a>{endif:title}
 <div class="kmw_article_list">
     {if:bgimg}
-        <img{if:itemtype} itemprop="image"{endif:itemtype} src="{imagesUrl}/{bgimg}" />
+        <img{if:itemtype} itemprop="image"{endif:itemtype} src="{thumbsUrl}/{bgimg}" />
     {endif:bgimg}
 
         {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}><a href="{more_link}">{endif:more}{title}{if:more}</a></{tokens.h1}>{endif:title}
-        <div class="kmw_article_text">{plain}{tokens.php}</div>
+        <div class="kmw_article_text">{plain}</div>
         <div class="clearfix"></div>
 	    <a href="{more_link}" class="read-more">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>
 
@@ -32,11 +73,8 @@
 
 {endloop:articles}
 
-<!--
-<div class="clearfix"></div>
-<a class="btn more-articles  btn btn-default" data-toggle="collapse" href="#more-articles" aria-expanded="false" aria-controls="more-articles">
-  {if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}
-</a> -->
+
+{endif:!level_found}
 
 {endwith:articlelistWidget}
 {plain}
