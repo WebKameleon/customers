@@ -54,8 +54,14 @@ class calendar {
     {
         if (is_null($d_end)) $d_end=$d_start+3600*24;
         
-        $this->ical = new ICal($ics);
-        $events = $this->ical->events();
+        $key='ev-'.md5($ics);
+        $events=false;
+        if (function_exists('calendar_cache')) $events=calendar_cache($key);
+        if (!$events) {
+            $this->ical = new ICal($ics);
+            $events = $this->ical->events();
+            if (function_exists('calendar_cache')) calendar_cache($key,$events);
+        }
         $result=[];
         if (!is_array($events)) return $result;
 
