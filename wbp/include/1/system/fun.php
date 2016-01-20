@@ -228,7 +228,7 @@ class WBP {
     }
 
 	
-	static function mail($from,$to,$subject,$mail)
+	public static function mail($from,$to,$subject,$mail)
 	{
 		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
             $mail_options = [
@@ -259,6 +259,27 @@ class WBP {
 			$title='=?UTF-8?B?'.base64_encode($subject).'?=';
 			mail($to,$title,base64_encode($mail),$header);
 		}
+		
+	}
+	
+	
+	public static function cache($key,$value=null,$expire=3600)
+	{
+        if (!isset($_SERVER['SERVER_SOFTWARE']) || !strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+            return $value?:false;
+        }
+
+        $memcache = new Memcache;
+        
+        if (is_null($value)) {
+            $v=$memcache->get($key);
+            if ( isset($v['v']) && isset($v['e']) && $v['e']>time() ) return $v['v'];
+            return false;
+        }
+        
+        $memcache->set($key,['v'=>$value,'e'=>time()+$expire]);
+        return $value;
+
 		
 	}
 }

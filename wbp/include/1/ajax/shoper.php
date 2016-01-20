@@ -8,15 +8,13 @@ require_once __DIR__.'/../system/fun.php';
 
 $cache_token='wbp_shoper_'.md5(serialize($_GET).$_SERVER['HTTP_HOST']);
 
-$cache_file=sys_get_temp_dir().'/'.$cache_token.'.cache';
+$shoper=WBP::cache($cache_token);
 
-if (file_exists($cache_file) && !isset($_GET['debug']))
+if ($shoper && !isset($_GET['debug']))
 {
-    if ( filemtime($cache_file)+3600 > time() )
-    {
-        header('Content-type: application/json; charset=utf8');
-        die(file_get_contents($cache_file));
-    }
+    header('Content-type: application/json; charset=utf8');
+    die($shoper);
+    
 }
 
 
@@ -126,8 +124,6 @@ header('Content-type: application/json; charset=utf8');
 
 
 $data = json_encode($result);
-file_put_contents($cache_file,$data);
 
-
-die($data);
+die(WBP::cache($cache_token,$data));
 
