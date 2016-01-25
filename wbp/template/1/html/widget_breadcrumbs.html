@@ -2,14 +2,14 @@
 {with:breadcrumbsWidget}
 {if:breadcrumbs}
 <div class="breadcrumbs">
-    <ul>
+    <ul itemscope itemtype="http://schema.org/BreadcrumbList">
         <li class="breadcrumbs-info">Jestes tutaj:</li>
         {loop:breadcrumbs}
-        <li {if:self}class="active"{endif:self}>
-            {if:href}<a href="{href}">{endif:href}
-            {title}
+        <li {if:self}class="active"{endif:self} itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            {if:href}<a href="{href}" itemprop="item">{endif:href}
+            <span itemprop="name">{title}</span>
             {if:href}</a>{endif:href}
-
+            <meta itemprop="position" content="{__index__}"/>
             {if:neighbors}
             <span></span>
             <ul>
