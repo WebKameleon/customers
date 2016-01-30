@@ -14,7 +14,7 @@ window.onload = function() {
     {
         var html=$('#wbp_shop_template').html();
         
-        for(i=0;i<data.length;i++)
+        for(i=0;i<data.length && i<<?php echo $size?:3;?>;i++)
         {
             html2='<li style="display: none">'+html+'</li>';
             for (key in data[i])
