@@ -2666,9 +2666,7 @@ a.right.article-list-control:hover {
 
 /* POLECANE */
 #main-can2 {
-	padding-right: 0px;
 	margin-top: 50px;
-	margin-right: -15px;
 }
 
 #main-can2 h1,
@@ -2682,7 +2680,7 @@ a.right.article-list-control:hover {
 	margin: 0px;
 	padding: 0px;
 	margin-bottom: 25px;
-	margin-left: 15px;
+	margin-left: 0px;
 }
 
 #wbp_shop_template {
@@ -2696,16 +2694,16 @@ ul#wbp_shop_results {
 }
 
 ul#wbp_shop_results li {
-	width:33.33333333%;
-	padding-right: 0x;
-	padding-left: 15px;
+	width:20%;
+	padding-right: 15px;
+	padding-left: 0px;
 	float:left;
 	text-align: center;
 }
 
 ul#wbp_shop_results li img {
 	width: 100%;
-	height: 224px;
+	height: 300px;
 	display: block;
 	padding: 0px !important;
 	border:1px solid #dedede !important;
@@ -3498,4 +3496,24 @@ ul.articlelist-nav {
 /* -----==== google search trick ====----- */
 .gsc-control-searchbox-only {
 	display: none;
+}
+
+
+/* 30.01.2016 */
+.language-menu {
+	float: right;
+}
+
+.facebook {
+	position: fixed;
+	right: 0;
+	top: 40%;
+	z-index: 1;
+	margin-top: -2.5em;
+}
+
+.facebook .facebook-menu {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
 }
