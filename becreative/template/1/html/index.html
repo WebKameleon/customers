@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+ {include:head.html}
+ </head>
+
+<body class="landed">
+ <div id="page-wrapper">
+
+{with:header} {include:header.html} {endwith:header}
+
+ <!----- main content ----->
+ {with:body}
+ 
+ {level9}
+ {level8}
+ {level7}
+ {level6}
+ 
+ <section id="four" class="wrapper style1 special fade-up">
+     <div class="container">
+         {level5}
+         <div class="box alt">
+             <div class="row uniform">
+                 {level4}
+             </div>
+         </div>
+         {level3}
+     </div>
+ </section>
+ 
+{level10}
+ 
+ {endwith:body}
+ <!----- /main content ----->
+
+{with:footer} {include:footer.html} {endwith:footer}
+
+ </div>
+{include:js.html}
+</body>
+</html>

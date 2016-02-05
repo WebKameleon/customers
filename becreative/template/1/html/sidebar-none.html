@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+ {include:head.html}
+ </head>
+
+<body>
+ <div id="page-wrapper">
+
+ {with:header} {include:header.html} {endwith:header}
+
+ <!----- main content ----->
+ {with:body}
+  <div id="main" class="wrapper style1">
+   <div class="container">
+    {level5}
+    
+    <section id="content">
+     {level1}
+    </section>
+
+   </div>
+  </div>
+ {endwith:body}
+ <!----- /main content ----->
+
+ {with:footer} {include:footer.html} {endwith:footer}
+ </div>
+</body>
+</html>

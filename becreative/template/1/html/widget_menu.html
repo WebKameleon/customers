@@ -1,0 +1,85 @@
+{if:menu}
+
+{if:level=(200)}
+    <ul class="{name}">
+    {loop:menu}
+     <li><a href="{href}" {if:icon} class="icon alt {icon}"{endif:icon}{if:target} target="{target}"{endif:target}>{alt}</a></li>
+    {endloop:menu}
+    </ul>
+    {define:level_found=1}
+{endif:level=(200)}
+
+
+{if:level=101}
+    <ul>
+    {loop:menu}
+	<li>
+		<a class="{type}" href="{href}" {if:alt_title} title="{alt_title}"{endif:alt_title}{if:target} target="{target}"{endif:target}>{alt}</a>
+		{if:submenu_id}{include:submenu.html}{endif:submenu_id}
+	</li>
+    {endloop:menu}
+    </ul>
+    {define:level_found=1}
+{endif:level=101}
+
+{if:level=3}
+	<footer class="major">
+		<ul class="actions">
+			{loop:menu}
+			<li><a href="{href}" class="button" {if:target} target="{target}"{endif:target}>{alt}</a></li>
+			{endloop:menu}
+		</ul>
+	</footer>
+	
+	{define:level_found=1}
+{endif:level=3}
+
+
+
+{if:!level_found} 
+{if:menu:special}
+{if:title}<{tokens|h1:1}>{title}</{tokens|h1:1}>{endif:title}
+{if:!title}{if:name}<{tokens|h1:1}>{name}</{tokens|h1:1}>{endif:name}{endif:!title}
+<section id="side-nav" class="menu-simple">
+<div class="panel-group" id="accordion{menu_id}">
+{loop:menu}
+	  <div class="panel panel-default">
+		
+		<div class="panel-heading {if:active}active{endif:active}">
+		 {if:!img}
+		 <div class="panel-title" {if:submenu_id}data-toggle="collapse" data-parent="#accordion{menu_id}" data-target="#collapse{menu_id}{lp}"{endif:submenu_id}>
+		 <a {if:!submenu_id}href="{href}"{endif:!submenu_id}>{alt}{if:submenu_id}<b class="caret"></b>{endif:submenu_id}</a>
+		</div>
+		{endif:!img}
+		
+		{if:img}
+		<div class="{class}{if:active} current{endif:active} img-list">
+        <a href="{href}"{if:target} target="{target}"{endif:target}><img src="{uimages}/{img}" alt="{alt}" class="img" /></a>
+        {if:submenu_id}{include:submenu.html}{endif:submenu_id}
+        </div>
+		{endif:img}
+	    </div>
+		
+		{if:submenu_id}
+		<div id="collapse{menu_id}{lp}" class="panel-collapse collapse {if:active}in{endif:active}">
+		  <div class="panel-body">
+			
+				<ul class="">{loop:menu:s2}
+				<li><a href="{href}" class="{if:active}active{endif:active}"{if:alt_title} title="{alt_title}"{endif:alt_title}{if:target} target="{target}"{endif:target}>{if:img}<img src="{uimages}/{img}" alt="{alt}" class="img" />{if:imga}<img src="{uimages}/{imga}" alt="{alt}" class="imga"/>{endif:imga}{endif:img}{if:!img}{alt}{endif:!img}</a>
+					{if:submenu_id:s3}
+						{include:submenu.html}
+					{endif:submenu_id:s3}
+				</li>{endloop:menu:s2}
+				</ul>
+		  </div>
+		</div>
+		{endif:submenu_id}
+	  </div>
+{endloop:menu}  
+</div>
+</section>
+{endif:menu:special}
+{endif:!level_found}
+
+
+{endif:menu}
