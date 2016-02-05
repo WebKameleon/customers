@@ -42,6 +42,22 @@
     {define:level_found=1}
 {endif:level=(200, 201, 202, 203)}
 
+{if:level=104} 
+    <ul class="facebook-menu">
+    {loop:menu}
+      <li>
+		  
+		{if:img}
+        <a name="{title}" href="{href}"><img src="{uimages}/{img}" alt="{alt}" class="img img-responsive" /></a>
+		{endif:img}
+		  
+     </li>
+    {endloop:menu}
+    <div class="clearfix"></div>
+    </ul>
+    {define:level_found=1}
+{endif:level=104}
+
  {if:level=102}
     <ul class="nav navbar-nav">
     {loop:menu}
