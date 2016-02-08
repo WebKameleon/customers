@@ -290,7 +290,7 @@ if (isset($_POST) && count($_POST) && isset($_SERVER['SERVER_SOFTWARE']) && strs
 
 	require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
 	$file='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/post/'.date('Y-m').'/'.date('Y-m-d-h-i-s').'.txt';
-	file_put_contents($file,print_r($_POST,1));
+	file_put_contents($file,print_r([date('Y-m-d H:i:s'),$_POST,$_SERVER],1));
 	
 	
 }
