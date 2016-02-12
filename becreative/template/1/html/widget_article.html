@@ -154,7 +154,7 @@
 <section>
 {endif:level=2}
 {if:bgimg}
-<a {if:more}href="{more_link}"{endif:more} class="image fit">
+<a {if:more}href="{more_link}"{endif:more}{if:!more} href="{uimages}/{bgimg}" fancybox="1"{endif:!more} title="{title}" class="image fit">
  <img src="{normalImgUrl}/{bgimg}" alt="{title}" />
 </a>
 {endif:bgimg}
