@@ -1962,7 +1962,7 @@ btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
 .btn.btn-primary.dotpay {
 	width: 120px;
 	height: 75px;
-	background: url('ima/dotpay.png');
+	background: url('img/dotpay.png');
 	background-position: center center;
 	background-repeat: no-repeat;
 	border: 0px;
@@ -1974,7 +1974,7 @@ btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
 .btn.btn-primary.paypal {
 	width: 120px;
 	height: 75px;
-	background: url('ima/paypal.png');
+	background: url('img/paypal.png');
 	background-position: center center;
 	background-repeat: no-repeat;
 	border: 0px;
