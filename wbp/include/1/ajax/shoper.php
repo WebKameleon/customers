@@ -10,7 +10,7 @@ $cache_token='wbp_shoper_'.md5(serialize($_GET).$_SERVER['HTTP_HOST']);
 
 $shoper=WBP::cache($cache_token);
 
-if ($shoper && !isset($_GET['debug']))
+if ($shoper && !isset($_GET['debug']) && strlen($shoper)>20)
 {
     header('Content-type: application/json; charset=utf8');
     die($shoper);

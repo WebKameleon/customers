@@ -12,9 +12,8 @@ class Spreadsheet extends Google {
     public static function listWorksheets($fileId) {
         $url='https://spreadsheets.google.com/feeds/worksheets/'.$fileId.'/private/full';
     
-        $worksheets = self::request($url);
-    
         
+        $worksheets = self::request($url);
         
         $result=array();
         
