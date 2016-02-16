@@ -1,5 +1,6 @@
 <?php
     
+    
     //ini_set('display_errors',true);
     
     if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
@@ -11,6 +12,11 @@
     require_once __DIR__.'/../kameleon/Google.php';
     require_once __DIR__.'/../kameleon/Spreadsheet.php';
     include_once __DIR__.'/../system/fun.php';
+    
+    
+    WBP::imap_utf8($_POST);
+    WBP::imap_utf8($_FILES);
+    
     
     function contest_ret($resp)
     {

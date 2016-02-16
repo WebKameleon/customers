@@ -282,6 +282,42 @@ class WBP {
 
 		
 	}
+	
+	public static function imap_utf8(&$var) {
+		if (!is_array($var)) return;
+		
+		foreach ($var AS $k=>&$v) {
+			
+			if (is_array($v)) {
+				self::imap_utf8($v);
+				continue;
+			}
+			
+			if (strtolower(substr($v,0,7)) == '=?utf-8') {
+				$v2=iconv_mime_decode($v,1,'utf-8');
+				if ($v2) $v=$v2;
+			}
+			
+			if (strtolower(substr($k,0,7)) == '=?utf-8') {
+				$k2=iconv_mime_decode($k,1,'utf-8');
+				if ($k2) {
+					unset($var[$k]);
+					$pos=strpos($k2,'[');
+					if ($pos && substr($k2,-1)==']') {
+						$k2='['.substr($k2,0,$pos).']'.substr($k2,$pos);
+						$k2=str_replace("'","\\'",$k2);
+						$k2=str_replace(['[',']'],["['","']"],$k2);
+						$str2eval='$var'.$k2.'=$v;';
+						eval($str2eval);
+					} else {
+						$var[$k2]=$v;
+					}
+				}
+				
+			}
+			
+		}
+	}
 }
 
 
@@ -290,7 +326,7 @@ if (isset($_POST) && count($_POST) && isset($_SERVER['SERVER_SOFTWARE']) && strs
 
 	require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
 	$file='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/post/'.date('Y-m').'/'.date('Y-m-d-h-i-s').'.txt';
-	file_put_contents($file,print_r([date('Y-m-d H:i:s'),$_POST,$_SERVER],1));
+	file_put_contents($file,print_r([date('Y-m-d H:i:s'),$_POST,$_SERVER,isset($_FILES)?$_FILES:null],1));
 	
 	
 }
