@@ -5,7 +5,7 @@
  {include:head.html}
  </head>
 
-<body class="landing">
+<body{if:mode=(0,1)} class="landing"{endif:mode=(0,1)}>
  <div id="page-wrapper">
 
 {with:header} {include:header.html} {endwith:header}
