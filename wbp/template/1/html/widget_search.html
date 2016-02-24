@@ -36,9 +36,15 @@
 <div class="clearfix">
 <div class="radio">  
     <input id="search-www" type="radio" name="search" value="search-www" checked="checked">  
-    <label for="search-www">SZUKAJ W WITRYNIE</label>  
+    <label for="search-www">
+	{if:lang=pl}SZUKAJ W WITRYNIE{endif:lang=pl}
+	{if:lang=en}SEARCH THE WEBSITE{endif:lang=en}
+	</label>  
     <input id="search-catalog" type="radio" name="search" value="search-catalog">  
-    <label for="search-catalog">SZUKAJ W KATALOGU ON-LINE</label>  
+    <label for="search-catalog">
+	{if:lang=pl}SZUKAJ W KATALOGU ON-LINE{endif:lang=pl}
+	{if:lang=en}SEARCH ONLINE CATALOGUE{endif:lang=en}
+	</label>  
 </div>
 </div>
 
