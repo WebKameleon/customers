@@ -17,6 +17,7 @@
     WBP::imap_utf8($_POST);
     WBP::imap_utf8($_FILES);
     
+    //mydie([$_FILES,$_POST,$_SERVER]);
     
     function contest_ret($resp)
     {
@@ -107,6 +108,12 @@
 
     foreach($_FILES AS $f)
     {
+        if ($f['name']=='blob' && isset($_SERVER['HTTP_CONTENT_DISPOSITION']) ) {
+            $a=[];
+            if (preg_match('/filename="([^"]+)"/',$_SERVER['HTTP_CONTENT_DISPOSITION'],$a)) {
+                $f['name']=urldecode($a[1]);
+            }
+        }
         
         if (isset($_SERVER['HTTP_CONTENT_RANGE'])) {
 		    $range=str_replace('bytes ', '', $_SERVER['HTTP_CONTENT_RANGE']);
