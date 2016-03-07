@@ -108,10 +108,10 @@
 
     foreach($_FILES AS $f)
     {
-        if ($f['name']=='blob' && isset($_SERVER['HTTP_CONTENT_DISPOSITION']) ) {
+        if ($f['name'][$lp]=='blob' && isset($_SERVER['HTTP_CONTENT_DISPOSITION']) ) {
             $a=[];
             if (preg_match('/filename="([^"]+)"/',$_SERVER['HTTP_CONTENT_DISPOSITION'],$a)) {
-                $f['name']=urldecode($a[1]);
+                $f['name'][$lp]=urldecode($a[1]);
             }
         }
         
