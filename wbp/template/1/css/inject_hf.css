@@ -162,6 +162,21 @@
 
 /* ===== /Header ===== */
 
+
+.facebook {
+	position: fixed;
+	right: 0;
+	top: 40%;
+	z-index: 1;
+	margin-top: -2.5em;
+}
+
+.facebook .facebook-menu {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
 /* ===== Footer ====== */
 .wbp_inject_footer #footer {
 	padding-bottom:25px;
