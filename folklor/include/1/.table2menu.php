@@ -15,7 +15,6 @@
     
     $wlinks=$weblink->getAll($this->webtd['menu_id'],0);
     
-    if (count($wlinks)) return;
     
     $plain=$this->webtd['plain'];
     
@@ -27,14 +26,23 @@
         $when=str_replace('&nbsp;','',$a[2][$i]);
         $when=explode(',',$when);
         
-        $link=$weblink->add_link($this->webtd['menu_id'],'Wyjazdy',$country);
+        $link=null;
+        foreach ($wlinks AS $wlink) {
+            if ($wlink['alt']==$country) {
+                $link=$wlink;
+                break;
+            }
+        }
+
+        if (!$link) $link=$weblink->add_link($this->webtd['menu_id'],'Wyjazdy',$country);
         
         $weblink2=new weblinkModel($link['sid']);
-        $weblink2->submenu_id=$submenu=$weblink->get_new_menu_id();
-        $weblink2->img='mapa/laleczka.png';
+        if (!$weblink2->submenu_id) $weblink2->submenu_id=$submenu=$weblink->get_new_menu_id();
+        else $submenu=$weblink2->submenu_id;
+        if (!$weblink2->img) $weblink2->img='mapa/laleczka.png';
         $weblink2->save();
         
-        
+        $wlinks2=$weblink->getAll($submenu,0);
         
         foreach($when AS $year) {
             $pg=null;
@@ -44,8 +52,19 @@
                 $pg=$b[1];
                 $year=$b[2];
             }
-            $weblink->add_link($submenu,'Wyjazdy - '.$country,$year,$pg);
-        
+            $link2=null;
+            foreach($wlinks2 AS $wlink2) {
+                if ($wlink2['alt']==$year) {
+                    $link2=$wlink2;
+                }
+            }
+            
+            if (!$link2) $weblink->add_link($submenu,'Wyjazdy - '.$country,$year,$pg);
+            else {
+                $weblink2=new weblinkModel($link2['sid']);
+                $weblink2->page_target=$pg;
+                $weblink2->save();
+            }
         }
  
     }
