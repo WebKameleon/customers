@@ -1,5 +1,7 @@
 <?php
 
+    $editmode=Bootstrap::$main->session('editmode');
+
     $templ=Bootstrap::$main->session('template_dir');
     
     $weblink=new weblinkModel();
@@ -13,7 +15,7 @@
                 $link['menu']=$weblink->getAll($link['submenu_id'],0);
                 
                 foreach ($link['menu'] AS &$m) {
-                    $m['href']=Bootstrap::$main->kameleon->href(trim($m['href']),$m['variables'],$m['lang_target'].':'.$m['page_target'],$page,0);
+                    $m['href']=Bootstrap::$main->kameleon->href(trim($m['href']),$m['variables'],$m['lang_target'].':'.$m['page_target'],$page,$editmode);
                 }
             }
             if ($link['img']) $link['img']=Bootstrap::$main->session('uimages').'/'.$link['img'];
