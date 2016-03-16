@@ -47,6 +47,7 @@
     
     
 ?>
+<input type="button" value="Zapisz centrum mapy" class="save-map" style="display:none"/>
 
 <script>
     function addMarker2Map(a,i) {
@@ -61,7 +62,13 @@
     }
     
     var mapIdle = function(lat,lng,z) {
-        $.get('<?php echo $self; ?>&map[zoom]='+z+'&map[lat]='+lat+'&map[lng]='+lng+'&map[sid]=<?php echo $sid;?>');        
+        $('.save-map').fadeIn(500).click(function () {
+            
+            $.get('<?php echo $self; ?>&map[zoom]='+z+'&map[lat]='+lat+'&map[lng]='+lng+'&map[sid]=<?php echo $sid;?>',function(data) {
+                $('.save-map').fadeOut(500);
+            });        
+
+        });
     }
     
 </script>
