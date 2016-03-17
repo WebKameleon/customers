@@ -13,20 +13,27 @@
 	    $req[$key] = stripslashes($value);
 	}	
 	$req = http_build_query($req);
+
 	
 	$ch = curl_init();
+
 	curl_setopt($ch, CURLOPT_URL, 'https://www.paypal.com/cgi-bin/webscr');
+	/*
+	*/
+
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 	    'Content-Type: application/x-www-form-urlencoded',
 	    'Host: www.paypal.com',
 	    'Connection: close'
 	));
-	curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
 	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+	
+	ini_set('display_errors',1);
 	
 	$res = curl_exec($ch);
 	$err = curl_error($ch);

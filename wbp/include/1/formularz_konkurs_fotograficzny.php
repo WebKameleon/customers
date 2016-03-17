@@ -14,9 +14,9 @@
     $default_lang='pl';
     
     $include=$KAMELEON_MODE?$session['uincludes_ajax']:$session['include_path'];
-    $ajax_konkurs=$include.'/ajax/contest.php';
-    
-    $ajax_konkurs_action=$include.'/ajax/contest-action.php';
+    $ajax=$include.'/ajax';
+    $ajax_konkurs=$ajax.'/contest.php';
+    $ajax_konkurs_action=$ajax.'/contest-action.php';
 
     $configuration_file_name=md5($sid);
     $configuration=WBP::get_data($configuration_file_name);
@@ -273,7 +273,7 @@
         <input type="hidden" name="description" value="Opłata za: <?php echo $this->webtd['title'];?>" />
         <input type="hidden" name="lang" value="pl" />
         <input type="hidden" name="URL" value="<?php echo $next?>" />
-        <input type="hidden" name="URLC" value="" />
+        <input type="hidden" name="URLC" value="<?php echo $ajax;?>/dotpay.php" />
         <input type="hidden" name="forename" value="" />
         <input type="hidden" name="surname" value="" />
         <input type="hidden" name="email" value="" />
@@ -305,7 +305,7 @@
         <input type="hidden" name="custom" value="" />
         <input type="hidden" name="return" value="<?php echo $next?>" />
         <input type="hidden" name="cancel_return" value="<?php echo $next?>?cancel" />
-        <input type="hidden" name="notify_url" value="" />
+        <input type="hidden" name="notify_url" value="<?php echo $ajax;?>/paypal.php" />
         
         <button type="submit" class="btn btn-primary paypal">
             <i class="glyphicon glyphicon-paypal"></i>

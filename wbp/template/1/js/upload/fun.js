@@ -206,8 +206,10 @@ function upload_done(e,data)
         
         rewrite_data_to_payment();
         var file=data._response.result.files[0];
-        $('#form-dotpay input[name=URLC]').val(dirname(location.href)+data.url.replace('contest.php','dotpay.php')+'?id='+file.id);
-        $('#form-paypal input[name=notify_url]').val(dirname(location.href)+data.url.replace('contest.php','paypal.php'));
+        //$('#form-dotpay input[name=URLC]').val(dirname(location.href)+data.url.replace('contest.php','dotpay.php')+'?id='+file.id);
+        //$('#form-paypal input[name=notify_url]').val(dirname(location.href)+data.url.replace('contest.php','paypal.php'));
+        $('#form-dotpay input[name=URLC]').val(dirname(location.href)+$('#form-dotpay input[name=URLC]').val()+'?id='+file.id);
+        $('#form-paypal input[name=notify_url]').val(dirname(location.href)+$('#form-paypal input[name=notify_url]').val());
         $('#form-paypal input[name=custom]').val(file.id);
         $('#foto-contest-payment').fadeIn(500);
         
