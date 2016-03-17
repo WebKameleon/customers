@@ -1,15 +1,26 @@
 {with:articleWidget}
 
-{if:level=1}
-<div class="col-md-12"><div class="header" style="background: url({imagesUrl}/{bgimg})">{title}</div></div>
+{if:level=2}
+ <div class="jumbotron">
+ {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}>{if:more}<a href="{more_link}">{endif:more}{title}{if:more}</a>{endif:more}</{tokens.h1}>{endif:title}
+ 
+  {if:bgimg}
+   <a class="kmw_article_photo" href="{uimages}/{bgimg}" fancybox="1">
+    <img{if:itemtype} itemprop="image"{endif:itemtype} src="{imagesUrl}/{bgimg}" class="img-responsive" />
+   </a>
+  {endif:bgimg}
+  
+  <p>{plain}{tokens.php}</p>
+        
+  {if:attachment}<div class="kmw_article_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
+<div class="clearfix"></div>
+ </div>
 {define:level_found=1}
-{endif:level=1}
+{endif:level=2}
 
 {if:!level_found}
 {if:title}<a name="{title}"></a>{endif:title}
 <div class="kmw_article{if:class} {class}{endif:class}">
- 
- {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}>{if:more}<a href="{more_link}">{endif:more}{title}{if:more}</a>{endif:more}</{tokens.h1}>{endif:title}
 
   {if:bgimg}
    <a class="kmw_article_photo" href="{uimages}/{bgimg}" fancybox="1">
@@ -17,7 +28,7 @@
    </a>
   {endif:bgimg}
   
-        
+        {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}>{if:more}<a href="{more_link}">{endif:more}{title}{if:more}</a>{endif:more}</{tokens.h1}>{endif:title}
         <div class="kmw_article_text">{plain}{tokens.php}</div>
         <div class="clearfix"></div>
         {if:attachment}<div class="kmw_article_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}

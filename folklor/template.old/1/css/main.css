@@ -1,0 +1,716 @@
+/* ==========================================================================
+   CSS by Karol Huszal
+   ========================================================================== */
+
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+footer {
+  padding: 30px 0;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all .25s ease-out;
+         -o-transition: all .25s ease-out;
+            transition: all .25s ease-out;
+  }
+
+  .row-offcanvas-right {
+    right: 0;
+  }
+
+  .row-offcanvas-left {
+    left: 0;
+  }
+
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -50%; /* 6 columns */
+  }
+
+  .row-offcanvas-right.active {
+    right: 50%; /* 6 columns */
+  }
+
+  .row-offcanvas-left.active {
+    left: 50%; /* 6 columns */
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 50%; /* 6 columns */
+  }
+}
+
+/* headers */
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom:0px;
+}
+/* end headers */
+
+/* Links */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	color:#333;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a, h6 a:hover {
+	color:#1d1d1d;
+	text-decoration:underline;
+}
+/* end links */
+
+/* date */
+.kmw_articlelist_date {
+	color:#b2b2b2;
+}
+/* end date */
+
+/* btn */
+.kmw_article_content .btn,
+.btn.more-articles {
+	margin-top:15px;
+	margin-bottom:15px;
+}
+/* end btn */
+
+body {
+	font-family:Tahoma, Geneva, sans-serif;
+	background-color:#758289;
+}
+
+.logo {
+	padding:10px 0 10px 0;
+}
+
+.flash {
+  text-align: right;
+}
+
+.navbar-inverse {
+	background-color:#606a70 !important;
+	border:0px !important;
+}
+
+#navbar {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#818f97+0,758289+100 */
+	background: #818f97; /* Old browsers */
+	background: -moz-linear-gradient(top,  #818f97 0%, #758289 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #818f97 0%,#758289 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #818f97 0%,#758289 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#818f97', endColorstr='#758289',GradientType=0 ); /* IE6-9 */
+	border-top:1px solid #767f84;
+}
+
+.navbar-collapse {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+#navbar ul.nav.navbar-nav li a {
+    color: #FFFFFF;
+	font-size:12px;
+	line-height:36px;
+	border-right: 1px solid #606A70;
+    padding: 3px 19px 1px;
+}
+
+#navbar ul.nav.navbar-nav li.active a,
+#navbar ul.nav.navbar-nav li a:hover {
+	background: #bae41b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #bae41b 0%, #a0c418 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #bae41b 0%,#a0c418 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #bae41b 0%,#a0c418 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bae41b', endColorstr='#a0c418',GradientType=0 ); /* IE6-9 */
+    color: #034678;
+}
+
+.kmw_langs {
+  float: right;
+  padding: 10px 15px 0px 15px;
+}
+
+.kmw_langs li {
+  margin-left: 10px;
+}
+
+#content {
+	background-color:#606A70;
+	padding-left:5px !important;
+	padding-right:5px !important;
+	padding-top:5px;
+}
+
+.jumbotron {
+	padding:15px !important;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bae41b+0,a8ce19+6,a0c418+9,a0c418+100 */
+	background: #bae41b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #bae41b 0%, #a8ce19 6%, #a0c418 9%, #a0c418 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #bae41b 0%,#a8ce19 6%,#a0c418 9%,#a0c418 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #bae41b 0%,#a8ce19 6%,#a0c418 9%,#a0c418 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bae41b', endColorstr='#a0c418',GradientType=0 ); /* IE6-9 */
+    margin-bottom: 5px;
+}
+
+.jumbotron img {
+	float:left;
+	border:2px solid #fff;
+	margin-right:15px;
+    width: 220px;
+}
+
+.jumbotron p {
+	font-size:12px;
+	color:#fff;
+	font-weight:normal;
+}
+
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3,
+.jumbotron h4,
+.jumbotron h5,
+.jumbotron h6 {
+	padding:0px;
+	margin:0px;
+	margin-bottom:10px;
+    color:#fff;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:16px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bae41b+0,95b711+100 */
+	background: #bae41b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #bae41b 0%, #95b711 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #bae41b 0%,#95b711 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #bae41b 0%,#95b711 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bae41b', endColorstr='#95b711',GradientType=0 ); /* IE6-9 */
+    padding:10px 15px 10px 5px;
+}
+
+.jumbotron h1 a,
+.jumbotron h2 a,
+.jumbotron h3 a,
+.jumbotron h4 a,
+.jumbotron h5 a,
+.jumbotron h6 a {
+	color:#fff;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:16px;
+	display:block;
+}
+
+.nophoto .kmw_article_photo {
+  display: none;
+}
+
+.breadcrumbs {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 5px;
+  font-size: 11px;
+  color: #5C5445 !important;
+  font-weight: bold;
+}
+
+.breadcrumbs a {
+  font-weight: normal;
+  color: #0C5890 !important;
+}
+
+.white {
+	background-color:#fff;
+	padding:15px;
+    margin-bottom: 5px;
+}
+
+.white .kmw_article_list {
+	font-size:12px;	
+	color:#5C5445;
+}
+
+.white .kmw_article_list img {
+	width:132px;
+	float:left;
+	margin-right:15px;
+}
+
+.white .kmw_article_list h1,
+.white .kmw_article_list h2,
+.white .kmw_article_list h3,
+.white .kmw_article_list h4,
+.white .kmw_article_list h5,
+.white .kmw_article_list h6 {
+	margin:0px;
+	padding:0px;
+	margin-bottom:10px;
+    color: #E2001A;
+	text-transform:uppercase;
+	font-size:12px;
+}
+
+.white .kmw_article_list h1 a,
+.white .kmw_article_list h2 a,
+.white .kmw_article_list h3 a,
+.white .kmw_article_list h4 a,
+.white .kmw_article_list h5 a,
+.white .kmw_article_list h6 a {
+	color: #E2001A;
+	text-transform:uppercase;
+	font-size:12px;
+    display: block;
+    font-weight: bold;
+}
+
+.white .kmw_article_list {
+  padding: 15px;
+  border-left: 1px solid #F6F5E0;
+  border-right: 1px solid #F6F5E0;
+}
+
+.white .kmw_article_list:first-of-type {
+  border-top: 1px solid #f6f5e0;
+}
+
+.white .kmw_article_list:last-child {
+  border-bottom: 1px solid #f6f5e0;
+}
+
+.read-more {
+  color: #0C5890;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.fl-lt {
+  float: left;
+}
+
+img.fl-lt {
+    margin-top: 2px;
+    margin-right: 12px;
+}
+
+.fl-rt {
+    float: right;
+}
+
+img.fl-rt {
+    margin-left: 10px;
+}
+
+.white .kmw_article h1,
+.white .kmw_article h2,
+.white .kmw_article h3,
+.white .kmw_article h4,
+.white .kmw_article h5,
+.white .kmw_article h6 {
+	margin:0px;
+	padding:0px;
+	margin-bottom:10px;
+    color: #000000;
+	text-transform:uppercase;
+	font-size:16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#sidebar {
+	background-color:#a0c418;
+    padding-top: 10px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 25px;
+  margin-top: 15px;
+}
+
+.sidebar-menu li {
+  width: 100%;
+}
+
+.sidebar-menu a {
+  width: 100%;
+  display: block;
+  min-height: 15px;
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-indent: 10px;
+}
+
+#sidebar h1,
+#sidebar h2,
+#sidebar h3,
+#sidebar h4,
+#sidebar h5,
+#sidebar h6 {
+    color: #fff;
+    font-size: 16px;
+    background: #bae41b;
+    background: -moz-linear-gradient(top, #bae41b 0%, #95b711 100%);
+    background: -webkit-linear-gradient(top, #bae41b 0%,#95b711 100%);
+    background: linear-gradient(to bottom, #bae41b 0%,#95b711 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bae41b', endColorstr='#95b711',GradientType=0 );
+    display: block;
+    padding: 10px 15px 10px 5px;
+}
+
+/* Calendar */
+.calendar {
+    background: #a0c418;
+    border:0;
+}
+
+.calendar .header {
+	margin: 10px auto 10px auto;
+}
+
+.calendar .table.header .visualmonthyear {
+	color: #ffffff;
+	text-transform: uppercase;
+	font-size: 16px;
+}
+
+.calendar .icon-arrow-left {
+	background: url('../images/calendar-arrows.png');
+	display: block;
+	height: 24px;
+	width: 10px;
+	background-position:0 -19px;
+	float: left;
+	cursor: pointer;
+}
+
+.calendar .icon-arrow-right {
+	background: url('../images/calendar-arrows.png');
+	display: block;
+	height: 24px;
+	width: 10px;
+	background-position:0 5px;
+	float: right;
+	cursor: pointer;
+}
+
+.calendar .week_days {
+	text-transform: lowercase;
+}
+
+.calendar .table>tbody>tr>td,
+.calendar .table>tbody>tr>th,
+.calendar .table>tfoot>tr>td,
+.calendar .table>tfoot>tr>th,
+.calendar .table>thead>tr>td,
+.calendar .table>thead>tr>th {
+	padding: 5px;
+	line-height: 1.42857143;
+	vertical-align: top;
+	border-top: 0px;
+}
+
+.calendar .table>tbody>tr {
+  border-bottom: 1px solid #89aa0f !important;
+}
+
+.calendar a{
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+.calendar td{
+    text-align: center;
+    border: 0px;
+}
+.calendar .header{
+    padding: 10px 0 10px 0;
+}
+.calendar .prev_month{
+    float: left;
+}
+.calendar .next_month{
+    float: right;
+}
+.calendar .year{
+    text-align: center;
+    font-weight: 500;
+}
+.calendar .week_days{
+    font-weight: 500;
+}
+.calendar .event{
+    color: #ffffff !important;
+    background: #89aa0f !important;
+    font-weight: bold;
+}
+.calendar .event:hover{
+    background: #89aa0f;
+}
+.calendar .event a{
+    color: #2e2f31;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.calendar .event:hover a {
+    color: #dc352f;
+}
+.calendar .table td{
+    padding: 0px;
+}
+.calendar .table{
+    margin-bottom: 3px;
+}
+.calendar .week_days td{
+    background: #89aa0f ;
+    color: #fff;
+}
+.calendar .visualmonthyear {
+    color: #000;
+}
+
+@media (max-width:1199px) {
+	.calendar .table>tbody>tr>td,
+	.calendar .table>tbody>tr>th,
+	.calendar .table>tfoot>tr>td,
+	.calendar .table>tfoot>tr>th,
+	.calendar .table>thead>tr>td,
+	.calendar .table>thead>tr>th {
+		padding: 4px !important;
+	}
+	
+	.calendar .event {
+		background: #b3b4b8 !important;
+		background-image:none !important;
+	}
+}
+
+@media (max-width:991px) {
+	.calendar .table>tbody>tr>td,
+	.calendar .table>tbody>tr>th,
+	.calendar .table>tfoot>tr>td,
+	.calendar .table>tfoot>tr>th,
+	.calendar .table>thead>tr>td,
+	.calendar .table>thead>tr>th {
+		padding: 0px !important;
+	}
+	
+	.calendar .event {
+		background: #b3b4b8 !important;
+		background-image:none !important;
+	}
+}
+
+@media (max-width:768px) {
+	.calendar .table>tbody>tr>td,
+	.calendar .table>tbody>tr>th,
+	.calendar .table>tfoot>tr>td,
+	.calendar .table>tfoot>tr>th,
+	.calendar .table>thead>tr>td,
+	.calendar .table>thead>tr>th {
+		padding: 7px !important;
+	}
+	
+	.calendar .event {
+		background: #f0f1f3 !important;
+		background: url('../images/circle.png') !important;
+		background-position:center center !important;
+		background-repeat:no-repeat !important;
+	}
+}
+/* /Calendar */
+
+/* Footer */
+
+.footer-menu .nav>li>a img {
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.footer-menu .nav>li>a img:hover {
+	opacity:0.7;
+	filter:alpha(opacity=70); /* For IE8 and earlier */
+}
+
+.footer-menu .nav>li>a:focus, .footer-menu .nav>li>a:hover {
+    text-decoration: none;
+    background:none !important;
+}
+
+footer {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#858d92+1,606a70+35,606a70+100 */
+	background: #858d92; /* Old browsers */
+	background: -moz-linear-gradient(top,  #858d92 1%, #606a70 35%, #606a70 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #858d92 1%,#606a70 35%,#606a70 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #858d92 1%,#606a70 35%,#606a70 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#858d92', endColorstr='#606a70',GradientType=0 ); /* IE6-9 */
+	border-top:1px solid #606a70;
+	color:#D1C3A8;
+	font-size:11px;
+	padding:15px 0 !important;
+}
+
+footer a {
+	color:#D1C3A8;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+footer a:hover {
+	color:#D1C3A8;
+	text-decoration:underline;
+}
+
+footer .col-md-6:last-child {
+	text-align:right;
+}
+
+/* end Footer */
+
+/* Koncerty */
+.koncerty .date, .time, .location {
+  color: #5C5445;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  margin-right: 15px;
+}
+
+.koncerty .date {
+  padding-left: 10px;
+}
+
+.koncerty .summary {
+  color: #E2001A;
+  font-family: Tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.koncerty .white .kmw_article_text {
+    border:1px solid #F7F6E5;
+}
+
+.koncerty .kmw_article h1,
+.koncerty .kmw_article h2 {
+  background: #FAFAF0;
+  color: #5C5445;
+  text-transform: capitalize;
+  margin: 0px;
+  padding: 0px;
+}
+
+.koncerty .kmw_article h1 {
+  padding: 10px 10px 0 10px;
+}
+
+.koncerty .kmw_article h2 {
+  font-size: 11px;
+  font-style: italic;
+  font-weight: normal;
+  padding: 0px 10px 10px 10px;
+}
+/* end Koncerty */
+
+.white .menu-standard {
+  border: 1px solid #F6F5E0;
+  padding: 15px;
+  margin: 12px 0;
+  list-style: none;
+}
+
+.white .menu-standard li {
+  display: inline-block;
+}
+
+.white .menu-standard li a {
+  text-decoration: none;
+  color: #0C5890;
+  outline: none;
+  font-size: 11px;
+  display: inline-block;
+}
+
+.white .menu-standard li a:after {
+  content: '';
+  display: inline-block;
+  background: url('../images/bg-13.gif');
+  width: 5px;
+  height: 5px;
+}
+
+.white .menu-standard li a:hover {
+  text-decoration: underline;
+}
+
+.white .menu-standard li.active a {
+  font-weight: bold;
+}
+
+.white h1,
+.white h2,
+.white h3,
+.white h4,
+.white h5,
+.white h6 {
+    font: bold 13px/16px Arial, sans-serif;
+    color: #010101;
+    margin: 12px 0 0;
+}
+
+.white .gallery2,
+.white .inner {
+    border: 1px solid #F6F5E0;
+    padding: 15px;
+    margin: 12px 0;
+    font: 11px/16px Tahoma, sans-serif;
+    color: #5C5445;
+}
+
+.white .inner a.read-more {
+    clear: both;
+    font: 11px/16px Tahoma, sans-serif;
+    color: #0C5890;
+    font-weight: bold;
+    padding-top: 15px;
+    border-top: 1px solid #F6F5E0;
+    display: block;
+    width: 100%;
+    margin: 15px 0 0 0;
+}
+
+.page-title h1,
+.page-title h2,
+.page-title h3,
+.page-title h4,
+.page-title h5,
+.page-title h6 {
+    font: 17px/21px Tahoma, sans-serif;
+    color: #ffffff;
+    margin: 11px 15px 7px;
+}
+
+.gallery2 a img {
+    height: 130px;
+}

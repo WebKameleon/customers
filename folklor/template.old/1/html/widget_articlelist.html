@@ -16,16 +16,16 @@
 
 
 
+
 {if:title}<a name="{title}"></a>{endif:title}
-<div class="col-md-6 article-list">
-	<div class="row border">
-		{if:bgimg}<div class="col-md-6"><a href="{more_link}"><img src="{imagesUrl}/{bgimg}" class="img-responsive"/></a></div>{endif:bgimg}
-	    {if:title}<div class="col-md-6 txt">
-		{if:nd_custom_date}<p class="articlelist-block-date">{nd_custom_date|kameleon.date}{if:nd_custom_date_end} - {nd_custom_date_end|kameleon.date}{endif:nd_custom_date_end}</p>{endif:nd_custom_date}
-		<{tokens.h1}><a href="{more_link}">{endif:more}{title}{if:more}</a></{tokens.h1}>
-		<a href="{more_link}" class="read-more">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a>
-		</div>{endif:title}
-	</div>
+<div class="jumbotron">
+	{if:title}<{tokens.h1}><a href="{more_link}">{endif:more}{title}{if:more}</a></{tokens.h1}>{endif:title}
+    
+	{if:bgimg}<a href="{more_link}"><img src="{imagesUrl}/{bgimg}" class="img-responsive"/></a>{endif:bgimg}
+   
+	<p>{plain}</p>
+	<div class="clearfix"></div>
+	
 </div>
 
 

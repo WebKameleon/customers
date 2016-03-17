@@ -16,7 +16,6 @@ function add_marker(i,lat,lng) {
     
     if (lat==0 || lng==0)  return;
     
-    console.log(folklor_map_menu);
     
     var m=new google.maps.Marker({
         position: new google.maps.LatLng(lat,lng),
