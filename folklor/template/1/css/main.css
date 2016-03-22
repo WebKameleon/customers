@@ -480,7 +480,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     background: #89aa0f;
 }
 .calendar .event a{
-    color: #2e2f31;
+    color: #fff;
     display: block;
     width: 100%;
     height: 100%;
@@ -604,8 +604,8 @@ ul.sidebar-menu li a:hover {
   text-decoration: none;
 }
 
-ul.sidebar-menu li a.active,
-ul.sidebar-menu li a.active:hover {
+ul.sidebar-menu li.active a,
+ul.sidebar-menu li.active a:hover {
   background-color: #009ee2;
 }
 /* end sidebar menu */
@@ -621,4 +621,20 @@ ul.sidebar-menu li a.active:hover {
     padding: 10px;
     cursor: pointer;
 }
+
+.bx-wrapper .bx-pager.bx-default-pager a {
+    margin: 0 1px;
+}
+
+.bx-caption {
+    bottom: 20px !important;
+    right: 20px !important;
+}
 /* end gallery */
+
+/* map */
+.map-info-box {
+  position: relative;
+  z-index: 999;
+  background: #fff;
+}
