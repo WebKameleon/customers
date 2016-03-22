@@ -473,7 +473,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 .calendar .event{
     color: #ffffff !important;
-    background: #89aa0f !important;
+    background: #0f6d95 !important;
     font-weight: bold;
 }
 .calendar .event:hover{
@@ -603,4 +603,22 @@ ul.sidebar-menu li a:hover {
   background-color: #e3000b;
   text-decoration: none;
 }
+
+ul.sidebar-menu li a.active,
+ul.sidebar-menu li a.active:hover {
+  background-color: #009ee2;
+}
 /* end sidebar menu */
+
+/* gallery */
+.gallery2 a img {
+    width: 100%;
+    display: block;
+    height: 160px;
+    margin: 0 auto;
+    margin-bottom: 0px !important;
+    margin-top: 0px;
+    padding: 10px;
+    cursor: pointer;
+}
+/* end gallery */
