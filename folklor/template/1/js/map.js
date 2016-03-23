@@ -66,10 +66,14 @@ function add_marker(i,lat,lng) {
         html='<a href="'+folklor_map_menu[i]['href']+'">'+html+'</a>';
         
     }
+
+    var infowindow = new google.maps.InfoWindow({
+        content: html
+    });
     
     google.maps.event.addListener(m, 'click', function() {
-        //infowindow.open(map,m);
-        var infobox = new SmartInfoWindow({position: m.getPosition(), map: map, content: html});
+        infowindow.open(map,m);
+        //var infobox = new SmartInfoWindow({position: m.getPosition(), map: map, content: html});
     });
 
 }
