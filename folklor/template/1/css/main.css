@@ -638,3 +638,14 @@ ul.sidebar-menu li.active a:hover {
   z-index: 999;
   background: #fff;
 }
+
+#google-map h3,
+#google-map h3 a {
+  font-weight: 300;
+  font-size: 18px;
+  max-width: 150px;
+  text-align: right;
+  float: left;
+  margin-top: 20px;
+  color: #000;
+}

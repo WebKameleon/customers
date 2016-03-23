@@ -93,14 +93,14 @@ function initialize() {
     },{
         "featureType": "water",
         "stylers": [
-            { "color": "#0e3d8a" }
+            { "color": "#009ee2" }
         ]
     },{
         "featureType": "landscape",
         "elementType": "all",
         "stylers": [
             {
-                "color": "#f2f2f2"
+                "color": "#a5c725"
             }
         ]
     },{
@@ -115,7 +115,7 @@ function initialize() {
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#0e3d8a"
+                "color": "#009ee2"
             },
             {
                 "visibility": "simplified"
@@ -150,7 +150,7 @@ function initialize() {
         "elementType": "all",
         "stylers": [
             {
-                "color": "#0e3d8a"
+                "color": "#009ee2"
             },
             {
                 "visibility": "on"
