@@ -649,3 +649,13 @@ ul.sidebar-menu li.active a:hover {
   margin-top: 20px;
   color: #000;
 }
+
+ul.marker-add {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+ul.marker-add li {
+  display: inline-block;
+}
