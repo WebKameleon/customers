@@ -22,7 +22,7 @@
             if ($link['imga']) $link['imga']=Bootstrap::$main->session('uimages').'/'.$link['imga'];
         
         
-            $link['href']=Bootstrap::$main->kameleon->href(trim($link['href']),$link['variables'],$link['lang_target'].':'.$link['page_target'],$page,0);
+            $link['href']=Bootstrap::$main->kameleon->href(trim($link['href']),$link['variables'],$link['lang_target'].':'.$link['page_target'],$page,$editmode);
         }
        
         
