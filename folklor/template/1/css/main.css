@@ -365,6 +365,36 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   font-size: 11px;
   margin-top: 10px;
 }
+
+.kierownictwo .articlelist-block-date {
+  display: none;
+}
+
+.kierownictwo .article-list h1,
+.kierownictwo .article-list h2,
+.kierownictwo .article-list h3,
+.kierownictwo .article-list h4,
+.kierownictwo .article-list h5,
+.kierownictwo .article-list h6 {
+  margin-top: 15px;
+}
+
+.kmw_article_text .date {
+  font-weight: 700;
+}
+
+.kmw_article_text .time {
+  font-weight: 700;
+  margin-right: 15px;
+}
+
+.kmw_article_text .location {
+  margin-right: 15px;
+}
+
+.kmw_article_text .summary {
+  margin-right: 15px;
+}
 /* end article list */
 
 /* calendar */
@@ -658,4 +688,22 @@ ul.marker-add {
 
 ul.marker-add li {
   display: inline-block;
+}
+
+.gm-style-iw ul {
+  list-style: none;
+  padding: 0px;
+  margin: 10px 0 10px 0;
+}
+
+.fl-lt {
+  float: left;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.fl-rt {
+  float:right;
+  margin-left:15px;
+  margin-bottom: 15px;
 }
