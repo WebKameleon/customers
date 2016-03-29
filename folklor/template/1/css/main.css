@@ -707,3 +707,7 @@ ul.marker-add li {
   margin-left:15px;
   margin-bottom: 15px;
 }
+
+.nophoto a.kmw_article_photo {
+  display: none;
+}
