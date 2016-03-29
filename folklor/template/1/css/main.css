@@ -156,7 +156,8 @@ a img:hover {
 }
 
 .search ul.kmw_langs li.active a {
-  color: #b6b6b6;
+    color: #000000;
+    font-weight: 700;
 }
 
 /* navbar */
