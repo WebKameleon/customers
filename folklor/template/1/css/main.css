@@ -712,3 +712,7 @@ ul.marker-add li {
 .nophoto a.kmw_article_photo {
   display: none;
 }
+
+.kmw_article_photo img {
+  max-width: 220px;
+}
