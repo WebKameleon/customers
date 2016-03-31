@@ -1,10 +1,9 @@
 <?php
 
     $editmode=Bootstrap::$main->session('editmode');
-
     $templ=Bootstrap::$main->session('template_dir');
-    
     $weblink=new weblinkModel();
+    
     
     $links=[];
     if ($this->webtd['menu_id']) {
@@ -37,8 +36,11 @@
 <script>
     var folklor_map_opt='<?php echo $costxt;?>';
     var folklor_map_menu=JSON.parse('<?php echo $links_json;?>');
-    var map_icons='<?php echo $IMAGES.'/map/';?>';
-
+    var map_icons='<?php echo Bootstrap::$main->session('uimages');?>';
+    var map_height_to_width_prc = <?php echo $size?:50?>;
+    var map_zoom_out_icon='<?php echo $this->webtd['img'];?>';
+    var map_zoom_out_threshold='<?php echo $this->webtd['cos']+0;?>';
+    
 </script>
 
 <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
