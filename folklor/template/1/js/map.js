@@ -123,15 +123,6 @@ function initialize() {
             ]
         },
         {
-            "featureType": "road",
-    
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
             "featureType": "transit",
             "elementType": "all",
             "stylers": [
@@ -167,6 +158,16 @@ function initialize() {
         
         styles.push({
             "featureType": "administrative.locality",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        });
+        
+        styles.push({
+            "featureType": "road",
+    
             "stylers": [
                 {
                     "visibility": "off"
