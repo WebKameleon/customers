@@ -176,8 +176,8 @@ function initialize() {
         });
     }
     
-    
-    var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
+    var name=map_lang=='pl'?'Mapa folkloru':'Folc map';
+    var styledMap = new google.maps.StyledMapType(styles,{name: name});
 
     var opt=folklor_map_opt.split(',');
     if (opt.length<3) opt=[52.1769581,18.9201913,6];

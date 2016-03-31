@@ -40,6 +40,7 @@
     var map_height_to_width_prc = <?php echo $size?:50?>;
     var map_zoom_out_icon='<?php echo $this->webtd['img'];?>';
     var map_zoom_out_threshold='<?php echo $this->webtd['cos']+0;?>';
+    var map_lang='<?php echo $this->webtd['lang'];?>';
     
 </script>
 
