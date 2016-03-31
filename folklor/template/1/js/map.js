@@ -98,7 +98,16 @@ function initialize() {
                     "color": "#444444"
                 }
             ]
-        },    
+        },
+        {
+            "featureType": "road",
+    
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        },
         {
             "featureType": "water",
             "stylers": [
@@ -165,15 +174,7 @@ function initialize() {
             ]
         });
         
-        styles.push({
-            "featureType": "road",
-    
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        });
+        //styles.push();
     }
     
     var name=map_lang=='pl'?'Mapa folkloru':'Folc map';
