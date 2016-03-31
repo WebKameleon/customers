@@ -98,23 +98,7 @@ function initialize() {
                     "color": "#444444"
                 }
             ]
-        },
-        {
-            "featureType": "administrative.land_parcel",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
         },    
-        {
-            "featureType": "administrative.locality",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
         {
             "featureType": "water",
             "stylers": [
@@ -170,6 +154,26 @@ function initialize() {
         }
     ];
     
+    
+    if (map_zoom_out_threshold>0) {
+        styles.push({
+            "featureType": "administrative.land_parcel",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        });
+        
+        styles.push({
+            "featureType": "administrative.locality",
+            "stylers": [
+                {
+                    "visibility": "off"
+                }
+            ]
+        });
+    }
     
     
     var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
