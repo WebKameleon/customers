@@ -14,8 +14,10 @@
     include_once __DIR__.'/../system/fun.php';
     
     
-    WBP::imap_utf8($_POST);
+    WBP::imap_utf8($_REQUEST);
     WBP::imap_utf8($_FILES);
+    WBP::dumpInput();
+
     
     //mydie([$_FILES,$_POST,$_SERVER]);
     
@@ -37,8 +39,12 @@
     
     $td_data=WBP::get_data($sid);
     
-    $img_info=$data['files'];
-    unset($data['files']);
+    if (isset($data['files'])) {
+        $img_info=$data['files'];
+        unset($data['files']);
+    } else {
+        $img_info=[];
+    }
 
     
     $data_to_write_to_spreadsheet=array();
@@ -272,13 +278,13 @@
         {
             if (!in_array($k,$header))
             {
-                Spreadsheet::update_cell($td_data['drive']['id'],$worksheet_id,0,count($header),$k);
+                @Spreadsheet::update_cell($td_data['drive']['id'],$worksheet_id,0,count($header),$k);
                 $header[]=$k;
             }
         }
         
         
-        $row=Spreadsheet::addListRow($td_data['drive']['id'],$worksheet_id,$row);
+        $row=@Spreadsheet::addListRow($td_data['drive']['id'],$worksheet_id,$row);
 
 
     }

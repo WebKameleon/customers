@@ -318,15 +318,20 @@ class WBP {
 			
 		}
 	}
+
+
+	public static function dumpInput() {
+		if (isset($_POST) && count($_POST) && isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+			for ($i=0; $i<10;$i++) {
+
+				$file='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/post/'.date('Y-m').'/'.date('Y-m-d-h-i-s-').$i.'.txt';
+				if (!file_exists($file)) break;
+			}
+			file_put_contents($file,print_r([date('Y-m-d H:i:s'),$_POST,$_SERVER,isset($_FILES)?$_FILES:null],1));
+		}
+	}
 }
 
 
-
-if (isset($_POST) && count($_POST) && isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
-
-	require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
-	$file='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/post/'.date('Y-m').'/'.date('Y-m-d-h-i-s').'.txt';
-	file_put_contents($file,print_r([date('Y-m-d H:i:s'),$_POST,$_SERVER,isset($_FILES)?$_FILES:null],1));
-	
-	
-}
+WBP::dumpInput();
