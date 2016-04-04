@@ -367,6 +367,19 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   margin-top: 10px;
 }
 
+.articlelist-block-date2 {
+  display: none;
+}
+
+.kierownictwo .articlelist-block-date2 {
+  display: block;
+  margin-bottom: 0px;
+  font-weight: 700;
+  color: #009ee2;
+  font-size: 11px;
+  margin-top: 10px;
+}
+
 .kierownictwo .articlelist-block-date {
   display: none;
 }
