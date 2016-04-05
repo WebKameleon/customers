@@ -656,9 +656,9 @@ ul.sidebar-menu li.active a:hover {
 
 /* gallery */
 .gallery2 a img {
-    width: 100%;
+    max-width: 100%;
     display: block;
-    height: 120px;
+    max-height: 120px;
     margin: 0 auto;
     margin-bottom: 0px !important;
     margin-top: 0px;
