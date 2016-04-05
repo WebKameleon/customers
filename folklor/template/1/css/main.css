@@ -186,7 +186,7 @@ a img:hover {
   background-color: #e3000b;
 }
 
-#navbar .nav.navbar-nav li.active a {
+#navbar .nav.navbar-nav > li.active > a {
   background: #009ee2;
 }
 
@@ -223,8 +223,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   padding-right: 0px;
 }
 
-#navbar ul.nav li.dropdown:hover > ul.dropdown-menu a:hover {
+#navbar ul.nav li.dropdown:hover > ul.dropdown-menu a:hover,
+#navbar ul.nav li.dropdown:hover > ul.dropdown-menu li.active a{
   border-bottom:1px solid #fff;
+  background: none;
 }
 
 .navbar-nav>li>.dropdown-menu {
