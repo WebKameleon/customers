@@ -335,7 +335,13 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
   margin-top: 0px;
 }
 
-#content h1 {
+#content h1.widget_h,
+#content .kmw_article h1,
+#content .kmw_article h2,
+#content .kmw_article h3,
+#content .kmw_article h4,
+#content .kmw_article h5,
+#content .kmw_article h6 {
   font-size: 36px;
   color: #0d1110;
   font-weight: 300;
@@ -731,3 +737,63 @@ ul.marker-add li {
 .kmw_article_photo img {
   max-width: 220px;
 }
+
+/* Media Queries */
+@media (max-width:992px) {
+  .banner {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  
+  .article-list .col-md-6:first-child {
+    padding-right: 0px;
+  }
+  
+  .article-list .col-md-6.txt {
+    text-align: center;
+  }
+  
+  #sidebar .calendar .kmw_article_text {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    border-color: #009ee2;
+    margin-top: -60px;
+  }
+  
+  .navbar-toggle:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .navbar-toggle .icon-bar {
+    background-color: #009ee2;
+  }
+  
+  .navbar-nav {
+    text-align: center;
+    margin: 0 0;
+  }
+  
+  #navbar .nav.navbar-nav.facebook {
+    float: none;
+  }
+  
+  #footer .last {
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  .footer-menu ul li {
+    display: list-item;
+    text-align: center;
+    margin: 0px auto;
+  }
+  
+  .footer-menu .last ul.menu-standard {
+    float: none;
+  }
+}
+/* /Media Queries */
