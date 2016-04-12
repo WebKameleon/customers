@@ -578,6 +578,15 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 		background: #b3b4b8 !important;
 		background-image:none !important;
 	}
+    
+    .calendar .event{
+    color: #ffffff !important;
+    background: #0f6d95 !important;
+    font-weight: bold;
+}
+.calendar .event:hover{
+    background: #89aa0f;
+}
 }
 
 @media (max-width:991px) {
@@ -594,6 +603,15 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 		background: #b3b4b8 !important;
 		background-image:none !important;
 	}
+    
+    .calendar .event{
+    color: #ffffff !important;
+    background: #0f6d95 !important;
+    font-weight: bold;
+}
+.calendar .event:hover{
+    background: #89aa0f;
+}
 }
 
 @media (max-width:768px) {
@@ -612,6 +630,15 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 		background-position:center center !important;
 		background-repeat:no-repeat !important;
 	}
+    
+    .calendar .event{
+    color: #ffffff !important;
+    background: #0f6d95 !important;
+    font-weight: bold;
+}
+.calendar .event:hover{
+    background: #89aa0f;
+}
 }
 /* end calendar */
 
