@@ -181,6 +181,8 @@ function rewrite_data_to_payment()
     } else {
         if (next.substr(0,4)!='http') $('#form-dotpay input[name=URL]').val(dirname(location.href)+next);
     }
+    while (next.match(/\/\.\.\//)) next=next.replace(/[^\/]+\/\.\.\//,'');
+    $('#form-dotpay input[name=URL]').val(next);
     
     next = $('#form-paypal input[name=return]').val();
     if (next.substr(0,1)=='/') {
@@ -206,7 +208,7 @@ function upload_done(e,data)
         
         rewrite_data_to_payment();
         var file=data._response.result.files[0];
-        //$('#form-dotpay input[name=URLC]').val(dirname(location.href)+data.url.replace('contest.php','dotpay.php')+'?id='+file.id);
+        //$('#form-dotpay input[name=URL]').val(dirname(location.href)+data.url.replace('contest.php','dotpay.php')+'?id='+file.id);
         //$('#form-paypal input[name=notify_url]').val(dirname(location.href)+data.url.replace('contest.php','paypal.php'));
 
         if ($('#form-dotpay input[name=URLC]').val().indexOf('http:')<0) 
