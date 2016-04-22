@@ -181,6 +181,7 @@ function rewrite_data_to_payment()
     } else {
         if (next.substr(0,4)!='http') $('#form-dotpay input[name=URL]').val(dirname(location.href)+next);
     }
+    next = $('#form-dotpay input[name=URL]').val();
     while (next.match(/\/\.\.\//)) next=next.replace(/[^\/]+\/\.\.\//,'');
     $('#form-dotpay input[name=URL]').val(next);
     
