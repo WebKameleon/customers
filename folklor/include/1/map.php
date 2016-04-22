@@ -1,8 +1,9 @@
 <?php
 
-    $editmode=Bootstrap::$main->session('editmode');
+    $editmode=$this->mode;
     $templ=Bootstrap::$main->session('template_dir');
     $weblink=new weblinkModel();
+
     
     
     $links=[];
