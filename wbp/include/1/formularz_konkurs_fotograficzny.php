@@ -328,7 +328,7 @@
         <p>Kwota: <?php echo $configuration['drive']['price_pln'];?> zł<br/>
         WBPiCAK <br/>
         60-819 Poznań, ul. Prusa 3<br/>
-        Nr rach. : <strong>89 1500 1621 1216 2000 8820 0000</strong> (tytuł wpłaty: <?php echo $this->webtd['title'];?>)</p>
+        IBAN: <strong>PL 89 1500 1621 1216 2000 8820 0000</strong> (tytuł wpłaty: <?php echo $this->webtd['title'];?>), SWIFT: WBKPPRPP</p>
     </div>
     
 </div>
