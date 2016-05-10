@@ -216,7 +216,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 #navbar ul.nav li.dropdown:hover > ul.dropdown-menu a{
   border-bottom:1px solid #e3000b;
-  text-transform: capitalize;
+  text-transform: lowercase;
   margin-left: 15px;
   margin-right: 15px;
   padding-left: 0px;
@@ -824,3 +824,17 @@ ul.marker-add li {
   }
 }
 /* /Media Queries */
+
+
+/* Piotr added */
+
+.article-list .txt h2 a, .article-list .txt h3 a, .article-list .txt h4 a {
+	font-size: 15px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	width: 180px;
+	display: inline-block;
+	
+}
+
