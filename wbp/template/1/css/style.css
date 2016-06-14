@@ -3221,10 +3221,7 @@ table caption {
 
 #main-left .kmw_article_photo,
 #main-right .kmw_article_photo {
-/*
 	display: none;
-*/
-	display: block;
 	margin-left: 25px;
 }
 
