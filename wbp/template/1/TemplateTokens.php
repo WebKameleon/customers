@@ -16,7 +16,7 @@ class TemplateTokens extends Tokens {
             return $wp['class'];
         }
         $webpage=new webpageModel();
-        
+
         while (true)
         {
             if (!$wp['id']) return;
