@@ -30,7 +30,8 @@
         $form=$jotform->getFormSource($costxt);
         if (is_array($form))
         {
-            Bootstrap::$main->tokens->set_wbp_js($form['scripts']);
+            //mydie($form);
+            Bootstrap::$main->tokens->set_wbp_js($form['scripts'],'defer="false"');
             echo $form['html'];
             
             echo '<link rel="stylesheet" href="'.$session['template_dir'].'/css/jotform.css"/>';

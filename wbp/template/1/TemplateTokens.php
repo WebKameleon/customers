@@ -37,7 +37,7 @@ class TemplateTokens extends Tokens {
     }
     
     public $wbp_js='';
-    public function set_wbp_js($js)
+    public function set_wbp_js($js,$defer='')
     {
         foreach($js AS $f)
         {
@@ -48,7 +48,7 @@ class TemplateTokens extends Tokens {
                 {
                     $f=Bootstrap::$main->session('template_dir').'/js/'.$f;
                 }
-                $this->wbp_js.="\n\t".'<script type="text/javascript" src="'.$f.'"></script>';
+                $this->wbp_js.="\n\t".'<script type="text/javascript" src="'.$f.'" '.$defer.'></script>';
             }
         }
     }
