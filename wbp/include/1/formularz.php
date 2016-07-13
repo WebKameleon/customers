@@ -30,8 +30,24 @@
         $form=$jotform->getFormSource($costxt);
         if (is_array($form))
         {
-            //mydie($form);
-            Bootstrap::$main->tokens->set_wbp_js($form['scripts'],'defer="false"');
+            
+            foreach($form['scripts'] AS $idx=>&$script) {
+                if (strstr($script,"\n")) {
+                    $random='jform_'.rand(2000,time());
+                    $script="var $random = function() {
+                        if (typeof(JotForm)=='undefined') {
+                            setTimeout($random,500);
+                            return;
+                        }
+                        $script
+                    }
+                    setTimeout($random,500);
+                    ";
+                } 
+            }
+
+            
+            Bootstrap::$main->tokens->set_wbp_js($form['scripts'],'defer');
             echo $form['html'];
             
             echo '<link rel="stylesheet" href="'.$session['template_dir'].'/css/jotform.css"/>';

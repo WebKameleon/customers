@@ -99,7 +99,7 @@ $('.pg_creator .kmw_articlelist:first').each(function() {
     
 });
 
-$(document).ready(function () {
+$(document).ready(function ($) {
     
     $(".defaultFont").click(function () {
         $(".article").css("font-size", "14px");

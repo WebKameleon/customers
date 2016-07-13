@@ -75,6 +75,8 @@ class jotform {
         $url=$form['content']['url'];
        
         $html=file_get_contents($url);
+        
+        //mydie(htmlspecialchars($html));
     
         $scripts=array();
         $txt=$html;
@@ -140,6 +142,8 @@ class jotform {
         $html=trim(substr($html,$end+1));
         $end=stripos($html,'</body>');
         $html=substr($html,0,$end);
+        
+        $html=preg_replace('~<script.+?</script>~is','',$html);
         
         
         return array('scripts'=>$scripts,'html'=>implode("\n",$links).implode("\n",$styles).$html);
