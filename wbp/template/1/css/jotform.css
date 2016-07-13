@@ -63,6 +63,10 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
+.form-radio-item label, .form-checkbox-item label {
+	width: 94%;
+}
+
 .form-html p {
     font-size: 14px;
     color: #222;
