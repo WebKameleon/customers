@@ -12,6 +12,8 @@
     {
         $costxt=$_POST['form'][$sid];
      
+        $cos=isset($_POST['native'][$sid]) ? 1 : 0;
+     
         if ($costxt==-1)
         {
             $user=new userModel();
@@ -37,6 +39,7 @@
      
         $webtd=new webtdModel($this->webtd['sid']);
         $webtd->costxt=$costxt;
+        $webtd->cos=$cos;
         $webtd->save();
     }
     
@@ -79,7 +82,9 @@
             echo '<option value="'.$k.'" '.$selected.'>'.$f.'</option>';
         }
     ?>
-</select> <a class="jotform_edit" href="" onclick="return go_jotform_<?php echo $sid?>(this)" target="jotform">&raquo;</a>
+</select>
+&nbsp; <input type="checkbox" value="1" title="wstaw bezpośrednio z JotForm zamiast dodawać WBP kolory" name="native[<?php echo $sid?>]" <?php if($cos) echo 'checked';?>/>
+<a class="jotform_edit" href="" onclick="return go_jotform_<?php echo $sid?>(this)" target="jotform">&raquo;</a>
 <div class="clearfix"></div>
 <p><input type="submit" value="Zapisz" /></p>
 </form>

@@ -24,13 +24,15 @@
         }
     }
     
-    
-    $form=$jotform->getFormSource($costxt);
-    
-    if (is_array($form))
-    {
-        Bootstrap::$main->tokens->set_wbp_js($form['scripts']);
-        echo $form['html'];
-        
-        echo '<link rel="stylesheet" href="'.$session['template_dir'].'/css/jotform.css"/>';
+    if ($cos) {
+        echo $jotform->iframe($costxt);
+    } else {
+        $form=$jotform->getFormSource($costxt);
+        if (is_array($form))
+        {
+            Bootstrap::$main->tokens->set_wbp_js($form['scripts']);
+            echo $form['html'];
+            
+            echo '<link rel="stylesheet" href="'.$session['template_dir'].'/css/jotform.css"/>';
+        }
     }
