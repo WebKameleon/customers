@@ -16,6 +16,7 @@
 	float:right;
 	margin-top: 20px;
 	display: block;
+	min-width:300px;
 }
 
 .gsc-input * {
