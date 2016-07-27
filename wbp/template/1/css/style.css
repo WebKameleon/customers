@@ -3489,7 +3489,7 @@ ul.articlelist-nav {
 	clear: both;
 	margin-bottom: 30px;
 	display: block;
-	width: 50px;
+	min-width: 50px;
 }
 
 

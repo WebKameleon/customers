@@ -1,6 +1,8 @@
 <?php
 
+
 $shoper_url='http://wbp.shoparena.pl';
+$shoper_url='http://www.wydawnictwo.wbp.poznan.pl';
 $shoper_api_url=$shoper_url.'/webapi/json/';
 $shoper_img_url=$shoper_url.'/environment/cache/images/300_300_productGfx_';
 
