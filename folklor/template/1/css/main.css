@@ -828,13 +828,52 @@ ul.marker-add li {
 
 /* Piotr added */
 
-.article-list .txt h2 a, .article-list .txt h3 a, .article-list .txt h4 a {
-	font-size: 15px;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	width: 180px;
-	display: inline-block;
-	
+.article-list .txt h1 a,.article-list .txt h2 a, .article-list .txt h3 a, .article-list .txt h4 a {
+	font-size: 16px;
+
+}
+
+.article-list .txt .ellipsis {
+  width: 175px;
+}
+
+
+.ellipsis {
+    overflow: hidden;
+    height: 55px;
+    line-height: 25px;
+}
+.ellipsis:before {
+    content: "";
+    float: left;
+    width: 5px;
+    height: inherit;
+}
+.ellipsis > *:first-child {
+    float: right;
+    width: 100%;
+    margin-left: -5px;
+}
+.ellipsis:after {
+    content: "\02026";
+    font-size: 2em;
+    box-sizing: content-box !important;
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    float: right;
+    position: relative;
+    top: -25px;
+    left: 100%;
+    width: 3em;
+    margin-left: -3em;
+    padding-right: 5px;
+    text-align: right;
+    background-size: 100% 100%;
+    background: -webkit-gradient(linear,left top,right top,
+        from(rgba(255,255,255,0)),to(white),color-stop(50%,white)) !important;
+        background: -moz-linear-gradient(to right,rgba(255,255,255,0),white 50%,white);
+        background: -o-linear-gradient(to right,rgba(255,255,255,0),white 50%,white);
+        background: -ms-linear-gradient(to right,rgba(255,255,255,0),white 50%,white);
+        background: linear-gradient(to right,rgba(255,255,255,0),white 50%,white);
 }
 
