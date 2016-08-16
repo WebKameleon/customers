@@ -149,7 +149,7 @@ var uploaded_images=0;
 function upload_started(e,data)
 {
     if (0==uploaded_images++) {
-        $('#wbp-form-loading').fadeIn();
+        $('#wbp-form-loading').height($(document).height()).fadeIn();
     }
 }
 
