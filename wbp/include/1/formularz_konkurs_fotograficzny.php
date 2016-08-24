@@ -271,7 +271,7 @@
         <input type="hidden" name="id" value="<?php echo $dotpay_id;?>" />
         <input type="hidden" name="amount" value="<?php echo $configuration['drive']['price_pln'];?>" />
         <input type="hidden" name="description" value="Opłata za: <?php echo $this->webtd['title'];?>" />
-        <input type="hidden" name="lang" value="pl" />
+        <input type="hidden" name="lang" value="<?php echo $lang?>" />
         <input type="hidden" name="URL" value="<?php echo $next?>" />
         <input type="hidden" name="URLC" value="<?php echo $ajax;?>/dotpay.php" />
         <input type="hidden" name="forename" value="" />
