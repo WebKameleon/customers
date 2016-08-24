@@ -37,7 +37,7 @@
 {if:level=(2, 3, 4)}
 	<article class="article">
      <div class="row">
-	  <div class="col-md-12">{if:title}<h3>{if:more}<a href="{more_link}" class="magicmore">{endif:more}{title}{if:more}</a>{endif:more}</h3>{endif:title}</div>
+	  <div class="col-md-12">{if:title}<a name="{title}"></a><h3>{if:more}<a href="{more_link}" class="magicmore">{endif:more}{title}{if:more}</a>{endif:more}</h3>{endif:title}</div>
 	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1" title="{title}"><img class="img-responsive" src="{uimages}/{bgimg}" alt="" /></a>{endif:bgimg}
       <div class="clearfix"></div><p>{plain}{tokens.html}{if:more}<a {if:level=3}style="display:none;"{endif:level=3} href="{more_link}" class="magicmore"> {if:moretxt}{moretxt}{endif:moretxt} {if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}</p>
 	  <div class="clearfix"></div>
@@ -58,7 +58,7 @@
 {if:!level_found}
     <article class="article {tokens.wbp_pageclass}{if:mode=(2,3)} kmw_article_kameleon{endif:mode=(2,3)}{if:class} {class}{endif:class}">
      <div class="row kmw_article_content">
-	  {if:title}<{tokens|h1:1}>{title}</{tokens|h1:1}>{endif:title}
+	  {if:title}<a name="{title}"></a><{tokens|h1:1}>{title}</{tokens|h1:1}>{endif:title}
 	  {if:bgimg}
            <a class="kmw_article_photo" href="{uimages}/{bgimg}" fancybox="1" title="{title}"><img src="{thumbsUrl}/{bgimg}"/></a>
           {endif:bgimg}
