@@ -22,11 +22,33 @@
         </button>        
     </form>
 </div>
-
-<?php if ((!isset($KAMELEON_MODE) || !$KAMELEON_MODE) && $cos): ?>
-
 <script>
-    document.getElementById('form-dotpay-<?php echo $sid?>').submit();
-</script>
+    
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    
+    var el=document.getElementById('form-dotpay-<?php echo $sid?>').elements;
+    for (var i=0;i<el.length;i++) {
+        if (el[i].tagName.toLowerCase()!='input') continue;
+        if (el[i].type.toLowerCase()!='hidden') continue;
+        if (el[i].name=='id' || el[i].name=='amount' || el[i].name=='URL' || el[i].name=='description') continue;
+        
+        var parval=getParameterByName(el[i].name);
+        if (parval!=null) el[i].value=parval;
+    }
+    
+    
+    <?php if ((!isset($KAMELEON_MODE) || !$KAMELEON_MODE) && $cos): ?>
 
-<?php endif; ?>
+    document.getElementById('form-dotpay-<?php echo $sid?>').submit();
+
+    <?php endif; ?>
+
+</script>
