@@ -26,6 +26,14 @@
     border: 0;
 }
 
+.breadcrumbs > ul li {
+    padding-left: 0;
+}
+
+.breadcrumbs {
+    margin-bottom: 6px;
+}
+
 .article a {
     color: #f0f0f0;
     border: 0;
