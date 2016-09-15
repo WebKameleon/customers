@@ -12,14 +12,14 @@
 }
 
 .panel-default>.panel-heading {
-    color: #333;
-    background-color: #f5f5f5;
-    border-color: #ddd;
-    border-right: 4px;
+
+    background-color: #333;
+    border: 0;
 }
 
 #side-nav a {
-    color: #303030 !important;
+    padding: 10px 12px;
+    color: #F0F0F0 !important;
     text-decoration: none;
     border: 0;
     font-size: 18px;
