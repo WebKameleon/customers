@@ -11,8 +11,15 @@
     margin-bottom: 25px;
 }
 
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    border-right: 4px;
+}
+
 #side-nav a {
-    color: #f0f0f0 !important;
+    color: #303030 !important;
     text-decoration: none;
     border: 0;
     font-size: 18px;
