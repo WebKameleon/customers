@@ -12,9 +12,10 @@
 }
 
 #side-nav a {
-    color: #202020 !important;
+    color: #f0f0f0 !important;
     text-decoration: none;
     border: 0;
+    font-size: 18px;
 }
 
 .ad-gallery {
