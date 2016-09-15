@@ -148,6 +148,7 @@
 {endif:level=100}
 
 {if:!level_found}
+<div class="article">
 {if:level=2}
 {if:!first_child}<hr/>{endif:!first_child}
 <section>
@@ -171,7 +172,7 @@
 {if:level=2}
 </section>
 {endif:level=2}
-
+</div>
 {endif:!level_found}
 
 {endwith:articleWidget}

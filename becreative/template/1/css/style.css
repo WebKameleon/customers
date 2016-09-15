@@ -16,3 +16,17 @@
     text-decoration: none;
     border: 0;
 }
+
+.ad-gallery {
+    margin-bottom: 20px;   
+}
+
+.breadcrumbs > ul a {
+    color: #f0f0f0;
+    border: 0;
+}
+
+.article a {
+    color: #f0f0f0;
+    border: 0;
+}
