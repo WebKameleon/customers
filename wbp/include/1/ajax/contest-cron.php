@@ -2,14 +2,17 @@
 
 use google\appengine\api\cloud_storage\CloudStorageTools;
 
-
 require_once __DIR__.'/../kameleon/Google.php';
 require_once __DIR__.'/../kameleon/Spreadsheet.php';
 include_once __DIR__.'/../system/fun.php';
 
+global $emails;
+$emails=[];
 
 
 function toSpreadsheet($data) {
+    
+    global $emails;
 
     $td_data=$data['td_data'];
     $data_to_write_to_spreadsheet=$data['data_to_write_to_spreadsheet'];
@@ -65,6 +68,13 @@ function toSpreadsheet($data) {
         }
         
         
+        
+        if (isset($row['email'])) {
+            if (!isset($emails[$td_data['title']][$row['email']]))
+                $emails[$td_data['title']][$row['email']]=array();
+            $emails[$td_data['title']][$row['email']][]=[$td_data['drive']['email'],$row['thumbnail'],$row['title']];
+        }
+        
         $row=@Spreadsheet::addListRow($td_data['drive']['id'],$worksheet_id,$row);
 
 
@@ -76,5 +86,28 @@ function toSpreadsheet($data) {
 
 $photos=WBP::getJsonFiles();
 foreach ($photos AS $f=>$photo) {
+    
+    if (isset($photo_id) && !strstr($f,$photo_id) ) continue;
+    
     if(toSpreadsheet($photo)) WBP::rmJsonFile($f);
 }
+
+foreach($emails AS $title=>$rest) {
+    foreach($rest AS $to=>$rows) {
+        $from='';
+        $mail='Dziękujemy za przesłanie następujących zdjęć / Thank you for submitting the following photographs<ul style="list-style: none">';
+        
+        foreach ($rows AS $row) {
+            $from=$row[0];
+            $mail.='<li style="padding:5px"><img src="'.$row[1].'" align="absmiddle"/> '.$row[2].'</li>';
+        }
+        $mail.='</ul>';
+        
+        $mail.='<p>Po weryfikacji zdjęcia wezmą udział w konkursie / After verification, the photographs will take part in the competition <b>'.$title.'</b></p>';
+        $mail.='<p>WBPiCAK - Dział FOTOGRAFIA / WBPiCAK - Department of PHOTOGRAPHY</p>';
+        
+        WBP::mail($from,$to,$title,$mail);
+    }
+}
+
+

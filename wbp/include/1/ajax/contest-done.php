@@ -1,13 +1,19 @@
 <?php
 
+	if (!isset($_REQUEST['id']) || strlen($_REQUEST['id'])!=64 ) return;
+	$sid=substr($_REQUEST['id'],0,32);
+	$photo_id=substr($_REQUEST['id'],32);
+	
+	include __DIR__.'/contest-cron.php';
+
+	return;
+
 	require_once __DIR__.'/../kameleon/Google.php';
 	require_once __DIR__.'/../kameleon/Spreadsheet.php';
 	include_once __DIR__.'/../system/fun.php';
 
 
-	if (!isset($_REQUEST['id']) || strlen($_REQUEST['id'])!=64 ) return;
-	$sid=substr($_REQUEST['id'],0,32);
-	$photo_id=substr($_REQUEST['id'],32);
+
 	
 	$td_data=WBP::get_data($sid);
 	
@@ -49,9 +55,9 @@
 	{
 	    if ($data[$i][$idx_id]==$photo_id)
 	    {
-		foreach ($data[$i] AS $k=>$v) $data[$i][$header[$k]]=$v;
-		if (strstr($data[$i]['email'],'@')) $to=trim($data[$i]['email']);
-		$foto_ul.='<li><img src="'.$data[$i]['thumbnail'].'" align="absmiddle"/> '.$data[$i]['title'].'</li>';
+			foreach ($data[$i] AS $k=>$v) $data[$i][$header[$k]]=$v;
+			if (strstr($data[$i]['email'],'@')) $to=trim($data[$i]['email']);
+			$foto_ul.='<li><img src="'.$data[$i]['thumbnail'].'" align="absmiddle"/> '.$data[$i]['title'].'</li>';
 	    }
 	}
 	
