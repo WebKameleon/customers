@@ -29,6 +29,10 @@
     margin-bottom: 20px;   
 }
 
+.ad-gallery .ad-image img {
+    width: 100%
+}
+
 .breadcrumbs > ul a {
     color: #f0f0f0;
     border: 0;

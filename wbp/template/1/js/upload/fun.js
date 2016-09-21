@@ -200,6 +200,19 @@ function rewrite_data_to_payment()
     }    
 }
 
+function deUpDir(urlc) {
+    
+    var len=urlc.length;
+    
+    while (true) {
+        urlc=urlc.replace(/\/[^\/]+\/\.\.\//,'/');
+        if (len==urlc.length) break;
+        len=urlc.length;
+    }
+    
+    return urlc;
+}
+
 function upload_done(e,data)
 {
     
@@ -213,9 +226,9 @@ function upload_done(e,data)
         //$('#form-paypal input[name=notify_url]').val(dirname(location.href)+data.url.replace('contest.php','paypal.php'));
 
         if ($('#form-dotpay input[name=URLC]').val().indexOf('http:')<0) 
-		$('#form-dotpay input[name=URLC]').val(dirname(location.href)+$('#form-dotpay input[name=URLC]').val()+'?id='+file.id);
+            $('#form-dotpay input[name=URLC]').val(deUpDir(dirname(location.href)+$('#form-dotpay input[name=URLC]').val()+'?id='+file.id));
         if ($('#form-paypal input[name=notify_url]').val().indexOf('http:')<0) 
-        	$('#form-paypal input[name=notify_url]').val(dirname(location.href)+$('#form-paypal input[name=notify_url]').val());
+        	$('#form-paypal input[name=notify_url]').val(deUpDir(dirname(location.href)+$('#form-paypal input[name=notify_url]').val()));
 
         $('#form-paypal input[name=custom]').val(file.id);
         $('#foto-contest-payment').fadeIn(500);
