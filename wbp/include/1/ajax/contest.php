@@ -231,11 +231,18 @@
         
     }
     
+    
+    
     @session_write_close();
+    WBP::dumpJson($sid.$data['id'].'-'.rand(200000,time()).'.json',[
+        'response_images' => $response_images,
+        'td_data' => $td_data,
+        'data_to_write_to_spreadsheet' => $data_to_write_to_spreadsheet
+    ]);
     
     
     // Spreadsheet part 
-    
+    /*
     Spreadsheet::setToken(null);
     Spreadsheet::setToken($_SESSION['spreadsheets_access_token']);
 
@@ -288,5 +295,7 @@
 
 
     }
+    
+    */
 
     contest_ret(array('files'=>$response_images,'debug'=>$debug));

@@ -200,8 +200,8 @@ class WBP {
 		{
 			if ($contents['title']==$td_data['title'])
 			{
-			$worksheet_id=$id;
-			break;
+				$worksheet_id=$id;
+				break;
 			}
 		}	
 		
@@ -330,6 +330,54 @@ class WBP {
 			}
 			file_put_contents($file,print_r([date('Y-m-d H:i:s'),$_POST,$_SERVER,isset($_FILES)?$_FILES:null],1));
 		}
+	}
+	
+	public static function dumpJson($f,$c) {
+		
+		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+			$file='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/json/'.$f;
+		} else {
+			@mkdir('/tmp/wbp-json');
+			
+			$file='/tmp/wbp-json/'.$f;
+		}
+		
+		
+		file_put_contents($file,json_encode($c));
+	}
+	
+	public static function getJsonFiles() {
+		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+			$dir='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/json';
+		} else {
+			$dir='/tmp/wbp-json';
+		}
+		
+		$sdir=scandir($dir);
+		
+		
+		$ret=[];
+		
+		foreach ($sdir AS $i=>$f) {
+			if ($f[0]=='.') continue;
+			$ret[$f] = json_decode(file_get_contents($dir.'/'.$f),true);
+		}
+		
+		
+		return $ret;
+	}
+	
+	public static function rmJsonFile($f) {
+		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+			$dir='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/json';
+		} else {
+			$dir='/tmp/wbp-json';
+		}
+		
+		unlink($dir.'/'.$f);
 	}
 }
 

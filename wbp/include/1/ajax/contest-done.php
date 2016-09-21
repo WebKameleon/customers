@@ -11,11 +11,11 @@
 	
 	$td_data=WBP::get_data($sid);
 	
-        Spreadsheet::setToken(null);
-        if (!isset($_SESSION['spreadsheets_access_token'])) $_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
-        $token=Spreadsheet::setToken($_SESSION['spreadsheets_access_token']);    
-        foreach($token AS $k=>$v) $td_data['tokens']['spreadsheets']->$k=$v;
-        $_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
+	Spreadsheet::setToken(null);
+	if (!isset($_SESSION['spreadsheets_access_token'])) $_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
+	$token=Spreadsheet::setToken($_SESSION['spreadsheets_access_token']);    
+	foreach($token AS $k=>$v) $td_data['tokens']['spreadsheets']->$k=$v;
+	$_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
 	
 	session_write_close();
 
