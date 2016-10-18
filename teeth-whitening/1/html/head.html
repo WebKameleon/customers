@@ -1,0 +1,62 @@
+    <meta charset="utf-8">
+    <title>{page.title}</title>
+    {if:page.description}<meta name="description" content="{page.description}" />{endif:page.description}	
+    {if:page.keywords}<meta name="keywords" content="{page.keywords}" />{endif:page.keywords}
+    
+    <meta name="author" content="webkameleon.com">
+    
+    {if:page.og_desc}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{page.title}"/> 
+    <meta property="og:site_name" content="{server.http_url}" />
+    <meta property="og:description" content="{page.og_desc}" />
+    {if:page.og_image}<meta property="og:image" content="{uimages}/{page.og_image}" />{endif:page.og_image}
+    {endif:page.og_desc}
+    
+    <meta name="Robots" content="all" />
+    <meta name="generator" content="{generator}" />
+    <meta name="webkameleonId" content="server={page.server}; page={page.id}; ver={page.ver}; lang={page.lang}; ftp={page.nd_ftp|kameleon.datetime}" />
+	
+	<meta name="format-detection" content="telephone=no"/>
+	<link rel="icon" href="{template_dir}/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="{template_dir}/css/grid.css">
+	<link rel="stylesheet" href="{template_dir}/css/style.css">
+	<link rel="stylesheet" href="{template_dir}/css/camera.css"/>
+	<link rel="stylesheet" href="{template_dir}/css/material-icons.css"/>
+	<link rel="stylesheet" href="{template_dir}/css/google-map.css"/>
+	<link rel="stylesheet" href="{template_dir}/css/webkameleon.css"/>
+	{if:mode=(2,3)}
+	<link rel="stylesheet" href="{template_dir}/css/editor.css"/>
+	{endif:mode=(2,3)}
+	
+	
+	<script src="{template_dir}/js/jquery.js"></script>
+	<script src="{template_dir}/js/jquery-migrate-1.2.1.js"></script> 
+	<!--[if lt IE 9]> 
+	<html class="lt-ie9">
+	<div style=' clear: both; text-align:center; position: relative;'>
+	  <a href="http://windows.microsoft.com/en-US/internet-explorer/..">
+		<img src="{template_dir}/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+			 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+	  </a>
+	</div>
+	<script src="{template_dir}/js/html5shiv.js"></script>
+	<![endif]-->
+	<script src='{template_dir}/js/device.min.js'></script>
+	
+	
+    <!----- bcg ----->
+	<style>
+        body {
+                {if:server.background}background-image:url('{uimages}/{server.background}');background-repeat:no-repeat; background-attachment:fixed;background-position: top center;{endif:server.background}
+                {if:page.background}background:url('{uimages}/{page.background}');background-attachment:fixed;background-repeat: repeat-y; background-position: top center;{endif:page.background}
+                {if:server.bgcolor}background-color:#{server.bgcolor} !important;{endif:server.bgcolor}
+                {if:page.bgcolor}background-color:#{page.bgcolor} !important;{endif:page.bgcolor}
+        }
+    </style>
+    <!----- /bcg ----->
+
+
+
+
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{lang}"> <!--<![endif]-->
+
+ <head>
+ {include:head.html}
+ </head>
+
+<body class="{if:page.class}{page.class}{endif:page.class}">
+<div class="page">
+ 
+ {with:header}
+ {include:header.html}
+ {endwith:header}
+
+ <!----- main content ----->
+ {with:body}
+  <main>
+   <section class="well12 br1 br">
+     <div class="container">
+       <h2>{page.title}</h2>
+       <dl class="term-list">
+         {level1}
+       </dl>
+     </div>
+   </section>
+   
+   {level2}
+ </main>
+ {endwith:body}
+ <!----- /main content ----->
+
+{with:footer}
+{include:footer.html}
+{endwith:footer}
+
+
+</div>
+</body>
+</html>

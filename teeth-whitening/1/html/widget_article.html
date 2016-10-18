@@ -1,0 +1,86 @@
+{with:articleWidget}
+
+{if:level=100}
+<h1 class="brand_name">
+ {plain}
+</h1>
+{if:title}
+<p class="brand_slogan">{title}</p>
+{endif:title}
+{define:level_found=1}
+{endif:level=100}
+
+{if:level=(200)}
+<div class="container">
+ {if:title}<h6>{title}</h6>{endif:title}
+ {plain}
+</div>
+{define:level_found=1}
+{endif:level=(200)}
+
+{if:level=1}
+ {if:webpage.type=1}
+   {if:title}<dt>{title}</dt>{endif:title}
+   <dd>
+	{if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{imagesUrl}/{bgimg}" alt="" /></a>{endif:bgimg}
+	{plain}
+   </dd>
+   <div class="clearfix"></div>
+  {define:level_found=1}
+ {endif:webpage.type=1}
+
+{endif:level=1}
+
+
+{if:level=(3)}
+  <section class="bg-contrast">
+    <div class="container">
+      <div class="row offsNo">
+        <div class="col-md-5 col-sm-12 col-xs-12 offsNo">
+          <div class="info-block">
+		    {if:bgimg}
+            <div class="img-wr">
+              <img alt="" src="{uimages}/{bgimg}">
+            </div>
+			{endif:bgimg}
+			{if:title}
+            <h2>{title}</h2>
+            {endif:title}
+			{if:trailer}
+			<h3>{trailer}</h3>
+            {endif:trailer}
+			<p>{plain}</p>
+			 <a href="{if:more}{more_link}{endif:more}{if:!more}#{title}{endif:!more}" class="btn">
+			  {if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}
+			 </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+{define:level_found=1}
+{endif:level=(3)}
+
+
+{if:!level_found}
+
+{if:title}<a name="{title}"></a>{endif:title}
+<section class="well {class}">
+    <div class="container">
+      {if:title}<h2 class="{if:webtd.class}color_contrast{endif:webtd.class}">{title}</h2>{endif:title}
+	  {if:trailer}
+      <h3 class="{if:webtd.class}color_contrast{endif:webtd.class}">
+        {trailer}
+	  </h3>
+      {endif:trailer}
+	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{imagesUrl}/{bgimg}" alt="" /></a>{endif:bgimg}
+	  {plain}
+	  <div class="clearfix"></div>
+    </div>
+</section>
+
+{endif:!level_found}
+
+{endwith:articleWidget}

@@ -1,0 +1,211 @@
+/*========================================================
+                        Camera
+=========================================================*/
+.camera_container {
+  position: relative;
+  padding-bottom: 43.5122%; }
+
+@media (max-width: 804.3722px) {
+  .camera_container {
+    padding-bottom: 350px; } }
+.camera_wrap {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  margin-bottom: 0 !important;
+  height: 100%;
+  background: #fff;
+  z-index: 0; }
+
+.camera_wrap img {
+  max-width: none !important; }
+
+.camera_fakehover {
+  height: 100%;
+  min-height: 60px;
+  position: relative;
+  width: 100%; }
+
+.camera_src {
+  display: none; }
+
+.cameraCont, .cameraContents {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 1; }
+
+.cameraSlide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+.cameraContent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: none; }
+
+.camera_target {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  text-align: left;
+  z-index: 0; }
+
+.camera_overlayer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0; }
+
+.camera_target_content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 2; }
+
+.camera_loader {
+  background: #fff url(../images/camera-loader.gif) no-repeat center;
+  border: 1px solid #ffffff;
+  border-radius: 18px;
+  height: 36px;
+  left: 50%;
+  overflow: hidden;
+  position: absolute;
+  margin: -18px 0 0 -18px;
+  top: 50%;
+  width: 36px;
+  z-index: 3; }
+
+.camera_nav_cont {
+  height: 65px;
+  overflow: hidden;
+  position: absolute;
+  right: 9px;
+  top: 15px;
+  width: 120px;
+  z-index: 4; }
+
+.camerarelative {
+  overflow: hidden;
+  position: relative; }
+
+.imgFake {
+  cursor: pointer; }
+
+.camera_command_wrap .hideNav {
+  display: none; }
+
+.camera_command_wrap {
+  left: 0;
+  position: relative;
+  right: 0;
+  z-index: 4; }
+
+.showIt {
+  display: none; }
+
+.camera_clear {
+  clear: both;
+  display: block;
+  height: 1px;
+  margin: -1px 0 25px;
+  position: relative; }
+
+.camera_caption {
+  display: none; }
+
+.cameraContent .camera_caption {
+  display: block; }
+
+/*================   Custom Layout&Styles   =====================*/
+.camera_caption {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 28.5%; }
+  .camera_caption h2 {
+    color: #fff;
+    font-weight: 300;
+    line-height: 97px;
+    letter-spacing: 1.1px; }
+    @media (max-width: 1199px) {
+      .camera_caption h2 {
+        font-size: 50px;
+        line-height: 50px; } }
+    @media (max-width: 991px) {
+      .camera_caption h2 {
+        font-size: 25px;
+        line-height: 25px; } }
+  .camera_caption .btn {
+    margin-top: 53px;
+    padding: 30px 54px 30px 55px;
+    background: #a1e14d;
+    font-size: 26px;
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block; }
+    .camera_caption .btn:hover {
+      color: #303334; }
+  .camera_caption p {
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 24px;
+    font-weight: 500; }
+    @media (max-width: 767px) {
+      .camera_caption p {
+        font-size: 18px;
+        line-height: 18px; } }
+  .camera_caption div {
+    height: 100%; }
+
+.camera_pag {
+  bottom: 9.5%;
+  left: 4px;
+  margin-left: -4px;
+  position: absolute;
+  width: 100%; }
+  .camera_pag ul {
+    text-align: center; }
+    .camera_pag ul li {
+      display: inline-block;
+      background: #fff;
+      width: 12px;
+      height: 12px;
+      line-height: 8px;
+      opacity: 0.20;
+      text-align: center;
+      cursor: pointer;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      -moz-transition: 0.3s;
+      -o-transition: 0.3s;
+      -webkit-transition: 0.3s;
+      transition: 0.3s; }
+  .camera_pag .camera_pag_ul li.cameracurrent, .camera_pag .camera_pag_ul li:hover {
+    opacity: 1; }
+
+.camera_pag_ul li + li {
+  margin-left: 8px; }
+
+.camera_pag_ul li > span {
+  display: none; }
+
+/*# sourceMappingURL=camera.css.map */
