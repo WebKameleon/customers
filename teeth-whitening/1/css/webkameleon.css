@@ -7,3 +7,10 @@
 .clearfix:after {
     clear: both;
 }
+
+div.text1 {
+  margin-top: 20px;
+}
+div.text1, div.text1 p {
+  color: white;
+}

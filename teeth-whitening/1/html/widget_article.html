@@ -36,8 +36,8 @@
   <section class="bg-contrast">
     <div class="container">
       <div class="row offsNo">
-        <div class="col-md-5 col-sm-12 col-xs-12 offsNo">
-          <div class="info-block">
+        <div class="col-md-5 col-sm-12 col-xs-12 offsNo {if:!__index__|%2}col-md-offset-7{endif:!__index__|%2}">
+          <div class="{if:__index__|%2}info-block{endif:__index__|%2}{if:!__index__|%2}info-block_mod{endif:!__index__|%2}">
 		    {if:bgimg}
             <div class="img-wr">
               <img alt="" src="{uimages}/{bgimg}">
@@ -76,7 +76,7 @@
 	  </h3>
       {endif:trailer}
 	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{imagesUrl}/{bgimg}" alt="" /></a>{endif:bgimg}
-	  {plain}
+	  <div {if:webtd.class}class="text1"{endif:webtd.class}>{plain}</div>
 	  <div class="clearfix"></div>
     </div>
 </section>
