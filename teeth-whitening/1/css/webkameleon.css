@@ -25,3 +25,16 @@ div.text1, div.text1 p {
 .article .kmw_article_photo img {
   margin-bottom: 20px;
 }
+
+.gallery2tw a.thumb {
+  background-color: #fff;
+}
+
+.term-list dt {
+  margin-top: 20px;
+  margin-bottom:5px;
+}
+
+.term-list dt + dd {
+  margin-top: 14px;
+}
