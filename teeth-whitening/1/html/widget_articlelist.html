@@ -1,0 +1,73 @@
+{if:level=1}
+<section class="well1 {class} div_center">
+	<div class="container">
+	{if:title}<h2 class="{if:class}color_contrast{endif:class}">{title}</h2>{endif:title}
+	
+	{define:cols=6}
+	{if:!articlelistWidget.data.na|%3}
+		{define:cols=4}
+	{endif:!articlelistWidget.data.na|%3}
+	
+	{if:!articlelistWidget.data.na|%4}
+		{define:cols=3}
+	{endif:!articlelistWidget.data.na|%4}
+	
+	{if:!articlelistWidget.data.na|%6}
+		{define:cols=2}
+	{endif:!articlelistWidget.data.na|%6}
+	
+	{define:aClass}{class}{enddefine:aClass}
+	
+	
+	{with:articlelistWidget}
+		
+		<div class="row offs1">
+		{loop:articles}
+		<noindex><!--googleoff: all-->
+			
+		<div class="col-md-{cols} col-sm-{cols} col-xs-12 offs5{if:first_child} wow fadeInLeft{endif:first_child}{if:last_child} wow fadeInRight{endif:last_child}">
+			{if:bgimg}<img alt="{title}" src="{uimages}/{bgimg}">{endif:bgimg}
+			<h3><a class="{if:!aClass}color_dark{endif:!aClass}" href="{more_link}#{title}">{title}</a></h3>
+			<p class="{if:aClass}color_contrast{endif:aClass} offs2">
+			  {plain}
+			</p>
+			{if:aClass}
+			<a class="btn4" href="{more_link}#{title}">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>
+			{endif:aClass}
+		</div>
+			
+		<!--googleon: all--></noindex>
+		{endloop:articles}
+		</div>
+
+	{endwith:articlelistWidget}
+	
+	</div>
+</section>
+
+
+{endif:level=1}
+
+{if:level=3}
+{with:articlelistWidget}
+{loop:articles}
+<section class="bg-contrast">
+    <div class="container">
+      <div class="row offsNo">
+        <div class="col-md-5 col-sm-12 col-xs-12 offsNo {if:!__index__|%2}col-md-offset-7{endif:!__index__|%2}">
+          <div class="{if:__index__|%2}info-block{endif:__index__|%2}{if:!__index__|%2}info-block_mod{endif:!__index__|%2}">
+			{if:bgimg}
+            <div class="img-wr"><img alt="" src="{uimages}/{bgimg}"></div>
+			{endif:bgimg}
+            {if:title}<h2>{title}</h2>{if:title}
+            <h3>{plain}</h3>
+            <p>{plain_orig}</p>
+			<a href="{more_link}#{title}" class="btn">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+{endloop:articles}
+{endwith:articlelistWidget}
+{endif:level=3}

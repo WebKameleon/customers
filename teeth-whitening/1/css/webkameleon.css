@@ -14,3 +14,14 @@ div.text1 {
 div.text1, div.text1 p {
   color: white;
 }
+
+.color_dark {
+  color: #727677;
+}
+
+.article h3 {
+  margin: 35px 0 25px 0;
+}
+.article .kmw_article_photo img {
+  margin-bottom: 20px;
+}

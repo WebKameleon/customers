@@ -19,6 +19,7 @@
 				,tmr
 
 			$(window).resize(function(){
+				
 				clearTimeout(tmr)				
 				clone.css({top:isStuck?0:-stuckedHeight,visibility:isStuck?'visible':'hidden'})
 				tmr=setTimeout(function(){
@@ -48,6 +49,7 @@
 			
 			doc
 				.on('scroll',function(){
+					
 					var scrollTop=doc.scrollTop()
 
 					if(scrollTop>=posY&&!isStuck){

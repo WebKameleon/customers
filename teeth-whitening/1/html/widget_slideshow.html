@@ -1,0 +1,30 @@
+
+{with:slideshowWidget}
+{if:webtd.menu}
+	{if:mode=(0,1)}
+    <section>
+     <div class="camera_container">
+      <div id="camera" class="camera_wrap">
+		{loop:webtd.menu}
+		<div data-src="{imagesUrl}/{img}">
+          <div class="camera_caption container fadeIn">
+			{if:alt}<h2>{alt}</h2>{endif:alt}
+            {if:href}<a href="{href}" {if:target} target="{target}"{endif:target} class="btn">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a>{endif:href}
+            
+          </div>
+        </div>
+		{endloop:webtd.menu}
+	  </div>
+	 </div>
+	</section>
+	{endif:mode=(0,1)}
+	{if:mode=(2,3)}
+		{loop:webtd.menu}
+		{if:__index__=1}
+		<img src="{imagesUrl}/{img}" width="100%"/>
+		{endif:__index__=1}
+		{endloop:webtd.menu}
+	{endif:mode=(2,3)}
+	
+{endif:webtd.menu}
+{endwith:slideshowWidget}

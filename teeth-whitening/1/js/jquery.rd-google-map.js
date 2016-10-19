@@ -17,8 +17,8 @@
             mapClass: 'map_model',
             locationsClass: 'map_locations',
             marker: {
-                basic: 'images/gmap_marker.png',
-                active: 'images/gmap_marker_active.png'
+                basic: template_dir+'/images/gmap_marker.png',
+                active: template_dir+'/images/gmap_marker_active.png'
             },
             styles: []
         },
@@ -38,11 +38,14 @@
 
         var locations = [];
 
+        
 
         if ($locations.length > 0) {
             $locations.each(function (i) {
                 var $loc = $(this);
 
+                
+                
                 if ($loc.data('x') && $loc.data('y')) {
                     locations[i] = {
                         x: $loc.data('x'),
@@ -59,6 +62,9 @@
                 }
             });
         }
+        
+       
+        
         return locations;
     }
 
@@ -80,6 +86,7 @@
                     locations: getLocations($this, settings)
                 }
             );
+            
 
             var map = new google.maps.Map(this, {
                     center: new google.maps.LatLng(

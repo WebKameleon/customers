@@ -1,0 +1,45 @@
+
+<section class="well10 {class}">
+	<div class="container">
+	{if:title}<h2{if:class} class="color_contrast"{endif:class}>{title}</h2>{endif:title}
+	
+	{with:gallery2Widget}
+
+	{if:webtd.menu}
+	<div class="row offs1">
+
+		{define:cols=4}
+		{define:count}
+			{__count__menu}
+		{enddefine:count}
+		
+		{if:!count|%2}
+			{define:cols=3}
+		{endif:!count|%2}
+		
+		{if:!count|%3}
+			{define:cols=4}
+		{endif:!count|%3}
+		
+		{if:count=2}
+			{define:cols=6}
+		{endif:count=2}		
+		
+		
+		{loop:menu}
+		
+		
+		<div class="col-md-{cols} col-sm-{cols} col-xs-{cols} wow fadeInUp">
+			<a class="thumb" data-fancybox-group="1" href="{uimages}/{img}">
+			  <img src="{thumbsUrl}/{img}" alt="{alt}"/>
+			  <span class="thumb_overlay fa-search-plus"></span>
+			</a>
+		</div>		
+		
+		{endloop:menu}
+	
+	</div>
+	{endif:webtd.menu}
+	{endwith:gallery2Widget}
+	</div>
+</section>
