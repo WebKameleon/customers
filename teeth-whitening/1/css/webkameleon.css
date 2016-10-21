@@ -50,3 +50,8 @@ div.text1, div.text1 p {
 .term-list dt + dd {
   margin-top: 14px;
 }
+
+.img-wr {
+  background-position: center;
+  background-size: 100%;
+}

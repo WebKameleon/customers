@@ -66,7 +66,7 @@
         <div class="col-md-5 col-sm-12 col-xs-12 offsNo {if:!__index__|%2}col-md-offset-7{endif:!__index__|%2}">
           <div class="{if:__index__|%2}info-block{endif:__index__|%2}{if:!__index__|%2}info-block_mod{endif:!__index__|%2}">
 			{if:bgimg}
-            <div class="img-wr"><img alt="" src="{uimages}/{bgimg}"></div>
+            <div class="img-wr" {if:img}style="background-image: url({uimages}/{img})"{endif:img}><img alt="" src="{uimages}/{bgimg}"/></div>
 			{endif:bgimg}
             {if:title}<h2>{title}</h2>{if:title}
             <h3>{plain}</h3>
