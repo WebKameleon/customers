@@ -26,7 +26,16 @@
 		<noindex><!--googleoff: all-->
 			
 		<div class="col-md-{cols} col-sm-{cols} col-xs-12 offs5{if:first_child} wow fadeInLeft{endif:first_child}{if:last_child} wow fadeInRight{endif:last_child}">
-			{if:bgimg}<img alt="{title}" src="{uimages}/{bgimg}">{endif:bgimg}
+			
+			{if:date_format}
+			<div class="timeBlock">   
+				<time>{nd_custom_date|kameleon.date:d}<span>{nd_custom_date|kameleon.date:m}-{nd_custom_date|kameleon.date:Y}</span></time>
+				{if:bgimg}<img alt="{title}" src="{uimages}/{bgimg}">{endif:bgimg}
+			</div>
+			{endif:date_format}
+			{if:!date_format}
+				{if:bgimg}<img alt="{title}" src="{uimages}/{bgimg}">{endif:bgimg}
+			{endif:!date_format}
 			<h3><a class="{if:!aClass}color_dark{endif:!aClass}" href="{more_link}#{title}">{title}</a></h3>
 			<p class="{if:aClass}color_contrast{endif:aClass} offs2">
 			  {plain}

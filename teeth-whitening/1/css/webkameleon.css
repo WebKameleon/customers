@@ -26,8 +26,20 @@ div.text1, div.text1 p {
   margin-bottom: 20px;
 }
 
+.article .date_format {
+  font-style: italic;
+  margin: 0 0 0 3px;
+  position: relative;
+  top: -5px;
+  font-size: 0.8em;
+}
+
 .gallery2tw a.thumb {
   background-color: #fff;
+}
+
+.sf-menu li ul {
+  z-index: 100;
 }
 
 .term-list dt {

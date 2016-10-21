@@ -46,6 +46,7 @@
 			{if:title}
             <h2>{title}</h2>
             {endif:title}
+			
 			{if:trailer}
 			<h3>{trailer}</h3>
             {endif:trailer}
@@ -70,6 +71,7 @@
 <section class="well article {class}">
     <div class="container">
       {if:title}<h2 class="{if:webtd.class}color_contrast{endif:webtd.class}">{title}</h2>{endif:title}
+	  {if:date_format}<div class="date_format">{nd_custom_date|kameleon.date:$date_format}</div>{endif:date_format}
 	  {if:trailer}
       <h3 class="{if:webtd.class}color_contrast{endif:webtd.class}">
         {trailer}

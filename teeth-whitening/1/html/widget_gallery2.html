@@ -29,7 +29,7 @@
 		{loop:menu}
 		
 		
-		<div class="col-md-{cols} col-sm-{cols} col-xs-{cols} wow fadeInUp">
+		<div class="col-md-{cols} col-sm-{cols} col-xs-{cols}{if:!mode} wow fadeInUp{endif:!mode}">
 			<a class="thumb" data-fancybox-group="1" href="{uimages}/{img}">
 			  <img src="{thumbsUrl}/{img}" alt="{alt}"/>
 			  <span class="thumb_overlay fa-search-plus"></span>
