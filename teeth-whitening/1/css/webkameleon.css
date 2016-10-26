@@ -55,3 +55,25 @@ div.text1, div.text1 p {
   background-position: center;
   background-size: 100%;
 }
+
+.info-block {
+  padding: 100px 0px 166px 0px;
+  
+}
+
+@media (max-width: 1199px) {
+    .info-block {
+      padding: 56px 0 92px; } }
+      
+.article ol {
+  list-style: decimal;
+}
+
+.article ol ol {
+  margin-left: 16px;
+  list-style: lower-alpha;
+}
+
+.article ol ol ol{
+  list-style: square;
+}
