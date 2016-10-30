@@ -349,6 +349,7 @@ window.onload = function() {
     var max = max_images>0 ? max_images : null;
     $('#fileupload').fileupload({
         url: '<?php echo $ajax_konkurs?>',
+        sequentialUploads: true,
         autoUpload: false,
         maxNumberOfFiles: max,
         maxChunkSize: 1000000, // 1M
