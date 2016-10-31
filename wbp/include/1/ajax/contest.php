@@ -1,7 +1,5 @@
 <?php
-    
-    
-    //ini_set('display_errors',true);
+    ini_set('display_errors',true);
     
     if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
         require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';

@@ -246,20 +246,23 @@ var contest_form_action='';
 var contest_form_url='';
 
 
+function foto_init_url() {
+    $.getJSON(contest_form_action,function(data) {
+        contest_form_url=data.url;
+        $('#fileuploadip').val(data.ip);
+    });
+}
+
 function foto_init_validation()
 {
     
     $('#fileupload')
         .bind('fileuploadsend', function (e, data) {
             data.url=contest_form_url;
+            foto_init_url();
         }).bind('fileuploadadd', function (e, data) {
             setTimeout(count_files,300);
-            if (contest_form_url.length==0) {
-                $.getJSON(contest_form_action,function(data) {
-                    contest_form_url=data.url;
-                    $('#fileuploadip').val(data.ip);
-                });
-            }
+            if (contest_form_url.length==0) foto_init_url();
 
             $('.fileinput-button').removeClass('error');
         }).bind('fileuploadfail', function (e, data) {

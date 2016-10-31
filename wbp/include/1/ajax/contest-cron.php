@@ -85,6 +85,9 @@ function toSpreadsheet($data) {
 
 
 $photos=WBP::getJsonFiles();
+
+echo 'Photos:';
+print_r($photos);
 foreach ($photos AS $f=>$photo) {
     
     if (isset($photo_id) && !strstr($f,$photo_id) ) continue;

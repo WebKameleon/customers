@@ -8,7 +8,7 @@
                    'upload/jquery.blueimp-gallery.min.js','upload/jquery.iframe-transport.js','upload/jquery.fileupload.js',
                    'upload/jquery.fileupload-process.js','upload/jquery.fileupload-image.js','upload/jquery.fileupload-audio.js',
                    'upload/jquery.fileupload-video.js','upload/jquery.fileupload-validate.js','upload/jquery.fileupload-ui.js',
-                   'upload/lang.js','upload/fun.js'));
+                   'upload/lang.js','upload/fun.js?v=2'));
     
 
     $default_lang='pl';
