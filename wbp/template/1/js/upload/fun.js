@@ -253,14 +253,58 @@ function foto_init_url() {
     });
 }
 
+
+function foto_init_form(photo) {
+    var contest_form_data=contest_form_action.replace('contest-action','contest-data');
+    
+    $.getJSON(contest_form_data,function(data) {
+        
+        if (typeof(data.data)=='undefined') return;
+        
+        if (photo==null) {
+            for (var k in data.data) {
+                $('#fileupload input[type="text"][name="'+k+'"]').val(data.data[k]);
+            }
+        } else {
+            
+            for (var i=0; i<photo.files.length; i++) {
+                var name=photo.files[i].name;
+               
+                if (typeof(data.files[name])!='undefined') {
+                    
+                    var inputname='files['+name+'][title]';
+                    $('#fileupload input[name="'+inputname+'"]').val(data.files[name].title);
+                    inputname='files['+name+'][description]';
+                    $('#fileupload textarea[name="'+inputname+'"]').val(data.files[name].description);
+                   
+                    if (typeof(data.files[name].setno)!='undefined' && data.files[name].setno.length>0) {
+                        inputname='files['+name+'][set]';
+                        $('#fileupload input[name="'+inputname+'"]').prop('checked',true);
+                        
+                        photo_set_checked($('#fileupload input[name="'+inputname+'"]')[0]);
+                        
+                        inputname='files['+name+'][setno]';
+                        $('#fileupload input[name="'+inputname+'"]').val(data.files[name].setno);
+                    }
+                   
+                }
+            }
+        }
+     
+    });
+}
+
+
 function foto_init_validation()
 {
+    foto_init_form();
     
     $('#fileupload')
         .bind('fileuploadsend', function (e, data) {
             data.url=contest_form_url;
             foto_init_url();
         }).bind('fileuploadadd', function (e, data) {
+            setTimeout(foto_init_form,1000,data);
             setTimeout(count_files,300);
             if (contest_form_url.length==0) foto_init_url();
 
