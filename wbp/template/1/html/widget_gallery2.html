@@ -5,8 +5,8 @@
 <div id="gallery{webtd.sid}" class="gallery2">
 {loop:webtd.menu}
 <figure class="col-md-4">
-  <a class="fancybox{webtd.sid}" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}"{endif:alt}>
-  <img class="img-responsive" src="{thumbsUrl}/{img}" {if:alt}title="{alt}"{endif:alt}>
+  <a class="fancybox{webtd.sid}" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}{if:titlea}<br/><span class='gallery2_more'>{titlea}</span>{endif:titlea}"{endif:alt}>
+  <img class="img-responsive" src="{thumbsUrl}/{img}" title="{alt}">
   </a>
   <div class="clearfix"></div>
   {if:alt}<figcaption>{alt}</figcaption>
@@ -22,7 +22,7 @@ var kmw_Galery2Array;
 
 if(typeof(kmw_Galery2Array)=='undefined') kmw_Galery2Array=[];
 
-kmw_Galery2Array[kmw_Galery2Array.length]={
+kmw_Galery2Array.push({
 	sid: {webtd.sid},
 	openEffect	: '{data.effect}',
 	closeEffect	: '{data.effect}',
@@ -30,7 +30,7 @@ kmw_Galery2Array[kmw_Galery2Array.length]={
 	{if:data.animation_speed}playSpeed	: '{data.animation_speed}',{endif:data.animation_speed}
 	openSpeed	: 'normal',
 	closeSpeed	: 'normal'
-};
+});
 </script>
 {endif:webtd.menu}
 {endwith:gallery2Widget}
