@@ -4,10 +4,11 @@
 	{if:title}<h2 class="{if:class}color_contrast{endif:class}">{title}</h2>{endif:title}
 	
 	{define:cols=6}
+
 	{if:!articlelistWidget.data.na|%3}
 		{define:cols=4}
 	{endif:!articlelistWidget.data.na|%3}
-	
+
 	{if:!articlelistWidget.data.na|%4}
 		{define:cols=3}
 	{endif:!articlelistWidget.data.na|%4}
@@ -15,6 +16,8 @@
 	{if:!articlelistWidget.data.na|%6}
 		{define:cols=2}
 	{endif:!articlelistWidget.data.na|%6}
+
+	
 	
 	{define:aClass}{class}{enddefine:aClass}
 	
