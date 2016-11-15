@@ -6,7 +6,7 @@
 
     if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
 		require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
-        $url=CloudStorageTools::createUploadUrl($url, []);
+        $url=CloudStorageTools::createUploadUrl($url.'?cookie='.$_COOKIE['PHPSESSID'], []);
 	} 
     
 	Header('Content-type: application/json');    

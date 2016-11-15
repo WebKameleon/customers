@@ -16,7 +16,7 @@
     WBP::imap_utf8($_FILES);
     WBP::dumpInput();
 
-    
+
     //mydie([$_FILES,$_POST,$_SERVER]);
     
     function contest_ret($resp)
@@ -60,7 +60,28 @@
     if ($pos=strpos($done_uri,'?')) $done_uri=substr($done_uri,0,$pos);
     $done_uri=dirname($done_uri).'/contest-done.php';
     
+    
+    //if (isset($_GET['cookie'])) session_id($_GET['cookie']);
+    
     @session_start();       
+
+
+    if (isset($_SESSION['contest'])) $contest=$_SESSION['contest'];
+    else {
+        $contest=['files'=>[]];
+    }
+    $contest['data']=$_REQUEST;
+    if (isset($contest['data']['files'])) unset($contest['data']['files']);
+    
+    foreach ($_REQUEST['files'] AS $k=>$f) {
+        $contest['files'][$k]=$f;
+    }
+    $_SESSION['contest']=$contest;
+
+
+
+
+
     Google::setToken(null);
     if (!isset($_SESSION['drive_access_token'])) $_SESSION['drive_access_token']=$td_data['tokens']['drive'];
     $token=Google::setToken($_SESSION['drive_access_token']);    
@@ -296,4 +317,4 @@
     
     */
 
-    contest_ret(array('files'=>$response_images,'debug'=>$debug));
+    contest_ret(array('files'=>$response_images,'debug'=>$debug,'get'=>$_GET,'ssid'=>session_id()));
