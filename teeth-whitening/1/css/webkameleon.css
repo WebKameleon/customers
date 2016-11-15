@@ -97,6 +97,33 @@ kmw_article ol ol {
   list-style: square;
 }
 
+
+.article ul li,
+.kmw_article ul li {
+  line-height: 30px;
+
+}
+
+
+.article ul,
+.kmw_article ul {
+  list-style: disc;
+  margin-left: 25px;
+}
+
+.article ul ul,
+kmw_article ul ul {
+  margin-left: 20px;
+
+  list-style: square;
+}
+
+.article ul ul ul,
+.kmw_article ul ul ul{
+  list-style: square;
+}
+
+
 .top_article .info-block h2 {
   font-size: 48px;
 }
