@@ -198,7 +198,7 @@ var goGoogleMap = function() {
 (function ($) {
     var o = document.getElementById("google-map");
     if (o) {
-        include('//maps.google.com/maps/api/js');
+        include('//maps.google.com/maps/api/js?key=AIzaSyDgAQYmf0hSkInKuQXudz18z0EhmTdLvOY');
         include('js/jquery.rd-google-map.js');
         $(document).ready(goGoogleMap);
     }
