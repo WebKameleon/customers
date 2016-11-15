@@ -66,7 +66,19 @@ div.text1, div.text1 p {
       padding: 56px 0 92px; } }
 
 
-      
+.article ol li,
+.kmw_article ol li {
+  line-height: 30px;
+  font-size: 18px;
+}
+
+
+.article ol ol li,
+.kmw_article ol ol li {
+  line-height: 26px;
+  font-size: 16px;
+}
+
 .article ol,
 .kmw_article ol {
   list-style: decimal;
@@ -83,4 +95,14 @@ kmw_article ol ol {
 .article ol ol ol,
 .kmw_article ol ol ol{
   list-style: square;
+}
+
+.top_article .info-block h2 {
+  font-size: 48px;
+}
+
+@media (max-width: 1199px) {
+  .top_article .info-block .info-block h2 {
+    font-size: 26px;
+  }
 }
