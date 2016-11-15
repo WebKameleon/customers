@@ -25,16 +25,16 @@
 		{loop:articles}
 		<noindex><!--googleoff: all-->
 			
-		<div class="col-md-{cols} col-sm-{cols} col-xs-12 offs5{if:first_child} wow fadeInLeft{endif:first_child}{if:last_child} wow fadeInRight{endif:last_child}">
+		<div class="col-md-{cols} col-sm-{cols} col-xs-12 offs5{if:!mode}{if:first_child} wow fadeInLeft{endif:first_child}{if:last_child} wow fadeInRight{endif:last_child}{endif:!mode}">
 			
 			{if:date_format}
 			<div class="timeBlock">   
 				<time>{nd_custom_date|kameleon.date:d}<span>{nd_custom_date|kameleon.date:m}-{nd_custom_date|kameleon.date:Y}</span></time>
-				{if:bgimg}<img alt="{title}" src="{uimages}/{bgimg}">{endif:bgimg}
+				{if:bgimg}<a href="{more_link}#{title}"><img alt="{title}" src="{thumbsUrl}/{bgimg}"></a>{endif:bgimg}
 			</div>
 			{endif:date_format}
 			{if:!date_format}
-				{if:bgimg}<img alt="{title}" src="{uimages}/{bgimg}">{endif:bgimg}
+				{if:bgimg}<a href="{more_link}#{title}"><img alt="{title}" src="{thumbsUrl}/{bgimg}"></a>{endif:bgimg}
 			{endif:!date_format}
 			<h3><a class="{if:!aClass}color_dark{endif:!aClass}" href="{more_link}#{title}">{title}</a></h3>
 			<p class="{if:aClass}color_contrast{endif:aClass} offs2">
@@ -66,7 +66,7 @@
         <div class="col-md-5 col-sm-12 col-xs-12 offsNo {if:!__index__|%2}col-md-offset-7{endif:!__index__|%2}">
           <div class="{if:__index__|%2}info-block{endif:__index__|%2}{if:!__index__|%2}info-block_mod{endif:!__index__|%2}">
 			{if:bgimg}
-            <div class="img-wr" {if:img}style="background-image: url({uimages}/{img})"{endif:img}><img alt="" src="{uimages}/{bgimg}"/></div>
+            <a href="{more_link}#{title}"><div class="img-wr" {if:img}style="background-image: url({uimages}/{img})"{endif:img}><img alt="{title}" src="{uimages}/{bgimg}"/></div></a>
 			{endif:bgimg}
             {if:title}<h2>{title}</h2>{if:title}
             <h3>{plain}</h3>

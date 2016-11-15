@@ -18,7 +18,12 @@
     <meta name="webkameleonId" content="server={page.server}; page={page.id}; ver={page.ver}; lang={page.lang}; ftp={page.nd_ftp|kameleon.datetime}" />
 	
 	<meta name="format-detection" content="telephone=no"/>
+	{if:tokens.favicon}
+	<link rel="icon" href="{uimages}/{tokens.favicon}" type="image/x-icon">
+	{endif:tokens.favicon}
+	{if:!tokens.favicon}
 	<link rel="icon" href="{template_dir}/images/favicon.ico" type="image/x-icon">
+	{endif:!tokens.favicon}
 	<link rel="stylesheet" href="{template_dir}/css/grid.css">
 	<link rel="stylesheet" href="{template_dir}/css/style.css">
 	<link rel="stylesheet" href="{template_dir}/css/camera.css"/>

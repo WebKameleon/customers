@@ -43,6 +43,7 @@
               <img alt="" src="{uimages}/{bgimg}">
             </div>
 			{endif:bgimg}
+			
 			{if:title}
             <h2>{title}</h2>
             {endif:title}
@@ -51,9 +52,16 @@
 			<h3>{trailer}</h3>
             {endif:trailer}
 			<p>{plain}</p>
-			 <a href="{if:more}{more_link}{endif:more}{if:!more}#{title}{endif:!more}" class="btn">
+			{if:more}
+			 <a href="{more_link}" class="btn">
 			  {if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}
 			 </a>
+			{endif:more}
+			{if:!more}{if:next_td_title}
+			 <a href="#{next_td_title}" class="btn">
+			  {if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}
+			 </a>
+			{endif:next_td_title}{endif:!more}
           </div>
         </div>
       </div>
