@@ -110,12 +110,13 @@ kmw_article ol ol {
 .kmw_article ul {
   list-style: disc;
   margin-left: 25px;
+  margin-top: 10px;
 }
 
 .article ul ul,
 kmw_article ul ul {
   margin-left: 20px;
-
+  margin-top: 1px;
   list-style: square;
 }
 
