@@ -83,12 +83,13 @@ div.text1, div.text1 p {
 .kmw_article ol {
   list-style: decimal;
   margin-left: 20px;
+  margin-top: 10px;
 }
 
 .article ol ol,
 kmw_article ol ol {
   margin-left: 20px;
-
+  margin-top: 1px;
   list-style: lower-alpha;
 }
 
