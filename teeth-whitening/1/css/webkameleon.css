@@ -64,16 +64,23 @@ div.text1, div.text1 p {
 @media (max-width: 1199px) {
     .info-block {
       padding: 56px 0 92px; } }
+
+
       
-.article ol {
+.article ol,
+.kmw_article ol {
   list-style: decimal;
+  margin-left: 20px;
 }
 
-.article ol ol {
-  margin-left: 16px;
+.article ol ol,
+kmw_article ol ol {
+  margin-left: 20px;
+
   list-style: lower-alpha;
 }
 
-.article ol ol ol{
+.article ol ol ol,
+.kmw_article ol ol ol{
   list-style: square;
 }
