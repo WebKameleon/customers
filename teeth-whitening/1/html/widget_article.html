@@ -10,13 +10,11 @@
 {define:level_found=1}
 {endif:level=100}
 
-{if:level=(200)}
-<div class="container">
+{if:level=(200,201)}
  {if:title}<h6>{title}</h6>{endif:title}
  {plain}
-</div>
 {define:level_found=1}
-{endif:level=(200)}
+{endif:level=(200,201)}
 
 {if:level=1}
  {if:webpage.type=1}
