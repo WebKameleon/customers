@@ -1003,6 +1003,10 @@ nav {
 .sf-menu ul > li.sfHover > a, .sf-menu ul > li > a:hover {
   color: #a1e14d; }
 
+.sf-menu ul > li.active > a {
+  color: #a1e14d; }
+
+
 .sf-menu ul ul {
   position: absolute;
   top: 40%;
