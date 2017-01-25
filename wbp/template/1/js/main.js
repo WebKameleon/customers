@@ -200,6 +200,43 @@ $(document).ready(function ($) {
         $(".kmw_articlelist_text").css("font-size", "16px");
         $(".kmw_articlelist_more").css("font-size", "15px");
     });
+    
+    
+    var kmw_articlelist_grid=$('.kmw_articlelist_grid');
+    
+
+    if (kmw_articlelist_grid.length>0) {
+        
+        
+        var kmw_articlelist_grid_list_toggle_click = function() {
+            $(this).toggleClass('kmw_articlelist_grid_list_list');
+            $(this).toggleClass('kmw_articlelist_grid_list_grid');
+            
+            if ($(this).hasClass('kmw_articlelist_grid_list_list')) {
+                
+                $('.kmw_articlelist_grid').hide();
+                $('.kmw_articlelist_list').show();                
+                
+            } else{
+                $('.kmw_articlelist_grid').show();
+                $('.kmw_articlelist_list').hide();
+            }
+        }
+        
+    
+        
+        $('.pg_exhibition_list .kmw_articlelist_grid_list_toggle').each(kmw_articlelist_grid_list_toggle_click);
+        
+        $('.kmw_articlelist_grid_list_toggle').click(kmw_articlelist_grid_list_toggle_click);
+        
+        
+        new WOW().init();
+        
+        
+        
+    }
+    
+    
 
 });
 

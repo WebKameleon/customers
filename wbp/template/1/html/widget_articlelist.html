@@ -194,12 +194,27 @@
 
 {if:!level_found}
 
+<div class="kmw_articlelist_grid_list_toggle kmw_articlelist_grid_list_list"></div>
+<div class="clearfix"></div>
 {if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
 
+<div class="kmw_articlelist_grid row ofs1" style="display: none">
+{loop:articles}
+ <div class="thumb-container col-md-4 col-sm-6 col-xs-12{if:!mode} wow fadeInUp{endif:!mode}">
+		 <a class="thumb" href="{uimages}/{img}" title="{plain}">
+		   <img src="{thumbsUrl}/{bgimg}" alt="{title}"/>
+		   <span class="thumb_overlay">{title}</span>
+		 </a>
+ </div>
+
+{endloop:articles}
+</div>
+
+<div class="kmw_articlelist_list">
 {if:nav}<div class="kmw_articlelist_nav" rel="{nav_limit}">
-<ul>{loop:nav}
-<li><a rel="{loop}">{loop}</a></li>
-{endloop:nav}</ul>
+ <ul>{loop:nav}
+ <li><a rel="{loop}">{loop}</a></li>
+ {endloop:nav}</ul>
 </div>{endif:nav}
 
 {loop:articles}
@@ -226,10 +241,13 @@
 {endloop:articles}
 
 {if:nav}<div class="kmw_articlelist_nav" rel="{nav_limit}">
-<ul>{loop:nav}
-<li><a rel="{loop}">{loop}</a></li>
-{endloop:nav}</ul>
+ <ul>{loop:nav}
+ <li><a rel="{loop}">{loop}</a></li>
+ {endloop:nav}</ul>
 </div>{endif:nav}
+
+</div>
+
 
 {plain}
 
