@@ -229,6 +229,12 @@ $(document).ready(function ($) {
         
         $('.kmw_articlelist_grid_list_toggle').click(kmw_articlelist_grid_list_toggle_click);
         
+        var grid_glasses=['fadeInLeft','fadeInUp','fadeInRight'];
+        var i=0;
+        $('.kmw_articlelist_grid .thumb-container').each(function(){
+        
+            $(this).addClass(grid_glasses[(i++)%3]);
+        });
         
         new WOW().init();
         
