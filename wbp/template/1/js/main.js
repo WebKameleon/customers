@@ -227,7 +227,6 @@ $(document).ready(function ($) {
         
         $('.pg_exhibition_list .kmw_articlelist_grid_list_toggle').each(kmw_articlelist_grid_list_toggle_click);
         
-        $('.kmw_articlelist_grid_list_toggle').click(kmw_articlelist_grid_list_toggle_click);
         
         var grid_glasses=['fadeInLeft','fadeInUp','fadeInRight'];
         var i=0;
@@ -239,6 +238,7 @@ $(document).ready(function ($) {
         new WOW().init();
         
         
+        $('.kmw_articlelist_grid_list_toggle').click(kmw_articlelist_grid_list_toggle_click);
         
     }
     
