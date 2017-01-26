@@ -3538,6 +3538,10 @@ ul.articlelist-nav {
 
 /*==================     Thumb     ======================*/
 
+.kmw_articlelist_grid .thumb img {
+	width: 250px;
+	height: 167px;
+}
 
 .kmw_articlelist_grid_list_toggle {
 	position: absolute;
