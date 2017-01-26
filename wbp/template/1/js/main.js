@@ -228,7 +228,7 @@ $(document).ready(function ($) {
         $('.pg_exhibition_list .kmw_articlelist_grid_list_toggle').each(kmw_articlelist_grid_list_toggle_click);
         
         
-        var grid_glasses=['fadeInLeft','fadeInUp','fadeInRight'];
+        var grid_glasses=['fadeInLeft','fadeInDown','fadeInRight'];
         var i=0;
         $('.kmw_articlelist_grid .thumb-container').each(function(){
         
