@@ -1,3 +1,23 @@
+
+function includeScript(scriptUrl) {
+    var url=template_dir+'/'+scriptUrl;
+    if (scriptUrl.substr(0,2)=='//') {
+        url=scriptUrl;
+    }
+    //document.write('<script src="' + template_dir+'/'+scriptUrl + '"></script>');
+    $('head').append('<script src="' + url + '"></script>');
+}
+
+function addCss(cssUrl) {
+    var url=template_dir+'/'+cssUrl;
+    if (cssUrl.substr(0,2)=='//') {
+        url=cssUrl;
+    }
+    $('head').append('<link rel="stylesheet" type="text/css" href="'+url+'">');
+}
+
+
+
 function smekta(pattern,vars) {
     
     for (key in vars)
@@ -203,10 +223,13 @@ $(document).ready(function ($) {
     
     
     var kmw_articlelist_grid=$('.kmw_articlelist_grid');
+    var wows=$('.wow');
     
 
-    if (kmw_articlelist_grid.length>0) {
+    if (wows.length>0) {
         
+	includeScript('js/wow.js')
+	addCss('css/animate.css')
         
         var kmw_articlelist_grid_list_toggle_click = function() {
             $(this).toggleClass('kmw_articlelist_grid_list_list');
@@ -218,6 +241,7 @@ $(document).ready(function ($) {
                 $('.kmw_articlelist_list').show();                
                 
             } else{
+		$('.wow').removeClass('animated');
                 $('.kmw_articlelist_grid').show();
                 $('.kmw_articlelist_list').hide();
             }
@@ -234,11 +258,12 @@ $(document).ready(function ($) {
         
             $(this).addClass(grid_glasses[(i++)%3]);
         });
-        
-        new WOW().init();
-        
-        
         $('.kmw_articlelist_grid_list_toggle').click(kmw_articlelist_grid_list_toggle_click);
+
+	$(document).ready(function () {
+                new WOW().init();
+        });
+
         
     }
     
