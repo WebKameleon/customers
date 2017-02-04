@@ -35,7 +35,9 @@ var wbp_photo_competition = {
         maxFileSize: 'Plik jest za duży',
         minFileSize: 'Plik jest za mały',
         loading: 'Ładuję ...',
-        payment: 'Płatność'
+        payment: 'Płatność',
+        discard: 'Odrzuć',
+        uploaderr: 'Niestety przy wgrywaniu niektórych zdjęć pojawiły się błędy, prosimy je dodać ponownie'
     },
     en: {
         basic: 'Basic data',
@@ -73,7 +75,9 @@ var wbp_photo_competition = {
         maxFileSize: 'File is too large',
         minFileSize: 'File is too small',
         loading: 'Loading ...',
-        payment: 'Payment'
+        payment: 'Payment',
+        discard: 'Discard',
+        uploaderr: 'Unfortunately some of images failed to upload, please check and try to add them again'
     }
 }
 

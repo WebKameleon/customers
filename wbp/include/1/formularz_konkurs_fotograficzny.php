@@ -8,7 +8,7 @@
                    'upload/jquery.blueimp-gallery.min.js','upload/jquery.iframe-transport.js','upload/jquery.fileupload.js',
                    'upload/jquery.fileupload-process.js','upload/jquery.fileupload-image.js','upload/jquery.fileupload-audio.js',
                    'upload/jquery.fileupload-video.js','upload/jquery.fileupload-validate.js','upload/jquery.fileupload-ui.js',
-                   'upload/lang.js','upload/fun.js?v=2'));
+                   'upload/lang.js','upload/fun.js'));
     
 
     $default_lang='pl';
@@ -62,7 +62,7 @@
     
     
         <div class="personal">
-            <div class="lang_selector"><img id="lang_selector_img" src="<?php echo $IMAGES?>/lang-<?php echo $default_lang?>.gif"/></div>
+            <div style="display: none" class="lang_selector"><img id="lang_selector_img" src="<?php echo $IMAGES?>/lang-<?php echo $default_lang?>.gif"/></div>
                 
             <h3><label for="basic"></label></h3>
             <div class="col-lg-7">                 
@@ -145,6 +145,7 @@
                 <!-- The global file processing state -->
                 <span class="fileupload-process"></span>
             </div>
+            <div class="label label-danger img-errors" style="display: none"><label for="uploaderr">err</label></div>
             <!-- The global progress state -->
             <div class="col-lg-5 fileupload-progress fade">
                 <!-- The global progress bar -->
@@ -154,6 +155,7 @@
                 <!-- The extended global progress state -->
                 <div class="progress-extended">&nbsp;</div>
             </div>
+            
         </div>
 
 
@@ -210,7 +212,7 @@
             
             <button class="btn btn-warning cancel">
                 <i class="glyphicon glyphicon-ban-circle"></i>
-                <span>Odrzuć</span>
+                <span><label for="discard">Odrzuć</label></span>
             </button>
             {% } %}
         </td>

@@ -190,6 +190,7 @@
         $index=$f['name'][$lp];
         $type=$f['type'][$lp];
         
+        //if (strstr($f['name'][$lp],'canon2')) mydd3ie($f);
         
         $lp++;
         

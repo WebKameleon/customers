@@ -13,6 +13,7 @@ function count_errors(add_class,verbose)
                 case 'checkbox':
 
                     if (!$(this).prop('checked')) {
+                        
                         errors++;
                         if (add_class) $(this).addClass('error');
                         if (verbose) console.log(this);
@@ -21,6 +22,7 @@ function count_errors(add_class,verbose)
                 default:
                     if ($(this).val().trim().length==0)
                     {
+
                         errors++;
                         if (add_class)  $(this).addClass('error');
                         if (verbose) console.log(this);
@@ -55,7 +57,7 @@ function count_errors(add_class,verbose)
     if (max_images>0 && f>max_images)
     {
         errors++;
-        
+      
         if (add_class) {
             
             $('.fileinput-button').addClass('error').attr('title','maxNumberOfFiles');
@@ -144,13 +146,15 @@ function fill_the_form() {
     count_files();
 }
 
-var uploaded_images=0;
+var uploaded_images=0,failed_images=0;
 
 function upload_started(e,data)
 {
     if (0==uploaded_images++) {
+        failed_images=0;
         $('#wbp-form-loading').height($(document).height()).fadeIn();
     }
+    
 }
 
 function dirname(path) {
@@ -213,8 +217,20 @@ function deUpDir(urlc) {
     return urlc;
 }
 
+function check_failed() {
+    //console.log('check_failed',uploaded_images,failed_images);
+    
+    if (uploaded_images-failed_images==0) {
+        $('#wbp-form-loading').fadeOut();
+        uploaded_images=0;
+        failed_images=0;
+        $('.img-errors').fadeIn();
+    }   
+}
+
 function upload_done(e,data)
 {
+    //console.log('img',uploaded_images,failed_images);
     
     if (--uploaded_images==0) {
         $('#wbp-form-loading').fadeOut();
@@ -237,7 +253,9 @@ function upload_done(e,data)
         $.get(url);
         //console.log(data._response.result.files[0]);
         //console.log(data);
-    }
+        
+        $('.template-download .label-danger').closest('tr').hide();
+    } else check_failed();
     
 }
 
@@ -292,6 +310,7 @@ function foto_init_form(photo) {
         }
      
     });
+    count_files();
 }
 
 
@@ -304,15 +323,25 @@ function foto_init_validation()
             data.url=contest_form_url;
             foto_init_url();
         }).bind('fileuploadadd', function (e, data) {
-            setTimeout(foto_init_form,1000,data);
-            setTimeout(count_files,300);
+            setTimeout(foto_init_form,700,data);
+            setTimeout(count_files,1300);
             if (contest_form_url.length==0) foto_init_url();
-
+            
             $('.fileinput-button').removeClass('error');
         }).bind('fileuploadfail', function (e, data) {
+            failed_images++;
+            check_failed();
             setTimeout(count_files,300);
-        }).bind('fileuploaddone', upload_done).bind('fileuploadsubmit', upload_started);
-        
+        }).bind('fileuploadchunkfail', function (e, data) {
+            failed_images++;
+            check_failed();
+            setTimeout(count_files,300);
+        }).bind('fileuploaddone', upload_done)
+        .bind('fileuploadsubmit', upload_started)
+        .bind('fileuploadstart', function (e) {
+            $('.img-errors').fadeOut();
+        });
+    
         
     
     $('#fileupload').find('input.required,select.required,textarea.required').on("change",count_files);
@@ -320,3 +349,4 @@ function foto_init_validation()
     $('#noupload').click(cant_upload);
     $('#randid').val(Math.random());
 }
+
