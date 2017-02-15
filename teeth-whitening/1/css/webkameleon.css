@@ -135,3 +135,6 @@ kmw_article ul ul {
     font-size: 26px;
   }
 }
+.iframe-container {
+	background:url(../images/camera-loader.gif) top center no-repeat;
+}
