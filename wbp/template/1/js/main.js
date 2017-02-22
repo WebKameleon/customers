@@ -84,16 +84,16 @@ function wbp_articlelist_nav(a,letter)
     
 }
 
-$('.pg_creator .kmw_articlelist:first').each(function() {
+$('.pg_creator .kmw_articlelist:first,.pg_exhibition_list .kmw_articlelist:first').each(function() {
     
     $(this).parent().prepend('<ul class="articlelist-nav"><li class="active" rel="">A-Z</li></ul>');
 
     var letters=[];
-    $('.pg_creator .kmw_articlelist :header a').each(function() {
+    $('.kmw_articlelist :header a').each(function() {
         
-        var letter=$(this).html().substr(0,1);
+        var letter=$(this).html().substr(0,1).toUpperCase();
         
-        if (typeof(letters[letter])=='undefined') $('.articlelist-nav').append('<li rel="'+letter+'">'+letter+'</li>');
+        if (typeof(letters[letter])=='undefined' && letter!='„') $('.articlelist-nav').append('<li rel="'+letter+'">'+letter+'</li>');
         letters[letter]=true;
     });
     
@@ -103,13 +103,14 @@ $('.pg_creator .kmw_articlelist:first').each(function() {
         $(this).addClass('active');
         
         var letter=$(this).attr('rel');
+	console.log(letter);
         if (letter=='') {
-            $('.pg_creator .kmw_articlelist').fadeIn();
+            $('.kmw_articlelist').fadeIn();
         } else {
-            $('.pg_creator .kmw_articlelist').hide();
+            $('.kmw_articlelist').hide();
             
-            $('.pg_creator .kmw_articlelist :header a').each(function() {
-                if ($(this).html().substr(0,1)==letter) {
+            $('.kmw_articlelist :header a').each(function() {
+                if ($(this).html().substr(0,1).toUpperCase()==letter) {
                     $(this).parent().parent().parent().fadeIn();
                 }
             });
@@ -249,7 +250,7 @@ $(document).ready(function ($) {
         
     
         
-        $('.pg_exhibition_list .kmw_articlelist_grid_list_toggle').each(kmw_articlelist_grid_list_toggle_click);
+        //$('.pg_exhibition_list .kmw_articlelist_grid_list_toggle').each(kmw_articlelist_grid_list_toggle_click);
         
         
         var grid_glasses=['fadeInLeft','fadeInDown','fadeInRight'];
@@ -260,10 +261,15 @@ $(document).ready(function ($) {
         });
         $('.kmw_articlelist_grid_list_toggle').click(kmw_articlelist_grid_list_toggle_click);
 
-	$(document).ready(function () {
-                new WOW().init();
-        });
 
+	var runWow=function() {
+		if (typeof(WOW)=='undefined') {
+			setTimeout(runWow,200);
+			return;
+		}
+                new WOW().init();
+	}
+	runWow();
         
     }
     

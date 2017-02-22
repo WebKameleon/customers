@@ -194,9 +194,8 @@
 
 {if:!level_found}
 
-<div class="kmw_articlelist_grid_list_toggle kmw_articlelist_grid_list_list"></div>
-<div class="clearfix"></div>
-{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+<div class="kmw_articlelist_grid_list_toggle kmw_articlelist_grid_list_list{if:!title} kmw_articlelist_grid_list_notitle{endif:!title}"></div>
+{if:title}<div class="clearfix"></div><{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
 
 <div class="kmw_articlelist_grid row offs1" style="display: none">
 {loop:articles}

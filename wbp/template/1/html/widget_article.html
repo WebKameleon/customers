@@ -5,7 +5,7 @@
      <div class="row">
 	  <div class="col-md-12">{if:title}<h6>{title}<h6>{endif:title}</div>
 	  {if:bgimg}<img class="img-responsive" src="{uimages}/{bgimg}" alt="" />{endif:bgimg}
-      {plain}{tokens.html}{if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore pull-right">{translates.More}</a><div class="clearfix"></div>{endif:more}
+      {plain}{tokens.html}{if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore pull-right">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
 	  <div class="clearfix"></div>
      </div>
     </article>
@@ -17,7 +17,7 @@
       <div class="row">
        <div class="col-md-12">{if:title}<h3>{title}</h3>{endif:title}</div>
 	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1" title="{title}"><img class="img-responsive" src="{uimages}/{bgimg}" alt="" /></a>{endif:bgimg}
-       <div class="clearfix"></div><p>{plain}{tokens.html}{if:more}<a href="{more_link}" class="magicmore"> {translates.More} &raquo;</a><div class="clearfix"></div>{endif:more}</p>
+       <div class="clearfix"></div><p>{plain}{tokens.html}{if:more}<a href="{more_link}" class="magicmore">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}</p>
        <div class="clearfix"></div>
      </div>
     </article>
@@ -67,7 +67,7 @@
 	  <div class="kmw_article_plain">{plain}{tokens.html}</div>
 	  {if:attachment}<div class="kmw_article_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
 	  <div class="clearfix"></div>
-	  {if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore">{translates.More}</a><div class="clearfix"></div>{endif:more}
+	  {if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
 	  <div class="clearfix"></div>
      </div>
     </article>

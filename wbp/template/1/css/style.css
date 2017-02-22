@@ -148,7 +148,7 @@ a img:hover {
 	filter:alpha(opacity=70); /* For IE8 and earlier */
 }
 
-a.magicmore {
+a.magicmore, .magicmoreinside .kmw_article_plain a {
 	font-family: 'PT Sans', sans-serif;
 	font-size: 11px;
 	color: #fff;
@@ -160,7 +160,7 @@ a.magicmore {
 }
 
 
-a.magicmore:hover {
+a.magicmore:hover, .magicmoreinside .kmw_article_plain a:hover {
 	text-decoration: none;
 	background-color: #042c48;
 }
@@ -3491,7 +3491,7 @@ ul.articlelist-nav {
 	display: none;
 }
 
-.article .magicmore {
+.article .magicmore,.magicmoreinside .kmw_article_plain a {
 	clear: both;
 	margin-bottom: 30px;
 	display: block;
@@ -3555,10 +3555,23 @@ ul.articlelist-nav {
 	background-position: -1px -2px;
 }
 
+.kmw_articlelist_grid_list_notitle {
+	position: static; 
+	width: 100%;	
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+
 .kmw_articlelist_grid_list_toggle:hover {
 	background-color: #eeeeee;
 	border: 1px solid #aaa;
 	border-radius: 3px;
+}
+
+.kmw_articlelist_grid_list_notitle:hover {
+	background-color: #fff;
+	border: 1px solid #fff;
 }
 
 .kmw_articlelist_grid_list_list {
