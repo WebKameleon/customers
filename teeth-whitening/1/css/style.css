@@ -225,11 +225,11 @@ h2 + .post-meta {
   background-image: -webkit-radial-gradient(center center, circle cover, #72c3f6, #4da1e1); }
 
 .bg-secondary {
-  background-image: radial-gradient(center center, circle cover, #c6f468, #a1e14d);
-  background-image: -o-radial-gradient(center center, circle cover, #c6f468, #a1e14d);
-  background-image: -ms-radial-gradient(center center, circle cover, #c6f468, #a1e14d);
-  background-image: -moz-radial-gradient(center center, circle cover, #c6f468, #a1e14d);
-  background-image: -webkit-radial-gradient(center center, circle cover, #c6f468, #a1e14d); }
+  background-image: radial-gradient(center center, circle cover, #77f468, #71e14d);
+  background-image: -o-radial-gradient(center center, circle cover, #77f468 #71e14d);
+  background-image: -ms-radial-gradient(center center, circle cover, #77f468, #71e14d);
+  background-image: -moz-radial-gradient(center center, circle cover, #77f468, #71e14d);
+  background-image: -webkit-radial-gradient(center center, circle cover, #77f468, #71e14d); }
 
 /*==================    Buttons    ======================*/
 .btn {

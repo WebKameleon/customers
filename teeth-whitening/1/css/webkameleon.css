@@ -135,6 +135,57 @@ kmw_article ul ul {
     font-size: 26px;
   }
 }
+
 .iframe-container {
 	background:url(../images/camera-loader.gif) top center no-repeat;
 }
+
+img.logo  {
+	max-height: 32px;
+}
+
+h1.brand_name {
+	display: inline-block;
+}
+
+@media (max-width: 767px) {
+	.follow_icon,.footer {
+		display: none;
+	}
+
+	.addressTop a {
+		display: inline-block;
+	}
+
+	h1.brand_name {
+		font-size: 20px	
+	}
+
+	img.logo {
+		margin-top: 10px;
+		max-height: 16px;
+	}
+
+	.row-top {
+		padding-bottom: 10px;	
+	}
+
+	header {
+		padding-bottom: 1px;
+	}
+
+	.medi-raty {
+		display: none;
+	}
+	
+	
+}
+
+.footer-menu {
+	list-style: none;	
+}
+
+.footer .right .footer-menu {
+	text-align: right;
+}
+
