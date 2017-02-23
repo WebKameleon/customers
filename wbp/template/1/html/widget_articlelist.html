@@ -229,7 +229,7 @@
         
 	<div class="kmw_articlelist_text">{plain}</div>
         
-	{if:attachment}<div class="kmw_articlelist_att {attachment_class}"><a href="{ufiles}/{attachment}">{translates.Download} &raquo;</a></div>{endif:attachment}
+	{if:attachment}<div class="kmw_articlelist_att {attachment_class}"><a href="{ufiles}/{attachment}">{if:attachmenttxt}{attachmenttxt}{endif:attachmenttxt}{if:!attachmenttxt}{translates.Download} &raquo;{endif:!attachmenttxt}</a></div>{endif:attachment}
 	
 	<div class="clearfix"></div>
 	
