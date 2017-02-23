@@ -32,13 +32,26 @@
 {endif:level=(100,101)}
 
 {if:level=102}
+	<ul>
 	{loop:menu}
 		{if:href}
 			<li title="{alt}"><a href="{href}"{if:target} target="{target}"{endif:target} class="fa {class}"></a></li>
 		{endif:href}
 	{endloop:menu}
+	</ul>
 	{define:level_found=1}
 {endif:level=102}
+
+{if:level=(200,201)}
+	<ul class="footer-menu">
+	{loop:menu}
+		{if:href}
+			<li title="{alt}"><a href="{href}"{if:target} target="{target}"{endif:target} class="{class}">{alt}</a></li>
+		{endif:href}
+	{endloop:menu}
+	</ul>
+	{define:level_found=1}
+{endif:level=(200,201)}
 
 {if:level=103}
 	{loop:menu}
