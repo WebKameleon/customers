@@ -56,13 +56,13 @@ div.text1, div.text1 p {
   background-size: 100%;
 }
 
-.info-block {
+.info-block, .info-block_mod {
   padding: 100px 0px 166px 0px;
   
 }
 
 @media (max-width: 1199px) {
-    .info-block {
+    .info-block, .info-block_mod {
       padding: 56px 0 92px; } }
 
 
@@ -189,3 +189,6 @@ h1.brand_name {
 	text-align: right;
 }
 
+.days-one {
+	font-family: 'Days One', sans-serif;
+}
