@@ -274,6 +274,16 @@ $(document).ready(function ($) {
     }
     
     
+    
+    $('.facebook .facebook-menu li').mouseenter(function(){
+
+        $(this).find('div.txt').animate({'margin-right':0});
+    });
+        $('.facebook .facebook-menu li').mouseleave(function(){
+
+        $(this).find('div.txt').animate({'margin-right':-200});
+    })
+
 
 });
 

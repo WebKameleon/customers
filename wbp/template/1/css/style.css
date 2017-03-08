@@ -3522,6 +3522,43 @@ ul.articlelist-nav {
 	list-style: none;
 	padding: 0px;
 	margin: 0px;
+	position: relative;
+}
+
+.facebook .facebook-menu li {
+	
+	margin-bottom: 4px;
+}
+
+.facebook .facebook-menu img {
+	float: left;
+}
+
+.facebook .facebook-menu .fb-container {
+	background-color: rgba(0,0,0,0.6);
+	border: solid 1px #1659a0;
+	border-radius: 5px 0 0 5px;
+
+}
+
+.facebook .facebook-menu a.a {
+	display: inline-block;
+
+}
+
+.facebook .facebook-menu div.txt {
+	width: 200px;
+	margin-right: -199px;
+	padding: 4px 4px 4px 40px;
+	color: white;
+	font-size: 12px;
+	position: absolute;
+    right: 0px;
+}
+
+.facebook .facebook-menu div.txt h5 {
+	font-weight: bold;
+	margin-top: 0;
 }
 
 .fancybox-title-float-wrap .child {

@@ -48,9 +48,21 @@
       <li>
 		  
 		{if:img}
-        <a name="{title}" href="{href}"><img src="{uimages}/{img}" alt="{alt}" class="img img-responsive" /></a>
-		{endif:img}
+		<div class="fb-container">
+		  <a name="{title}" href="{href}" class="a">
+			<img src="{uimages}/{img}" alt="{alt}" class="img img-responsive" />
+			
+			{if:description}
+			<div class="txt">
+			  <h5>{alt}</h5>
+			  {description}
+			</div>
+			{endif:description}
 		  
+		  </a>
+		{endif:img}
+		</div>
+		<div class="clearfix"></div>
      </li>
     {endloop:menu}
     <div class="clearfix"></div>
