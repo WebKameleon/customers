@@ -131,7 +131,7 @@ kmw_article ul ul {
 }
 
 @media (max-width: 1199px) {
-  .top_article .info-block .info-block h2 {
+  .top_article .info-block h2,.top_article .info-block-mod h2 {
     font-size: 26px;
   }
 }
@@ -191,4 +191,38 @@ h1.brand_name {
 
 .days-one {
 	font-family: 'Days One', sans-serif;
+}
+
+.bkgv {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1000;	
+}
+
+.row-top {
+	background: transparent;
+}
+
+header {
+	background-color: rgba(255,255,255,0.8);
+}
+
+.box-transp {
+	background: transparent;
+	background-color: rgba(255,255,255,0.3);
+	color: #333;
+}
+
+.box-transp .img-wr {
+	z-index: -1500;
+}
+
+.box-transp .info-block::before {
+	display: none;
+}
+
+.isStuck {
+	background-color: rgba(255,255,255,0.9);
 }
