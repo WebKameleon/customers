@@ -3526,7 +3526,6 @@ ul.articlelist-nav {
 }
 
 .facebook .facebook-menu li {
-	
 	margin-bottom: 4px;
 }
 
@@ -3546,8 +3545,12 @@ ul.articlelist-nav {
 
 }
 
-.facebook .facebook-menu div.txt {
-	width: 200px;
+.facebook .facebook-menu li.special-menu {
+	position: relative;
+}
+
+.facebook .facebook-menu li.special-menu .txt {
+	width: 274px;
 	margin-right: -199px;
 	padding: 4px 4px 4px 40px;
 	color: white;

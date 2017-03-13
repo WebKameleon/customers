@@ -45,7 +45,10 @@
 {if:level=104} 
     <ul class="facebook-menu">
     {loop:menu}
-      <li>
+      <li{if:class} class="{class}"{endif:class}>
+		{if:description}
+		<div class="txt">
+		{endif:description}
 		  
 		{if:img}
 		<div class="fb-container">
@@ -53,7 +56,7 @@
 			<img src="{uimages}/{img}" alt="{alt}" class="img img-responsive" />
 			
 			{if:description}
-			<div class="txt">
+			<div class="txt-desc">
 			  <h5>{alt}</h5>
 			  {description}
 			</div>
@@ -63,6 +66,9 @@
 		{endif:img}
 		</div>
 		<div class="clearfix"></div>
+		{if:description}
+		</div>
+		{endif:description}
      </li>
     {endloop:menu}
     <div class="clearfix"></div>
