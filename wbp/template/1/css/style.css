@@ -3540,20 +3540,26 @@ ul.articlelist-nav {
 
 }
 
+.facebook .facebook-menu .dark-menu .fb-container {
+	height: 100px;
+}
 .facebook .facebook-menu a.a {
 	display: inline-block;
+	text-decoration: none;
 
 }
 
 .facebook .facebook-menu li.special-menu {
 	position: relative;
 }
-
+.facebook .facebook-menu li.special-menu .txt-desc {
+	color: white;
+	padding: 4px 4px 4px 40px;
+}
 .facebook .facebook-menu li.special-menu .txt {
 	width: 274px;
 	margin-right: -199px;
 	padding: 4px 4px 4px 40px;
-	color: white;
 	font-size: 12px;
 	position: absolute;
     right: 0px;
