@@ -11,7 +11,8 @@ $(document).ready(function () {
             });
     
         });
-        
+    
+	$('.box-transp .img-wr').fadeOut(500);    
     },50);
     
 })
