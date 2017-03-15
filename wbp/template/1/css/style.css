@@ -3549,6 +3549,11 @@ ul.articlelist-nav {
 
 }
 
+.facebook .facebook-menu .special-menu .fb-container {
+
+	border: solid 1px #d90f0f;
+}
+
 .facebook .facebook-menu li.special-menu {
 	position: relative;
 }
