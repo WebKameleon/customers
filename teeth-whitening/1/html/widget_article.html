@@ -21,7 +21,7 @@
 
 {if:level=1}
  {if:webpage.type=1}
-   {if:title}<dt>{title}</dt>{endif:title}
+   {if:title}<a name="{title}"></a><dt>{title}</dt>{endif:title}
    <dd>
 	{if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{imagesUrl}/{bgimg}" alt="" /></a>{endif:bgimg}
 	{plain}
@@ -34,6 +34,7 @@
 
 
 {if:level=(3)}
+  {if:title}<a name="{title}"></a>{endif:title}
   <section class="bg-contrast {class}">
     <div class="container top_article">
       <div class="row offsNo">
