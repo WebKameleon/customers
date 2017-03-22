@@ -103,7 +103,6 @@ $('.pg_creator .kmw_articlelist:first,.pg_exhibition_list .kmw_articlelist:first
         $(this).addClass('active');
         
         var letter=$(this).attr('rel');
-	console.log(letter);
         if (letter=='') {
             $('.kmw_articlelist').fadeIn();
         } else {
