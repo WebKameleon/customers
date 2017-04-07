@@ -28,6 +28,7 @@
         echo $jotform->iframe($costxt);
     } else {
         $form=$jotform->getFormSource($costxt);
+	//mydie($form);
         if (is_array($form))
         {
             

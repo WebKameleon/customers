@@ -88,7 +88,7 @@ class jotform {
                 $src=stripos($txt,'src="');
                 $endtag=stripos($txt,'>');
                 
-                if ($src<$endtag) {
+                if ($src<$endtag && strlen(trim($src))>0 ) {
                     $txt=substr($txt,$src+5);
                     $end=strpos($txt,'"');
                     $scripts[]=substr($txt,0,$end);
