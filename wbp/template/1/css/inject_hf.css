@@ -340,6 +340,10 @@
     z-index: 1;
 }
 
+.wbp_inject_header .facebook {
+	display: none;
+}
+
 @media (min-width:768px){.wbpciak_owl #header{width:750px}}
 @media (min-width:992px){.wbpciak_owl #header{width:970px}}
 @media (min-width:1200px){.wbpciak_owl #header{width:1170px}}

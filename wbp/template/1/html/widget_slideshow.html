@@ -48,7 +48,7 @@
     <ul id="bxslider{webtd.sid}" class="bxslider">
         {loop:webtd.menu}
         <li>
-            {if:href}<a href="{href}">
+            {if:href}<a href="{href}"{if:target} target="{target}"{endif:target}>
 	    <div class="slideshow-more">{translates.More}</div>
 	    {endif:href}
 	        
