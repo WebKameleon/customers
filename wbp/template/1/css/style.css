@@ -3540,8 +3540,11 @@ ul.articlelist-nav {
 
 }
 
-.facebook .facebook-menu .dark-menu .fb-container {
+.facebook .facebook-menu .fb-facebook .fb-container {
 	height: 100px;
+}
+.facebook .facebook-menu .fb-newsletter .fb-container {
+	height: 132px;
 }
 .facebook .facebook-menu a.a {
 	display: inline-block;
@@ -3549,10 +3552,12 @@ ul.articlelist-nav {
 
 }
 
-.facebook .facebook-menu .special-menu .fb-container {
+.facebook .facebook-menu .fb-newsletter .fb-container {
 
 	border: solid 1px #d90f0f;
 }
+
+
 
 .facebook .facebook-menu li.special-menu {
 	position: relative;
@@ -3567,7 +3572,7 @@ ul.articlelist-nav {
 	padding: 4px 4px 4px 40px;
 	font-size: 12px;
 	position: absolute;
-    right: 0px;
+    	right: 0px;
 }
 
 .facebook .facebook-menu div.txt h5 {

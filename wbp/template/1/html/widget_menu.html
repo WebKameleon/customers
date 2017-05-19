@@ -45,7 +45,7 @@
 {if:level=104} 
     <ul class="facebook-menu">
     {loop:menu}
-      <li{if:class} class="{class}"{endif:class}>
+      <li class="{if:description}menu-special{endif:description}{if:!description}dark-menu{endif:!description}{if:class} {class}{endif:class}">
 		{if:description}
 		<div class="txt">
 		{endif:description}
@@ -215,7 +215,7 @@
 		<div class="panel-heading {if:active}active{endif:active}">
 		 {if:!img}
 		 <div class="panel-title" {if:submenu_id}data-toggle="collapse" data-parent="#accordion{menu_id}" data-target="#collapse{menu_id}{lp}"{endif:submenu_id}>
-		 <a name="{title}" {if:!submenu_id}href="{href}"{endif:!submenu_id}>{alt}{if:submenu_id}<b class="caret"></b>{endif:submenu_id}</a>
+		 <a name="{title}" {if:!submenu_id}href="{href}"{if:target} target="{target}"{endif:target}{endif:!submenu_id}>{alt}{if:submenu_id}<b class="caret"></b>{endif:submenu_id}</a>
 		</div>
 		{endif:!img}
 		
