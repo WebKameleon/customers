@@ -10,10 +10,9 @@
   </a>
   <div class="clearfix"></div>
   {if:href}<a href="{href}"{if:target} target="{target}"{endif:target}>{endif:href}
-  {if:alt}<figcaption>{alt}</figcaption>
-  <div class="gallery-line"></div>{endif:alt}
+  <figcaption>{if:alt}{alt}{endif:alt}{if:!alt}&nbsp;{endif:!alt}</figcaption>
+  <div class="gallery-line"></div>
   {if:href}</a>{endif:href}
-  {if:!alt}<div class="gallery-no-line"></div>{endif:!alt}
 </figure>
 {endloop:webtd.menu}
 </div>

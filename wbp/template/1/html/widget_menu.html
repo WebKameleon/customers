@@ -178,7 +178,7 @@
 {loop:menu}
 {if:!submenu_id}
 
-  <li {if:active} class="active"{endif:active}><a name="{title}" href="{href}">{alt}</a>
+  <li {if:active} class="active"{endif:active}><a name="{title}" href="{href}"{if:target} target="{target}"{endif:target}>{alt}</a>
   
   		{if:img}
 		<div class="{class}{if:active} current{endif:active} img-list">
