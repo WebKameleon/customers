@@ -141,6 +141,7 @@
         }
         
         if (isset($_SERVER['HTTP_CONTENT_RANGE'])) {
+            $max_chunks=100;
 		    $range=str_replace('bytes ', '', $_SERVER['HTTP_CONTENT_RANGE']);
             $range=explode('/',$range);
 		    $range[0]=explode('-',$range[0]);
@@ -149,17 +150,24 @@
             $total_size=$range[1];
             $chunk_size=$range[0][1]-$range[0][0]+1;
             $chunk=1+floor($range[0][0]/$chunk_size);
+            //chunk 0 => last chunk
+            if ($total_size-1==$range[0][1]) $chunk=0;
+            
             
             move_uploaded_file($f['tmp_name'][$lp],$dir_prefix.$token.'.'.$chunk);
             if ($total_size-1 != $range[0][1]) {
-                contest_ret(array('files'=>array(),'chunk'=>$chunk));
+                contest_ret(array('files'=>array(),'chunk'=>$chunk, 'range'=>$_SERVER['HTTP_CONTENT_RANGE']));
             }
             
-            for ($j=0;$j<$chunk;$j++) { // czekamy tyle sekund, co chunków 
+            for ($j=0;$j<$max_chunks;$j++) { // czekamy tyle sekund, co chunków 
                 $size=0;
-                for ($i=1;$i<=$chunk;$i++) {
+                for ($i=0;$i<=$max_chunks;$i++) {
                     $fi=$dir_prefix.$token.'.'.$i;
                     if (file_exists($fi)) $size+=filesize($fi);
+                    if ($total_size==$size) {
+                        $chunk=$i;
+                        break;
+                    }
                 }
                 if ($total_size==$size) {
                     $blob='';
@@ -168,7 +176,12 @@
                         if (file_exists($fi)) {
                             $blob.=file_get_contents($fi);
                             unlink($fi);
-                        }
+                        }                        
+                    }
+                    $fi=$dir_prefix.$token.'.0';
+                    if (file_exists($fi)) {
+                        $blob.=file_get_contents($fi);
+                        unlink($fi);
                     }
                     break;
                     
@@ -190,7 +203,7 @@
         $index=$f['name'][$lp];
         $type=$f['type'][$lp];
         
-        //if (strstr($f['name'][$lp],'canon2')) mydd3ie($f);
+        if (strstr($f['name'][$lp],'canon2')) mydd3ie($f);
         
         $lp++;
         
@@ -229,6 +242,11 @@
         {
             $thumbnailUrl=preg_replace('/[0-9]+$/','80',$gfile['thumbnailLink']);
             $row['thumbnail']=$thumbnailUrl;
+            $row['phone']=str_replace('+48','',$row['phone']);
+            $row['phone']=str_replace('+','0',$row['phone']);
+            $row['description']=str_replace("\r",'',$row['description']);
+            $row['description']=str_replace("\n",' ',$row['description']);
+            
             $data_to_write_to_spreadsheet[]=$row;
             $url=dirname($_SERVER['REQUEST_URI']).'/contest-bckd.php?sid='.$sid.'&id='.$gfile['id'];
             

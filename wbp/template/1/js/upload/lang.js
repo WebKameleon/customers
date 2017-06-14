@@ -37,6 +37,7 @@ var wbp_photo_competition = {
         loading: 'Ładuję ...',
         payment: 'Płatność',
         discard: 'Odrzuć',
+        pay: 'Pomiń zdjęcia z, których nie udało się wgrać i zakończ przesyłanie',
         uploaderr: 'Niestety przy wgrywaniu niektórych zdjęć pojawiły się błędy, prosimy je dodać ponownie'
     },
     en: {
@@ -77,6 +78,7 @@ var wbp_photo_competition = {
         loading: 'Loading ...',
         payment: 'Payment',
         discard: 'Discard',
+        pay: 'Ignore failed images, just finish my process',
         uploaderr: 'Unfortunately some of images failed to upload, please check and try to add them again'
     }
 }

@@ -146,6 +146,12 @@
                 <span class="fileupload-process"></span>
             </div>
             <div class="label label-danger img-errors" style="display: none"><label for="uploaderr">err</label></div>
+            
+            <button type="button" class="btn btn-primary img-errors" style="display: none">
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span><label class="pay">pay</label></span>
+            </button> 
+            
             <!-- The global progress state -->
             <div class="col-lg-5 fileupload-progress fade">
                 <!-- The global progress bar -->

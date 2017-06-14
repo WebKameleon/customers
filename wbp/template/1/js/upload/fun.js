@@ -51,7 +51,7 @@ function count_errors(add_class,verbose)
     }
     else
     {
-        $('#fileupload .terms').fadeIn();
+        if (!$('#fileupload .terms').hasClass('forgetit')) $('#fileupload .terms').fadeIn();
     }
 
     if (max_images>0 && f>max_images)
@@ -224,13 +224,35 @@ function check_failed() {
         $('#wbp-form-loading').fadeOut();
         uploaded_images=0;
         failed_images=0;
-        $('.img-errors').fadeIn();
+        
+        $('.personal').fadeOut();
+        setTimeout(function(){
+            $('.img-errors').fadeIn(500);
+            $('#fileupload .terms').fadeOut();
+            $('#fileupload .terms').addClass('forgetit');
+            $('table.table p.name').each(function(){
+                var tr=$(this).closest('tr');
+                var err=tr.find('span.label');
+                if (err.length==0) {
+                    tr.fadeOut();
+                    tr.addClass('show-afterwords');
+                }
+            });        
+        
+        },1000);
+        
+
     }   
 }
+
+var last_upload_done_data;
 
 function upload_done(e,data)
 {
     //console.log('img',uploaded_images,failed_images);
+    if (data==null) data=last_upload_done_data;
+    else last_upload_done_data=data;
+    
     
     if (--uploaded_images==0) {
         $('#wbp-form-loading').fadeOut();
@@ -255,9 +277,15 @@ function upload_done(e,data)
         //console.log(data);
         
         $('.template-download .label-danger').closest('tr').hide();
+        $('.show-afterwords').show();
     } else check_failed();
     
 }
+
+$('button.img-errors').click(function(e){
+    uploaded_images=1;
+    upload_done(e);
+});
 
 
 var contest_form_action='';
@@ -294,6 +322,11 @@ function foto_init_form(photo) {
                     $('#fileupload input[name="'+inputname+'"]').val(data.files[name].title);
                     inputname='files['+name+'][description]';
                     $('#fileupload textarea[name="'+inputname+'"]').val(data.files[name].description);
+                   
+                    if (typeof(data.files[name].category)!='undefned') {
+                        var selectname='files['+name+'][category]';
+                        $('#fileupload select[name="'+selectname+'"]').val(data.files[name].category);
+                    }
                    
                     if (typeof(data.files[name].setno)!='undefined' && data.files[name].setno.length>0) {
                         inputname='files['+name+'][set]';
