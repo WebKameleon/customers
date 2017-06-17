@@ -175,10 +175,16 @@
 {if:plain}<div class="article">{plain}</div>{endif:plain}
 	
 <ul class="nav nav-pills">
+{define:wi}{if:width} style="text-align: center; min-width: {width}px"{endif:width}{enddefine:wi}
+
 {loop:menu}
 {if:!submenu_id}
 
+<<<<<<< HEAD
   <li {if:active} class="active"{endif:active}><a name="{title}" href="{href}"{if:target} target="{target}"{endif:target}>{alt}</a>
+=======
+  <li{if:active} class="active"{endif:active}{wi}><a name="{title}" href="{href}">{alt}</a>
+>>>>>>> 4bdf3ec48dddfe6d3f5e2375d074c81cd32c238a
   
   		{if:img}
 		<div class="{class}{if:active} current{endif:active} img-list">
@@ -192,7 +198,7 @@
 {endif:!submenu_id}
 
  {if:submenu_id}
- <li class="dropdown">
+ <li class="dropdown"{wi}>
   <a name="{title}" id="drop{__index__}" role="button" data-toggle="dropdown" href="#">{alt} <b class="caret"></b></a>
   {if:submenu_id}{include:submenu2.html}{endif:submenu_id}
  </li>
