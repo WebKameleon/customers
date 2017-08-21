@@ -14,12 +14,19 @@
     
     $wystawy=array();
     
+    $webcat=new webcatModel();
+    
     foreach($wystawy_all AS $w)
-    {    
+    {
+        if (!in_array('Lista wystaw',$webcat->catsOnPage(Bootstrap::$main->session('server')['id'],$lang,$ver,$lang,$w['id']))) continue;
         $wystawy[$w['title'].$w['id']] = array('id'=>$w['id'],'title'=>$w['title']);
-        
+    
+           
     }
+    
     ksort($wystawy);
+    //mydie($wystawy);
+    
     $wystawy_options='';
     
     foreach($wystawy AS $w)
@@ -27,6 +34,9 @@
         $selected='';
         $wystawy_options.='<option value="'.$w['id'].'" '.$selected.'>'.$w['title'].'</option>';
     }
+    
+    $template_dir=Bootstrap::$main->session('template_dir');
+    
 ?>
 
 
@@ -66,11 +76,11 @@
                     Sugerowany termin:
                 </div>                
                 <div>
-                    <label for="since">Data od</label><input name="since" type="date" class="txbx since required" />
+                    <label for="date_since">Data od</label><input name="since" id="date_since" type="text" class="txbx since required" />
                 </div>
                 
                 <div>
-                    <label for="till">Data do</label><input name="till" type="date" class="txbx till required" />
+                    <label for="date_till">Data do</label><input name="till" id="date_till" type="text" class="txbx till required" />
                 </div>                
                 
                 <div class="header">
@@ -109,66 +119,34 @@
     </form>
 </div>
 
+<link rel="stylesheet" href="<?php echo $template_dir?>/css/flatpickr/airbnb.css">
 
 
 <script type="text/javascript">
-  
-window.onload = function() {
- 
- 
-    var lh=location.href;
-    lh=lh.split('?');
-    if (typeof(lh[1])!='undefined') {
-        var q=lh[1].split('&');
-        for(i=0;i<q.length;i++)
-        {
-            var qq=q[i].split('=');
-            if (qq[0]=='id') {
-                $('#exhibition-order select[name="exhibition"]').val(qq[1]);    
-            }
-            
-        }
-    }
-    
-    
-    $('#exhibition-order input,#exhibition-order textarea,#exhibition-order select').change(function () {
-        $(this).removeClass('error');
-        $('#exhibition-order .warning').fadeOut();
-    });
-    
-    $('#exhibition-order .order-button').click(function() {
-        
-        var orderButton=$(this);
-        orderButton.val('Zamawianie, proszę czekać ...').addClass('order-button-gray');
-        
-        $('#exhibition-order .warning').hide();
-        var data=$('#exhibition-order').serialize();
-        $.post('<?php echo $ajax_exhibition?>',data,function (resp) {
-            orderButton.val('Zamów').removeClass('order-button-gray');
-            if (resp.error!=null) {
-                $('#exhibition-order .warning').html(resp.error).fadeIn();
-                $('#exhibition-order .'+resp.obj).addClass('error');
-            } else {
-                <?php if ($next!=$self): ?>
-                    location.href='<?php echo $next?>';
-                <?php else: ?>
-                    alert('Dziękujemy');
-                <?php endif ?>
-            }
-        });
-        
-    });
-    
     <?php if (isset($KAMELEON_MODE) && $KAMELEON_MODE==1):?>
-    $('#exhibition-order').dblclick(function() {
-        $('select').val('29610').removeClass('error');
-        $('input.required').val('Testowanko').removeClass('error');
-        $('textarea.required').val('Poznań').removeClass('error');
-        $('input.since').val('<?php echo date('Y-m-d',time()+5*24*3600)?>').removeClass('error');
-        $('input.till').val('<?php echo date('Y-m-d',time()+19*24*3600)?>').removeClass('error');
+    jQueryKam(function($){
+        $('#exhibition-order').dblclick(function() {
+            $('select').val('29610').removeClass('error');
+            $('input.required').val('Testowanko').removeClass('error');
+            $('textarea.required').val('Poznań').removeClass('error');
+            $('input.since').val('<?php echo date('Y-m-d',time()+5*24*3600)?>').removeClass('error');
+            $('input.till').val('<?php echo date('Y-m-d',time()+19*24*3600)?>').removeClass('error');
+        });
     });
-    <?php endif ?>    
-    
+    <?php endif ?>
 
-}    
+    var ajax_exhibition = '<?php echo $ajax_exhibition?>';
+    
+    function exhibition_success () {
+        <?php if ($next!=$self): ?>
+            location.href='<?php echo $next?>';
+        <?php else: ?>
+            alert('Dziękujemy');
+        <?php endif ?>
+    }
+
 </script>
+
+<script src="<?php echo $template_dir?>/js/flatpickr.js"></script>
+<script src="<?php echo $template_dir?>/js/flatpickr_pl.js"></script>
+<script src="<?php echo $template_dir?>/js/zam_wystawe.js"></script>

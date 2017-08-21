@@ -94,7 +94,6 @@
 </form>
 
 
-
 <script type="text/javascript">
 
     function picked(data)
@@ -141,6 +140,8 @@
     
 
 </script>
+
+
 
 <script type="text/javascript" src="https://www.google.com/jsapi?key=<?php echo $access_data['api_key']?>"></script>
 <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=initPicker"></script>
