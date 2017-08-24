@@ -7,20 +7,22 @@
 <div class="row">
 
 <!-- SLIDER -->
-
-<div id="myCarousel" class="carousel slide">
+<div id="myCarousel{sid}" class="carousel slide">
  <div class="carousel-inner">
+
+{define:perPage}{if:size}{size}{endif:size}{if:!size}5{endif:!size}{enddefine:perPage}
 
 {tokens|wbp_counter:0}
 {loop:articles}
-{if:!__loop__|%5} 
+{define:modPage}{__loop__|%:$perPage}{enddefine:modPage}
+{if:!modPage} 
 {tokens|wbp_counter:1}
 {if:__loop__}
 </div></div>
 {endif:__loop__}
  <div class="item {if:first} active{endif:first}">
     <div class="row">
-{endif:!__loop__|%5}
+{endif:!modPage}
 
   <div class="articlelist-block col-md-5ths col-sm-5ths">
     <div class="articlelist-block-content">
@@ -45,14 +47,18 @@
 
  </div> <!-- /carousel-inner -->
 
+{define:article_count}{__count__articles}{enddefine:article_count}
+{define:needNav}{article_count|>:$perPage}{enddefine:needNav}
+{if:needNav}
+
 <div class="container-fluid">
 <ul class="article-list-indicators">
- <a class="left article-list-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
-{loop:tokens.wbp_counter}<li data-target="#myCarousel" data-slide-to="{loop|-1}" {if:active} class="active"{endif:active}><a href="#">{__index__}</a></li>{endloop:tokens.wbp_counter}
- <a class="right article-list-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a> 
+ <a class="left article-list-control" href="#myCarousel{sid}" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
+{loop:tokens.wbp_counter}<li data-target="#myCarousel{sid}" data-slide-to="{loop|-1}" {if:active} class="active"{endif:active}><a href="#">{__index__}</a></li>{endloop:tokens.wbp_counter}
+ <a class="right article-list-control" href="#myCarousel{sid}" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a> 
  </ul>
 </div>
-
+{endif:needNav}
  
 </div> <!-- /myCarousel -->
 <!-- end SLIDER -->
@@ -71,19 +77,23 @@
 
 <!-- SLIDER -->
 
-<div id="myCarousel" class="carousel slide">
+<div id="myCarousel{sid}" class="carousel slide">
  <div class="carousel-inner">
+  
+{define:perPage}{if:size}{size}{endif:size}{if:!size}5{endif:!size}{enddefine:perPage}
 
 {tokens|wbp_counter:0}
 {loop:articles}
-{if:!__loop__|%5} 
+{define:modPage}{__loop__|%:$perPage}{enddefine:modPage}
+  
+{if:!modPage} 
 {tokens|wbp_counter:1}
 {if:__loop__}
 </div></div>
 {endif:__loop__}
  <div class="item {if:first} active{endif:first}">
     <div class="row">
-{endif:!__loop__|%5}
+{endif:!modPage}
 
   <div class="articlelist-block col-md-5ths col-sm-5ths">
     <div class="articlelist-block-content">
@@ -108,14 +118,17 @@
 
  </div> <!-- /carousel-inner -->
 
+{define:article_count}{__count__articles}{enddefine:article_count}
+{define:needNav}{article_count|>:$perPage}{enddefine:needNav}
+{if:needNav}
 <div class="container-fluid">
 <ul class="article-list-indicators">
- <a class="left article-list-control" href="#myCarousel" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
-{loop:tokens.wbp_counter}<li data-target="#myCarousel" data-slide-to="{loop|-1}" {if:active} class="active"{endif:active}><a href="#">{__index__}</a></li>{endloop:tokens.wbp_counter}
- <a class="right article-list-control" href="#myCarousel" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a> 
+ <a class="left article-list-control" href="#myCarousel{sid}" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
+{loop:tokens.wbp_counter}<li data-target="#myCarousel{sid}" data-slide-to="{loop|-1}" {if:active} class="active"{endif:active}><a href="#">{__index__}</a></li>{endloop:tokens.wbp_counter}
+ <a class="right article-list-control" href="#myCarousel{sid}" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a> 
  </ul>
 </div>
-
+{endif:needNav}
  
 </div> <!-- /myCarousel -->
 <!-- end SLIDER -->
@@ -135,19 +148,22 @@
 
 <!-- SLIDER -->
 
-<div id="myCarousel2" class="carousel slide">
+<div id="myCarousel2_{sid}" class="carousel slide">
  <div class="carousel-inner">
+
+{define:perPage}{if:size}{size}{endif:size}{if:!size}3{endif:!size}{enddefine:perPage}
 
 {tokens|wbp_counter:0}
 {loop:articles}
-{if:!__loop__|%3} 
+{define:modPage}{__loop__|%:$perPage}{enddefine:modPage}
+{if:!modPage} 
 {tokens|wbp_counter:1}
 {if:__loop__}
 </div></div>
 {endif:__loop__}
  <div class="item {if:first} active{endif:first}">
     <div class="row">
-{endif:!__loop__|%3}
+{endif:!modPage}
 
   <div class="articlelist-statement col-md-12 col-sm-12">
     <div class="articlelist-statement-content">
@@ -172,14 +188,17 @@
 
  </div> <!-- /carousel-inner -->
 
+{define:article_count}{__count__articles}{enddefine:article_count}
+{define:needNav}{article_count|>:$perPage}{enddefine:needNav}
+{if:needNav}
 <div class="container-fluid"> 
 <ul class="article-list-indicators">
- <a class="left article-list-control" href="#myCarousel2" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
-{loop:tokens.wbp_counter}<li data-target="#myCarousel2" data-slide-to="{loop|-1}" {if:first} class="first"{endif:first}><a href="#">{__index__}</a></li>{endloop:tokens.wbp_counter}
- <a class="right article-list-control" href="#myCarousel2" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a> 
+ <a class="left article-list-control" href="#myCarousel2_{sid}" data-slide="prev"><i class="fa fa-chevron-left fa-2x"></i></a>
+{loop:tokens.wbp_counter}<li data-target="#myCarousel2_{sid}" data-slide-to="{loop|-1}" {if:first} class="first"{endif:first}><a href="#">{__index__}</a></li>{endloop:tokens.wbp_counter}
+ <a class="right article-list-control" href="#myCarousel2_{sid}" data-slide="next"><i class="fa fa-chevron-right fa-2x"></i></a> 
  </ul>
 </div>
-
+{endif:needNav}
  
 </div> <!-- /myCarousel -->
 <!-- end SLIDER -->
