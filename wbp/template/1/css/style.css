@@ -2380,6 +2380,7 @@ a.jotform_edit:hover {
 	text-transform:uppercase;
 	color:#176095;
 	margin-bottom:5px;
+	margin-top:0px;
 }
 
 #sidebar .article {
@@ -2397,6 +2398,10 @@ a.jotform_edit:hover {
 	font-weight:400;
 	text-transform:uppercase;
 	color:#042c48;
+}
+
+#sidebar .article:not(:first-child) {
+	margin-top: 21px;
 }
 
 /* BANNER */
