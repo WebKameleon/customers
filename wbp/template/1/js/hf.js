@@ -42,12 +42,14 @@ function wbp_inject(part)
 
 function wbp_active()
 {
-  if ($("a:contains('"+wbp_active_suffix+"')").length==0)
+  if ($("#main-menu a:contains('"+wbp_active_suffix+"')").length==0)
   {
+	console.log('Waiting for',wbp_active_suffix);
     setTimeout(wbp_active,300);
     return;
   }
-  $("a:contains('"+wbp_active_suffix+"')").parent().addClass('active');
+  console.log('Activation');
+  $("#main-menu a:contains('"+wbp_active_suffix+"')").parent().addClass('active');
 }
 
 
