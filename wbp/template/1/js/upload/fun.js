@@ -193,14 +193,14 @@ function rewrite_data_to_payment()
     if (next.substr(0,1)=='/') {
         $('#form-paypal input[name=return]').val(location.origin)+next;
     } else {
-        if (next.substr(0,4)!='http') $('#form-paypal input[name=return]').val(dirname(location.href)+next);
+        if (next.substr(0,4)!='http') $('#form-paypal input[name=return]').val(deUpDir(dirname(location.href)+next));
     }
     
     next = $('#form-paypal input[name=cancel_return]').val();
     if (next.substr(0,1)=='/') {
         $('#form-paypal input[name=cancel_return]').val(location.origin)+next;
     } else {
-        if (next.substr(0,4)!='http') $('#form-paypal input[name=cancel_return]').val(dirname(location.href)+next);
+        if (next.substr(0,4)!='http') $('#form-paypal input[name=cancel_return]').val(deUpDir(dirname(location.href)+next));
     }    
 }
 
@@ -265,8 +265,9 @@ function upload_done(e,data)
 
         if ($('#form-dotpay input[name=URLC]').val().indexOf('http:')<0) 
             $('#form-dotpay input[name=URLC]').val(deUpDir(dirname(location.href)+$('#form-dotpay input[name=URLC]').val()+'?id='+file.id));
-        if ($('#form-paypal input[name=notify_url]').val().indexOf('http:')<0) 
+        if ($('#form-paypal input[name=notify_url]').val().indexOf('http:')<0) {
         	$('#form-paypal input[name=notify_url]').val(deUpDir(dirname(location.href)+$('#form-paypal input[name=notify_url]').val()));
+	}
 
         $('#form-paypal input[name=custom]').val(file.id);
         $('#foto-contest-payment').fadeIn(500);
