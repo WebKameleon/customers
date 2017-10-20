@@ -332,11 +332,11 @@
 <div class="clearfix"></div>
 
     <div class="traditional" style="display: none">
-        <h4>Prosimy o wpłatę na konto:</h4>
-        <p>Kwota: <?php echo $configuration['drive']['price_pln'];?> zł<br/>
+        <h4><label for="please_pay">Prosimy o wpłatę na konto</label>:</h4>
+        <p><label for="amount">Kwota</label>: <?php echo $configuration['drive']['price_pln'];?> zł<br/>
         WBPiCAK <br/>
         60-819 Poznań, ul. Prusa 3<br/>
-        IBAN: <strong>PL 89 1500 1621 1216 2000 8820 0000</strong> (tytuł wpłaty: <?php echo $this->webtd['title'];?>), SWIFT: WBKPPRPP</p>
+        IBAN: <strong>PL 89 1500 1621 1216 2000 8820 0000</strong> (<label for="payment_title">tytuł wpłaty</label>: <?php echo $this->webtd['title'];?>), SWIFT: WBKPPRPP</p>
     </div>
     
 </div>

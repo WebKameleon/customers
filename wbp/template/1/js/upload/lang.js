@@ -37,7 +37,10 @@ var wbp_photo_competition = {
         loading: 'Ładuję ...',
         payment: 'Płatność',
         discard: 'Odrzuć',
+        amount: 'Kwota',
         pay: 'Pomiń zdjęcia z, których nie udało się wgrać i zakończ przesyłanie, te, których nie udało się wgrać prosimy wysłać na adres e-mail: foto@wbp.poznan.pl',
+	please_pay: "Prosimy o wpłatę na konto",
+	payment_title: "tytuł wpłaty",
         uploaderr: 'Niestety przy wgrywaniu niektórych zdjęć pojawiły się błędy, prosimy je dodać ponownie'
     },
     en: {
@@ -78,7 +81,10 @@ var wbp_photo_competition = {
         loading: 'Loading ...',
         payment: 'Payment',
         discard: 'Discard',
+        amount: 'Amount',
         pay: 'Ignore failed images, just finish my process, photos that failed to upload please send us to foto@wbp.poznan.pl',
+	please_pay: "Please make payment to the following bank account",
+	payment_title: "subject",
         uploaderr: 'Unfortunately some of images failed to upload, please check and try to add them again'
     }
 }
