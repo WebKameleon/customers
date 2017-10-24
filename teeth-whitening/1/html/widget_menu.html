@@ -4,18 +4,18 @@
 {if:level=(100,101)}
     <ul class="sf-menu" data-type="navbar">
     {loop:menu}
-		<li class="{if:active}active{endif:active}">
+		<li class="{if:active}active{endif:active}{if:class} {class}{endif:class}">
 			<a href="{href}"{if:target} target="{target}"{endif:target}>{alt}</a>
 			{if:menu:s1}
 				<ul>
 					{loop:menu:s1}
-						<li class="{if:active}active{endif:active}">
+						<li class="{if:active}active{endif:active}{if:class} {class}{endif:class}">
 							<a href="{href}"{if:target} target="{target}"{endif:target}>{alt}</a>
 							
 							{if:menu:s2}
 								<ul>
 									{loop:menu:s2}
-										<li class="{if:active}active{endif:active}">
+										<li class="{if:active}active{endif:active}{if:class} {class}{endif:class}">
 											<a href="{href}"{if:target} target="{target}"{endif:target}>{alt}</a>
 										</li>
 									{endloop:menu:s2}
