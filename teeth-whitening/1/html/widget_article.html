@@ -4,7 +4,7 @@
 <a href="{tokens.page_href}" class="{class}">
 {if:bgimg}<img class="logo" src="{uimages}/{bgimg}" alt="{title}" title="{title}"/>{endif:bgimg}
 <h1 class="brand_name">
- {plain}
+ {plain}{tokens.php}
 </h1>
 </a>
 {if:title}
@@ -15,7 +15,7 @@
 
 {if:level=(200,201)}
  {if:title}<h6>{title}</h6>{endif:title}
- {plain}
+ {plain}{tokens.php}
 {define:level_found=1}
 {endif:level=(200,201)}
 
@@ -24,7 +24,7 @@
    {if:title}<a name="{title}"></a><dt>{title}</dt>{endif:title}
    <dd>
 	{if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{imagesUrl}/{bgimg}" alt="" /></a>{endif:bgimg}
-	{plain}
+	{plain}{tokens.php}
    </dd>
    <div class="clearfix"></div>
   {define:level_found=1}
@@ -53,7 +53,7 @@
 			{if:trailer}
 			<h3>{trailer}</h3>
             {endif:trailer}
-			<p>{plain}</p>
+			<p>{plain}{tokens.php}</p>
 			{if:more}
 			 <a href="{more_link}" class="btn">
 			  {if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More} &raquo;{endif:!moretxt}
@@ -88,7 +88,7 @@
 	  </h3>
       {endif:trailer}
 	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{imagesUrl}/{bgimg}" alt="" /></a>{endif:bgimg}
-	  <div {if:webtd.class}class="text1"{endif:webtd.class}>{plain}</div>
+	  <div {if:webtd.class}class="text1"{endif:webtd.class}>{plain}{tokens.php}</div>
 	  <div class="clearfix"></div>
     </div>
 </section>

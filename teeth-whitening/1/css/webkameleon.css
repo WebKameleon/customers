@@ -226,3 +226,16 @@ header {
 .isStuck {
 	background-color: rgba(255,255,255,0.9);
 }
+
+.kmw_cookies input[type=button] {
+    background-color: rgba(80, 78, 197, 0.88);
+    color: white;
+    padding: 2px 6px;
+}
+
+.breadcrumbs {
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+	padding-left: 10px;
+	border-bottom: 1px solid #555;	
+}

@@ -26,6 +26,7 @@ var userStat = function(u) {
 
 function googleauth() {
 	WebKameleonAuth.GoogleUser(userStat);
+	if (typeof(WebKameleonAuthReady)=='function') WebKameleonAuthReady();
 }
 
 $(document).ready(function () {
