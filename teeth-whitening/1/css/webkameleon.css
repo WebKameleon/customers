@@ -24,6 +24,7 @@ div.text1, div.text1 p {
 }
 .article .kmw_article_photo img {
   margin-bottom: 20px;
+  margin-right: 10px;
 }
 
 .article .date_format {
@@ -239,3 +240,39 @@ header {
 	padding-left: 10px;
 	border-bottom: 1px solid #555;	
 }
+
+h1 {
+  font-size: 60px;
+  line-height: 60px; }
+
+h2 {
+  font-size: 45px;
+  line-height: 45px;
+  font-weight: 300;
+  margin-bottom: 15px;}
+  @media (max-width: 991px) {
+    h2 {
+      font-size: 35px;
+      line-height: 35px; } }
+
+h3 {
+  font-size: 22px;
+  line-height: 28px;
+  text-transform: none;
+  font-weight: 300; }
+  h3 a {
+    color: #fff; }
+    h3 a:hover {
+      color: #303334; }
+
+h4 {
+  font-size: 20px;
+  line-height: 20px; }
+
+h5 {
+  font-size: 18px;
+  line-height: 18px; }
+
+h6 {
+  font-size: 16px;
+  line-height: 16px; }

@@ -25,8 +25,11 @@ var userStat = function(u) {
 }
 
 function googleauth() {
-	WebKameleonAuth.GoogleUser(userStat);
-	if (typeof(WebKameleonAuthReady)=='function') WebKameleonAuthReady();
+	WebKameleonAuth.GoogleUser(function(u){
+		userStat(u);
+		if (typeof(WebKameleonAuthReady)=='function') WebKameleonAuthReady(u);
+	});
+	
 }
 
 $(document).ready(function () {
