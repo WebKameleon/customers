@@ -5,9 +5,12 @@
 <div id="gallery{webtd.sid}" class="gallery2">
 {loop:webtd.menu}
 <figure class="col-md-4">
-  <a class="fancybox{webtd.sid}" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}{if:titlea}<br/><span class='gallery2_more'>{titlea}</span>{endif:titlea}"{endif:alt}>
-  <img class="img-responsive" src="{thumbsUrl}/{img}" title="{alt}">
+  <a class="gallery2_aimg fancybox{webtd.sid}" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}"
+	 {if:alt}title="{alt}{if:titlea}<br/><span class='gallery2_more'>{titlea}</span>{endif:titlea}"{endif:alt}>
+  <img class="img-responsive" src="{thumbsUrl}/{img}" title="{alt}"/>
+  <span class="galery2_more_hover">{titlea}</span>
   </a>
+  
   <div class="clearfix"></div>
   {if:href}<a href="{href}"{if:target} target="{target}"{endif:target}>{endif:href}
   <figcaption>{if:alt}{alt}{endif:alt}{if:!alt}&nbsp;{endif:!alt}</figcaption>

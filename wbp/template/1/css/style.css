@@ -1220,6 +1220,28 @@ h5.kmw_article_author {
 	margin:0 auto;
 }
 
+.gallery2 img:hover {
+	opacity:0.4;
+}
+
+.gallery2 .gallery2_aimg {
+	position: relative;
+}
+
+.gallery2 .gallery2_aimg .galery2_more_hover {
+	position: absolute;
+	bottom: 10px;
+	color: #000;
+	margin-left: 25px;
+	width: 80%;
+	display: none;
+	font-size: 12px;
+}
+
+.gallery2 img:hover+span.galery2_more_hover {
+	display: block;
+}
+
 .gallery2 figcaption {
 	text-align:center;
 	font-family: 'PT Sans', sans-serif;
