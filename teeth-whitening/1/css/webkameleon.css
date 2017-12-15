@@ -131,6 +131,10 @@ kmw_article ul ul {
   font-size: 48px;
 }
 
+.top_article ul {
+  list-style: outside;
+}
+
 @media (max-width: 1199px) {
   .top_article .info-block h2,.top_article .info-block-mod h2 {
     font-size: 26px;
@@ -235,10 +239,30 @@ header {
 }
 
 .breadcrumbs {
-	padding-bottom: 5px;
-	margin-bottom: 10px;
-	padding-left: 10px;
-	border-bottom: 1px solid #555;	
+
+	border-bottom: 1px solid #555;
+    padding: 20px 10px 20px 30px;
+}
+
+.breadcrumbs.bc-bgimg {
+    padding: 30px 10px 30px 30px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+}
+
+.breadcrumbs.bc-bgimg a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.breadcrumbs.bc-bgimg a:hover {
+    color: #ff0;
+    text-decoration: none;
+}
+
+.breadcrumbs.bc-bgimg > ul > li:after {
+    color: #fff;
 }
 
 h1 {
@@ -276,3 +300,19 @@ h5 {
 h6 {
   font-size: 16px;
   line-height: 16px; }
+  
+.well {
+  padding: 65px 0 82px;
+}
+
+.well1 {
+    padding: 59px 0 88px;
+}
+
+.btn {
+    margin: 26px 0 0 5px;
+}
+
+.info-block h3 {
+    margin: 38px 0 0 4px;
+}
