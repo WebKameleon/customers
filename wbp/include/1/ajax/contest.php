@@ -203,7 +203,7 @@
         $index=$f['name'][$lp];
         $type=$f['type'][$lp];
         
-        if (strstr($f['name'][$lp],'canon2')) mydd3ie($f);
+        //if (strstr($f['name'][$lp],'canon2')) mydd3ie($f);
         
         $lp++;
         
@@ -221,8 +221,16 @@
     
             if (!count($kategorie['items']))
             {
-                $kategoria=Google::createFolder($kat,$parent_id);
-                $parent_id=$kategoria['id'];
+                sleep(1);
+                $kategorie=Google::getFileChildren($parent_id,$kat);
+                if (!count($kategorie['items'])) {
+                    $kategoria=Google::createFolder($kat,$parent_id);
+                    $parent_id=$kategoria['id'];                    
+                } else {
+                    $parent_id=$kategorie['items'][0]['id'];
+                }
+                
+
             }
             else
             {

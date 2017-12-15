@@ -29,7 +29,7 @@
         $categories_options='<option value="" class="choose_cat"></option>';
         foreach($configuration['drive']['cat'] AS $class)
         {
-            $categories_options.='<option class="'.$class.'" value="'.$contest_categories[$class].'">'.$contest_categories[$class].'</option>';
+            $categories_options.='<option class="'.$class.'" value="'.WBP::str_to_url($contest_categories[$class]).'">'.$contest_categories[$class].'</option>';
         }
     }
     
