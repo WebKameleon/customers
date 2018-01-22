@@ -1216,7 +1216,7 @@ h5.kmw_article_author {
 }
 
 .gallery2 img {
-	height:134px;
+	max-height:134px;
 	margin:0 auto;
 }
 

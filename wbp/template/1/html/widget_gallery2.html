@@ -2,9 +2,15 @@
 {with:gallery2Widget}
 {if:webtd.menu}
 
+{define:colmd}4{enddefine:colmd}
+{if:size=2}{define:colmd}6{enddefine:colmd}{endif:size=2}
+{if:size=4}{define:colmd}3{enddefine:colmd}{endif:size=4}
+{if:size=5}{define:colmd}2{enddefine:colmd}{endif:size=5}
+{if:size=6}{define:colmd}2{enddefine:colmd}{endif:size=6}
+
 <div id="gallery{webtd.sid}" class="gallery2">
 {loop:webtd.menu}
-<figure class="col-md-4">
+<figure class="col-md-{colmd}">
   <a class="gallery2_aimg fancybox{webtd.sid}" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}"
 	 {if:alt}title="{alt}{if:titlea}<br/><span class='gallery2_more'>{titlea}</span>{endif:titlea}"{endif:alt}>
   <img class="img-responsive" src="{thumbsUrl}/{img}" title="{alt}"/>
