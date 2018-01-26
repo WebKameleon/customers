@@ -18,7 +18,7 @@
     
     foreach($wystawy_all AS $w)
     {
-        if (!in_array('Lista wystaw',$webcat->catsOnPage(Bootstrap::$main->session('server')['id'],$lang,$ver,$lang,$w['id']))) continue;
+        if (!in_array('foto lista wystaw',$webcat->catsOnPage(Bootstrap::$main->session('server')['id'],$lang,$ver,$lang,$w['id']))) continue;
         $wystawy[$w['title'].$w['id']] = array('id'=>$w['id'],'title'=>$w['title']);
     
            
