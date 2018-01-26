@@ -8,6 +8,18 @@
 {if:size=5}{define:colmd}2{enddefine:colmd}{endif:size=5}
 {if:size=6}{define:colmd}2{enddefine:colmd}{endif:size=6}
 
+
+
+{if:data.thumb_width}
+  <style>
+  #gallery{webtd.sid} img.img-responsive {
+	height: auto;
+	max-height: {data.thumb_height}px;
+  }
+  </style>
+{endif:data.thumb_width}
+
+
 <div id="gallery{webtd.sid}" class="gallery2">
 {loop:webtd.menu}
 <figure class="col-md-{colmd}">
