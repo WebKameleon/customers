@@ -87,7 +87,7 @@
     
         $title=$data['title']=$w['title'];
         
-        if ( $since<$w['from'] && $till>$w['from']  ||  $since<$w['to'] && $since>$w['from'] )
+        if ( $since<=$w['from'] && $till>=$w['from']  ||  $since<=$w['to'] && $since>=$w['from'] )
         {
             die (json_encode(array('error'=>'W podanym terminie wystawa jest już zarezerwowana','obj'=>'since')));
         }
