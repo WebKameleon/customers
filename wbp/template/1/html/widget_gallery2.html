@@ -7,7 +7,7 @@
 {if:size=4}{define:colmd}3{enddefine:colmd}{endif:size=4}
 {if:size=5}{define:colmd}2{enddefine:colmd}{endif:size=5}
 {if:size=6}{define:colmd}2{enddefine:colmd}{endif:size=6}
-
+{if:size=(7,8,9,10,11,12)}{define:colmd}1{enddefine:colmd}{endif:size=(7,8,9,10,11,12)}
 
 
 {if:data.thumb_width}
@@ -22,18 +22,20 @@
 
 <div id="gallery{webtd.sid}" class="gallery2">
 {loop:webtd.menu}
+{define:attr}data-fancybox-href="{uimages}/{img}" href="javascript:;"{enddefine:attr}
+{if:mode=(0,1)}{if:href}{define:attr}href="{href}"{if:target} target="{target}"{endif:target}{enddefine:attr}{endif:href}{endif:mode=(0,1)}
 <figure class="col-md-{colmd}">
-  <a class="gallery2_aimg fancybox{webtd.sid}" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}"
+  <a class="gallery2_aimg fancybox{webtd.sid}" {attr} rel="gallery{webtd.sid}"
 	 {if:alt}title="{alt}{if:titlea}<br/><span class='gallery2_more'>{titlea}</span>{endif:titlea}"{endif:alt}>
   <img class="img-responsive" src="{thumbsUrl}/{img}" title="{alt}"/>
   <span class="galery2_more_hover">{titlea}</span>
   </a>
   
   <div class="clearfix"></div>
-  {if:href}<a href="{href}"{if:target} target="{target}"{endif:target}>{endif:href}
+  <a {attr}}>
   <figcaption>{if:alt}{alt}{endif:alt}{if:!alt}&nbsp;{endif:!alt}</figcaption>
   <div class="gallery-line"></div>
-  {if:href}</a>{endif:href}
+  </a>
 </figure>
 {endloop:webtd.menu}
 </div>
