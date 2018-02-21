@@ -23,7 +23,7 @@
 <div id="gallery{webtd.sid}" class="gallery2">
 {loop:webtd.menu}
 {define:attr}data-fancybox-href="{uimages}/{img}" href="javascript:;"{enddefine:attr}
-{if:mode=(0,1)}{if:href}{define:attr}href="{href}"{if:target} target="{target}"{endif:target}{enddefine:attr}{endif:href}{endif:mode=(0,1)}
+{if:mode=(0,1)}{if:href}{if:!alt}{define:attr}href="{href}"{if:target} target="{target}"{endif:target}{enddefine:attr}{endif:!alt}{endif:href}{endif:mode=(0,1)}
 <figure class="col-md-{colmd}">
   <a class="gallery2_aimg fancybox{webtd.sid}" {attr} rel="gallery{webtd.sid}"
 	 {if:alt}title="{alt}{if:titlea}<br/><span class='gallery2_more'>{titlea}</span>{endif:titlea}"{endif:alt}>
