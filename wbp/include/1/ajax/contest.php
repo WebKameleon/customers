@@ -1,5 +1,6 @@
 <?php
     ini_set('display_errors',true);
+    //error_reporting(15);
     
     //if (rand(0,2)+0==0) myd988die();
     
@@ -147,7 +148,7 @@
         }
         
         if (isset($_SERVER['HTTP_CONTENT_RANGE'])) {
-            $max_chunks=100;
+            $max_chunks=30;
 		    $range=str_replace('bytes ', '', $_SERVER['HTTP_CONTENT_RANGE']);
             $range=explode('/',$range);
 		    $range[0]=explode('-',$range[0]);
@@ -162,19 +163,25 @@
             
             move_uploaded_file($f['tmp_name'][$lp],$dir_prefix.$token.'.'.$chunk);
             if ($total_size-1 != $range[0][1]) {
-                contest_ret(array('files'=>array(),'chunk'=>$chunk, 'range'=>$_SERVER['HTTP_CONTENT_RANGE']));
+                contest_ret(array('files'=>array(),'chunk'=>$chunk.'/'.ceil($total_size/$chunk_size), 'range'=>$_SERVER['HTTP_CONTENT_RANGE']));
             }
             
             for ($j=0;$j<$max_chunks;$j++) { // czekamy tyle sekund, co chunków 
                 $size=0;
+                $allChunks=['total'=>$total_size,'chunks'=>[]];
                 for ($i=0;$i<=$max_chunks;$i++) {
                     $fi=$dir_prefix.$token.'.'.$i;
-                    if (file_exists($fi)) $size+=filesize($fi);
+                    if (file_exists($fi)) {
+                        $size+=filesize($fi);
+                        $allChunks['chunks'][$i]=filesize($fi);
+                    }
                     if ($total_size==$size) {
                         $chunk=$i;
                         break;
                     }
                 }
+                $allChunks['size'] = $size;
+                
                 if ($total_size==$size) {
                     $blob='';
                     for ($i=1;$i<=$chunk;$i++) {
@@ -195,7 +202,7 @@
                     sleep(1);
                     continue;
                 }
-                die('<pre>'.print_r([$range,$size,$chunk_size,$chunk],1));
+                die('<pre>'.print_r([$allChunks,$range,$chunk_size,$chunk],1));
             }
   
             

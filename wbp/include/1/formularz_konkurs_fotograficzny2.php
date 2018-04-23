@@ -371,11 +371,11 @@ window.onload = function() {
         sequentialUploads: true,
         autoUpload: false,
         maxNumberOfFiles: max,
-        maxChunkSize: 500000, // 0.5M
+        maxChunkSize: 1048576, // 1M
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png|tiff?)$/i,
-        maxFileSize: 31200000,  // 30 MB
+        maxFileSize: 22020096,  // 20 MB
         minFileSize: 100000,     // 100K
-        maxRetries: 50,
+        maxRetries: 23,
         retryTimeout: 500
     });
 
