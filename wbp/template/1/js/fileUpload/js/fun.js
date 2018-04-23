@@ -399,7 +399,7 @@ function foto_init_validation()
                         data.data = null;
                         data.url=d.url;
                         data.submit();
-                        console.log('resubmit',data.files[0]);
+                        console.log('resubmit',data.files[0].name);
                     },fu.options.retryTimeout);                                
                 });
 
