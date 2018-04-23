@@ -225,7 +225,7 @@ function deUpDir(urlc) {
 }
 
 function check_failed() {
-    console.log('check_failed',uploaded_images,failed_images);
+    //console.log('check_failed',uploaded_images,failed_images);
     
     if (uploaded_images-failed_images==0) {
         $('#wbp-form-loading').fadeOut();
@@ -382,7 +382,7 @@ function foto_init_validation()
         }).bind('fileuploadfail', function (e, data) {
             
             var fu = $(this).data('blueimp-fileupload') || $(this).data('fileupload');
-            console.log('fileuploadfail',image_files_counters[data.files[0].name],fu.options.maxRetries,data);
+            console.log('fail',data.files[0].name,image_files_counters[data.files[0].name],fu.options.maxRetries);
             
             if (typeof(data.errorThrown)=='string' && data.errorThrown=='abort') {
                 return $.blueimp.fileupload.prototype.options.fail.call(this, e, data);

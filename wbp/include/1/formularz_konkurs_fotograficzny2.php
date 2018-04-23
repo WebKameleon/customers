@@ -375,7 +375,7 @@ window.onload = function() {
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png|tiff?)$/i,
         maxFileSize: 31200000,  // 30 MB
         minFileSize: 100000,     // 100K
-        maxRetries: 25,
+        maxRetries: 50,
         retryTimeout: 500
     });
 
