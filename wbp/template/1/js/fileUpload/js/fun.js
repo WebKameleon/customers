@@ -311,6 +311,8 @@ function foto_init_url(cb) {
         contest_form_url=data.url;
         $('#fileuploadip').val(data.ip);
         if (typeof(cb)=='function') cb(data);
+    }).fail(function(){
+        if (typeof(cb)=='function') cb();
     });
 }
 
@@ -394,15 +396,22 @@ function foto_init_validation()
                 check_failed();
                 setTimeout(count_files,300);                
             } else {
-                foto_init_url(function(d){
-                    setTimeout(function(){
-                        data.data = null;
-                        data.url=d.url;
-                        data.submit();
-                        console.log('resubmit',data.files[0].name);
-                    },fu.options.retryTimeout);                                
-                });
-
+                var resubmit = function(url) {
+                    data.data = null;
+                    data.url=url;
+                    data.submit();
+                    console.log('resubmit',data.files[0].name);
+                }
+                var getNewUrl = function(){
+                    
+                    foto_init_url(function(d){
+                        if (d) setTimeout(resubmit,fu.options.retryTimeout,d.url);
+                        else setTimeout(getNewUrl,fu.options.retryTimeout);
+                    });
+                    
+                }
+                
+                getNewUrl();
             }
             
             
