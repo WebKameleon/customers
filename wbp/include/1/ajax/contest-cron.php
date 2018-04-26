@@ -50,7 +50,7 @@ function toSpreadsheet($data) {
         $worksheet_id=end(explode('/',$worksheet->id));
     }
     
-    foreach ($data_to_write_to_spreadsheet AS $row)
+    foreach ($data_to_write_to_spreadsheet AS $ii=>$row)
     {
         
         $header=Spreadsheet::getWorksheet($td_data['drive']['id'],$worksheet_id,'max-row=1');
@@ -72,7 +72,7 @@ function toSpreadsheet($data) {
         if (isset($row['email'])) {
             if (!isset($emails[$td_data['title']][$row['email']]))
                 $emails[$td_data['title']][$row['email']]=array();
-            $emails[$td_data['title']][$row['email']][]=[$td_data['drive']['email'],$row['thumbnail'],$row['title']];
+            $emails[$td_data['title']][$row['email']][]=[$td_data['drive']['email'],$row['thumbnail'],$row['title'],$data['response_images'][$ii]['name']];
         }
         
         $row=@Spreadsheet::addListRow($td_data['drive']['id'],$worksheet_id,$row);
@@ -86,14 +86,14 @@ function toSpreadsheet($data) {
 
 $photos=WBP::getJsonFiles();
 
-echo 'Photos:';
-print_r($photos);
+//echo 'Photos:';print_r($photos);
+
 foreach ($photos AS $f=>$photo) {
-    
     if (isset($photo_id) && !strstr($f,$photo_id) ) continue;
-    
     if(toSpreadsheet($photo)) WBP::rmJsonFile($f);
 }
+
+//echo 'Emails:'; print_r($emails);
 
 foreach($emails AS $title=>$rest) {
     foreach($rest AS $to=>$rows) {
@@ -102,7 +102,7 @@ foreach($emails AS $title=>$rest) {
         
         foreach ($rows AS $row) {
             $from=$row[0];
-            $mail.='<li style="padding:5px"><img src="'.$row[1].'" align="absmiddle"/> '.$row[2].'</li>';
+            $mail.='<li style="padding:5px"><img src="'.$row[1].'" align="absmiddle"/> '.$row[2].' ('.$row[3].')</li>';
         }
         $mail.='</ul>';
         
