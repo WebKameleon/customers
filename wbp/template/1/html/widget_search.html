@@ -23,8 +23,10 @@
 
 <gcse:searchbox-only resultsUrl="{next_link}" queryParameterName="q" enableAutoComplete="true"></gcse:searchbox-only>
 
-<form id="search-catalog-form" style="display: none" target="_blank" action="http://www.poznan-wbp.sowwwa.pl/sowacgi.php">
+<form id="search-catalog-form" style="display: none" target="_blank"  action="https://www.wbp.poznan.pl/inc/system/proxy.php">
     <input type="text" name="q" id="search-catalog-form-txt"/>
+	<input type="hidden" name="method" value="get"/>
+	<input type="hidden" name="action" value="https://www.poznan-wbp.sowwwa.pl/sowacgi.php"/>
     <input type="hidden" name="KatID" value="2"/>
     <input type="hidden" name="typ" value="repl"/>
     <input type="hidden" name="plnk" value=""/>

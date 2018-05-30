@@ -15,24 +15,37 @@ function wbp_inject(part)
       var website=ret[0];
       var data=ret[1];
       
+      
       var re=/href="http/g;
       data=data.replace(re,'kajhskjsfsdjfvyegrdjfhgdf3423dwefer');
       
+      re=/href="\/\//g;
+      data=data.replace(re,'xajhskjsfsdjfvyegrdjfhgdf3423dwefer');
+
       re=/src="http/g;
       data=data.replace(re,'bisdcbj7yejsc6svasdt7u3hagsdva7sdta');
       
-      
+      re=/src="\/\//g;
+      data=data.replace(re,'xisdcbj7yejsc6svasdt7u3hagsdva7sdta');
+
       re=/src="/g;
       data=data.replace(re,'src="'+website);
       
       re=/href="/g;
       data=data.replace(re,'href="'+website);
       
+
       re=/kajhskjsfsdjfvyegrdjfhgdf3423dwefer/g;
       data=data.replace(re,'href="http');
       
       re=/bisdcbj7yejsc6svasdt7u3hagsdva7sdta/g;
       data=data.replace(re,'src="http');      
+
+      re=/xajhskjsfsdjfvyegrdjfhgdf3423dwefer/g;
+      data=data.replace(re,'href="//');
+      
+      re=/xisdcbj7yejsc6svasdt7u3hagsdva7sdta/g;
+      data=data.replace(re,'src="//');      
       
       if (part=='header') $('body').prepend(data);
       else $('body').append(data);

@@ -47,7 +47,7 @@ window.onload = function() {
 
 
 <div id="wbp_shop_template">
-    <img alt="[alt]" src="[img]" title="[alt]" />
+    <img alt="[alt]" src="https://www.wbp.poznan.pl/inc/system/proxy.php?proxy=[img]" title="[alt]" />
     <p class="author">[author]</p>
     <p class="title">[title]</p>
     
