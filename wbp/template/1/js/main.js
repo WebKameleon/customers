@@ -65,7 +65,7 @@ $('#search-www').click(search_choosen);
 $('#search-catalog').click(search_choosen);
 
 $('#search-catalog-form').submit(function () {
-    $(this).find('input[name=plnk]').val('d__'+$(this).find('input[name=q]').val());
+    $(this).find('input[name=plnk]').val('q__'+$(this).find('input[name=q]').val());
 });
 
 
