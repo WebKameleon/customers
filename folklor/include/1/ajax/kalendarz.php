@@ -22,9 +22,16 @@
         $key='cal:'.md5($ics."-$month-$year");
         
         $a=folklor_cache($key);
+	$array=[];
         
         if ($a) {
             $array=$a;
+
+		foreach($array AS $i=>$a) {
+			$pos=strpos($a[2],'?');
+			if (!$pos) continue;
+			$array[$i][2] = $_GET['next'] . substr($a[2],$pos);
+		}
             
         } else {
                         
