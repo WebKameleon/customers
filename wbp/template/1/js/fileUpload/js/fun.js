@@ -281,14 +281,14 @@ function upload_done(e,data)
         if ($('#form-paypal input[name=notify_url]').val().indexOf('http:')<0) {
         	$('#form-paypal input[name=notify_url]').val(deUpDir(dirname(location.href)+$('#form-paypal input[name=notify_url]').val()));
         }
-
-        $('#form-paypal input[name=custom]').val(file.id);
+        if (typeof(file)!='undefined') {
+            $('#form-paypal input[name=custom]').val(file.id);
+            var url=file.done+'?id='+file.id;
+            $.get(url);
+        }
+        
         $('#foto-contest-payment').fadeIn(500);
         
-        var url=file.done+'?id='+file.id;
-        $.get(url);
-        //console.log(data._response.result.files[0]);
-        //console.log(data);
         
         $('.template-download .label-danger').closest('tr').hide();
         $('.show-afterwords').show();
