@@ -6,67 +6,6 @@
 	
 	include __DIR__.'/contest-cron.php';
 
-	return;
-
-	require_once __DIR__.'/../kameleon/Google.php';
-	require_once __DIR__.'/../kameleon/Spreadsheet.php';
-	include_once __DIR__.'/../system/fun.php';
-
-
-
 	
-	$td_data=WBP::get_data($sid);
-	
-	Spreadsheet::setToken(null);
-	if (!isset($_SESSION['spreadsheets_access_token'])) $_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
-	$token=Spreadsheet::setToken($_SESSION['spreadsheets_access_token']);    
-	foreach($token AS $k=>$v) $td_data['tokens']['spreadsheets']->$k=$v;
-	$_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
-	
-	session_write_close();
-
-	$sheets=Spreadsheet::listWorksheets($td_data['drive']['id']);
-		
-	$worksheet_id=null;
-	foreach ($sheets AS $id=>$contents)
-	{
-	    if ($contents['title']==$td_data['title'])
-	    {
-		$worksheet_id=$id;
-		break;
-	    }
-	}	
-	
-	$data=Spreadsheet::getWorksheet($td_data['drive']['id'], $worksheet_id );
-
-	$header=$data[0];
-	$idx_id=-1;
-	foreach($header AS $i=>$h)
-	{
-	    if ($h=='id') $idx_id=$i;
-	}
-	
-	$foto_ul='';
-	
-	$from=$td_data['drive']['email'];
-	$to=$from;
-
-	for ($i=1; $i<count($data); $i++)
-	{
-	    if ($data[$i][$idx_id]==$photo_id)
-	    {
-			foreach ($data[$i] AS $k=>$v) $data[$i][$header[$k]]=$v;
-			if (strstr($data[$i]['email'],'@')) $to=trim($data[$i]['email']);
-			$foto_ul.='<li><img src="'.$data[$i]['thumbnail'].'" align="absmiddle"/> '.$data[$i]['title'].'</li>';
-	    }
-	}
-	
-	
-	$mail='Dziękujemy za przesłanie następujących zdjęć / Thank you for submitting the following photographs<ul style="list-style: none">'.$foto_ul.'</ul>';
-	
-	$mail.='<p>Po weryfikacji zdjęcia wezmą udział w konkursie / After verification, the photographs will take part in the competition <b>'.$td_data['title'].'</b></p>';
-	$mail.='<p>WBPiCAK - Dział FOTOGRAFIA / WBPiCAK - Department of PHOTOGRAPHY</p>';
-	
-	WBP::mail($from,$to,$td_data['title'],$mail);
 
 	

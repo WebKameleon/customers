@@ -159,29 +159,34 @@
             $chunk=1+floor($range[0][0]/$chunk_size);
             //chunk 0 => last chunk
             if ($total_size-1==$range[0][1]) $chunk=0;
+            
+            $storage_copy = $dir_prefix.$token.'.bin';
              
+            $fi = $dir_prefix.$token.'.'.$chunk;
+            if (file_exists($fi)) unlink($fi);
+            move_uploaded_file($f['tmp_name'][$lp],$fi);
             
-            move_uploaded_file($f['tmp_name'][$lp],$dir_prefix.$token.'.'.$chunk);
-            if ($total_size-1 != $range[0][1]) {
-                contest_ret(array('files'=>array(),'chunk'=>$chunk.'/'.ceil($total_size/$chunk_size), 'range'=>$_SERVER['HTTP_CONTENT_RANGE']));
-            }
             
-            for ($j=0;$j<$max_chunks;$j++) { // czekamy tyle sekund, co chunków 
-                $size=0;
-                $allChunks=['total'=>$total_size,'chunks'=>[]];
-                for ($i=0;$i<=$max_chunks;$i++) {
-                    $fi=$dir_prefix.$token.'.'.$i;
-                    if (file_exists($fi)) {
-                        $size+=filesize($fi);
-                        $allChunks['chunks'][$i]=filesize($fi);
-                    }
-                    if ($total_size==$size) {
-                        $chunk=$i;
-                        break;
-                    }
+            $size=0;
+            $last_chunk_size=0;
+            $allChunks=['total'=>$total_size,'chunks'=>[]];
+            for ($i=0;$i<=$max_chunks;$i++) {
+                $fi=$dir_prefix.$token.'.'.$i;
+                if (file_exists($fi)) {
+                    if ($i==0) $last_chunk_size=filesize($fi);
+                    $size+=filesize($fi);
+                    $allChunks['chunks'][$i]=filesize($fi);
+                } 
+                if ($total_size==$size) {
+                    $chunk=$i;
+                    break;
                 }
-                $allChunks['size'] = $size;
-                
+            }
+            $allChunks['size'] = $size;
+            
+            if (file_exists($storage_copy)) {
+                $blob = file_get_contents($storage_copy);
+            } else {
                 if ($total_size==$size) {
                     $blob='';
                     for ($i=1;$i<=$chunk;$i++) {
@@ -196,20 +201,19 @@
                         $blob.=file_get_contents($fi);
                         unlink($fi);
                     }
-                    break;
+                    file_put_contents($storage_copy,$blob);
                     
                 } else {
-                    sleep(1);
-                    continue;
-                }
-                die('<pre>'.print_r([$allChunks,$range,$chunk_size,$chunk],1));
+                    contest_ret(array('files'=>array(),'chunk'=>$chunk.'/'.ceil($total_size/$chunk_size), 'range'=>$_SERVER['HTTP_CONTENT_RANGE'], 'debug'=>$allChunks));
+                }                
             }
-  
-            
+ 
         } else {
             $tmp=$f['tmp_name'][$lp];
+            $storage_copy=$tmp;
             $blob=file_get_contents($tmp);
             $size=$f['size'][$lp];
+            $token='nochunk.'.md5($f['name'][$lp]).'.'.$size.'.'.$data['ip'];
         }
         
         
@@ -296,12 +300,12 @@
     
     
     
-    WBP::dumpJson($sid.$data['id'].'-'.rand(200000,time()).'.json',[
+    WBP::dumpJson($sid.$data['id'].'-'.$token.'.json',[
         'response_images' => $response_images,
         'td_data' => $td_data,
-        'data_to_write_to_spreadsheet' => $data_to_write_to_spreadsheet
+        'data_to_write_to_spreadsheet' => $data_to_write_to_spreadsheet,
+        'storage_copy' => $storage_copy
     ]);
     
     
-
     contest_ret(array('files'=>$response_images,'debug'=>$debug,'get'=>$_GET,'ssid'=>session_id()));

@@ -13,7 +13,7 @@ $emails=[];
 function toSpreadsheet($data) {
     
     global $emails;
-
+    
     $td_data=$data['td_data'];
     $data_to_write_to_spreadsheet=$data['data_to_write_to_spreadsheet'];
 
@@ -30,8 +30,9 @@ function toSpreadsheet($data) {
     $sheets=Spreadsheet::listWorksheets($td_data['drive']['id']);
     
     
-    if (!is_array($sheets)) return false;
-    
+    if (!is_array($sheets)) {
+        return false;
+    }
     
     $worksheet_id=null;
     foreach ($sheets AS $id=>$contents)
@@ -80,6 +81,11 @@ function toSpreadsheet($data) {
 
     }
 
+    
+    if (isset($data['storage_copy']) && file_exists($data['storage_copy']) ) {
+        unlink($data['storage_copy']);
+    }
+    
     return true;
 }
 
@@ -88,9 +94,12 @@ $photos=WBP::getJsonFiles();
 
 //echo 'Photos:';print_r($photos);
 
+
 foreach ($photos AS $f=>$photo) {
     if (isset($photo_id) && !strstr($f,$photo_id) ) continue;
-    if(toSpreadsheet($photo)) WBP::rmJsonFile($f);
+    $ok=toSpreadsheet($photo);
+    if($ok) WBP::rmJsonFile($f);
+   
 }
 
 //echo 'Emails:'; print_r($emails);
