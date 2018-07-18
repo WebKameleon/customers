@@ -82,8 +82,14 @@ function toSpreadsheet($data) {
     }
 
     
-    if (isset($data['storage_copy']) && file_exists($data['storage_copy']) ) {
+    if ( isset($data['storage_copy']) && file_exists($data['storage_copy']) ) {
         unlink($data['storage_copy']);
+    }
+    
+    if ( isset($data['storage_chunk_files']) && is_array($data['storage_chunk_files']) ) {
+        foreach($data['storage_chunk_files'] AS $chunk_file)
+            if (file_exists($chunk_file))
+                unlink($chunk_file);
     }
     
     return true;

@@ -137,6 +137,7 @@
         if (!file_exists($dir_prefix)) mkdir($dir_prefix,0755);
     }
 
+    $storage_chunk_files = [];
 
     foreach($_FILES AS $f)
     {
@@ -176,6 +177,7 @@
                     if ($i==0) $last_chunk_size=filesize($fi);
                     $size+=filesize($fi);
                     $allChunks['chunks'][$i]=filesize($fi);
+                    $storage_chunk_files[]=$fi;
                 } 
                 if ($total_size==$size) {
                     $chunk=$i;
@@ -304,7 +306,8 @@
         'response_images' => $response_images,
         'td_data' => $td_data,
         'data_to_write_to_spreadsheet' => $data_to_write_to_spreadsheet,
-        'storage_copy' => $storage_copy
+        'storage_copy' => $storage_copy,
+        'storage_chunk_files' => $storage_chunk_files
     ]);
     
     
