@@ -2128,6 +2128,13 @@ a.jotform_edit:hover {
 }
 
 
+.jotform-form li[data-type=control_datetime] span.form-sub-label-container {
+	width: 80px !important;
+}
+.jotform-form li[data-type=control_datetime] .form-input input.form-textbox {
+	min-width: 45px;
+}
+
 
 @media (max-width:716px) {
 	#fileupload .col-lg-7 input,
