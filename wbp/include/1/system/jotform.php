@@ -150,6 +150,10 @@ class jotform {
     }
     
     public function iframe($formId) {
+	$iframe = '<script nodefer="defer" type="text/javascript" src="https://form.jotformeu.com/jsform/'.$formId.'"></script>';
+	return $iframe;
+    }
+    public function xiframe($formId) {
 
         $iframe = '
 

@@ -1,4 +1,124 @@
 /* JOTFORM */
+.jotform-form .form-input {
+	max-width:450px;
+	margin-top: 2px;
+}
+
+.jotform-form .form-required {
+	display: inline-block;
+}
+
+.jotform-form label.form-label.form-label-left.form-label-auto {
+	display: inline-flex;
+}
+
+.jotform-form label {
+	width: 250px;
+}
+
+.jotform-form .form-checkbox-item input {
+	float:left;
+	margin-right: 5px;
+}
+
+.jotform-form .form-checkbox-item label {
+	/*width: 425px;*/
+	width: 92%;
+}
+
+.jotform-form .form-input {
+	width: 450px;
+	margin-left:25px;
+}
+
+.jotform-form label.form-label.form-label-left.form-label-auto {
+	margin-right: 0px !important;
+}
+
+.jotform_select {
+	float: left;
+}
+
+a.jotform_edit {
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+	background-color: #176095;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+	font-weight:normal;
+	line-height: 20px;
+	margin-left: 3px;
+}
+
+a.jotform_edit:hover {
+	text-decoration: none;
+	background-color: #042c48;	
+}
+
+.jotform-form input.form-textbox, .jotform-form textarea.form-textarea, .jotform-form select.form-dropdown {
+	border: 1px solid #dedede;
+	min-width: 450px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.jotform-form .form-sub-label-container input.form-textbox.form-address-city,
+.jotform-form .form-sub-label-container input.form-textbox.form-address-state,
+.jotform-form .form-sub-label-container input.form-textbox.form-address-postal {
+	max-width: 450px !important;
+	min-width: 225px !important;
+}
+
+.jotform-form .form-sub-label-container .form-dropdown.form-address-country {
+	max-width: 225px !important;
+	min-width: 225px !important;
+}
+
+
+.jotform-form li[data-type=control_datetime] span.form-sub-label-container {
+	width: 80px !important;
+}
+.jotform-form li[data-type=control_datetime] .form-input input.form-textbox {
+	min-width: 45px;
+}
+
+
+@media (max-width:716px) {
+	#fileupload .col-lg-7 input,
+	.jotform-form input.form-textbox,
+	.jotform-form textarea.form-textarea,
+	.jotform-form select.form-dropdown {
+		min-width:350px;
+	}
+}
+
+@media (max-width:650px) {
+	#fileupload .col-lg-7 input,
+	.jotform-form input.form-textbox,
+	.jotform-form textarea.form-textarea,
+	.jotform-form select.form-dropdown {
+		min-width:300px;
+	}
+}
+
+@media (max-width:550px) {
+	#fileupload .col-lg-7 input {
+		min-width:250px;
+	}
+}
+
+@media (max-width:480px) {
+	#fileupload .col-lg-7 input,
+	.jotform-form input.form-textbox,
+	.jotform-form textarea.form-textarea,
+	.jotform-form select.form-dropdown {
+		min-width:200px;
+	}
+}
+/* end JOTFORM */
+/* JOTFORM */
 .form-line, .form-input, .form-input-wide, .form-dropdown, .form-sub-label-container, .form-address-table, .form-matrix-table {
 	width: auto !important;
 }
@@ -130,7 +250,14 @@
 	height: auto !important;
 }
 
-.jotform * {
+.jotform *, .jotform-form * {
 	font-family: 'Open Sans', sans-serif;
 }
+
+.jotform-form .form-radio-item .form-radio-other-input {
+	margin-left: 20px;
+	position: relative;
+	top: -30px;
+}
+
 /* end JOTFORM */
