@@ -379,6 +379,50 @@ class WBP {
 		
 		unlink($dir.'/'.$f);
 	}
+	
+	
+	public static function getContestDir($client) {
+		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+			$dir='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/foto-contest/'.$client;
+		} else {
+			$dir='/tmp/foto-contest/'.$client;
+			if (!is_dir($dir)) mkdir($dir,0755,true);
+		}
+		
+		$ret=[];
+		
+		if (is_dir($dir)) {
+			$sdir=scandir($dir);
+				
+			foreach ($sdir AS $i=>$f) {
+				if ($f[0]=='.') continue;
+				
+				if (substr($f,-5)=='.json')
+					$ret[$f] = json_decode(file_get_contents($dir.'/'.$f),true);
+				else
+					$ret[$f] = true;
+			}
+		}
+		
+		return ['dir'=>$dir,'contents'=>$ret];
+	}
+	
+	public static function getContestPreview($img,$medir,$size,$crop) {
+		
+		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+			$options=['crop'=>$crop,'size'=>$size,'secure_url'=>true];
+			return CloudStorageTools::getImageServingUrl($img, $options);
+			
+		} else {
+			return $medir.='/preview.php?img='.urlencode($img).'&size='.$size.'&crop='.($crop?1:0);
+		
+		}
+		
+	
+	}
+	
 }
 
 
