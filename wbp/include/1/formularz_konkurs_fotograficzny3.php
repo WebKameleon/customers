@@ -4,7 +4,7 @@
     
     Bootstrap::$main->tokens->set_wbp_js(
         array('fileUpload/js/vendor/jquery.ui.widget.js',
-              'fileUpload/js/tmpl.min.js',
+              'fileUpload/js/tmpl.js',
               'fileUpload/js/load-image.all.min.js',
               'fileUpload/js/canvas-to-blob.min.js',
               'fileUpload/js/jquery.blueimp-gallery.min.js',
@@ -218,7 +218,7 @@
             </button>
             
             <button class="btn btn-warning cancel">
-                <i class="glyphicon glyphicon-ban-circle"></i>
+                <i class="glyphicon">&#128683;</i>
                 <span><label for="discard">Odrzuć</label></span>
             </button>
             {% } %}
@@ -247,23 +247,27 @@
             </p>
             {% if (file.error) { %}
                 <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+            {% } else { %}
+                <div><input name="files[{%=file.name%}][title]" class="placeholder photo_title required"/></div>
+                <div><label class="photoset" for="files[{%=file.name%}][set]"></label><input type="checkbox" class="photo_set" name="files[{%=file.name%}][set]" onchange="photo_set_checked(this)" value="1"></div>
+                <div><input name="files[{%=file.name%}][setno]" class="placeholder setno required" style="display: none"/></div>
+                <?php if ($categories_options): ?>
+                <div><select name="files[{%=file.name%}][category]" class="category required"><?php echo $categories_options ?></select></div>
+                <?php endif; ?>
             {% } %}
         </td>
         <td>
-            <span class="size">{%=o.formatFileSize(file.size)%}</span>
+            <textarea class="placeholder description required" name="files[{%=file.name%}][description]"></textarea>
         </td>
+
         <td>
+            <p><span class="size">{%=o.formatFileSize(file.size)%}</span></p>
             {% if (file.deleteUrl) { %}
-                <button class="btn btn-danger delete none" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
-                    <i class="glyphicon glyphicon-trash"></i>
-                    <span>Delete</span>
+                <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                    <i class="glyphicon">&#128683;</i>
+                    <span><label for="discard">Odrzuć</label></span>
                 </button>
                 <input type="checkbox" name="delete" value="1" class="toggle none">
-            {% } else { %}
-                <button class="btn btn-warning cancel none">
-                    <i class="glyphicon glyphicon-ban-circle"></i>
-                    <span>Cancel</span>
-                </button>
             {% } %}
         </td>
     </tr>

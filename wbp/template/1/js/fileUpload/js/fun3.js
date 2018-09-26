@@ -345,6 +345,19 @@ function foto_init_url(cb) {
     });
 }
 
+var _formatFileSize = function (bytes) {
+    if (typeof bytes !== 'number') {
+        return '';
+    }
+    if (bytes >= 1000000000) {
+        return (bytes / 1000000000).toFixed(2) + ' GB';
+    }
+    if (bytes >= 1000000) {
+        return (bytes / 1000000).toFixed(2) + ' MB';
+    }
+    return (bytes / 1000).toFixed(2) + ' KB';
+}
+
 
 function foto_init_form(photo) {
     var contest_form_data=contest_form_action.replace('contest-action3','contest-data3');
@@ -355,9 +368,26 @@ function foto_init_form(photo) {
         
         $('#clientid').val(data.id);
         
+        if (photo) return;
+        
+        if (data.data) for(k in data.data){
+            $('#fileupload input[type="text"][name="'+k+'"]').val(data.data[k]);
+        }
+    
+        
+        if (data.files) {
+            var files=[];
+            for (k in data.files) {
+                files.push(data.files[k]);
+            }
+            
+            $('#fileupload').fileupload('option', 'done')
+                .call($('#fileupload'), $.Event('fileuploaddone'), {result:{files: files}});
+
+        }
+        
         return;
         
-        if (typeof(data.data)=='undefined') return;
         
         if (photo==null) {
             for (var k in data.data) {

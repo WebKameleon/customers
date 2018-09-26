@@ -228,12 +228,13 @@
         
         file_put_contents($client_data['dir'].'/'.$f['name'][$lp],$blob);
         
-        
         $json = [
             'type' => 'file',
             'name' => $index,
             'fileType' => $type,
             'size' => $size,
+            'deleteType' => 'POST',
+            'deleteUrl' => dirname($_SERVER['REQUEST_URI']).'/photocancel.php?file='.urlencode($f['name'][$lp]),
             'thumbnailUrl' => WBP::getContestPreview($client_data['dir'].'/'.$f['name'][$lp],dirname($_SERVER['REQUEST_URI']),100,true),
             'url' => WBP::getContestPreview($client_data['dir'].'/'.$f['name'][$lp],dirname($_SERVER['REQUEST_URI']),1000,false),
             
