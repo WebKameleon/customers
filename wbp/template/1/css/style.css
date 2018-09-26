@@ -1716,6 +1716,7 @@ label.wbp_grid_form_label:before {
 #fileupload .col-lg-7 {
 	width:100% !important;
 	padding-left:0px;
+	padding-right:0px;
 	margin-bottom:15px;
 }
 
@@ -1800,6 +1801,20 @@ label.wbp_grid_form_label:before {
 	padding:0px;
 	margin-bottom:0px;
 }
+
+#fileupload .discard-all,
+#fileupload .save-all{
+	float: right;
+	margin-left:5px;
+}
+
+#fileupload .save-all {
+	background-color:#00c42a;
+	border-color:#00a323;
+	border:0px;
+	border-bottom:3px solid #00a323;
+}
+
 
 .btn {
 	-webkit-border-radius: 0 0 0 0;

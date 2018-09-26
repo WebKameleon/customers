@@ -27,6 +27,8 @@
     $ajax=$include.'/ajax';
     $ajax_konkurs=$ajax.'/contest3.php';
     $ajax_konkurs_action=$ajax.'/contest-action3.php';
+    $ajax_konkurs_done=$ajax.'/contest3-done.php';
+    
 
     $configuration_file_name=md5($sid);
     $configuration=WBP::get_data($configuration_file_name);
@@ -63,7 +65,7 @@
 
 <div class="container-fluid">
   
-    <form id="fileupload" action="post.php" method="POST" enctype="multipart/form-data">
+    <form id="fileupload" action="<?php echo $ajax_konkurs_done;?>" method="POST" enctype="multipart/form-data">
               
         <input type="hidden" name="sid" value="<?php echo md5($sid);?>"/>
         <input type="hidden" name="id" value="" id="clientid"/>
@@ -142,15 +144,19 @@
                     <span><label for="save">Zapisz</label></span>
                 </button>                
                 
-                <button type="reset" class="btn btn-warning cancel none">
-                    <i class="glyphicon glyphicon-ban-circle"></i>
-                    <span>Rezygnacja</span>
+                <button type="button" class="btn btn-primary save-all none" id="saveall">
+                    <i class="glyphicon"></i>
+                    <span><label for="saveAll"></label></span>
                 </button>
-                <button type="button" class="btn btn-danger delete none">
-                    <i class="glyphicon">&#128465;</i>
-                    <span>Usuń</span>
+                
+                <button type="reset" class="btn btn-warning cancel discard-all placeholder" q="sure">
+                    <i class="glyphicon"></i>
+                    <span><label for="discardAll"></label></span>
                 </button>
-                <input type="checkbox" class="toggle none">
+                
+                
+                
+                <input type="checkbox" class="toggle none"/>
                 <!-- The global file processing state -->
                 <span class="fileupload-process"></span>
             </div>
@@ -248,6 +254,7 @@
             {% if (file.error) { %}
                 <div><span class="label label-danger">Error</span> {%=file.error%}</div>
             {% } else { %}
+                <input type="hidden" name="files[{%=file.name%}][set]" value="0"/>
                 <div><input name="files[{%=file.name%}][title]" class="placeholder photo_title required"/></div>
                 <div><label class="photoset" for="files[{%=file.name%}][set]"></label><input type="checkbox" class="photo_set" name="files[{%=file.name%}][set]" onchange="photo_set_checked(this)" value="1"></div>
                 <div><input name="files[{%=file.name%}][setno]" class="placeholder setno required" style="display: none"/></div>

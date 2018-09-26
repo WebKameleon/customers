@@ -37,6 +37,9 @@ var wbp_photo_competition = {
         loading: 'Ładuję ...',
         payment: 'Płatność',
         discard: 'Odrzuć',
+        sure: 'Na pewno?',
+        discardAll: 'Odrzuć wszystko i wyczyść dane',
+        saveAll: 'Zakończ wprowadzanie',
         amount: 'Kwota',
         pay: 'Pomiń zdjęcia z, których nie udało się wgrać i zakończ przesyłanie, te, których nie udało się wgrać prosimy wysłać na adres e-mail: foto@wbp.poznan.pl',
 	please_pay: "Prosimy o wpłatę na konto",
@@ -45,6 +48,7 @@ var wbp_photo_competition = {
     },
     en: {
         basic: 'Basic data',
+        sure: 'Are you sure?',
         name: 'Name',
         photos: 'Photos submitted to the contest',        
         surname: 'Surname',
@@ -81,6 +85,8 @@ var wbp_photo_competition = {
         loading: 'Loading ...',
         payment: 'Payment',
         discard: 'Discard',
+        discardAll: 'Discard all and clear the data',
+        saveAll: 'Save and finish',
         amount: 'Amount',
         pay: 'Ignore failed images, just finish my process, photos that failed to upload please send us to foto@wbp.poznan.pl',
 	please_pay: "Please make payment to the following bank account",
@@ -112,6 +118,11 @@ function apply_wbp_lang()
     $('#fileupload').find('input.placeholder, textarea.placeholder').each(function() {
         var c=$(this).attr('class').replace('placeholder','').replace('required','').replace('error','').trim();
         $(this).attr("placeholder",wbp_photo_competition[lang][c]);
+    });
+    
+    $('#fileupload').find('button.placeholder').each(function() {
+        var c=$(this).attr('q');
+        $(this).attr("ql",wbp_photo_competition[lang][c]);
     });
     
         

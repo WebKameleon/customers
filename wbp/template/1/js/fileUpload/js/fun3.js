@@ -47,7 +47,7 @@ function count_errors(add_class,verbose,check_personal,check_images,check_terms)
     
     if (check_images) {
     
-        var f=$("#fileupload .template-upload:not('.ui-state-error')").length;
+        var f=$("#fileupload .template-download:not('.ui-state-error')").length;
         
         
         if (f<min_images)
@@ -61,7 +61,7 @@ function count_errors(add_class,verbose,check_personal,check_images,check_terms)
                 
             }
             if (verbose) console.log('too little images');
-            $('#fileupload .terms').hide();
+            //$('#fileupload .terms').hide();
         }
         else
         {
@@ -99,11 +99,11 @@ function count_files(obj)
     }
     
     if (typeof(obj) == 'undefined') {
-        $('#fileupload .template-upload').find('input.required,select.required,textarea.required').on("change",count_files);
+        $('#fileupload .template-download').find('input.required,select.required,textarea.required').on("change",count_files);
     }
 
     
-    var errors=count_errors(false,false,true,true,true);
+    var errors=count_errors(false,false,true,false,true);
     
     if (errors==0) {
         $("#upload").fadeIn();
@@ -153,7 +153,9 @@ function photo_set_checked (chbx)
 
 function fill_the_form() {
     $('select.required').val('Wydarzenia').removeClass('error');
-    $('input.required').val('test').removeClass('error');
+    $('input.required').removeClass('error').each(function(){
+        if ($(this).val().length==0) $(this).val('Test');
+    });
     $('textarea.required').val('test').removeClass('error');
     $('input.required[type="checkbox"]').prop('checked',true).removeClass('error');
     
@@ -254,7 +256,7 @@ function check_failed() {
                 }
                 
             });
-            $('#fileupload .terms').fadeOut();
+            //$('#fileupload .terms').fadeOut();
             $('#fileupload .terms').addClass('forgetit');
             $('table.table p.name').each(function(){
                 var tr=$(this).closest('tr');
@@ -280,6 +282,9 @@ function upload_done(e,data)
     
     $('#fileupload .personal').hide();
     
+    setTimeout(apply_wbp_lang,500);
+    
+    $('#saveall').fadeIn(500);
     
     if (--uploaded_images==0) {
         $('#wbp-form-loading').fadeOut();
@@ -358,20 +363,52 @@ var _formatFileSize = function (bytes) {
     return (bytes / 1000).toFixed(2) + ' KB';
 }
 
+function foto_init_fotm_photo(data) {
+    
+    $('#saveall').fadeIn(500);
+    
+    for (var name in data.files) {
+ 
+        var inputname='files['+name+'][title]';
+        $('#fileupload input[name="'+inputname+'"]').val(data.files[name].title);
+        inputname='files['+name+'][description]';
+        $('#fileupload textarea[name="'+inputname+'"]').val(data.files[name].description);
+       
+        if (typeof(data.files[name].category)!='undefned') {
+            var selectname='files['+name+'][category]';
+            $('#fileupload select[name="'+selectname+'"]').val(data.files[name].category);
+        }
+       
+        if (typeof(data.files[name].setno)!='undefined' && data.files[name].setno.length>0 && typeof(data.files[name].set)!='undefined' && data.files[name].set==1) {
+            inputname='files['+name+'][set]';
+            $('#fileupload input[name="'+inputname+'"]').prop('checked',true);
+            
+            photo_set_checked($('#fileupload input[name="'+inputname+'"]')[0]);
+            
+            inputname='files['+name+'][setno]';
+            $('#fileupload input[name="'+inputname+'"]').val(data.files[name].setno);
+        }
+       
+    }
+    
+}
 
 function foto_init_form(photo) {
     var contest_form_data=contest_form_action.replace('contest-action3','contest-data3');
     
     $.getJSON(contest_form_data,function(data) {
         
-        console.log(data);
         
         $('#clientid').val(data.id);
         
         if (photo) return;
         
         if (data.data) for(k in data.data){
-            $('#fileupload input[type="text"][name="'+k+'"]').val(data.data[k]);
+            if (k=='files') {
+                setTimeout(foto_init_fotm_photo,1000,data.data);
+            } else {
+                $('#fileupload input[type="text"][name="'+k+'"]').val(data.data[k]);
+            }
         }
     
         
@@ -381,48 +418,16 @@ function foto_init_form(photo) {
                 files.push(data.files[k]);
             }
             
-            $('#fileupload').fileupload('option', 'done')
-                .call($('#fileupload'), $.Event('fileuploaddone'), {result:{files: files}});
-
+            if (files.length) {
+                $('#fileupload').fileupload('option', 'done')
+                    .call($('#fileupload'), $.Event('fileuploaddone'), {result:{files: files}});
+            }
+            
+            
         }
         
         return;
         
-        
-        if (photo==null) {
-            for (var k in data.data) {
-                $('#fileupload input[type="text"][name="'+k+'"]').val(data.data[k]);
-            }
-        } else {
-            
-            for (var i=0; i<photo.files.length; i++) {
-                var name=photo.files[i].name;
-               
-                if (typeof(data.files[name])!='undefined') {
-                    
-                    var inputname='files['+name+'][title]';
-                    $('#fileupload input[name="'+inputname+'"]').val(data.files[name].title);
-                    inputname='files['+name+'][description]';
-                    $('#fileupload textarea[name="'+inputname+'"]').val(data.files[name].description);
-                   
-                    if (typeof(data.files[name].category)!='undefned') {
-                        var selectname='files['+name+'][category]';
-                        $('#fileupload select[name="'+selectname+'"]').val(data.files[name].category);
-                    }
-                   
-                    if (typeof(data.files[name].setno)!='undefined' && data.files[name].setno.length>0) {
-                        inputname='files['+name+'][set]';
-                        $('#fileupload input[name="'+inputname+'"]').prop('checked',true);
-                        
-                        photo_set_checked($('#fileupload input[name="'+inputname+'"]')[0]);
-                        
-                        inputname='files['+name+'][setno]';
-                        $('#fileupload input[name="'+inputname+'"]').val(data.files[name].setno);
-                    }
-                   
-                }
-            }
-        }
      
     });
     count_files();
@@ -445,7 +450,7 @@ function foto_init_validation()
             setTimeout(foto_init_form,700,data);
             setTimeout(count_files,1300);
             if (contest_form_url.length==0) foto_init_url();
-            
+            $('#fileupload .terms').fadeIn(1000);
             $('.fileinput-button').removeClass('error');
         }).bind('fileuploadfail', function (e, data) {
             
@@ -501,6 +506,35 @@ function foto_init_validation()
             return false;
         }
         return true;
+    });
+    
+    $('#fileupload button.discard-all').click(function(){
+        if (confirm($(this).attr('ql'))) {
+            var url=contest_form_action.replace('contest-action3','contest-clear');
+            console.log('u',url);
+            $.get(url,function(ok){
+                if (ok=='OK') {
+                    location.reload();
+                }
+            });
+        }
+    });
+    
+    $('#fileupload button.save-all').click(function(){
+        
+        if (count_errors(true,true,true,true,false)>0) {
+            $('#fileupload .warning').fadeIn();
+            return false;
+        }
+        $.post($('#fileupload').attr('action'),$('#fileupload').serialize(),function(result){
+            console.log(result);
+        });
+        return true;
+    });
+    
+    $(document).on('change','#fileupload .required',function(){
+        $(this).removeClass('error');
+        $('#fileupload .warning').hide();
     });
 }
 

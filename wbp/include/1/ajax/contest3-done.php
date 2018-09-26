@@ -1,14 +1,10 @@
 <?php
     ini_set('display_errors',true);
-    //error_reporting(15);
-    
-    //if (rand(0,2)+0==0) myd988die();
     
     if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
         require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
     }
     use google\appengine\api\cloud_storage\CloudStorageTools;
-
 
     require_once __DIR__.'/../kameleon/Google.php';
     require_once __DIR__.'/../kameleon/Spreadsheet.php';
@@ -16,13 +12,11 @@
     
     
     WBP::imap_utf8($_REQUEST);
-    WBP::imap_utf8($_FILES);
     WBP::dumpInput();
 
     $debug=array();
     $debug=false;
 
-    //mydie([$_FILES,$_POST,$_SERVER]);
     
     function contest_ret($resp)
     {
@@ -32,7 +26,6 @@
 
     $data=$_REQUEST;
     
-    $teraz=date('Y-m-d,H:i');
         
     if (!isset($data['id'])) 
         contest_ret(['error'=>true,'message'=>'no id sent']);        
@@ -53,6 +46,8 @@
         if ($debug) $debug['save'] = 1;
         file_put_contents($client_data['dir'].'/data.json',json_encode($client_data['contents']['data.json']));
     }
+    
+    die("OK");
     
     $data['payment']='';
     
