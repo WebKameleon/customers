@@ -182,7 +182,7 @@ class Spreadsheet extends Google {
        
        $xml='<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gsx="http://schemas.google.com/spreadsheets/2006/extended">';
        
-       foreach($row AS $k=>$v) $xml.='<gsx:'.$k.'>'.$v.'</gsx:'.$k.'>';
+       foreach($row AS $k=>$v) $xml.='<gsx:'.$k.'>'. htmlspecialchars($v).'</gsx:'.$k.'>';
        
        $xml.='</entry>';
        

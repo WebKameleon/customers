@@ -264,7 +264,11 @@
             {% } %}
         </td>
         <td>
-            <textarea class="placeholder description required" name="files[{%=file.name%}][description]"></textarea>
+            {% if (file.error) { %}
+                &nbsp;
+            {% } else { %}
+                <textarea class="placeholder description required" name="files[{%=file.name%}][description]"></textarea>
+            {% } %}
         </td>
 
         <td>

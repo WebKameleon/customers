@@ -2,9 +2,13 @@
 use \google\appengine\api\mail\Message;
 use google\appengine\api\cloud_storage\CloudStorageTools;
 
+$COOKIENAME= 'fcontest';
 
 
 class WBP {
+	
+	static $FCONTEST_DIR = 'foto-contest';
+	static $FCONTEST_ARCHDIR = 'foto-contest-arch';
 
     static function put_data($name,$data)
     {
@@ -380,13 +384,54 @@ class WBP {
 		unlink($dir.'/'.$f);
 	}
 	
+	public static function getContestClients() {
+		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+			$dir='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/'.self::$FCONTEST_DIR;
+		} else {
+			$dir='/tmp/'.self::$FCONTEST_DIR;
+			if (!is_dir($dir)) mkdir($dir,0755,true);
+		}
+		
+		$sdir=scandir($dir);
+		$result=[];
+		
+		foreach ($sdir AS $f) {
+			if ($f[0]=='.') continue;
+			$result[]=$f;
+		}
+		
+		return $result;
+		
+	}
+	
+	public static function getContestArchive($client) {
+		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+			$fromdir='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/'.self::$FCONTEST_DIR.'/'.$client;
+		} else {
+			$fromdir='/tmp/'.self::$FCONTEST_DIR.'/'.$client;
+			if (!is_dir($fromdir)) mkdir($fromdir,0755,true);
+		}
+		
+		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
+			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
+			$dirto='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/'.self::$FCONTEST_ARCHDIR;
+		} else {
+			$dirto='/tmp/'.self::$FCONTEST_ARCHDIR;
+			if (!is_dir($dirto)) mkdir($dirto,0755,true);
+		}
+		
+		rename($fromdir,$dirto.'/'.$client);
+		
+	}
 	
 	public static function getContestDir($client) {
 		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
 			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
-			$dir='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/foto-contest/'.$client;
+			$dir='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/'.self::$FCONTEST_DIR.'/'.$client;
 		} else {
-			$dir='/tmp/foto-contest/'.$client;
+			$dir='/tmp/'.self::$FCONTEST_DIR.'/'.$client;
 			if (!is_dir($dir)) mkdir($dir,0755,true);
 		}
 		

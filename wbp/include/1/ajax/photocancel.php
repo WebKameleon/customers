@@ -1,7 +1,6 @@
 <?php
     include_once __DIR__.'/../system/fun.php';
     
-    $COOKIENAME= 'fcontest';
     
     function contest_ret($resp)
     {

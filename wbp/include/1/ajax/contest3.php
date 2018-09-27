@@ -44,7 +44,7 @@
         
     $saveRequired=false;
     foreach ($data AS $k=>$v) {
-        if (!isset($client_data['contents']['data.json'][$k]) || $client_data['contents']['data.json'][$k]!=$v) {
+        if (!isset($client_data['contents']['data.json'][$k]) || json_encode($client_data['contents']['data.json'][$k])!=json_encode($v)) {
             $client_data['contents']['data.json'][$k] = $v;
             $saveRequired = true;
         }
@@ -88,45 +88,6 @@
     }
    
 
-    Google::setToken(null);
-    if (!isset($_SESSION['drive_access_token'])) $_SESSION['drive_access_token']=$td_data['tokens']['drive'];
-    $token=Google::setToken($_SESSION['drive_access_token']);    
-    foreach($token AS $k=>$v) $td_data['tokens']['drive']->$k=$v;
-    $_SESSION['drive_access_token']=$td_data['tokens']['drive'];
-        
-    
-    Spreadsheet::setToken(null);
-    if (!isset($_SESSION['spreadsheets_access_token'])) $_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
-    $token=Spreadsheet::setToken($_SESSION['spreadsheets_access_token']);    
-    foreach($token AS $k=>$v) $td_data['tokens']['spreadsheets']->$k=$v;
-    $_SESSION['spreadsheets_access_token']=$td_data['tokens']['spreadsheets'];
-    
-    if ($debug) $debug['session']=$_SESSION;
-    
-    
-    if (!$td_data['drive']['id']) contest_ret(array('files'=>array(),'error'=>'Brak arkusza'));
-    
-    
-    // Drive part
-    Google::setToken($_SESSION['drive_access_token']);
-    $file=Google::getFile($td_data['drive']['id']);  
-     
-    
-    if (!isset($file['parents'])) contest_ret(array('files'=>array(),'debug'=>$debug,'file'=>$file));
-    
-    foreach($file['parents'] AS $parent)
-    {
-        if (!$parent['isRoot'])
-        {
-            $parent_id=$parent['id'];
-            break;
-        }
-    }
-    $parent_is_root=$parent['isRoot'];
-    
-    $lp=0;
-    
-    if ($debug) $debug['f']=$_FILES;
     
     $dir_suffix='/wbp_img_upload/';
     if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
@@ -137,6 +98,7 @@
     }
 
     $storage_chunk_files = [];
+    $lp=0;
 
     foreach($_FILES AS $f)
     {
@@ -237,7 +199,7 @@
             'deleteUrl' => dirname($_SERVER['REQUEST_URI']).'/photocancel.php?file='.urlencode($f['name'][$lp]),
             'thumbnailUrl' => WBP::getContestPreview($client_data['dir'].'/'.$f['name'][$lp],dirname($_SERVER['REQUEST_URI']),100,true),
             'url' => WBP::getContestPreview($client_data['dir'].'/'.$f['name'][$lp],dirname($_SERVER['REQUEST_URI']),1000,false),
-            
+            'scp' => $storage_copy
         ];
         
         file_put_contents($client_data['dir'].'/'.$f['name'][$lp].'.json',json_encode($json));

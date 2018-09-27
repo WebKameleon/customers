@@ -1,5 +1,8 @@
 
 var image_files_counters = {};
+var uploaded_images=0,failed_images=0, total_images=0;
+var last_upload_done_data;
+var client_id;
 
 function count_errors(add_class,verbose,check_personal,check_images,check_terms)
 {
@@ -163,7 +166,7 @@ function fill_the_form() {
     count_files();
 }
 
-var uploaded_images=0,failed_images=0, total_images=0;
+
 
 function upload_started(e,data)
 {
@@ -273,7 +276,61 @@ function check_failed() {
     }   
 }
 
-var last_upload_done_data;
+
+
+function client_finished() {
+   
+    
+    $('#wbp-form-loading').fadeOut();
+
+    $('#fileupload .personal,#fileupload .terms,.fileupload-buttonbar').fadeOut(1000);
+        
+    rewrite_data_to_payment();
+ 
+    if (typeof(file)!='undefined') {
+        if ($('#form-dotpay input[name=URLC]').val().indexOf('http:')<0) 
+            $('#form-dotpay input[name=URLC]').val(deUpDir(dirname(location.href)+$('#form-dotpay input[name=URLC]').val()+'?id='+file.id));
+        if ($('#form-paypal input[name=notify_url]').val().indexOf('http:')<0) {
+            $('#form-paypal input[name=notify_url]').val(deUpDir(dirname(location.href)+$('#form-paypal input[name=notify_url]').val()));
+        }
+        $('#form-paypal input[name=custom]').val(client_id);
+        
+    } else {
+        if ($('#form-dotpay input[name=URLC]').val().indexOf('http:')<0) 
+            $('#form-dotpay input[name=URLC]').val(deUpDir(dirname(location.href)+$('#form-dotpay input[name=URLC]').val()+'?id='));
+        if ($('#form-paypal input[name=notify_url]').val().indexOf('http:')<0) {
+            $('#form-paypal input[name=notify_url]').val(deUpDir(dirname(location.href)+$('#form-paypal input[name=notify_url]').val()));
+        }            
+    }
+    
+    $('#foto-contest-payment').fadeIn(500);
+
+    $('.template-download .label-danger').closest('tr').hide();
+    $('.show-afterwords').show();
+    
+    $('#fileupload table button.btn').hide();
+    $('#fileupload table .files input,#fileupload table .files textarea,#fileupload table .files select').each(function(){
+        
+        var type=$(this).attr('type');
+        var val;
+        if (type!=undefined && type=='checkbox') {
+            val=$(this).prop('checked')?' &#10004;':' -';
+        } else {
+            if ($(this).prop('tagName')=='SELECT') 
+                val='<p>'+$(this).find('option[value="'+$(this).val()+'"]').text()+'</p>';
+            else
+                val='<p>'+$(this).val()+'</p>';
+        }
+        if (type=='hidden') return;
+        
+        $(this).replaceWith(val);
+        
+    });
+
+}
+
+
+
 
 function upload_done(e,data)
 {    
@@ -288,43 +345,6 @@ function upload_done(e,data)
     
     if (--uploaded_images==0) {
         $('#wbp-form-loading').fadeOut();
-        //$('#fileupload .personal,#fileupload .terms,.fileupload-buttonbar').fadeOut(1000);
-        
-        rewrite_data_to_payment();
-        var file=data._response.result.files[0];
-        
-        
-        
-        //$('#form-dotpay input[name=URL]').val(dirname(location.href)+data.url.replace('contest.php','dotpay.php')+'?id='+file.id);
-        //$('#form-paypal input[name=notify_url]').val(dirname(location.href)+data.url.replace('contest.php','paypal.php'));
-
-        
-        /*
-        
-        if (typeof(file)!='undefined') {
-            if ($('#form-dotpay input[name=URLC]').val().indexOf('http:')<0) 
-                $('#form-dotpay input[name=URLC]').val(deUpDir(dirname(location.href)+$('#form-dotpay input[name=URLC]').val()+'?id='+file.id));
-            if ($('#form-paypal input[name=notify_url]').val().indexOf('http:')<0) {
-                $('#form-paypal input[name=notify_url]').val(deUpDir(dirname(location.href)+$('#form-paypal input[name=notify_url]').val()));
-            }
-            $('#form-paypal input[name=custom]').val(file.id);
-            var url=file.done+'?id='+file.id;
-            $.get(url);
-        } else {
-            if ($('#form-dotpay input[name=URLC]').val().indexOf('http:')<0) 
-                $('#form-dotpay input[name=URLC]').val(deUpDir(dirname(location.href)+$('#form-dotpay input[name=URLC]').val()+'?id='));
-            if ($('#form-paypal input[name=notify_url]').val().indexOf('http:')<0) {
-                $('#form-paypal input[name=notify_url]').val(deUpDir(dirname(location.href)+$('#form-paypal input[name=notify_url]').val()));
-            }            
-        }
-        
-        $('#foto-contest-payment').fadeIn(500);
-        
-        */
-        
-        $('.template-download .label-danger').closest('tr').hide();
-        $('.show-afterwords').show();
-        
         
     } else check_failed();
     
@@ -350,18 +370,6 @@ function foto_init_url(cb) {
     });
 }
 
-var _formatFileSize = function (bytes) {
-    if (typeof bytes !== 'number') {
-        return '';
-    }
-    if (bytes >= 1000000000) {
-        return (bytes / 1000000000).toFixed(2) + ' GB';
-    }
-    if (bytes >= 1000000) {
-        return (bytes / 1000000).toFixed(2) + ' MB';
-    }
-    return (bytes / 1000).toFixed(2) + ' KB';
-}
 
 function foto_init_fotm_photo(data) {
     
@@ -398,7 +406,7 @@ function foto_init_form(photo) {
     
     $.getJSON(contest_form_data,function(data) {
         
-        
+        client_id = data.id;
         $('#clientid').val(data.id);
         
         if (photo) return;
@@ -423,7 +431,9 @@ function foto_init_form(photo) {
                     .call($('#fileupload'), $.Event('fileuploaddone'), {result:{files: files}});
             }
             
+            last_upload_done_data = {_response:{result:{files:files}}};
             
+            console.log(last_upload_done_data)
         }
         
         return;
@@ -527,7 +537,9 @@ function foto_init_validation()
             return false;
         }
         $.post($('#fileupload').attr('action'),$('#fileupload').serialize(),function(result){
-            console.log(result);
+            if (result=='OK') {
+                client_finished();
+            }
         });
         return true;
     });

@@ -1815,6 +1815,9 @@ label.wbp_grid_form_label:before {
 	border-bottom:3px solid #00a323;
 }
 
+#fileupload table p {
+	margin-bottom: 3px;
+}
 
 .btn {
 	-webkit-border-radius: 0 0 0 0;
