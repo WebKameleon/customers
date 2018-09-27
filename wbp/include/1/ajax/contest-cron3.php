@@ -63,13 +63,16 @@ function toSpreadsheet($rows,$td_data) {
 
 $clients=WBP::getContestClients();
 
+
+
 if (count($clients)==0) die();
 
 for ($i=0; $i<count($clients); $i++) {
-    $client_data = WBP::getContestDir($clients[$i]);
+    $client_data = WBP::getContestDir(str_replace('/','',$clients[$i]));
     if (!isset($client_data['contents']) || !isset($client_data['contents']['data.json']))
         continue;
     $data = $client_data['contents']['data.json'];
+    
     if (!isset($data['finished']))
         continue;
     
@@ -176,9 +179,8 @@ for ($i=0; $i<count($clients); $i++) {
         $mail.='<p>WBPiCAK - Dział FOTOGRAFIA / WBPiCAK - Department of PHOTOGRAPHY</p>';
         
         WBP::mail($td_data['drive']['email'],$data['email'],$td_data['title'],$mail);
-        
     
-        WBP::getContestArchive($data['id']);
+        WBP::removeContestFolder($data['id']);
     }
 
     

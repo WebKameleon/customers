@@ -33,7 +33,7 @@
 		}
 	}
 	
-	if (false && isset($contest['data']['finished'])) {
+	if (isset($contest['data']['finished'])) {
 		$CLIENTNAME = newCoockieValue();
 		$data = WBP::getContestDir($CLIENTNAME);
 		$contest = [
