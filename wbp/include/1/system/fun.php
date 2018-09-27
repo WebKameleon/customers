@@ -397,6 +397,10 @@ class WBP {
 		
 		foreach ($sdir AS $f) {
 			if ($f[0]=='.') continue;
+			
+			if (file_exists($dir.'/ok.txt'))
+				continue;
+			
 			$result[]=$f;
 		}
 		
