@@ -395,11 +395,15 @@ class WBP {
 		$sdir=scandir($dir);
 		$result=[];
 		
+		
+
 		foreach ($sdir AS $f) {
 			if ($f[0]=='.') continue;
 			
-			if (file_exists($dir.'/ok.txt'))
-				continue;
+			$ok=$dir.'/'.$f.'/ok.txt';
+			if (substr($f,-1)=='/') $ok=$dir.'/'.$f.'ok.txt';
+				
+			if (file_exists($ok)) continue;
 			
 			$result[]=$f;
 		}

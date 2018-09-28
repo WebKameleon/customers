@@ -536,9 +536,13 @@ function foto_init_validation()
             $('#fileupload .warning').fadeIn();
             return false;
         }
+        $('#wbp-form-loading').show();
         $.post($('#fileupload').attr('action'),$('#fileupload').serialize(),function(result){
+            
             if (result=='OK') {
                 client_finished();
+            } else {
+                $('#wbp-form-loading').hide();
             }
         });
         return true;
