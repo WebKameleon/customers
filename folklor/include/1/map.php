@@ -45,7 +45,7 @@
     
 </script>
 
-<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA-jaLg2OSo62v-63z7BVL46av20PzQgKo"></script>
 <script defer="defer" src="<?php echo $templ;?>/js/smartinfowindow.js"></script>
 <script defer="defer" src="<?php echo $templ;?>/js/map.js"></script>
 

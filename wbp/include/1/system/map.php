@@ -1,6 +1,6 @@
 <?php
     
-    Bootstrap::$main->tokens->set_wbp_js(array('https://maps.googleapis.com/maps/api/js?v=3.exp','maps.js'));
+    Bootstrap::$main->tokens->set_wbp_js(array('https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA-jaLg2OSo62v-63z7BVL46av20PzQgKo','maps.js'));
     $include=$KAMELEON_MODE?$session['uincludes_ajax']:$session['include_path'];
     $obj_ajax_path=$include.'/ajax/obj.php';
     if (isset($obj_table)) $obj_ajax_path.='?obj='.$obj_table;
