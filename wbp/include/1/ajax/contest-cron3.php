@@ -9,6 +9,8 @@ include_once __DIR__.'/../system/fun.php';
 
 function toSpreadsheet($rows,$td_data) {
     
+    //mydie([$rows,$td_data]);
+    
     Spreadsheet::setToken(null);
     $token=Spreadsheet::setToken($td_data['tokens']['spreadsheets']);
     $td_data['tokens']['spreadsheets']=new stdClass();
@@ -32,9 +34,16 @@ function toSpreadsheet($rows,$td_data) {
     
     if (!$worksheet_id)
     {
+
         $worksheet=Spreadsheet::addWorksheet($td_data['drive']['id'],$td_data['title']);
         $id=$worksheet->id;
         $worksheet_id=end(explode('/',$worksheet->id));
+        
+        $i=0;
+        if(count($rows)>0)
+            foreach ($rows[0] AS $k=>$v)
+                @Spreadsheet::update_cell($td_data['drive']['id'],$worksheet_id,0,$i++,$k);
+
     }
     
 
@@ -54,9 +63,7 @@ function toSpreadsheet($rows,$td_data) {
         $row=Spreadsheet::addListRow($td_data['drive']['id'],$worksheet_id,$row);
         if (!$row) return false;
     }
-      
-
-    
+          
     return true;
 }
 
