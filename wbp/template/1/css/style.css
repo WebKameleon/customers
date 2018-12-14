@@ -1124,8 +1124,14 @@ a.kmw_articlelist_more:hover {
 
 
 
+
 .pg_download .kmw_article_content h1,
-.pg_download .kmw_article_content h1 a {
+.pg_download .kmw_article_content h1 a,
+.pg_download .kmw_article_content h2,
+.pg_download .kmw_article_content h2 a,
+.pg_download .kmw_article_content h3,
+.pg_download .kmw_article_content h3 a
+ {
 	font-family: 'Open Sans', sans-serif;
 	font-size:16px !important;
 	color:#1d1d1d !important;
