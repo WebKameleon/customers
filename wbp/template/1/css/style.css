@@ -3653,3 +3653,25 @@ div.img-errors {
 	margin-bottom: 20px;
 	font-size: 100%;
 }
+
+input.button {
+	background-color:#418bc3;
+	border-color:#042c48;
+	border:0px;
+	border-bottom:3px solid #042c48;
+	width:auto !important;
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+	font-weight: 700;
+	text-transform:uppercase;
+	padding:10px 25px;
+	margin-left:25px;
+	margin-top:25px;
+	margin-bottom:25px;
+	
+}
+input.button:hover, input.button:focus, input.button:active {
+	color: #fff;
+	background-color: #15598b;
+	border-color: #042c48;
+}

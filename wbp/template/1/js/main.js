@@ -283,6 +283,17 @@ $(document).ready(function ($) {
         $(this).find('div.txt').animate({'margin-right':-200});
     })
 
+	$(':required').on('change invalid',function(){
+		var textfield = $(this).get(0);
+		var title = $(this).attr('title');
+		if (!textfield || !title)
+			return;
+
+		textfield.setCustomValidity('');
+		if (!textfield.validity.valid) {
+			textfield.setCustomValidity(title);
+		}
+	});
 
 });
 
