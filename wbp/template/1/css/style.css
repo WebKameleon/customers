@@ -3513,6 +3513,9 @@ ul.articlelist-nav {
 .facebook .facebook-menu .fb-newsletter .fb-container {
 	height: 132px;
 }
+.facebook .facebook-menu .fb-rodo .fb-container {
+	height: 88px;
+}
 .facebook .facebook-menu a.a {
 	display: inline-block;
 	text-decoration: none;
@@ -3520,8 +3523,10 @@ ul.articlelist-nav {
 }
 
 .facebook .facebook-menu .fb-newsletter .fb-container {
-
 	border: solid 1px #d90f0f;
+}
+.facebook .facebook-menu .fb-newsletter .fb-container {
+	border: solid 1px #524e4e;
 }
 
 
