@@ -117,8 +117,13 @@
 
         <ul class="terms" style="display: none">
             <li><input name="agreeauthor" type="checkbox" class="chxbx required" required="1" value="yes"/> <label for="agreeauthor"></label></li>
-            <li><input name="agreeterms" type="checkbox" class="chxbx required" required="1" value="yes"/> <label for="agreeterms"></label></li>
+            
             <li><input name="agreepublish" type="checkbox" class="chxbx required" required="1" value="yes"/> <label for="agreepublish"></label></li>
+            
+            <li><input name="agreeterms" type="checkbox" class="chxbx required" required="1" value="yes"/> <label for="agreeterms"></label></li>
+            <li><input name="agreepublic" type="checkbox" class="chxbx required" required="1" value="yes"/> <label for="agreepublic"></label></li>
+            
+            <li><input name="agreearch" type="checkbox" class="chxbx required" required="1" value="yes"/> <label for="agreearch"></label></li>
             <li><input name="agreemarketing" type="checkbox" class="chxbx" value="yes"/> <label for="agreemarketing"></label></li>
         </ul>
 
