@@ -320,13 +320,62 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 /* ===== end PRINT BUTTON ===== */
 
 /* ===== FONT SIZE ===== */
-.font-size {
+
+.wcag {
 	float:right;
 	margin-left:30px;
+}
+.wcag button {
+	background: url(img/wcag.png);
+	background-repeat:no-repeat;
+	background-size: 23px;
+	background-color: white;
+	color:#131313;
+	height:23px;
+	width:23px;
+	line-height:18px;
+	border:0;
+}
+.wcag button:hover {
+	background-color: yellow;
+}
+
+.wcag-contents {
+	display: none;
+	width: 302px;
+	height:40px;
+	position: absolute;
+	right: 15px;
+	border: 1px solid #176095;
+	padding:3px;
+	border-radius: 3px;
+	background-color: white;
+}
+.wcag-contents .wcag {
+	display: inline-block;
+	float:right;
+	background: url(img/wcag.png);
+	background-repeat:no-repeat;
+	background-size: 32px;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.wcag-contents .wcag:hover {
+	background-color: yellow;
+}
+
+.font-size {
+	float:right;
+	margin-left:5px;
+	
 }
 
 .font-size a {
 	color:#1d1d1d;
+	margin-left:3px;
 }
 
 .font-size a:hover {
@@ -3693,4 +3742,86 @@ input.button:hover, input.button:focus, input.button:active {
 	float: right;
 	margin-right: 25px;
 	margin-top: 9px;
+}
+
+
+/* High Contrast Mode CSS for www.wbp.poznan.pl website */
+/* Created by Karol Huszal - http://karol.huszal.com */
+
+body.HighContrast {
+	background:#000;
+	color:#fff;
+	border-color:#fff;
+	font-weight:normal !important;
+}
+
+body.HighContrast a {
+	color: #fcff3c;
+	background:#000;
+	background-color:#000 !important;
+	border:1px solid #000;
+	font-weight:normal !important;
+}
+
+body.HighContrast a:hover {
+	color:#fff;
+	background:#000;
+	background-color:#000;
+	border:1px solid #fcff3c;
+}
+
+body.HighContrast .language-menu ul.kmw_langs li a {
+    background: url(flags.png) no-repeat !important;
+}
+
+body.HighContrast a.articlelist_photo {
+	border:0px !important;
+}
+
+body.HighContrast img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+body.HighContrast .navbar-inverse {
+    background-image: none !important;
+    background-repeat: none !important;
+    background-color: #000000 !important;
+    border-bottom: 5px solid #ffffff !important;
+}
+
+body.HighContrast .articlelist-block .articlelist-block-text,
+body.HighContrast #sidebar .article{
+	color:#fff !important;
+	font-weight:normal !important;
+}
+
+body.HighContrast h1,
+body.HighContrast h2,
+body.HighContrast h3,
+body.HighContrast h4,
+body.HighContrast h5,
+body.HighContrast h6 {
+	color:#fff !important;
+}
+
+body.HighContrast .radio label {
+	color:#fff !important;
+}
+
+body.HighContrast #footer {
+    background: none;
+	background-color:#000 !important;
+	border-top:5px solid #fff;
+    color: #fff;
+}
+
+body.HighContrast .dropdown-menu {
+    background-color: #000000;
+    border: 5px solid #fff;
+}
+
+body.HighContrast #main-menu ul li > a:hover {
+	border:1px solid #000 !important;
+	color:#fcff3c;
 }
