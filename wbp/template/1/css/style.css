@@ -350,6 +350,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	padding:3px;
 	border-radius: 3px;
 	background-color: white;
+	z-index: 1;
 }
 .wcag-contents .wcag {
 	display: inline-block;
