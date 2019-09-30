@@ -44,6 +44,12 @@ body {
 	margin-bottom:25px;
 }
 
+u a {
+	text-decoration-color: #155a8b;
+	color: #155a8b;
+	text-decoration: underline;
+}
+
 /* NAV */
 .navbar-fixed-top {
 	position:static;
@@ -2777,7 +2783,7 @@ ul#wbp_shop_results li a:last-child:hover {
 	padding-left: 0px;
 	padding-top: 25px;
 	margin-top: 50px;
-	border-top: 5px solid #dedede;
+	border-top: 0px solid #dedede;
 }
 /* end COMMERCIAL */
 /* -----==== end HOMEPAGE ====----- */
@@ -3679,4 +3685,12 @@ input.button:hover, input.button:focus, input.button:active {
 	color: #fff;
 	background-color: #15598b;
 	border-color: #042c48;
+}
+
+
+.top-ue {
+	width: 60px; 
+	float: right;
+	margin-right: 25px;
+	margin-top: 9px;
 }
