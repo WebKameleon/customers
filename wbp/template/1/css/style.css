@@ -3744,6 +3744,21 @@ input.button:hover, input.button:focus, input.button:active {
 	margin-top: 9px;
 }
 
+.static-main-menu {
+	float: left
+}
+
+.static-main-menu li {
+	display: none;	
+}
+
+.static-main-menu li.no-collapse {
+	display: block;	
+}
+
+.static-main-menu li.no-collapse > a {
+	padding: 9px 15px 0px 15px;
+}
 
 /* High Contrast Mode CSS for www.wbp.poznan.pl website */
 /* Created by Karol Huszal - http://karol.huszal.com */
