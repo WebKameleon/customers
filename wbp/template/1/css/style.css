@@ -323,7 +323,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .wcag {
 	float:right;
-	margin-left:30px;
+	margin-left:10px;
 }
 .wcag button {
 	background: url(img/wcag.png);
