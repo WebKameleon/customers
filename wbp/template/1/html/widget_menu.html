@@ -80,7 +80,7 @@
     <ul class="nav navbar-nav">
     {loop:menu}
 	 {if:!menu:s1}<li class="{if:class}{class} {endif:class}{if:active}active {endif:active}{if:menu:s1}dropdown {endif:menu:s1}{if:!page.id}{if:!page_target}{if:page_target|strlen}active {endif:page_target|strlen}{endif:!page_target}{endif:!page.id}" >{endif:!menu:s1}
-     {if:menu:s1}<li class="dropdown {if:active}active {endif:active} {if:!page.id}{if:!page_target} active{endif:!page_target}{endif:!page.id}">{endif:menu:s1}
+     {if:menu:s1}<li class="{if:class}{class} {endif:class}dropdown {if:active}active {endif:active} {if:!page.id}{if:!page_target} active{endif:!page_target}{endif:!page.id}">{endif:menu:s1}
       {if:menu:s1}<a name="{title}" href="{href}" class="dropdown-toggle"  >{alt} </a>{endif:menu:s1}
       {if:!menu:s1}<a name="{title}" href="{href}"{if:target} target="{target}"{endif:target}>{alt}</a>{endif:!menu:s1}
       {if:menu:s1}
