@@ -708,14 +708,14 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 /* ===== end MAIN BOTTOM ===== */
 
 /* ===== MAIN LEFT and MAIN RIGHT ===== */
-#main-left, #main-right,
+.main-left, .main-right,
 #sidebar-right, #sidebar-left {
 	padding-top:0px;
 	padding-bottom:0px;
 }
 
-#main-left,
-#main-right {
+.main-left,
+.main-right {
 	padding-left:0px;
 	margin-bottom: 25px;
 }
@@ -728,15 +728,15 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	padding-left:0px;
 }
 
-#main-left h1, #main-right h1,
-#main-left h2, #main-right h2,
-#main-left h3, #main-right h3,
-#main-left h4, #main-right h4,
-#main-left h4, #main-right h4,
-#main-left h6, #main-right h6,
-#main-left h7, #main-right h7,
-#main-left h8, #main-right h8,
-#main-left h9, #main-right h9 {
+.main-left h1, .main-right h1,
+.main-left h2, .main-right h2,
+.main-left h3, .main-right h3,
+.main-left h4, .main-right h4,
+.main-left h4, .main-right h4,
+.main-left h6, .main-right h6,
+.main-left h7, .main-right h7,
+.main-left h8, .main-right h8,
+.main-left h9, .main-right h9 {
 	padding-top:0px;
 	margin-top:0px;
 	font-family: 'Open Sans', sans-serif;
@@ -745,64 +745,64 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	margin-bottom:25px;
 }
 
-#main-left h1, #main-right h1 {
+.main-left h1, .main-right h1 {
 	font-size: 48px;
 }
 
-#main-left h2, #main-right h2 {
+.main-left h2, .main-right h2 {
 	font-size: 36px;
 }
 
-#main-left h3, #main-right h3 {
+.main-left h3, .main-right h3 {
 	font-size:30px;
 }
 
-#main-left h4, #main-right h4 {
+.main-left h4, .main-right h4 {
 	font-size:24px;
 }
 
-#main-left h5, #main-right h5 {
+.main-left h5, .main-right h5 {
 	font-size:18px;
 }
 
-#main-left h6, #main-right h6,
-#main-left h7, #main-right h7,
-#main-left h8, #main-right h8,
-#main-left h9, #main-right h9 {
+.main-left h6, .main-right h6,
+.main-left h7, .main-right h7,
+.main-left h8, .main-right h8,
+.main-left h9, .main-right h9 {
 	font-size:16px;
 }
 
-#main-left .article,
-#main-right .article {
+.main-left .article,
+.main-right .article {
 	margin-top:25px;
 	text-align: justify;
 }
 
-#main-left .article h1,
-#main-right .article h1,
-#main-left .article h2,
-#main-right .article h2,
-#main-left .article h3,
-#main-right .article h3,
-#main-left .article h4,
-#main-right .article h4,
-#main-left .article h5,
-#main-right .article h5,
-#main-left .article h6,
-#main-right .article h6,
-#main-left .article h7,
-#main-right .article h7,
-#main-left .article h8,
-#main-right .article h8,
-#main-left .article h9,
-#main-right .article h9 {
+.main-left .article h1,
+.main-right .article h1,
+.main-left .article h2,
+.main-right .article h2,
+.main-left .article h3,
+.main-right .article h3,
+.main-left .article h4,
+.main-right .article h4,
+.main-left .article h5,
+.main-right .article h5,
+.main-left .article h6,
+.main-right .article h6,
+.main-left .article h7,
+.main-right .article h7,
+.main-left .article h8,
+.main-right .article h8,
+.main-left .article h9,
+.main-right .article h9 {
 	text-align: left !important;
 }
 /* --- image --- */
-#main-left .article a img,
-#main-left .article img,
-#main-right .article a img,
-#main-right .article img {
+.main-left .article a img,
+.main-left .article img,
+.main-right .article a img,
+.main-right .article img {
 	padding: 4px;
 	border: 1px solid #C7C5C8;
 }
@@ -1755,7 +1755,7 @@ label.wbp_grid_form_label:before {
 /* -----==== end SIEC BIBLIOTEK ====----- */
 
 /* -----==== KONKURSY ====----- */
-#main-left .article	.container-fluid {
+.main-left .article	.container-fluid {
 	padding-left:0px;
 	padding-right:0px;
 }
@@ -3032,8 +3032,8 @@ ul#wbp_shop_results li a:last-child:hover {
 
 /* -----==== SUBPAGE - STANDARD ====----- */
 /* ===== IMG ===== */
-#main-left .article img,
-#main-right .article img {
+.main-left .article img,
+.main-right .article img {
 	/*max-width: 33%;*/
 	max-width: 100%;
 	/*float: left;*/
@@ -3042,8 +3042,8 @@ ul#wbp_shop_results li a:last-child:hover {
 	/*display:block;*/
 }
 
-#main-left .article #wbp_grid_wyniki img,
-#main-right .article #wbp_grid_wyniki img {
+.main-left .article #wbp_grid_wyniki img,
+.main-right .article #wbp_grid_wyniki img {
 	/*max-width: 33%;*/
 	max-width: 100px;
 	float: right;
@@ -3105,20 +3105,20 @@ table caption {
 /* ===== end TABLE ===== */
 
 /* ===== LISTS ===== */
-#main-left ol, #main-left ul,
-#main-right ol, #main-right ul {
+.main-left ol, .main-left ul,
+.main-right ol, .main-right ul {
 	line-height:2;
 	padding-left:25px;
 }
 
-#main-left ol ul, #main-left ol ol, #main-left ul ul, #main-left ul ol,
-#main-right ol ul, #main-right ol ol, #main-right ul ul, #main-right ul ol {
+.main-left ol ul, .main-left ol ol, .main-left ul ul, .main-left ul ol,
+.main-right ol ul, .main-right ol ol, .main-right ul ul, .main-right ul ol {
 	font-size:14px;
 	line-height:1.5;
 }
 
-#main-left ol.special-ordered-list,
-#main-right ol.special-ordered-list,
+.main-left ol.special-ordered-list,
+.main-right ol.special-ordered-list,
 .kmw_article ol.special-ordered-list {
     counter-reset: li; /* Initiate a counter */
     list-style: none; /* Remove default numbering */
@@ -3129,14 +3129,14 @@ table caption {
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
 }
 
-#main-left ol.special-ordered-list ol,
-#main-right ol.special-ordered-list ol,
+.main-left ol.special-ordered-list ol,
+.main-right ol.special-ordered-list ol,
 .kmw_article ol.special-ordered-list ol {
     margin: 0 0 0 2em; /* Add some left margin for inner lists */
 }
 
-#main-left ol.special-ordered-list li,
-#main-right ol.special-ordered-list li,
+.main-left ol.special-ordered-list li,
+.main-right ol.special-ordered-list li,
 .kmw_article ol.special-ordered-list li {
     position: relative;
     display: block;
@@ -3149,14 +3149,14 @@ table caption {
     transition: all .3s ease-out;   
 }
 
-#main-left ol.special-ordered-list li:hover,
-#main-right ol.special-ordered-list li:hover,
+.main-left ol.special-ordered-list li:hover,
+.main-right ol.special-ordered-list li:hover,
 .kmw_article ol.special-ordered-list li:hover {
     background: #eee;
 }   
 
-#main-left ol.special-ordered-list li:before,
-#main-right ol.special-ordered-list li:before,
+.main-left ol.special-ordered-list li:before,
+.main-right ol.special-ordered-list li:before,
 .kmw_article ol.special-ordered-list li:before {
     content: counter(li);
     counter-increment: li;
@@ -3174,8 +3174,8 @@ table caption {
 	font-weight:normal;
 }
 
-#main-left ol.special-ordered-list li:after,
-#main-right ol.special-ordered-list li:after,
+.main-left ol.special-ordered-list li:after,
+.main-right ol.special-ordered-list li:after,
 .kmw_article ol.special-ordered-list li:after {
     position: absolute; 
     content: '';
@@ -3186,15 +3186,15 @@ table caption {
     transition: all .3s ease-out;               
 }
 
-#main-left ol.special-ordered-list li:hover:after,
-#main-right ol.special-ordered-list li:hover:after,
+.main-left ol.special-ordered-list li:hover:after,
+.main-right ol.special-ordered-list li:hover:after,
 .kmw_article ol.special-ordered-list li:hover:after {
     left: -.5em;
     border-left-color: #176095;             
 }   
 
-#main-left ul,
-#main-right ul {
+.main-left ul,
+.main-right ul {
 	list-style:square;
 	clear: both;
 }
@@ -3248,23 +3248,23 @@ table caption {
 }
 /* -----==== end COOKIES ====----- */
 
-#main-left .kmw_article_photo,
-#main-right .kmw_article_photo {
+.main-left .kmw_article_photo,
+.main-right .kmw_article_photo {
 	display: none;
 	margin-left: 25px;
 }
 
 
 /* -----==== FAQ ====----- */
-.pg_faq #main-left h1, .pg_faq #main-right h1,
-.pg_faq #main-left h2, .pg_faq #main-right h2,
-.pg_faq #main-left h3, .pg_faq #main-right h3,
-.pg_faq #main-left h4, .pg_faq #main-right h3,
-.pg_faq #main-left h5, .pg_faq #main-right h5,
-.pg_faq #main-left h6, .pg_faq #main-right h6,
-.pg_faq #main-left h7, .pg_faq #main-right h7,
-.pg_faq #main-left h8, .pg_faq #main-right h8,
-.pg_faq #main-left h9, .pg_faq #main-right h9 {
+.pg_faq .main-left h1, .pg_faq .main-right h1,
+.pg_faq .main-left h2, .pg_faq .main-right h2,
+.pg_faq .main-left h3, .pg_faq .main-right h3,
+.pg_faq .main-left h4, .pg_faq .main-right h3,
+.pg_faq .main-left h5, .pg_faq .main-right h5,
+.pg_faq .main-left h6, .pg_faq .main-right h6,
+.pg_faq .main-left h7, .pg_faq .main-right h7,
+.pg_faq .main-left h8, .pg_faq .main-right h8,
+.pg_faq .main-left h9, .pg_faq .main-right h9 {
 	font-size: 30px !important;
 	padding-top: 0px;
 	margin-top: 0px;
@@ -3760,6 +3760,33 @@ input.button:hover, input.button:focus, input.button:active {
 .static-main-menu li.no-collapse > a {
 	padding: 9px 15px 0px 15px;
 }
+
+a.skip-main {
+    left:-999px;
+    position:absolute;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+    z-index:-999;
+}
+a.skip-main:focus, a.skip-main:active {
+    color: #fff;
+    background-color:#000;
+    left: auto;
+    top: auto;
+    width: 30%;
+    height: auto;
+    overflow:auto;
+    margin: 10px 35%;
+    padding:5px;
+    border-radius: 15px;
+    border:4px solid yellow;
+    text-align:center;
+    font-size:1.2em;
+    z-index:999;
+}
+
 
 /* High Contrast Mode CSS for www.wbp.poznan.pl website */
 /* Created by Karol Huszal - http://karol.huszal.com */

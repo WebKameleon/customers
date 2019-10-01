@@ -47,7 +47,7 @@
 {endif:level=(2, 3, 4)}
 
 {if:level=100}
-	<article class="logo">
+	<article class="{if:class}{class}{endif:class}{if:!class}logo{endif:!class}">
      {if:title}<h1>{title}</h1>{endif:title}
      {plain}{tokens.html}
 	  <div class="clearfix"></div>
