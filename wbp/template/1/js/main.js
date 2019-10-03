@@ -119,6 +119,13 @@ $('.pg_creator .kmw_articlelist:first,.pg_exhibition_list .kmw_articlelist:first
     
 });
 
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+
 $(document).ready(function ($) {
     
     $('.top .wcag button').click(function(){
@@ -130,6 +137,18 @@ $(document).ready(function ($) {
     });
     
     var fontLevel = 0;
+
+    function wcagCookie() {
+        document.cookie = 'wcag='+($('body').attr('class')||'')+','+fontLevel+';path=/';
+    }
+    
+    $('.wcag-contents .high-contrast-bw').click(function(){
+        $('body').toggleClass('HighContrast');
+        wcagCookie();
+    });
+    
+    
+
     var fontDefault = {
         ".article": {
             "font-size": 14
@@ -228,16 +247,29 @@ $(document).ready(function ($) {
         else
             fontLevel = 0;
             
-        console.log(fontLevel);
+        wcagCookie();
         for (var k in fontDefault) {
             var css={};
             for (let l in fontDefault[k]) {
                 css[l] = (fontDefault[k][l]+fontLevel*(l=='height'?5:2))+'px'; 
             }
-            console.log(k,css);
+        
             $(k).css(css);
         }
     }
+    
+    var wcagC=getCookie('wcag');
+    if(wcagC) {
+        var wcagA=wcagC.split(',');
+        if (wcagA[0].length>1) {
+            $('body').addClass(wcagA[0]);
+        }
+        if (wcagA[1]) {
+            adjustFont(parseInt(wcagA[1]));
+        }
+    }
+    
+    
     
     $(".defaultFont").click(function () {
         adjustFont();

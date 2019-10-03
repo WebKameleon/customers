@@ -352,9 +352,15 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	background-color: white;
 	z-index: 1;
 }
-.wcag-contents .wcag {
+
+.wcag-contents div {
 	display: inline-block;
 	float:right;
+}
+
+
+.wcag-contents .wcag {
+	
 	background: url(img/wcag.png);
 	background-repeat:no-repeat;
 	background-size: 32px;
@@ -367,6 +373,18 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .wcag-contents .wcag:hover {
 	background-color: yellow;
 }
+
+.wcag-contents .high-contrast-bw {
+	width: 30px;
+	color: white;
+	background-color: black;
+	margin-top:6px;
+	margin-right: 4px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+
 
 .font-size {
 	float:right;
