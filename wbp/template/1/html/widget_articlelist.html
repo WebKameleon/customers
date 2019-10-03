@@ -26,7 +26,7 @@
 
   <div class="articlelist-block col-md-5ths col-sm-5ths">
     <div class="articlelist-block-content">
-    {if:bgimg}<a class="articlelist_photo" href="{more_link}#{title}"><img src="{thumbsUrl}/{bgimg}"/></a>{endif:bgimg}
+    {if:bgimg}<a class="articlelist_photo" href="{more_link}#{title}"><img src="{thumbsUrl}/{bgimg}" alt="{alt}"/></a>{endif:bgimg}
     <div class="clearfix"></div>
     {if:title}<h3><a href="{more_link}#{title}">{title}</a></h3>{endif:title}
     <div class="clearfix"></div>
@@ -97,7 +97,7 @@
 
   <div class="articlelist-block col-md-5ths col-sm-5ths">
     <div class="articlelist-block-content">
-    {if:bgimg}<a class="articlelist_photo" href="{more_link}#{title}"><img src="{thumbsUrl}/{bgimg}"/></a>{endif:bgimg}
+    {if:bgimg}<a class="articlelist_photo" href="{more_link}#{title}"><img src="{thumbsUrl}/{bgimg}" alt="{alt}"/></a>{endif:bgimg}
     <div class="clearfix"></div>
     {if:title}<h3><a href="{more_link}#{title}">{title}</a></h3>{endif:title}
     <div class="clearfix"></div>
@@ -220,7 +220,7 @@
 {loop:articles}
  <div class="thumb-container col-md-4 col-sm-6 col-xs-12 wow">
 		 <a class="thumb" href="{more_link}#{title}" title="{plain}">
-		   <img src="{if:bgimg}{thumbsUrl}/{bgimg}{endif:bgimg}{if:!bgimg}{uimages}/spacer.png{endif:!bgimg}" alt="{title}"/>
+		   <img src="{if:bgimg}{thumbsUrl}/{bgimg}{endif:bgimg}{if:!bgimg}{uimages}/spacer.png{endif:!bgimg}" alt="{alt}"/>
 		   <span class="thumb_overlay">{title}</span>
 		 </a>
  </div>
@@ -239,7 +239,7 @@
 <div class="kmw_articlelist {tokens.wbp_pageclass}" {if:nav}style="display:none"{endif:nav}>    
     <div class="kmw_articlelist_content">
 	{if:bgimg}
-	<a class="kmw_articlelist_photo" href="{more_link}#{title}"><img src="{thumbsUrl}/{bgimg}"/></a>
+	<a class="kmw_articlelist_photo" href="{more_link}#{title}"><img src="{thumbsUrl}/{bgimg}" alt="{alt}"/></a>
 	{endif:bgimg}
         {if:title}<h3><a href="{more_link}#{title}">{title}</a></h3>{endif:title}
 	{if:costxt}<h5 class="kmw_articlelist_author">{costxt}</h5>{endif:costxt}

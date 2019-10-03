@@ -52,7 +52,7 @@
 	    <div class="slideshow-more">{translates.More}</div>
 	    {endif:href}
 	        
-                <img src="{imagesUrl}/{img}" {if:alt}title="{alt}"{endif:alt} />
+            <img src="{imagesUrl}/{img}" {if:alt}title="{alt}"{endif:alt}{if:titlea} alt="{titlea}"{endif:titlea}/>
             {if:href}</a>{endif:href}
         </li>
         {endloop:webtd.menu}
