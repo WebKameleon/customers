@@ -153,11 +153,18 @@ class jotform {
 	$iframe='';
 	
 	$iframe .= '<script>
-		setTimeout(function(){
+		function chkheight'.$formId.'() {
+			if (typeof($)!="function")
+				return setTimeout(chkheight'.$formId.',100);
+			
 			var f=$("#'.$formId.'");
+			if (f.length==0)
+				return setTimeout(chkheight'.$formId.',100);
 			if(f.height()<300)
 				f.height(370);
-		},1000);
+		}
+		chkheight'.$formId.'();
+		
 	</script>';
 	
 	$iframe .= '<script nodefer="defer" type="text/javascript" src="https://form.jotformeu.com/jsform/'.$formId.'"></script>';
