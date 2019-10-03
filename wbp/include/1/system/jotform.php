@@ -150,7 +150,17 @@ class jotform {
     }
     
     public function iframe($formId) {
-	$iframe = '<script nodefer="defer" type="text/javascript" src="https://form.jotformeu.com/jsform/'.$formId.'"></script>';
+	$iframe='';
+	
+	$iframe .= '<script>
+		setTimeout(function(){
+			var f=$("#'.$formId.'");
+			if(f.height()<300)
+				f.height(370);
+		},1000);
+	</script>';
+	
+	$iframe .= '<script nodefer="defer" type="text/javascript" src="https://form.jotformeu.com/jsform/'.$formId.'"></script>';
 	return $iframe;
     }
     public function xiframe($formId) {
@@ -160,7 +170,7 @@ class jotform {
  <iframe id="JotFormIFrame-"'.$formId.' onload="window.parent.scrollTo(0,0)" allowtransparency="true" allowfullscreen="true" src="https://form.jotformeu.com/'.$formId.'" frameborder="0" style="width: 1px; min-width: 100%; height:1069px; border:none;" scrolling="no" > </iframe> 
 
 	<script type="text/javascript"> 
-		var ifr = document.getElementById("JotFormIFrame-80582078833362"); 
+		var ifr = document.getElementById("JotFormIFrame-'.$formId.'"); 
 		if(window.location.href && window.location.href.indexOf("?") > -1) 
 		{ 
 			var get = window.location.href.substr(window.location.href.indexOf("?") + 1); 
