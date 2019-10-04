@@ -343,9 +343,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .wcag-contents {
 	display: none;
 	width: 302px;
-	height:40px;
+	height:60px;
 	position: absolute;
 	right: 15px;
+	top: -18px;
 	border: 1px solid #176095;
 	padding:3px;
 	border-radius: 3px;
@@ -363,9 +364,9 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 	
 	background: url(img/wcag.png);
 	background-repeat:no-repeat;
-	background-size: 32px;
-	width: 32px;
-	height: 32px;
+	background-size: 52px;
+	width: 52px;
+	height: 52px;
 	cursor: pointer;
 	margin-left: 10px;
 }
@@ -375,14 +376,16 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .wcag-contents .high-contrast-bw {
-	width: 30px;
+	width: 45px;
 	color: white;
 	background-color: black;
-	margin-top:6px;
-	margin-right: 4px;
+	margin-top:3px;
+	margin-right: 8px;
 	font-weight: bold;
 	text-align: center;
 	cursor: pointer;
+	font-size: 30px;
+	border: 2px solid yellow;
 }
 
 
@@ -3885,4 +3888,19 @@ body.HighContrast .dropdown-menu {
 body.HighContrast #main-menu ul li > a:hover {
 	border:1px solid #000 !important;
 	color:#fcff3c;
+}
+
+body.HighContrast .kmw_articlelist_text {
+	color: #bbb;
+}
+
+body.HighContrast .gallery2 figcaption {
+	color: #ccc;
+}
+
+body.HighContrast .wcag-contents a {
+    color: #000;
+    background: #fff;
+    background-color: #fff !important;
+    border: 0;
 }
