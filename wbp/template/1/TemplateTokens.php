@@ -90,4 +90,9 @@ class TemplateTokens extends Tokens {
         }
         return parent::code_change($html,$style);
     }
+    
+    
+    public function noquote($txt) {
+        return str_replace('"',"'",$txt);
+    }
 }}
