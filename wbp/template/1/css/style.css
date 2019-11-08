@@ -3688,6 +3688,7 @@ ul.articlelist-nav {
 
 .kmw_articlelist_grid_list_grid {
 	background-image: url('img/grid_list_list.png');
+	margin-bottom: 15px;
 }
 
 .kmw_articlelist_grid .thumb-container {
