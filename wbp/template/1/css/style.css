@@ -601,6 +601,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 #main {
 	padding-bottom:25px;
+	outline: none;
 }
 
 /* --- table --- */
@@ -3649,10 +3650,12 @@ ul.articlelist-nav {
 }
 
 .kmw_articlelist_grid_list_toggle {
-	position: absolute;
-	right: 15px;
-	top: 15px;
-	width: 30px;
+	Xposition: absolute;
+	Xright: 15px;
+	Xtop: 15px;
+	float: right;
+	margin-right: 0px;
+	width: 30px !important;
 	height: 30px;
 	display: inline-block;
 	cursor: pointer;

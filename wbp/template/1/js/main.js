@@ -93,7 +93,8 @@ $('.pg_creator .kmw_articlelist:first,.pg_exhibition_list .kmw_articlelist:first
         
         var letter=$(this).html().substr(0,1).toUpperCase();
         
-        if (typeof(letters[letter])=='undefined' && letter!='„') $('.articlelist-nav').append('<li rel="'+letter+'">'+letter+'</li>');
+        if (typeof(letters[letter])=='undefined' && letter!='„')
+            $('.articlelist-nav').append('<li rel="'+letter+'">'+letter+'</li>');
         letters[letter]=true;
     });
     
@@ -294,8 +295,8 @@ $(document).ready(function ($) {
 
     if (wows.length>0) {
         
-	includeScript('js/wow.js')
-	addCss('css/animate.css')
+        includeScript('js/wow.js');
+        addCss('css/animate.css');
         
         var kmw_articlelist_grid_list_toggle_click = function() {
             $(this).toggleClass('kmw_articlelist_grid_list_list');
@@ -307,7 +308,7 @@ $(document).ready(function ($) {
                 $('.kmw_articlelist_list').show();                
                 
             } else{
-		$('.wow').removeClass('animated');
+                $('.wow').removeClass('animated');
                 $('.kmw_articlelist_grid').show();
                 $('.kmw_articlelist_list').hide();
             }
