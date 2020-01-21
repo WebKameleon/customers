@@ -2,9 +2,11 @@
 {if:title}<{tokens|h1:1}>{title}</{tokens|h1:1}>{endif:title}
 {if:!title}{if:name}<{tokens|h1:1}>{name}</{tokens|h1:1}>{endif:name}{endif:!title}
 <section id="side-nav" class="menu-simple">
+{define:colmd}col-md-6 col-sm-3 col-xs-6{enddefine:colmd}
+{if:size=1}{define:colmd}col-md-12 col-xs-6{enddefine:colmd}{endif:size=1}
 <div class="panel-group" id="accordion{menu_id}">
 {loop:menu}
-	  <div class="panel panel-default{if:img} i-am-img  col-md-6 col-sm-3 col-xs-6{endif:img}">
+	  <div class="panel panel-default{if:img} i-am-img {colmd}{endif:img}">
 		
 		<div class="panel-heading {if:active}active{endif:active}">
 		 {if:!img}
