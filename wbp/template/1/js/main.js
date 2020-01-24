@@ -74,6 +74,13 @@ $('article.pg_faq :header').click(function() {
     $(this).siblings('.kmw_article_plain').fadeIn();
 });
 
+if(window.location.hash) {
+    setTimeout(function(){
+       $('a[name="'+decodeURI(window.location.hash).substr(1)+'"]').parent().find('div.kmw_article_plain').fadeIn();
+    },1000)
+  
+} 
+
 
 function wbp_articlelist_nav(a,letter)
 {
