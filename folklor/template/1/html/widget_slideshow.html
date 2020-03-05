@@ -49,7 +49,7 @@
         {loop:webtd.menu}
         <li>
             {if:page_target}<a href="{href}">{endif:page_target}
-                <img src="{imagesUrl}/{img}" {if:alt}title="{alt}"{endif:alt} />
+                <img src="{imagesUrl}/{img}" {if:alt}title="{alt}"{endif:alt} {if:titlea} alt="{titlea|tokens.noquote}"{endif:titlea}/>
             {if:page_target}</a>{endif:page_target}
         </li>
         {endloop:webtd.menu}

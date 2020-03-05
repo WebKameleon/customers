@@ -10,4 +10,8 @@ class TemplateTokens extends Tokens {
         
         return $html;
     }
+    
+    public function noquote($txt) {
+        return str_replace('"',"'",$txt);
+    }
 }}
