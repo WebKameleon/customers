@@ -1,0 +1,31 @@
+{if:title}<{tokens.h1} class="widget_h">{title}</{tokens.h1}>{endif:title}
+{with:gallery2Widget}
+{if:webtd.menu}
+
+<div id="gallery{webtd.sid}" class="gallery2 row">
+{loop:webtd.menu}<div class="col-md-3 col-sm-4"><a class="fancybox{webtd.sid} gallery-tooltip" data-fancybox-href="{uimages}/{img}" rel="gallery{webtd.sid}" {if:alt}title="{alt}"{endif:alt}>
+<img src="{thumbsUrl}/{img}" {if:alt}alt="{alt}"{endif:alt} /></a></div>
+{endloop:webtd.menu}
+</div>
+<div class="clearfix"></div>
+
+<script type="text/javascript">
+	
+var kmw_Galery2Array;
+
+if(typeof(kmw_Galery2Array)=='undefined') kmw_Galery2Array=[];
+
+kmw_Galery2Array[kmw_Galery2Array.length]={
+	sid: {webtd.sid},
+	openEffect	: '{data.effect}',
+	closeEffect	: '{data.effect}',
+	{if:data.slideshow_autostart}autoPlay	: '{data.slideshow_autostart}',{endif:data.slideshow_autostart}
+	{if:data.animation_speed}playSpeed	: '{data.animation_speed}',{endif:data.animation_speed}
+	openSpeed	: 'normal',
+	closeSpeed	: 'normal'
+};
+	
+
+</script>
+{endif:webtd.menu}
+{endwith:gallery2Widget}
