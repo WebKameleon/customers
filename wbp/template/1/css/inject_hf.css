@@ -551,3 +551,12 @@ a.skip-main:focus, a.skip-main:active {
     font-size:1.2em;
     z-index:999;
 }
+
+.wcag-contents, .wcag {
+    display: none;
+}
+
+.boxhead .sort-and-view {
+    top: -73px;
+    position: relative;
+}
