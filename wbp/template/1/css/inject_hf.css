@@ -563,6 +563,22 @@ a.skip-main:focus, a.skip-main:active {
 }
 
 
+.static-main-menu {
+	float: left
+}
+
+.static-main-menu li {
+	display: none;	
+}
+
+.static-main-menu li.no-collapse {
+	display: block;	
+}
+
+.static-main-menu li.no-collapse > a {
+	padding: 9px 15px 0px 15px;
+}
+
 a.skip-main {
     left:-999px;
     position:absolute;
