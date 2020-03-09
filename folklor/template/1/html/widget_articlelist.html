@@ -19,7 +19,7 @@
 {if:title}<a name="{title}"></a>{endif:title}
 <div class="col-md-6 article-list">
 	<div class="row border">
-		{if:bgimg}<div class="col-md-6"><a href="{more_link}"><img src="{imagesUrl}/{bgimg}" class="img-responsive"/></a></div>{endif:bgimg}
+		{if:bgimg}<div class="col-md-6"><a href="{more_link}"><img src="{imagesUrl}/{bgimg}" class="img-responsive" alt="{alt}/></a></div>{endif:bgimg}
 	    {if:title}<div class="col-md-6 txt">
 			{if:nd_custom_date}<p class="articlelist-block-date">{nd_custom_date|kameleon.date}{if:nd_custom_date_end} - {nd_custom_date_end|kameleon.date}{endif:nd_custom_date_end}</p>{endif:nd_custom_date}
 			{if:trailer}<p class="articlelist-block-date2">{trailer}</p>{endif:trailer}
@@ -59,7 +59,7 @@
 {if:title}<a name="{title}"></a>{endif:title}
 <div class="kmw_article_list">
     {if:bgimg}
-        <img{if:itemtype} itemprop="image"{endif:itemtype} src="{thumbsUrl}/{bgimg}" />
+        <img{if:itemtype} itemprop="image"{endif:itemtype} src="{thumbsUrl}/{bgimg}" alt="{alt}/>
     {endif:bgimg}
 
         {if:title}<{tokens.h1}{if:itemtype} itemprop="name"{endif:itemtype}><a href="{more_link}">{endif:more}{title}{if:more}</a></{tokens.h1}>{endif:title}
