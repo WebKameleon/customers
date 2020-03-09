@@ -53,9 +53,11 @@
 
 /* Use a different font family for search results */
     
+	/*
     .cse .gsc-control-cse, .gsc-control-cse {
         padding: 0px !important;
     }
+    */
 
     .gs-title, .gs-snippet {
         font-family:Tahoma, Geneva, sans-serif;
@@ -130,3 +132,23 @@
     .gsc-orderby {
         display: none;
     }
+	
+	.gsc-search-button button {
+		width: 5px;
+		margin-bottom: 5px !important;
+		margin-right: 3px;
+		padding: 1px 18px 9px 12px;
+		
+	}
+	.gsc-input input {
+		font-size: 12px;
+	}
+	
+	.gsc-input input::-webkit-input-placeholder {
+		font-size: 12px;
+	}
+	
+	
+	.gsc-input td {
+		padding-left: 5px;
+	}

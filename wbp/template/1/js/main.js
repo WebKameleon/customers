@@ -147,11 +147,15 @@ $(document).ready(function ($) {
     var fontLevel = 0;
 
     function wcagCookie() {
-        document.cookie = 'wcag='+($('body').attr('class')||'')+','+fontLevel+';path=/';
+        var cl=($('body').attr('class')||'').split(' ');
+        for (let i=0; i<cl.length; i++)
+           if (cl[i].indexOf('wcag')===-1)
+            cl.splice(i--,1);
+        document.cookie = 'wcag='+(cl.join(' '))+','+fontLevel+';path=/';
     }
     
     $('.wcag-contents .high-contrast-bw').click(function(){
-        $('body').toggleClass('HighContrast');
+        $('body').toggleClass('wcag-contrast-1');
         wcagCookie();
     });
     
@@ -254,7 +258,13 @@ $(document).ready(function ($) {
             fontLevel+=x;
         else
             fontLevel = 0;
-            
+        
+        
+        if (parseInt(fontLevel)!==0) 
+            $('body').addClass('wcag-on');
+        else
+            $('body').removeClass('wcag-on');
+        
         wcagCookie();
         for (var k in fontDefault) {
             var css={};
@@ -269,12 +279,24 @@ $(document).ready(function ($) {
     var wcagC=getCookie('wcag');
     if(wcagC) {
         var wcagA=wcagC.split(',');
+        var wcagShow=false;
         if (wcagA[0].length>1) {
             $('body').addClass(wcagA[0]);
+            wcagShow=true;
         }
         if (wcagA[1]) {
             adjustFont(parseInt(wcagA[1]));
+            if (parseInt(wcagA[1])!==0) {
+                wcagShow=true;
+            }
+            
         }
+        
+        if (wcagShow) {
+            $('.wcag-contents').show();
+        }
+        
+    
     }
     
     

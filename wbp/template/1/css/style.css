@@ -3816,14 +3816,14 @@ a.skip-main:focus, a.skip-main:active {
 /* High Contrast Mode CSS for www.wbp.poznan.pl website */
 /* Created by Karol Huszal - http://karol.huszal.com */
 
-body.HighContrast {
+body.wcag-contrast-1 {
 	background:#000;
 	color:#fff;
 	border-color:#fff;
 	font-weight:normal !important;
 }
 
-body.HighContrast a {
+body.wcag-contrast-1 a {
 	color: #fcff3c;
 	background:#000;
 	background-color:#000 !important;
@@ -3831,80 +3831,86 @@ body.HighContrast a {
 	font-weight:normal !important;
 }
 
-body.HighContrast a:hover {
+body.wcag-contrast-1 a:hover {
 	color:#fff;
 	background:#000;
 	background-color:#000;
 	border:1px solid #fcff3c;
 }
 
-body.HighContrast .language-menu ul.kmw_langs li a {
+body.wcag-contrast-1 .language-menu ul.kmw_langs li a {
     background: url(flags.png) no-repeat !important;
 }
 
-body.HighContrast a.articlelist_photo {
+body.wcag-contrast-1 a.articlelist_photo {
 	border:0px !important;
 }
 
-body.HighContrast img {
+body.wcag-contrast-1 img {
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 }
 
-body.HighContrast .navbar-inverse {
+body.wcag-contrast-1 .navbar-inverse {
     background-image: none !important;
     background-repeat: none !important;
     background-color: #000000 !important;
     border-bottom: 5px solid #ffffff !important;
 }
 
-body.HighContrast .articlelist-block .articlelist-block-text,
-body.HighContrast #sidebar .article{
+body.wcag-contrast-1 .articlelist-block .articlelist-block-text,
+body.wcag-contrast-1 #sidebar .article{
 	color:#fff !important;
 	font-weight:normal !important;
 }
 
-body.HighContrast h1,
-body.HighContrast h2,
-body.HighContrast h3,
-body.HighContrast h4,
-body.HighContrast h5,
-body.HighContrast h6 {
+body.wcag-contrast-1 h1,
+body.wcag-contrast-1 h2,
+body.wcag-contrast-1 h3,
+body.wcag-contrast-1 h4,
+body.wcag-contrast-1 h5,
+body.wcag-contrast-1 h6 {
 	color:#fff !important;
 }
 
-body.HighContrast .radio label {
+body.wcag-contrast-1 .radio label {
 	color:#fff !important;
 }
 
-body.HighContrast #footer {
+body.wcag-contrast-1 #footer {
     background: none;
 	background-color:#000 !important;
 	border-top:5px solid #fff;
     color: #fff;
 }
 
-body.HighContrast .dropdown-menu {
+body.wcag-contrast-1 .dropdown-menu {
     background-color: #000000;
     border: 5px solid #fff;
 }
 
-body.HighContrast #main-menu ul li > a:hover {
+body.wcag-contrast-1 #main-menu ul li > a:hover {
 	border:1px solid #000 !important;
 	color:#fcff3c;
 }
 
-body.HighContrast .kmw_articlelist_text {
+body.wcag-contrast-1 .kmw_articlelist_text {
 	color: #bbb;
 }
 
-body.HighContrast .gallery2 figcaption {
+body.wcag-contrast-1 .gallery2 figcaption {
 	color: #ccc;
 }
 
-body.HighContrast .wcag-contents a {
+body.wcag-contrast-1 .wcag-contents a {
     color: #000;
     background: #fff;
     background-color: #fff !important;
     border: 0;
 }
+
+body.wcag-contrast-1 .articlelist-block-text,
+body.wcag-on .articlelist-block-text {
+	text-align: left;
+}
+
