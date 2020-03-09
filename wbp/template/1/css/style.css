@@ -3914,3 +3914,14 @@ body.wcag-on .articlelist-block-text {
 	text-align: left;
 }
 
+
+body.wcag-contrast-1 a.bx-pager-link,
+body.wcag-on a.bx-pager-link {
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 10px !important;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+}
+
