@@ -31,3 +31,132 @@ $('.popup').click(function() {
 	$(this).fadeOut(2000);
 }).fadeIn(2000);
 
+
+
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+$(document).ready(function ($) {
+    
+    $('.navbar .wcag button').click(function(){
+        $('.wcag-contents').show();
+    });
+    
+    $('.wcag-contents .wcag').click(function(){
+        $('.wcag-contents').hide();
+    });
+    
+    var fontLevel = 0;
+
+    function wcagCookie() {
+        var cl=($('body').attr('class')||'').split(' ');
+        for (let i=0; i<cl.length; i++)
+           if (cl[i].indexOf('wcag')===-1)
+            cl.splice(i--,1);
+        document.cookie = 'wcag='+(cl.join(' '))+','+fontLevel+';path=/';
+    }
+    
+    $('.wcag-contents .high-contrast-bw').click(function(){
+        $('body').toggleClass('wcag-contrast-1');
+        wcagCookie();
+    });
+    
+    
+    var fontDefault = {
+        ".kmw_article_text": {
+            "font-size": 14
+        },
+        ".navbar .navbar-nav > li > a":{
+            "font-size": 16
+        },
+        ".dropdown-menu > li > a":{
+            "font-size": 14
+        },
+        "#content h1, #content h2, #content h3, #content h4, #content h5, #content h6, #content h7, #content h8, #content h9, #sidebar-right h1, #sidebar-right h2, #sidebar-right h3, #sidebar-right h4, #sidebar-right h5, #sidebar-right h6, #sidebar-right h7, #sidebar-right h8, #sidebar-right h9": {
+            "font-size": 18
+        },
+        "#sidebar h4":{
+            "font-size": 14
+        },
+        ".article-list .a2 a, .article-list .a3 a, .article-list .a4 a": {
+            "font-size": 16
+        },
+        ".articlelist-block .read-more":{
+            "font-size": 12
+        },
+        
+        ".kmw_article h1": {
+            "font-size": 36
+        }
+        
+    }
+    
+    function adjustFont(x) {
+        if (x) 
+            fontLevel+=x;
+        else
+            fontLevel = 0;
+        
+        
+        if (parseInt(fontLevel)!==0) 
+            $('body').addClass('wcag-on');
+        else
+            $('body').removeClass('wcag-on');
+        
+        wcagCookie();
+        for (var k in fontDefault) {
+            var css={};
+            for (let l in fontDefault[k]) {
+                css[l] = (fontDefault[k][l]+fontLevel*(l=='height'?5:2))+'px'; 
+            }
+        
+            $(k).css(css);
+        }
+    }
+    
+    var wcagC=getCookie('wcag');
+    if(wcagC) {
+        var wcagA=wcagC.split(',');
+        var wcagShow=false;
+        if (wcagA[0].length>1) {
+            $('body').addClass(wcagA[0]);
+            wcagShow=true;
+        }
+        if (wcagA[1]) {
+            adjustFont(parseInt(wcagA[1]));
+            if (parseInt(wcagA[1])!==0) {
+                wcagShow=true;
+            }
+            
+        }
+        
+        if (wcagShow) {
+            $('.wcag-contents').show();
+        }
+        
+    
+    }
+    
+    
+    
+    $(".defaultFont").click(function () {
+        adjustFont();
+    });
+
+    $(".decreaseFont").click(function () {
+        adjustFont(-1);
+    });
+    
+    $(".increaseFont").click(function () {
+        adjustFont(1);
+    });
+    
+    $(".increaseMoreFont").click(function () {
+        adjustFont(2);
+    });
+    
+});
+
