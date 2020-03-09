@@ -75,20 +75,23 @@ $(document).ready(function ($) {
         ".dropdown-menu > li > a":{
             "font-size": 14
         },
-        "#content h1, #content h2, #content h3, #content h4, #content h5, #content h6, #content h7, #content h8, #content h9, #sidebar-right h1, #sidebar-right h2, #sidebar-right h3, #sidebar-right h4, #sidebar-right h5, #sidebar-right h6, #sidebar-right h7, #sidebar-right h8, #sidebar-right h9": {
+        "#content h2, #content h3, #content h4, #content h5, #content h6, #content h7, #content h8, #content h9, #sidebar-right h1, #sidebar-right h2, #sidebar-right h3, #sidebar-right h4, #sidebar-right h5, #sidebar-right h6, #sidebar-right h7, #sidebar-right h8, #sidebar-right h9": {
             "font-size": 18
         },
         "#sidebar h4":{
             "font-size": 14
         },
-        ".article-list .a2 a, .article-list .a3 a, .article-list .a4 a": {
+        ".article-list .h2 a, .article-list .h3 a, .article-list .h4 a": {
             "font-size": 16
         },
-        ".articlelist-block .read-more":{
+        ".article-list .read-more":{
             "font-size": 12
         },
+        ".article-list .articlelist-block-date":{
+            "font-size": 11
+        },
         
-        ".kmw_article h1": {
+        "#content h1": {
             "font-size": 36
         }
         
