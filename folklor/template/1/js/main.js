@@ -79,7 +79,7 @@ $(document).ready(function ($) {
             "font-size": 18
         },
         "#sidebar h4":{
-            "font-size": 14
+            "font-size": 24
         },
         ".article-list .h2 a, .article-list .h3 a, .article-list .h4 a": {
             "font-size": 16
@@ -93,6 +93,9 @@ $(document).ready(function ($) {
         
         "#content h1": {
             "font-size": 36
+        },
+        ".footer-menu a": {
+            "font-size": 11
         }
         
     }
