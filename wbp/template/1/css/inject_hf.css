@@ -20,17 +20,18 @@
 }
 
 @media (min-width: 768px) {
-.wbp_inject_header .navbar-collapse {
-	float:right;	
-}
-}
+    .wbp_inject_header .navbar-collapse {
+        float:right;	
+    }
 
-.wbp_inject_header .container-fluid>.navbar-header {
-	padding-left:15px;
-}
 
-.wbp_inject_header ul.nav li.dropdown:hover > ul.dropdown-menu{
-    display: block;    
+    .wbp_inject_header .container-fluid>.navbar-header {
+        padding-left:15px;
+    }
+    
+    .wbp_inject_header ul.nav li.dropdown:hover > ul.dropdown-menu{
+        display: block;    
+    }
 }
 
 .wbp_inject_header  .top {
@@ -39,7 +40,7 @@
 
 .wbp_inject_header .logo {
 	margin-top: 20px;
-        margin-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .wbp_inject_header a.navbar-brand {
