@@ -78,10 +78,13 @@ $(document).ready(function ($) {
         "#content h2, #content h3, #content h4, #content h5, #content h6, #content h7, #content h8, #content h9, #sidebar-right h1, #sidebar-right h2, #sidebar-right h3, #sidebar-right h4, #sidebar-right h5, #sidebar-right h6, #sidebar-right h7, #sidebar-right h8, #sidebar-right h9": {
             "font-size": 18
         },
-        "#sidebar h4":{
+        "#sidebar h5,#sidebar h4,#sidebar h3,#sidebar h2,#sidebar h1":{
             "font-size": 24
         },
-        ".article-list .h2 a, .article-list .h3 a, .article-list .h4 a": {
+        ".sidebar-menu a": {
+            "font-size": 14
+        },
+        ".article-list .h1 a,.article-list .h2 a, .article-list .h3 a, .article-list .h4 a,.article-list .h5 a": {
             "font-size": 16
         },
         ".article-list .read-more":{
