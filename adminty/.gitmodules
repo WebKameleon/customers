@@ -1,0 +1,3 @@
+[submodule "adminty"]
+	path = src
+	url = https://github.com/jovipac/adminty
