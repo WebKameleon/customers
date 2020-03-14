@@ -3220,6 +3220,11 @@ table caption {
 	list-style:square;
 	clear: both;
 }
+
+.kmw_article_plain ul {
+	clear: none;
+}
+
 /* ===== end LISTS ===== */
 
 /* ===== SIDEBAR ===== */
