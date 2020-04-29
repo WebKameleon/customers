@@ -1830,6 +1830,12 @@ label.wbp_grid_form_label:before {
 	margin-bottom:0px;
 }
 
+#fileupload table.table {
+	width: 100%;
+	margin-bottom: 30px;
+}
+
+
 #fileupload table.table input,
 #fileupload table.table select,
 #fileupload table.table textarea {
@@ -1854,7 +1860,7 @@ label.wbp_grid_form_label:before {
 
 #fileupload table.table p.name {
 	color:#15598b;
-	font-size:18px;
+	font-size:14px;
 	font-weight:bold;
 }
 
