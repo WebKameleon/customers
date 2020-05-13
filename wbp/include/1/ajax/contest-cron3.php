@@ -18,6 +18,9 @@ function toSpreadsheet($rows,$td_data) {
     Spreadsheet::setToken($td_data['tokens']['spreadsheets']);
     $sheets=Spreadsheet::listWorksheets($td_data['drive']['id']);
     
+    
+    echo "Sheets: "; print_r($sheets);
+    
     if (!is_array($sheets)) {
         return false;
     }
@@ -49,6 +52,8 @@ function toSpreadsheet($rows,$td_data) {
 
     $header=Spreadsheet::getWorksheet($td_data['drive']['id'],$worksheet_id,'max-row=1');
     if (isset($header[0])) $header=$header[0];
+    
+    echo "Header: "; print_r($header);
     
     foreach($rows AS $row) {
         foreach ($row AS $k=>$v)
