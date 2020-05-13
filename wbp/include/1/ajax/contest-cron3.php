@@ -72,26 +72,35 @@ $clients=WBP::getContestClients();
 
 
 
-if (count($clients)==0) die();
+if (count($clients)==0) die('No data to process');
+
+echo '<pre>';
+echo "Number of clients: ".count($client)."\n";
 
 for ($i=0; $i<count($clients); $i++) {
     $client_data = WBP::getContestDir(str_replace('/','',$clients[$i]));
     
+    echo "$i.".$clients[$i].":\n"; print_r($client_data);
     
     if (!isset($client_data['contents']) || !isset($client_data['contents']['data.json']))
         continue;
     $data = $client_data['contents']['data.json'];
+    
+    
     
     if (!isset($data['finished']))
         continue;
     
     $td_data=WBP::get_data($data['sid']);
     
+    echo "TD-DATA\n"; print_r($td_data);
+    
     Google::setToken(null);
     $token=Google::setToken($td_data['tokens']['drive']);    
     foreach($token AS $k=>$v) $td_data['tokens']['drive']->$k=$v;
     $file=Google::getFile($td_data['drive']['id']);
         
+    echo "FILE\n"; print_r($file);
     foreach($file['parents'] AS $parent)
     {
         $client_parent_id=$parent['id'];
