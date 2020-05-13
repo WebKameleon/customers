@@ -75,32 +75,34 @@ $clients=WBP::getContestClients();
 if (count($clients)==0) die('No data to process');
 
 echo '<pre>';
-echo "Number of clients: ".count($client)."\n";
+echo "Number of clients: ".count($clients)."\n";
 
 for ($i=0; $i<count($clients); $i++) {
     $client_data = WBP::getContestDir(str_replace('/','',$clients[$i]));
     
-    echo "$i.".$clients[$i].":\n"; print_r($client_data);
-    
-    if (!isset($client_data['contents']) || !isset($client_data['contents']['data.json']))
+    if (!isset($client_data['contents']) || !isset($client_data['contents']['data.json'])){
+        echo "$i) ".$clients[$i].": NO CONTENTS DATA\n";
         continue;
+    }
     $data = $client_data['contents']['data.json'];
     
     
-    
-    if (!isset($data['finished']))
+    if (!isset($data['finished'])) {
+        echo "$i) ".$clients[$i].": NOT FINISHED\n";
         continue;
+    }
+    echo "$i) ".$clients[$i].": "; print_r($client_data);
     
     $td_data=WBP::get_data($data['sid']);
     
-    echo "TD-DATA\n"; print_r($td_data);
+    echo "TD-DATA: "; print_r($td_data);
     
     Google::setToken(null);
     $token=Google::setToken($td_data['tokens']['drive']);    
     foreach($token AS $k=>$v) $td_data['tokens']['drive']->$k=$v;
     $file=Google::getFile($td_data['drive']['id']);
         
-    echo "FILE\n"; print_r($file);
+    echo "FILE: "; print_r($file);
     foreach($file['parents'] AS $parent)
     {
         $client_parent_id=$parent['id'];
@@ -141,6 +143,8 @@ for ($i=0; $i<count($clients); $i++) {
         
         $blob=file_get_contents($client_data['dir'].'/'.$fname);
         $gfile=Google::uploadFile($filename,$client_data['contents'][$fname.'.json']['fileType'],$blob,$parent_id);
+    
+        echo "DRIVE UPLOAD $filename: "; print_r($gfile);
     
         if (isset($gfile['id'])) {
             $client_data['contents'][$fname.'.json']['gid'] = $gfile['id'];
@@ -184,6 +188,7 @@ for ($i=0; $i<count($clients); $i++) {
     
     $ok=toSpreadsheet($rows,$td_data);
     
+    echo "SPREADSHEET [$ok]: "; print_r($rows);
 
     if ($ok) {
         $mail='Dziękujemy za przesłanie następujących zdjęć / Thank you for submitting the following photographs<ul style="list-style: none">';
