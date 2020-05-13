@@ -19,5 +19,5 @@
     if (isset($KAMELEON_MODE) && $KAMELEON_MODE && Bootstrap::$main->session('editmode')>1) echo '<div class="k_td_conf">';
 
 
-    $contest_categories=array('events'=>'Wydarzenia','human_passion'=>'Człowiek i jego pasje','life'=>'Życie codzienne','sport'=>'Sport','environment'=>'Przyroda i ekeologia');
+    $contest_categories=array('events'=>'Wydarzenia','human_passion'=>'Człowiek i jego pasje','life'=>'Życie codzienne','sport'=>'Sport','environment'=>'Przyroda i ekeologia','covid'=>'Czas pandemii');
     

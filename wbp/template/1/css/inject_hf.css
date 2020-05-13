@@ -553,8 +553,12 @@ a.skip-main:focus, a.skip-main:active {
     z-index:999;
 }
 
-.wcag-contents, .wcag, .top-ue {
+.wcag-contents, .wcag {
     display: none;
+}
+
+.top-ue {
+	width:50px;
 }
 
 
