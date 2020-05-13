@@ -58,6 +58,10 @@ function toSpreadsheet($rows,$td_data) {
     foreach($rows AS $row) {
         foreach ($row AS $k=>$v)
         {
+            if (strstr($k,'[')) {
+                unset($row[$k]);
+                continue;
+            }
             if (!in_array($k,$header))
             {
                 @Spreadsheet::update_cell($td_data['drive']['id'],$worksheet_id,0,count($header),$k);
