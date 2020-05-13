@@ -65,8 +65,9 @@ function toSpreadsheet($rows,$td_data) {
             }
         }
         
-        $row=Spreadsheet::addListRow($td_data['drive']['id'],$worksheet_id,$row);
-        if (!$row) return false;
+        echo "Adding row to $worksheet_id: "; print_r($row);
+        $arow=Spreadsheet::addListRow($td_data['drive']['id'],$worksheet_id,$row);
+        if (!$arow) return false;
     }
           
     return true;
