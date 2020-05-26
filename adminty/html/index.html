@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{lang}"> 
+ <head>
+ {include:head.html}
+ </head>
+
+<body{if:page.class} class="{page.class}"{endif:page.class}>
+ {include:preloader.html}
+
+ {with:header}
+ {include:header.html}
+ {endwith:header}
+
+ <!----- main content ----->
+ {with:body}
+  <div class="pcoded-main-container">
+   <div class="pcoded-wrapper">
+    <nav class="pcoded-navbar">
+     <div class="pcoded-inner-navbar main-menu">
+      {level1}
+     </div>
+    </nav>
+    <div class="pcoded-content">
+     <div class="pcoded-inner-content">
+      <div class="main-body">
+          <div class="page-wrapper">
+              <div class="page-body">
+                 {level2}
+              </div>
+          </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  
+  
+  
+  
+  
+  
+ {endwith:body}
+ <!----- /main content ----->
+
+{with:footer}
+{include:footer.html}
+{endwith:footer}
+
+
+</body>
+</html>

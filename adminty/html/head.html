@@ -1,0 +1,67 @@
+    <meta charset="utf-8">
+    <title>{page.title}</title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    {if:page.description}<meta name="description" content="{page.description}" />{endif:page.description}	
+    {if:page.keywords}<meta name="keywords" content="{page.keywords}" />{endif:page.keywords}
+    <meta name="author" content="webkameleon.com">
+
+    {if:page.og_desc}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{page.title}"/> 
+    <meta property="og:site_name" content="{server.http_url}" />
+    <meta property="og:description" content="{page.og_desc}" />
+    {if:page.og_image}<meta property="og:image" content="{uimages}/{page.og_image}" />{endif:page.og_image}
+    {endif:page.og_desc}
+    
+    <meta name="Robots" content="all" />
+    <meta name="generator" content="{generator}" />
+    <meta name="webkameleonId" content="server={page.server}; page={page.id}; ver={page.ver}; lang={page.lang}; ftp={page.nd_ftp|kameleon.datetime}" />
+
+
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/bower_components/bootstrap/css/bootstrap.min.css">
+    
+	<link rel="stylesheet" type="text/css" href="{template_dir}/src/files/assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/assets/icon/icofont/css/icofont.css">
+	<!-- feather Awesome -->
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/assets/icon/feather/css/feather.css">
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/assets/icon/font-awesome/css/font-awesome.min.css">
+	<!-- Select 2 css -->
+    <link rel="stylesheet" href="{template_dir}/src/files/bower_components/select2/css/select2.min.css">
+    <!-- Multi Select css -->
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/bower_components/bootstrap-multiselect/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/bower_components/multiselect/css/multi-select.css">
+	
+	<!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/assets/pages/data-table/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+
+	
+	<!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="{template_dir}/src/files/assets/css/jquery.mCustomScrollbar.css">    
+    
+	<link rel="stylesheet" type="text/css" href="{template_dir}/src/files/assets/pages/notification/notification.css">
+    
+    
+	<!----- favicon ----->
+    <link rel="shortcut icon" href="{template_dir}/images/favicon.ico" type="image/x-icon">
+    <!----- /favicon ----->
+
+	<link rel="stylesheet" href="{template_dir}/css/adminty.css">
+    {if:mode=(2,3)}
+    <!----- WebKameleon Walkaround ----->
+    <link rel="stylesheet" href="{template_dir}/css/webkameleon.css">
+    <!----- /WebKameleon Walkaround ----->
+    {endif:mode=(2,3)}

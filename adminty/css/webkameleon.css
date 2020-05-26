@@ -1,0 +1,12 @@
+.pcoded .pcoded-header {
+    position: relative !important
+}
+
+.pcoded .pcoded-navbar {
+    position: absolute !important
+}
+
+.form-material .parameters div {
+    cursor: move;
+}
+

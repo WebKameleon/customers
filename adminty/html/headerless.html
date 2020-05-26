@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="{lang}"> 
+ <head>
+ {include:head.html}
+ </head>
+
+<body class="fix-menu {page.class}">
+ {include:preloader.html}
+
+ <!----- main content ----->
+ {with:body}
+  
+  <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+            </div>
+        </div>
+    </div>
+    <!-- Pre-loader end -->
+    
+    <section class="login-block"
+      style="background-image: {if:page.background}url('{uimages}/{page.background}'){endif:page.background}{if:!page.background}none{endif:!page.background}">
+    {level2}
+    </section>
+  
+ {endwith:body}
+ <!----- /main content ----->
+
+{with:footer}
+{include:footer.html}
+{endwith:footer}
+
+
+</body>
+</html>
