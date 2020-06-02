@@ -1,0 +1,8 @@
+.dt-button.single-select, .dt-button.multi-select, .dt-button.dt-hidden {
+    display: none;
+}
+
+
+.dt-button.dt-visible {
+    display: inline-block;
+}

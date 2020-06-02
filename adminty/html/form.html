@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            
+            {if:bgimg}
+            <div class="text-center">
+                <img src="{uimages}/{bgimg}" alt="{alt}">
+            </div>
+            {endif:bgimg}
+            
+            {if:swfstyle}    
+            <div class="auth-box card"><div class="card-block">
+            {endif:swfstyle}
+            <div class="row m-b-20">
+                <div class="col-md-12">
+                    <h3 class="text-center">{title}</h3>
+                </div>
+            </div>
+            
+            {tokens.html}
+                
+            {if:plain}
+            <hr/>{plain}
+            {endif:plain}
+                
+            {if:swfstyle}</div></div>{end:swfstyle}   
+                                               
+        </div>
+        <!-- end of col-sm-12 -->
+    </div>
+    
+    <!-- end of row -->
+</div>
+<!-- end of container-fluid -->
+        

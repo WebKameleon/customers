@@ -1,0 +1,39 @@
+		<li class="header-notification{if:bgimg} user-profile{endif:bgimg}{if:title} user-profile{endif:title}">
+				 <div class="dropdown-primary dropdown">
+					 <div class="dropdown-toggle" data-toggle="dropdown">
+						{if:bgimg}<img src="{uimages}/{bgimg}" class="img-radius" alt="{alt}" />{endif:bgimg}
+						{if:title}
+							<span>{title}</span>
+							<i class="feather icon-chevron-down"></i>
+						{endif:title}
+						{if:class}<i class="feather {class}"></i>{endif:class}
+						{if:size}<span class="badge bg-c-pink">{size}</span>{endif:size}
+					 </div>
+					 {if:menu}
+					 <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+						 <li>
+							 <h6>{name}</h6>
+							 {if:costxt}<label class="label label-danger">{costxt}</label>{endif:costxt}
+						 </li>
+						 {loop:menu}
+						 <li>
+							{if:!description}
+							<a href="{href}"{if:target} target="{target}"{endif:target}>
+								 <i class="feather {class}"></i> {alt}
+							</a>
+							{endif:!description}
+							{if:description}
+							 <div class="media">
+								 {if:img}<img class="d-flex align-self-center img-radius" src="{uimages}/{img}" alt="{alt}">{endif:img}
+								 <div class="media-body">
+									 {if:alt}<h5 class="notification-user"><a href="{href}"{if:target} target="{target}"{endif:target}>{alt}</a></h5>{endif:alt}
+									 <p class="notification-msg">{description}</p>
+								 </div>
+							 </div>
+							 {endif:description}
+						 </li>
+						 {endloop:menu}
+					 </ul>
+					 {endif:menu}
+				 </div>
+			 </li>
