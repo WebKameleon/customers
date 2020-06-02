@@ -372,7 +372,7 @@ var max_images = <?php echo $configuration['drive']['img_max']+0?>;
 window.onload = function() {
     
     
-    switch_wbp_lang('<?php echo $lang?>');
+    switch_wbp_lang('<?php echo $lang?>',{title: "<?php echo $title;?>"});
     
     contest_form_action='<?php echo $ajax_konkurs_action;?>';
     var max = max_images>0 ? max_images : null;

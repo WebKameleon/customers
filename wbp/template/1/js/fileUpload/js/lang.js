@@ -26,10 +26,10 @@ var wbp_photo_competition = {
         error: 'Nie wszystkie pola formularza zostały wypełnione lub nie wgrano minimalnej liczby zdjęć',
         environment:'Przyroda i ekeologia',
 	covid: 'Czas pandemii',
-        agreepublic: 'Wyrażam zgodę na podanie do publicznej wiadomości przez Wojewódzką Bibliotekę Publiczną i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań, wpisaną do rejestru instytucji kultury Urzędu Marszałkowskiego Województwa Wielkopolskiego nr RIK-12 mojego imienia i nazwiska oraz zdjęcia w związku z udziałem w konkursie Wielkopolska Press Photo 2019 w informacjach o konkursie i jego wynikach, tj. na stronie internetowej prowadzonej przez Wojewódzką Bibliotekę Publiczną i Centrum Animacji Kultury oraz w siedzibie Wojewódzkiej Biblioteki Publicznej i Centrum Animacji Kultury, na profilu i w mediach społecznościowych prowadzonych przez WBPiCAK oraz w informacjach przekazywanych prasie i innym mediom ( TV, Radio itp.). Administratorem danych osobowych jest Wojewódzka Biblioteka Publiczna i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań. Zostałem/am poinformowany/a o przysługujących mi uprawnieniach związanych z ochroną danych osobowych, które zostały wyszczególnione w Regulaminie.',
+        agreepublic: 'Wyrażam zgodę na podanie do publicznej wiadomości przez Wojewódzką Bibliotekę Publiczną i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań, wpisaną do rejestru instytucji kultury Urzędu Marszałkowskiego Województwa Wielkopolskiego nr RIK-12 mojego imienia i nazwiska oraz zdjęcia w związku z udziałem w konkursie {title} w informacjach o konkursie i jego wynikach, tj. na stronie internetowej prowadzonej przez Wojewódzką Bibliotekę Publiczną i Centrum Animacji Kultury oraz w siedzibie Wojewódzkiej Biblioteki Publicznej i Centrum Animacji Kultury, na profilu i w mediach społecznościowych prowadzonych przez WBPiCAK oraz w informacjach przekazywanych prasie i innym mediom ( TV, Radio itp.). Administratorem danych osobowych jest Wojewódzka Biblioteka Publiczna i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań. Zostałem/am poinformowany/a o przysługujących mi uprawnieniach związanych z ochroną danych osobowych, które zostały wyszczególnione w Regulaminie.',
         agreearch: 'Wyrażam zgodę na archiwizację moich danych (imię i nazwisko) w bazie zdjęć dokumentującej życie Wielkopolski przez Wojewódzką Bibliotekę Publiczną i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań, wpisaną do rejestru instytucji kultury Urzędu Marszałkowskiego Województwa Wielkopolskiego nr RIK-12. Administratorem danych osobowych jest Wojewódzka Biblioteka Publiczna i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań. Zostałem/am poinformowany/a o przysługujących mi uprawnieniach związanych z ochroną danych osobowych, które zostały wyszczególnione w Regulaminie.',
         agreeauthor: 'Oświadczam, że jestem autorem w/w zdjęć, a sportretowane osoby wyraziły pisemną zgodę na ich publikację w prasie.',
-        agreeterms: 'Wyrażam zgodę na przetwarzanie moich danych osobowych przez Wojewódzką Bibliotekę Publiczną i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań, wpisaną do rejestru instytucji kultury Urzędu Marszałkowskiego Województwa Wielkopolskiego nr RIK-12, w celu przeprowadzenia i realizacji konkursu Wielkopolska Press Photo 2019. Administratorem danych osobowych jest Wojewódzka Biblioteka Publiczna i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań. Zostałem/am poinformowany/a o przysługujących mi uprawnieniach związanych z ochroną danych osobowych, które zostały wyszczególnione w Regulaminie.',
+        agreeterms: 'Wyrażam zgodę na przetwarzanie moich danych osobowych przez Wojewódzką Bibliotekę Publiczną i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań, wpisaną do rejestru instytucji kultury Urzędu Marszałkowskiego Województwa Wielkopolskiego nr RIK-12, w celu przeprowadzenia i realizacji konkursu {title}. Administratorem danych osobowych jest Wojewódzka Biblioteka Publiczna i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, 60-819 Poznań. Zostałem/am poinformowany/a o przysługujących mi uprawnieniach związanych z ochroną danych osobowych, które zostały wyszczególnione w Regulaminie.',
         agreepublish: 'Akceptuję warunki regulaminu, w tym zgodę na bezpłatną reprodukcję zdjęć w katalogu, w prasie, telewizji i internecie oraz na stronie Wielkopolskiej Biblioteki Cyfrowej',
         agreemarketing: 'Wyrażam zgodę na przetwarzanie moich danych osobowych przez Wojewódzką Bibliotekę Publiczną i Centrum Animacji Kultury z siedzibą w Poznaniu, ul. Prusa 3, w celu skorzystania z usługi otrzymywania newsletter. Zostałem poinformowany o przysługujących mi uprawnieniach wskazanych w Polityce prywatności. Wiem, że mogę cofnąć niniejszą zgodę w dowolnym momencie.',
         minNumberOfFiles: 'Za mało zdjęć',
@@ -100,6 +100,7 @@ var wbp_photo_competition = {
 }
 
 var wbp_photo_lang;
+var wbp_photo_replace=null;
 
 function apply_wbp_lang()
 {
@@ -112,6 +113,9 @@ function apply_wbp_lang()
         var f=$(this).attr('for');
         var c=$(this).attr('class');
         var html=wbp_photo_competition[lang][f]?wbp_photo_competition[lang][f]:wbp_photo_competition[lang][c];
+	if (wbp_photo_replace) 
+		for (let k in wbp_photo_replace)
+			html=html.replace('{'+k+'}',wbp_photo_replace[k]);
         $(this).html(html);    
     });
     $('#fileupload').find('option').each(function() {
@@ -157,10 +161,11 @@ function apply_wbp_lang()
     });
 }
 
-function switch_wbp_lang(lang)
+function switch_wbp_lang(lang, repl)
 {
     if (typeof(lang)!='string') lang = wbp_photo_lang=='pl'?'en':'pl';
     wbp_photo_lang=lang;
+    wbp_photo_replace = repl;
     
     var src=$('#lang_selector_img').attr('src');
     src=src.replace('-pl.gif','-'+lang+'.gif')

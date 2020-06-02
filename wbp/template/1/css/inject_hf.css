@@ -597,3 +597,15 @@ a.skip-main:focus, a.skip-main:active {
     font-size:1.2em;
     z-index:999;
 }
+
+
+.wbp-shoper {
+        display: block
+}
+
+.box-slider .pageslider {
+	border: 0 !important;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	
+}
