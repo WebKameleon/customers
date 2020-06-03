@@ -1,3 +1,9 @@
+
+$.ajaxSetup({
+    // Enable caching of AJAX responses
+    cache: true
+});
+
 function include(scriptUrl) {
     var url=template_dir+'/'+scriptUrl;
     if (scriptUrl.substr(0,2)=='//') {

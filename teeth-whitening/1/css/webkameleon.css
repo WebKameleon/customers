@@ -15,6 +15,11 @@ div.text1, div.text1 p {
   color: white;
 }
 
+div.text1 a:hover {
+  color: yellow;
+}
+
+
 .color_dark {
   color: #727677;
 }
@@ -64,7 +69,8 @@ div.text1, div.text1 p {
 
 @media (max-width: 1199px) {
     .info-block, .info-block_mod {
-      padding: 56px 0 92px; } }
+      padding: 56px 0 92px; }
+}
 
 
 .article ol li,
@@ -153,38 +159,6 @@ h1.brand_name {
 	display: inline-block;
 }
 
-@media (max-width: 767px) {
-	.follow_icon,.footer {
-		display: none;
-	}
-
-	.addressTop a {
-		display: inline-block;
-	}
-
-	h1.brand_name {
-		font-size: 20px	
-	}
-
-	img.logo {
-		margin-top: 10px;
-		max-height: 16px;
-	}
-
-	.row-top {
-		padding-bottom: 10px;	
-	}
-
-	header {
-		padding-bottom: 1px;
-	}
-
-	.medi-raty {
-		display: none;
-	}
-	
-	
-}
 
 .footer-menu {
 	list-style: none;	
@@ -315,4 +289,69 @@ h6 {
 
 .info-block h3 {
     margin: 38px 0 0 4px;
+}
+
+.kmw_articlelist img {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+	.follow_icon,.footer {
+		display: none;
+	}
+
+	.addressTop a {
+		display: inline-block;
+	}
+
+	h1.brand_name {
+		font-size: 20px	
+	}
+
+	img.logo {
+		margin-top: 10px;
+		max-height: 16px;
+	}
+
+	.row-top {
+		padding-bottom: 10px;	
+	}
+
+	header {
+		padding-bottom: 1px;
+	}
+
+	.medi-raty {
+		display: none;
+	}
+	
+    .breadcrumbs.bc-bgimg {
+      padding: 10px 0 10px 10px;
+      margin-bottom: 15px;
+    }
+    
+    .breadcrumbs {
+      font-size: 9px;
+      font-weight: normal;
+      border-bottom: 0;
+    }
+	
+}
+
+div.col-md-offset-7 ul {
+   float: right;
+   clear: both;
+}
+
+div.col-md-offset-7 p {
+   clear: both;
+}
+
+div.col-md-offset-7 li {
+   float: right;
+   clear: both;
+}
+
+.top_article ul {
+   margin-left: 20px;
 }
