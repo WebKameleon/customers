@@ -3936,3 +3936,7 @@ body.wcag-on a.bx-pager-link {
   -moz-border-radius: 0;
 }
 
+
+.wbp-shoper {
+	display: none
+}
