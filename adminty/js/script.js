@@ -93,21 +93,67 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 function processing(on) {
     if (on) {
-
         $('body').append('<div id="processing" style="position:absolute; top:0; left:0; height:100%; width:100%; z-index: 99999999; background-color: rgba(0,0,0,0.4); cursor:progress"></div>');
     } else {
         $('#processing').fadeOut(function(){
             $('#processing').remove();
-            
         });
     }
     
 }
 
+function setLocation(url,id) {
+    if (id) {
+        if (url.substr(url.length-1,1)!=='/')
+            url+='/';
+        url+=id;
+    }
+    location.href=url;
+}
+
+function getSelects(loopback,form,urlID,requestHeader,cb) {
+    var selects=$(form).find('.loopback-form-select');
+    if (selects.length===0)
+        return cb();
+    
+    selects.each(function(){
+        var select=this;
+        var rel=$(this).attr('rel').split('|');
+        var action=rel[0].replace('{id}',urlID).split(':');
+        var filter={filter:{order:rel[1]}};
+        
+        loopback._request(action[1],action[0],filter,requestHeader,function(err,result){
+            if (err) {
+                notify(err.message,'danger');
+                return;
+            }
+            if (!Array.isArray(result))
+                return;
+            
+            for (var i=0; i<result.length; i++) {
+                var selected=result[i][rel[2]]==$(select).attr('v') ? 'selected' : '';
+                if (typeof result[i].current !== 'undefined') {
+                    selected=result[i].current?'selected ':'';
+                }
+                $(select).append('<option '+selected+' value="'+result[i][rel[2]]+'">'+result[i][rel[1]]+'</option>');
+            }
+          
+            cb();
+        });
+    });
+}
+
+
 $(document).ready(function(){
     $(".select2").select2();
     
 
+    var href=location.href.toString().split('/');
+    var urlID = parseInt(href[href.length-1]);
+    if (isNaN(urlID)) 
+        urlID=null;
+    
+    
     var options='';
     for (let k in Object.getPrototypeOf(new Loopback())) {
         if (k==='constructor' || k.substr(0,1)==='_')
@@ -124,14 +170,39 @@ $(document).ready(function(){
     
     
     $('form.loopback').each(function(){
-        var rel=$(this).attr('rel').split('|');
+        var form=this;
+        var rel=$(this).attr('rel');
+        rel=rel.replace(/\{id\}/g,urlID);
+        rel=rel.split('|');
         var form=this;
         var loopback=new Loopback(rel[0],rel[1]);
         var methodAction=rel[2].split(':');
         
+        let requestHeader = rel[4]==='1'? {authorization: 'Bearer '+window.localStorage.getItem('swagger_accessToken')} : null;
+       
+        
         if (rel[5].length>0 && Object.getPrototypeOf(loopback)[rel[5]]) {
             loopback[rel[5]](rel[3]);
         }
+        
+        if (rel[7].length>0) {
+            var initAction=rel[7].split(':');
+            processing(true);
+            loopback._request(initAction[1],initAction[0],null,requestHeader,function(err,result){
+                if (err) {
+                    notify(err.message,'danger');
+                    return;
+                }
+                for (let k in result) {
+                    $(form).find('[name="'+k+'"]').val(result[k]).attr('v',result[k]);
+                }
+                getSelects(loopback,form,urlID,requestHeader,function(){
+                    processing(false);
+                });
+                
+            });
+        }
+        
         
         
         $(form).find('button.submit').click(function(ev){
@@ -156,14 +227,15 @@ $(document).ready(function(){
             
             if (valid) {
                 processing(true);
-                loopback._request(methodAction[1],methodAction[0],data,null,function(err,result){
+                loopback._request(methodAction[1],methodAction[0],data,requestHeader,function(err,result){
                     processing(false);
                     if (err) {
                         notify(err.message,'danger');
                     } else {
                         if (result && result.message) {
                             notify(result.message,'success');
-                            
+                        } else {
+                            notify('OK','success');
                         }
         
                         if (rel[6].length>0 && Object.getPrototypeOf(loopback)[rel[6]]) {
@@ -174,7 +246,7 @@ $(document).ready(function(){
                             }, function(){
                                 window.location.href=rel[3];
                             });
-                        }
+                        } 
                     }
                 });
             }
@@ -194,9 +266,10 @@ $(document).ready(function(){
             return;
         
         var list=window.list[sid];
+        let requestHeader = list.auth==='1'? {authorization: 'Bearer '+window.localStorage.getItem('swagger_accessToken')} : null;
         
         var loopback=new Loopback(list.root,list.base);
-        var methodAction=list.action.split(':');
+        var methodAction=list.action.replace('{id}',urlID).split(':');
         
         var columns=[];
         for (var k in list.columns) {
@@ -205,7 +278,17 @@ $(document).ready(function(){
             
             let col= {
                 title: list.columns[k].label,
-                data: list.columns[k].name
+                data: list.columns[k].name.replace(':','.'),
+                type: list.columns[k].type,
+                name: list.columns[k].label
+            }
+            
+            if (list.columns[k].type==='string') {
+                col.searchable='like';
+            } else if (list.columns[k].type==='double') {
+                col.searchable='eq';
+            } else {
+                col.searchable=false;
             }
             
             columns.push(col);
@@ -224,7 +307,6 @@ $(document).ready(function(){
                 $(this).closest('.dataTables_wrapper').find('.dt-button.no-select').removeClass('dt-hidden');
             }
             if (selected===1) {
-                console.log($(this).closest('.dataTables_wrapper'));
                 $(this).closest('.dataTables_wrapper').find('.dt-button.single-select').addClass('dt-visible');
                 $(this).closest('.dataTables_wrapper').find('.dt-button.multi-select').addClass('dt-visible');
                 $(this).closest('.dataTables_wrapper').find('.dt-button.no-select').addClass('dt-hidden');
@@ -239,24 +321,38 @@ $(document).ready(function(){
         
         var buttons=[];
         
-        if (list.buttons.add && list.buttons.add.title) {
+        if (list.buttons.add && list.buttons.add.title && list.postAction) {
             let button={
                 text: list.buttons.add.title+' <i class="fa fa-plus"></i>',
                 className: 'no-select',
                 action: function(e, dt, node, config) {
+                    let action=list.postAction;
+                    let methodAction=action.split(':');
+                    processing(true);
+                    loopback._request(methodAction[1],methodAction[0],{},requestHeader,function(err,result){
+                        processing(false);
+                        if (result && result.id)
+                            setLocation(list.next,result.id);
+                            
+                        
+                    });
+                    
+                    
+                }
+            };
+            buttons.push(button);
+        }
+        
+        if (list.buttons.edit && list.buttons.edit.title ) {
+            let button={
+                text: list.buttons.edit.title+' <i class="fa fa-edit"></i>',
+                className: 'single-select btn-info',
+                action: function(e, dt, node, config) {
                     let data=DT.row(DT.$('tr.selected')).data();
                     if (!data)
                         return;
-                    let text=list.buttons.copy.text;
-                    for (let k in list) {
-                        text=text.replace('{'+k+'}',list[k]);
-                    }
-                    for (let k in data) {
-                        text=text.replace('{'+k+'}',data[k]);
-                    }
-                    navigator.clipboard.writeText(text);
-                    notify(text,'info');
                     
+                    setLocation(list.next,data.id);
                 }
             };
             buttons.push(button);
@@ -285,25 +381,124 @@ $(document).ready(function(){
             buttons.push(button);
         }
         
+        if (list.buttons.popup && list.buttons.popup.title && list.buttons.popup.url) {
+            let button={
+                text: list.buttons.popup.title+' <i class="fa fa-window-restore"></i>',
+                className: 'single-select',
+                action: function(e, dt, node, config) {
+                    let data=DT.row(DT.$('tr.selected')).data();
+                    if (!data)
+                        return;
+                    
+                    const w=parseFloat(list.buttons.popup.width||800);
+                    const h=parseFloat(list.buttons.popup.height||600);
+                    let url=list.buttons.popup.url;
+                    
+                    for (let k in list) {
+                        url=url.replace('{'+k+'}',list[k]);
+                    }
+                    for (let k in data) {
+                        url=url.replace('{'+k+'}',data[k]);
+                    }
+                    
+                    const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+                    const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+                    const systemZoom = width / window.screen.availWidth;
+                    
+                    const left = (width - w) / 2 / systemZoom;
+                    const top = (height - h) / 2 / systemZoom;
+                    let p=window.open(url, list.buttons.popup.title, 'scrollbars=yes,width='+w+',height='+h+',left='+left+',top='+top);
+                    
+                }
+            };
+            buttons.push(button);
+        }
+        
         if (list.buttons.trash && list.buttons.trash.title && list.deleteAction) {
             let button={
                 text: list.buttons.trash.title+' <i class="fa fa-trash"></i>',
                 className: 'multi-select btn-danger',
                 action: function(e, dt, node, config) {
-                    let selected=$(node).closest('.dataTables_wrapper').find('tr.selected').length;
+                    let data=[];
                     
-                    console.log(selected, list);
+                    DT.$('tr.selected').each(function(i,dt){
+                        data.push(DT.row(dt).data());
+                    });
+                    
+                    function deleteArray(rows) {
+                        processing(true);
+                        async.map(rows,function(row,next){
+                            let action=list.deleteAction;
+                            for (let k in row) {
+                                action=action.replace('{'+k+'}',row[k]);
+                            }
+                            let methodAction=action.split(':');
+                            loopback._request(methodAction[1],methodAction[0],null,requestHeader,function(err,result){
+                                console.log(err,result);
+                                next();
+                            });
+                            
+                        },function(){
+                            processing(false);
+                            DT.draw();
+                        });
+                    }
+                    
+                    if (!list.buttons.trash.confirm || list.buttons.trash.confirm.length===0)
+                        return deleteArray(data);
+                    
+                    if (confirm(list.buttons.trash.confirm+' ('+data.length+')?'))
+                        return deleteArray(data);
                 }
             };
             buttons.push(button);
         }
+        
+        
+        function filterParse(type,value,op) {
+            if (value.length===0)
+                return null;
             
+            if (type==='like') {
+                if (op==='!=' || op==='<>')
+                    return {nlike:'%'+value+'%'};
+                return {like:'%'+value+'%'};
+            }
+            
+            if (!op || op===':' || op==='=' || op==='==') {
+                if (isNaN(parseFloat(value)))
+                    return null;
+                return value;
+            }
+            
+            if (op==='!=' || op==='<>') {
+                if (isNaN(parseFloat(value)))
+                    return null;
+                return {neq:value};
+            }
+                
+            if (op==='>')
+                return {gt:value};
+            if (op==='<')
+                return {lt:value};
+            if (op==='>=')
+                return {gte:value};
+            if (op==='<=')
+                return {lte:value};
+            
+            
+            
+            return value;
+        }
+        
         DT=$(this).DataTable({
             dom: 'Bfrtip',
             select: true,
             buttons: buttons,
             processing: true,
             serverSide: true,
+            className:'wrap',
             ajax: function(data,cb,settings) {
                 var filter={};
                 if (data.order) {
@@ -322,34 +517,84 @@ $(document).ready(function(){
                 }
                 
                 if (data.search && data.search.value) {
-                    let or=[];
-                    for (let i=0; i<data.columns.length; i++) {
-                        if (data.columns[i].searchable) {
-                            let o={};
-                            o[data.columns[i].data] = {like:'%'+data.search.value+'%'}
-                            or.push(o)
+                    
+                    let q=data.search.value.split(' ');
+                    let and=[];
+                    for (let j=0; j<q.length; j++) {
+                        if (q[j].length===0)
+                            continue;
+                
+                        let word=q[j].match(/([a-zA-Z0-9 ]+)([:=><!]+)([a-zA-Z0-9\-]+)/);
+                        
+                        console.log(word);
+                        
+                        if (!word) {
+                            let or=[];
+                            for (let i=0; i<data.columns.length; i++) {
+                                if (data.columns[i].searchable) {
+                                    
+                                    let v=filterParse(data.columns[i].searchable,q[j]);
+                                    if (v!==null) {
+                                        let o={};
+                                        o[data.columns[i].data] = v;
+                                        or.push(o);
+                                    }
+                                     
+                                }
+                            }
+                            if (or.length>0) {
+                                and.push({or:or});
+                            }
+                            
+                        } else {
+                            for (let i=0; i<data.columns.length; i++) {
+                              
+                                if (data.columns[i].name.toLowerCase() === word[1].toLowerCase()) {
+                                    
+                                    let v=filterParse(data.columns[i].searchable,word[3],word[2]);
+                                    if (v!==null) {
+                                        let a={};
+                                        a[data.columns[i].data] = v;
+                                        and.push(a);
+                                    }
+                                    break;
+                                }
+                                    
+                                
+                            }
                         }
+                        
                     }
-                    filter.where={or:or};
+                    
+                    if (and.length>0) {
+                        filter.where={and:and};
+                    }
+                    
                 }
-            
-                processing(true);
-                let header = list.auth==='1'? {authorization: 'Bearer '+window.localStorage.getItem('swagger_accessToken')} : null;
-                loopback._request(methodAction[1],methodAction[0],{filter:filter},header,function(err,result,headers){
-                    processing(false);
+                                
+                loopback._request(methodAction[1],methodAction[0],{filter:filter},requestHeader,function(err,result,headers){
+                    
                     
                     if (err) {
                         notify(err.message,'danger');
                     } else {
                         
+                    
                         for (let i=0; i<result.length; i++) {
                             result[i].DT_RowId = result[i].id;
+                            for (let k in result[i]) {
+                                if (list.columns[k] && list.columns[k].type) {
+                                    if (list.columns[k].type.indexOf('date')!==-1)
+                                        result[i][k] = moment(new Date(result[i][k])).format('DD-MM-YYYY HH:mm');
+                                }
+                            }
                         }
+                    
                 
                         cb({
                             draw: data.draw,
                             recordsTotal: headers['x-count-total'],
-                            recordsFiltered: result.length,
+                            recordsFiltered: headers['x-count-total'],
                             data: result
                         })
                         

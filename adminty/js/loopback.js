@@ -67,10 +67,19 @@
     window.localStorage.removeItem('swagger_accessToken');
   }
   
+  Loopback.prototype.goNext = function(data,cb) {
+    if (data.rel[3] && data.rel[3].length) 
+      location.href=data.rel[3];
+  }
+  
+  Loopback.prototype.reload = function(data,cb) {
+    location.reload();
+  }
+  
   
   Loopback.prototype.init = function(formUrl,cb) {
     var verification=getUrlParameter('verification');
-    console.log(verification);
+    //console.log(verification);
     if (verification) {
       var verify=verification.split('/');
       var data=verify[verify.length-1];

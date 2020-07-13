@@ -90,6 +90,7 @@
      <!-- data-table js -->
     <script src="{template_dir}/src/files/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="{template_dir}/src/files/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    
     <script src="{template_dir}/src/files/assets/pages/data-table/js/jszip.min.js"></script>
     <script src="{template_dir}/src/files/assets/pages/data-table/js/pdfmake.min.js"></script>
     <script src="{template_dir}/src/files/assets/pages/data-table/js/vfs_fonts.js"></script>
@@ -101,9 +102,13 @@
     
     
     <!-- Validation js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
     <script type="text/javascript" src="{template_dir}/src/files/assets/pages/form-validation/validate.js"></script>
+    
+    
+    <script src="//cdn.datatables.net/plug-ins/1.10.21/dataRender/datetime.js"></script>
+    
     <!-- i18next.min.js -->
     <script type="text/javascript" src="{template_dir}/src/files/bower_components/i18next/js/i18next.min.js"></script>
     <script type="text/javascript" src="{template_dir}/src/files/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
@@ -118,6 +123,7 @@
     <script src="{template_dir}/src/files/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     
     <script type="text/javascript" src="{template_dir}/src/files/assets/js/script.min.js"></script>
+    <script type="text/javascript" src="{template_dir}/js/async.min.js"></script>
     
     {if:mode=(1,2,3)}
     <script type="text/javascript">
@@ -148,6 +154,7 @@
     {endif:mode=(1,2,3)}
     
     {if:mode=0}
+    
     <script type="text/javascript" src="{template_dir}/js/loopback.js"></script>
     <script type="text/javascript" src="{template_dir}/js/script.js"></script>
     {endif:mode=0}

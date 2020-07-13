@@ -6,7 +6,7 @@
     if (isset($_POST['loopbackRootUrl']) && strlen($_POST['loopbackRootUrl'])) {
         $loopbackRoot=loopbackRootUrl($this->webpage,$_POST['loopbackRootUrl']);
     }
-    if (isset($_POST['loopback'])) {
+    if (isset($_POST['loopback']) && isset($_POST['loopbackSid']) && $_POST['loopbackSid']==$this->webtd['sid'] ) {
         $costxt=base64_encode(json_encode($_POST['loopback']));
         $webtd=new webtdModel($this->webtd['sid']);
         $webtd->costxt=$costxt;
@@ -39,13 +39,14 @@
 <?php if ($this->mode >1) :?>
 
 <form action="<?php echo $self_link;?>" method="post" id="km_form_<?php echo $sid?>" class="md-float-material form-material" novalidate="">
+<input type="hidden" name="loopbackSid" value="<?php echo $sid;?>"/>
 <div class="form-group row">
     <div class="col-sm-12">
-        <input type="text" class="form-control" value="" name="loopbackRootUrl" placeholder="<?php echo strlen($loopbackRoot)?$loopbackRoot:'Loopback root url'?>">
+        <input type="text" class="form-control" value="" name="loopbackRootUrl" placeholder="<?php echo isset($this->webpage) && $this->webpage['pagekey']?$this->webpage['pagekey']:'Change Loopback root url'?>">
         <span class="messages"></span>
     </div>
 </div>
-<div class="form-group row">   
+<div class="form-group row">
     <div class="col-sm-12">
         <select class="select2 col-sm-12" name="loopback[action]">
             <option value="">Choose path</option>

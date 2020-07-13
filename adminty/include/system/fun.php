@@ -1,5 +1,12 @@
 <?php
 
+    function loopbackRootUrlFinal($url) {
+        $mode=Bootstrap::$main->session('editmode');
+        $url=explode(',',$url);
+        while (!isset($url[$mode]))
+            $mode--;
+        return $url[$mode];
+    }
 
     function loopbackRootUrl($webpage,$url=false) {
         
@@ -7,12 +14,13 @@
             $wpm=new webpageModel($webpage['sid']);
             $wpm->pagekey=$url;
             $wpm->save();
-            return $url;
-            
+            return loopbackRootUrlFinal($url);
         }
         
-        if ($webpage['pagekey'])
-            return $webpage['pagekey'];
+        
+        if ($webpage['pagekey']) {
+            return loopbackRootUrlFinal($webpage['pagekey']);
+        }
         
         
         if ($webpage['prev']!=-1 && strlen($webpage['prev'])) {
@@ -44,7 +52,21 @@
                 $loopbackOptions.='<option '.$s.' value="'.$value.'">'.strtoupper($mName).' '.$k.'</option>';
                 if (strlen($s)) {
                     
+                    
                     foreach ($m['parameters'] AS $mp) {
+                        
+                        if (isset($mp['schema']) && isset($mp['schema']['$ref'])) {
+                            $ref=explode('/',$mp['schema']['$ref']);
+                            foreach ($swagger[$ref[1]][$ref[2]]['properties'] AS $name=>$f) {
+                                if ($name=='id')
+                                    continue;
+                                $parameters[$name]['name']=$name;
+                                $parameters[$name]['type']=$f['type'];
+                            }
+                            continue;
+                        }
+                        if ($mp['name']=='id')
+                            continue;
                         $parameters[$mp['name']]['name'] = $mp['name'];
                         $parameters[$mp['name']]['type'] = $mp['type'];
                         if (isset($parameters[$mp['name']])) {
@@ -58,15 +80,25 @@
                             $parameters[$mp['name']]['require'] = '';
                     }
                     
-                    if (isset($m['responses']) && isset($m['responses']['200']) && isset($m['responses']['200']['schema']) && isset($m['responses']['200']['schema']['items']) && isset($m['responses']['200']['schema']['items']['$ref'])) {
+                    $ref=null;
+                    if (isset($m['responses']) && isset($m['responses']['200']) && isset($m['responses']['200']['schema']) && isset($m['responses']['200']['schema']['items']) && isset($m['responses']['200']['schema']['items']['$ref']))
                         $ref=explode('/',$m['responses']['200']['schema']['items']['$ref']);
+                    if (isset($m['responses']) && isset($m['responses']['200']) && isset($m['responses']['200']['schema']) && isset($m['responses']['200']['schema']['$ref']))
+                        $ref=explode('/',$m['responses']['200']['schema']['$ref']);
+                    
+                    
+                    if ($ref) {
                         
                         foreach ($swagger[$ref[1]][$ref[2]]['properties'] AS $name=>$f) {
                             $fields[$name]['name']=$name;
                             $fields[$name]['type']=$f['type'];
+                            if (isset($f['format']))
+                                $fields[$name]['type'] = $f['format'];
                         }
                            
                     }
+                    
+                    
                     
                     
                     

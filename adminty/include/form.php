@@ -1,12 +1,24 @@
-<form class="md-float-material form-material loopback" novalidate="" id="form_{sid}" rel="{loopbackRoot}|{swagger.basePath}|{loopback.action}|{next_link}|{loopback.auth}|{loopback.init_action}|{loopback.success_action}">
+<form class="md-float-material form-material loopback" novalidate="" id="form_{sid}" rel="{loopbackRoot}|{swagger.basePath}|{loopback.action}|{next_link}|{loopback.auth}|{loopback.init_action}|{loopback.success_action}|{loopback.initAction}">
    
     {loop:parameters}
     {if:label}
     <div class="form-group form-primary">
-        {if:type=string}
-        <input type="{if:password}password{endif:password}{if:!password}text{endif:!password}" name="{name}" class="form-control" {if:require}require="{require}"{endif:require} placeholder="{label}"/>
-        <span class="messages"></span>
-        {endif:type=string}
+      
+        {if:fieldType=text}
+        <input type="{fieldType}" name="{name}" class="form-control" {if:require}require="{require}"{endif:require} placeholder="{label}" title="{label}"/>
+        {endif:fieldType=text}
+        
+        {if:fieldType=password}
+        <input type="{fieldType}" name="{name}" class="form-control" {if:require}require="{require}"{endif:require} placeholder="{label}" title="{label}"/>
+        {endif:fieldType=password}
+        
+        {if:fieldType=select}
+        <select class="select2 col-sm-12 loopback-form-select" name="{name}" title="{label}" rel="{select}|{selectLabel}|{selectValue}">
+            <option value="">{label}</option>
+        </select>
+        {endif:fieldType=select}
+       
+        
         
         {if:type=boolean}
         
@@ -19,9 +31,10 @@
             </label>
           
         </div>
-        <span class="messages"></span>
-
+        
         {endif:type=boolean}
+        
+        <span class="messages"></span>
     </div>
     {endif:label}
     {endloop:parameters}

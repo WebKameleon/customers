@@ -6,3 +6,8 @@
 .dt-button.dt-visible {
     display: inline-block;
 }
+
+
+.loopback-list td {
+    white-space:normal;
+}

@@ -55,6 +55,13 @@
     <div class="col-sm-11">
         <input type="text" class="form-control" value="<?php echo $loopback['actions']['add']['title'];?>" name="loopback[actions][add][title]" placeholder="add button title"/>
     </div>
+    
+    <label class="col-sm-1" style="text-align:right">
+        <i class="fa fa-edit"></i>
+    </label>
+    <div class="col-sm-11">
+        <input type="text" class="form-control" value="<?php echo $loopback['actions']['edit']['title'];?>" name="loopback[actions][edit][title]" placeholder="edit button title"/>
+    </div>
 
     <label class="col-sm-1" style="text-align:right">
         <i class="fa fa-copy"></i>
@@ -65,6 +72,23 @@
     <div class="col-sm-6">
         <input type="text" class="form-control" value="<?php echo $loopback['actions']['copy']['text'];?>" name="loopback[actions][copy][text]" placeholder="copy text"/>
     </div>
+    
+    
+    <label class="col-sm-1" style="text-align:right">
+        <i class="fa fa-window-restore"></i>
+    </label>
+    <div class="col-sm-5">
+        <input type="text" class="form-control" value="<?php echo $loopback['actions']['popup']['title'];?>" name="loopback[actions][popup][title]" placeholder="popup button title"/>
+    </div>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" value="<?php echo $loopback['actions']['popup']['url'];?>" name="loopback[actions][popup][url]" placeholder="popup url"/>
+    </div>
+    <label class="col-sm-1">
+        <input type="text" class="form-control" value="<?php echo $loopback['actions']['popup']['width'];?>" name="loopback[actions][popup][width]" placeholder="width"/>
+    </label>
+    <label class="col-sm-1">
+        <input type="text" class="form-control" value="<?php echo $loopback['actions']['popup']['height'];?>" name="loopback[actions][popup][height]" placeholder="height"/>
+    </label>
     
     <label class="col-sm-1" style="text-align:right">
         <i class="fa fa-trash"></i>
