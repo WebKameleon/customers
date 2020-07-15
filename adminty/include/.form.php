@@ -39,19 +39,25 @@
                 <div class="radio radio-outline radio-inline">
                     <label>
                         <input  type="radio" name="loopback[parameters][<?php echo $name?>][fieldType]" value="text" <?php if ($parameter['fieldType']=='text' || !$parameter['fieldType']) echo 'checked';?>/>
-                        <i class="helper"></i> Text
+                        <i class="helper"></i>Txt
                     </label>
                 </div>
                 <div class="radio radio-outline radio-inline">
                     <label>
                         <input  type="radio" name="loopback[parameters][<?php echo $name?>][fieldType]" value="password" <?php if ($parameter['fieldType']=='password') echo 'checked';?>/>
-                        <i class="helper"></i>Password
+                        <i class="helper"></i>Pass
                     </label>
                 </div>
                 <div class="radio radio-outline radio-inline">
                     <label>
                         <input  type="radio" name="loopback[parameters][<?php echo $name?>][fieldType]" value="select" <?php if ($parameter['fieldType']=='select') echo 'checked';?>/>
-                        <i class="helper"></i>Select
+                        <i class="helper"></i>Sel
+                    </label>
+                </div>
+                <div class="radio radio-outline radio-inline">
+                    <label>
+                        <input  type="radio" name="loopback[parameters][<?php echo $name?>][fieldType]" value="hidden" <?php if ($parameter['fieldType']=='hidden') echo 'checked';?>/>
+                        <i class="helper"></i>Hide
                     </label>
                 </div>
             </div>

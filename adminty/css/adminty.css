@@ -11,3 +11,72 @@
 .loopback-list td {
     white-space:normal;
 }
+
+.admin-access {
+    display: none !important;
+}
+
+.user-admin {
+    display: block !important;
+}
+
+.form-logo {
+    display: initial;
+    background-color: rgba(255,255,255,0.4);
+    padding: 10px 8px;
+    border-radius: 5px;
+}
+
+.nav-logo {
+    display: initial;
+    background-color: rgba(255,255,255,0.8);
+    padding: 10px 8px;
+    border-radius: 5px;
+}
+
+.pcoded-inner-navbar {
+    background-position: center -56px;
+    background-repeat: repeat;
+}
+.navbar-logo {
+    background-position: center 0;
+    background-repeat: repeat;
+}
+
+.pcoded .pcoded-navbar .pcoded-navigatio-lavel[menu-title-theme="theme5"]  {
+    color: #eee !important;   
+}
+
+.pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-item>li.active>a {
+    background: rgba(0,0,0,0.4);
+}
+
+.pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-item>li.pcoded-trigger>a {
+    background: rgba(0,0,0,0.3);
+}
+
+.pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-item li.pcoded-hasmenu .pcoded-submenu {
+    background: rgba(0,0,0,0.3);
+}
+
+.pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-item>li.active:hover>a, .pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-item>li:hover>a {
+    background: rgba(0,0,0,0.5) !important;
+}
+
+.pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-item>li.pcoded-trigger.active>a {
+    background: rgba(0,0,0,0.3);
+}
+
+.pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-item .pcoded-hasmenu .pcoded-submenu li.active>a {
+    color: #dcdcdc !important;
+    background: rgba(0,0,0,0.3);
+}
+
+
+.pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-item>li.active:hover {
+    background: rgba(0,0,0,0.3);
+}
+
+.pcoded .pcoded-navbar .pcoded-item .pcoded-hasmenu .pcoded-submenu li>a>.pcoded-mtext {
+    margin-left: 25px;
+}

@@ -1,4 +1,6 @@
 <?php
+    if ($this->webtd['page_id']<0 && $this->mode==2)
+        return;
     include_once __DIR__.'/fun.php';
     
     $loopbackRoot=loopbackRootUrl($this->webpage);

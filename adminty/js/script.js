@@ -51,8 +51,8 @@ function resetFormGroup(formGroup) {
     });
 }
 
-function notify(message, type){
-    $.growl({
+function notify(message, type, delay){
+    return $.growl({
         message: message
     },{
         type: type,
@@ -63,7 +63,7 @@ function notify(message, type){
             from: 'top',
             align: 'right'
         },
-        delay: 5000,
+        delay: delay||5000,
         animate: {
                 enter: 'animated fadeInLeft',
                 exit: 'animated fadeOutLeft'
@@ -90,11 +90,18 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
+var processingNotification=null;
 
 function processing(on) {
     if (on) {
+        processingNotification=notify('Please wait','info',60000);
+    
         $('body').append('<div id="processing" style="position:absolute; top:0; left:0; height:100%; width:100%; z-index: 99999999; background-color: rgba(0,0,0,0.4); cursor:progress"></div>');
     } else {
+        if (processingNotification) {
+            processingNotification.close();
+            processingNotification=null;
+        }
         $('#processing').fadeOut(function(){
             $('#processing').remove();
         });
@@ -147,7 +154,6 @@ function getSelects(loopback,form,urlID,requestHeader,cb) {
 $(document).ready(function(){
     $(".select2").select2();
     
-
     var href=location.href.toString().split('/');
     var urlID = parseInt(href[href.length-1]);
     if (isNaN(urlID)) 
@@ -167,14 +173,18 @@ $(document).ready(function(){
     });
     
     
-    
+    $('div.profile').each(function(){
+        var rel=$(this).attr('rel').split('|');
+        var loopback=new Loopback(rel[0],rel[1]);
+        var logoutAction=rel[2].split(':');
+        loopback._initAdminity(logoutAction,{authorization: 'Bearer '+window.localStorage.getItem('swagger_accessToken')});
+    });
     
     $('form.loopback').each(function(){
         var form=this;
         var rel=$(this).attr('rel');
         rel=rel.replace(/\{id\}/g,urlID);
         rel=rel.split('|');
-        var form=this;
         var loopback=new Loopback(rel[0],rel[1]);
         var methodAction=rel[2].split(':');
         
@@ -182,7 +192,7 @@ $(document).ready(function(){
        
         
         if (rel[5].length>0 && Object.getPrototypeOf(loopback)[rel[5]]) {
-            loopback[rel[5]](rel[3]);
+            loopback[rel[5]](rel[3],form);
         }
         
         if (rel[7].length>0) {
@@ -194,7 +204,19 @@ $(document).ready(function(){
                     return;
                 }
                 for (let k in result) {
-                    $(form).find('[name="'+k+'"]').val(result[k]).attr('v',result[k]);
+                    $(form).find('input[type="text"][name="'+k+'"]').val(result[k]).attr('v',result[k]);
+                    $(form).find('select[name="'+k+'"]').val(result[k]).attr('v',result[k]);
+                    $(form).find('textarea[name="'+k+'"]').val(result[k]).attr('v',result[k]);
+                    $(form).find('input[type="hidden"][name="'+k+'"]').each(function(){
+                        if ($(this).attr('rel')!='checkbox') {
+                            $(this).val(result[k]).attr('v',result[k]);
+                        }
+                    });
+                    $(form).find('input[type="checkbox"][name="'+k+'"]').each(function(){
+                        if (result[k]) {
+                            $(this).prop('checked',true);
+                        }
+                    });
                 }
                 getSelects(loopback,form,urlID,requestHeader,function(){
                     processing(false);
@@ -261,6 +283,10 @@ $(document).ready(function(){
     
     $('.loopback-list').each(function(){
         let sid=$(this).attr('rel');
+        
+        if ($(this).hasClass('admin-access') && !$(this).hasClass('user-admin')) {
+            return;
+        }
       
         if (!window.list || !sid || !window.list[sid])
             return;
@@ -492,13 +518,19 @@ $(document).ready(function(){
             return value;
         }
         
-        DT=$(this).DataTable({
+        
+        let order=list.order.split(',');
+        if (order.length===1) {
+            order=[0,'asc'];
+        }
+        var dataTableOptions={
             dom: 'Bfrtip',
             select: true,
             buttons: buttons,
             processing: true,
             serverSide: true,
             className:'wrap',
+            order: [order],
             ajax: function(data,cb,settings) {
                 var filter={};
                 if (data.order) {
@@ -583,9 +615,27 @@ $(document).ready(function(){
                         for (let i=0; i<result.length; i++) {
                             result[i].DT_RowId = result[i].id;
                             for (let k in result[i]) {
-                                if (list.columns[k] && list.columns[k].type) {
+                                
+                                if (list.columns[k] && list.columns[k].editable && list.columns[k].editable.length) {
+                                    if (list.columns[k].type.indexOf('boolean')!==-1) {
+                                        
+                                        var checked=result[i][k]?'checked':'';
+                                        var chid = sid + '-' + list.columns[k].name + '-' + result[i].id;
+                                        var html='<div class="checkbox-zoom zoom-primary list-editable-checkbox" rel="'+chid+'|'+result[i].id+'|'+list.columns[k].editable+'">';
+                                        html+='<label><input type="checkbox" id="'+chid+'" '+checked+'/>';
+                                        html+='<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span></label></div>';
+                                        
+                                        result[i][k] = html;
+                                    }
+                                    
+                                    
+                                } else if (list.columns[k] && list.columns[k].type) {
                                     if (list.columns[k].type.indexOf('date')!==-1)
                                         result[i][k] = moment(new Date(result[i][k])).format('DD-MM-YYYY HH:mm');
+                                        
+                                    if (list.columns[k].type.indexOf('boolean')!==-1)
+                                        result[i][k] = '<i class="fa '+(result[i][k]?'fa-check-square-o':'fa-square-o')+'"></i>';
+                                        
                                 }
                             }
                         }
@@ -606,8 +656,41 @@ $(document).ready(function(){
               
             },
             columns: columns
-        });
+        }
+        
+        var q=getUrlParameter('q');
+        if (q && q.length>0){
+            dataTableOptions.oSearch={"sSearch": q};
+        }
+        
+        DT=$(this).DataTable(dataTableOptions);
+        $(this).on('click','.list-editable-checkbox .cr', function(){
+            var rel=$(this).closest('.list-editable-checkbox').attr('rel').split('|');
             
+            var id=rel[1];
+            var action=rel[2].toLowerCase().split(',');
+            var ch=$('#'+rel[0]).prop('checked');
+            action = ch ? action[1] : action[0];
+            
+            action=list[action+'Action'];
+            if (!action)
+                return;
+            
+            let methodAction=action.replace('{id}',urlID).split(':');
+            processing(true);
+            loopback._request(methodAction[1],methodAction[0],{data:{id:id}},requestHeader,function(err,result){
+                processing(false);
+              
+                if (result && result.id)
+                    setLocation(list.self,urlID);
+                    
+            });
+            
+            
+        });
     });
+    
+    
+    
 
 });

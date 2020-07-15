@@ -18,13 +18,16 @@
         </select>
         {endif:fieldType=select}
        
+        {if:fieldType=hidden}
+        <input type="{fieldType}" name="{name}"/>
+        {endif:fieldType=hidden}
         
         
         {if:type=boolean}
         
-        <div class="checkbox-fade fade-in-primary d-">
+        <div class="checkbox-fade fade-in-primary">
             <label>
-                <input type="hidden" name="{name}" value="0"/>
+                <input type="hidden" name="{name}" rel="checkbox" value="0"/>
                 <input type="checkbox" name="{name}" value="1"/>
                 <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
                 <span class="text-inverse">{label}</span>

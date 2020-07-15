@@ -1,11 +1,11 @@
-<div class="card">
+<div class="card {class}">
     <div class="card-header">
         {if:title}<h2>{title}</h2>{endif:title}
         {if:plain}<span>{plain}</span>{endif:plain}
     </div>
     <div class="card-block">
         <div class="dt-responsive table-responsive">
-            <table class="table table-striped table-bordered table-hover wrap loopback-list" rel="{sid}">
+            <table class="table table-striped table-bordered table-hover wrap loopback-list {class}" rel="{sid}">
             </table>
         </div>
         {tokens.html}

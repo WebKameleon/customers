@@ -1,3 +1,4 @@
+
 <script>
     if (!window.list)
     window.list={};
@@ -10,9 +11,11 @@
         putAction: '{loopback.putAction}',
         postAction: '{loopback.postAction}',
         next: '{next_link}',
+        self: '{self_link}',
         auth: '{loopback.auth}',
         columns: <?php echo json_encode($fields);?>,
-        buttons: <?php echo json_encode($loopback['actions']);?>
+        buttons: <?php echo json_encode($loopback['actions']);?>,
+        order: '{loopback.order}'
     };
     
     

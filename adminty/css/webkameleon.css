@@ -10,3 +10,6 @@
     cursor: move;
 }
 
+li.admin-access {
+    display: block !important;
+}

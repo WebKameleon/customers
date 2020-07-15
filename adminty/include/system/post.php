@@ -1,4 +1,12 @@
-<?php if ($this->mode >1) :?>
+<?php
+    if ($this->webtd['page_id']<0 && $this->mode==2)
+        return;
+    
+    if ($this->mode<=1)
+        return;
+
+
+?>
 <div class="form-group row">
     <div class="col-12">
         <div class="checkbox-fade fade-in-primary d-">
@@ -18,4 +26,3 @@
     </div>
 </div>
 </form>
-<?php endif;?>

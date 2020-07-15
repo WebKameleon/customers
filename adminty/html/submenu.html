@@ -1,6 +1,6 @@
 <ul class="pcoded-submenu">
 {loop:menu}
-  <li class="{if:active}active{endif:active}">
+  <li class="{class}">
 	<a href="{if:submenu_id}javascript:void(0){endif:submenu_id}{if:!submenu_id}{href}{endif:!submenu_id}"{if:target} target="{target}"{endif:target}>
 	  <span class="pcoded-mtext">{alt}</span>
 	  {if:description}<span class="pcoded-badge label label-info ">{description}</span>{endif:description}

@@ -3,7 +3,7 @@
 					 <div class="dropdown-toggle" data-toggle="dropdown">
 						{if:bgimg}<img src="{uimages}/{bgimg}" class="img-radius" alt="{alt}" />{endif:bgimg}
 						{if:title}
-							<span>{title}</span>
+							<span class="username">{title}</span>
 							<i class="feather icon-chevron-down"></i>
 						{endif:title}
 						{if:class}<i class="feather {class}"></i>{endif:class}
@@ -13,12 +13,11 @@
 					 <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
 						 <li>
 							 <h6>{name}</h6>
-							 {if:costxt}<label class="label label-danger">{costxt}</label>{endif:costxt}
 						 </li>
 						 {loop:menu}
 						 <li>
 							{if:!description}
-							<a href="{href}"{if:target} target="{target}"{endif:target}>
+							<a href="{href}"{if:target} target="{target}"{endif:target}">
 								 <i class="feather {class}"></i> {alt}
 							</a>
 							{endif:!description}
@@ -35,5 +34,6 @@
 						 {endloop:menu}
 					 </ul>
 					 {endif:menu}
+					 {tokens.html}
 				 </div>
 			 </li>

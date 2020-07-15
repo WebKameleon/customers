@@ -132,6 +132,20 @@
     </div>
 </div>
 
+<div class="form-group row">   
+    <div class="col-sm-12">
+        <select class="select2 col-sm-12" name="loopback[order]">
+            <option value="0,asc">Default order (first column DOWN)</option>
+            <option value="0,desc" <?php if ($loopback['order']=='0,desc') echo 'selected';?>>First column UP</option>
+            <option value="1,asc" <?php if ($loopback['order']=='1,asc') echo 'selected';?>>Second column DOWN</option>
+            <option value="1,desc" <?php if ($loopback['order']=='1,desc') echo 'selected';?>>Second column UP</option>
+            <option value="2,asc" <?php if ($loopback['order']=='2,asc') echo 'selected';?>>Third column DOWN</option>
+            <option value="2,desc" <?php if ($loopback['order']=='2,desc') echo 'selected';?>>Third column UP</option>
+        </select>
+        <span class="messages"></span>
+    </div>
+</div>
+
 
 <script>
     /*
