@@ -1,0 +1,1 @@
+<div class="profile" rel="{loopbackRoot}|{swagger.basePath}|{loopback.action}"></div>
