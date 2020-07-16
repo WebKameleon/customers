@@ -1,90 +1,41 @@
 {with:articleWidget}
-{if:level=(200, 201, 202, 203)}
-	<article class="article">
-     <div class="row">
-	  <div class="article-title">{if:title}<h6>{title}<h6>{endif:title}</div>
-	  {if:bgimg}<img class="img-responsive pull-left" src="{uimages}/{bgimg}" alt="" />{endif:bgimg}
-      {plain}{tokens.html}{if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore pull-right">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
-	  <div class="clearfix"></div>
-     </div>
-    </article>
-{define:level_found=1}
-{endif:level=(200, 201, 202, 203)}
 
-{if:level=(5, 6)}
+{if:level=9999}
 	<article class="article {class}">
      <div class="row">
-	  <div class="article-title">{if:title}<h3>{title}</h3>{endif:title}</div>
-	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{thumbsUrl}/{bgimg}" alt="" /></a>{endif:bgimg}
-      {plain}{tokens.html}{if:more}<a href="{more_link}" class="magicmore pull-right">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
+	  <div class="article-title"></div>
+	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{uimages}/{bgimg}" alt="" /></a>{endif:bgimg}
+	  {if:more}<a href="{more_link}" class="magicmore pull-right">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
 	  <div class="clearfix"></div>
      </div>
     </article>
-{define:level_found=1}
-{endif:level=(5, 6)}
 
-{if:level=(2, 3, 4)}
-	<article class="article-box">
-     <div class="row">
-	  <div class="article-title">{if:title}<h3>{title}</h3>{endif:title}</div>
-	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{thumbsUrl}/{bgimg}" alt="" /></a>{endif:bgimg}
-      <div class="clearfix"></div><p>{plain}{tokens.html}</p>{if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
-	  <div class="clearfix"></div>
-     </div>
-    </article>
 {define:level_found=1}
-{endif:level=(2, 3, 4)}
-
-{if:level=1}
-	<article class="main-article {class}">
-     <div class="row">
-	  <div class="article-title">{if:title}<h2>{title}</{h2}>{endif:title}</div>
-	  {if:nd_custom_date}
-	  <div class="article_date">{nd_custom_date|kameleon.date}</div>
-	  {endif:nd_custom_date}
-	  {if:bgimg}<a class="kmw_article_photo {if:__index__|%2}pull-left{endif:__index__|%2} {if:!__index__|%2}pull-right{endif:!__index__|%2}" href="{uimages}/{bgimg}" fancybox="1" title="{title}"><img style="max-width:150px;" class="img-responsive" src="{thumbsUrl}/{bgimg}" alt="{title}" /></a>{endif:bgimg}
-
-	  {plain}{tokens.html}{if:more}<a href="{more_link}" class="magicmore pull-right">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
-	  {if:auth}<div class="article_author">
-	  {auth}
-	  </div>{endif:auth}
-	  
-	  <div class="clearfix"></div>
-     </div>
-    </article>
-{define:level_found=1}
-{endif:level=1}
-
-{if:level=101}
-	<article class="logo">
-     {if:title}<{tokens|h1:1}>{title}</{tokens|h1:1}>{endif:title}
-	 {if:bgimg}<a class="kmw_article_photo" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{uimages}/{bgimg}" alt="" style="max-width:150px;" /></a>{endif:bgimg}
-     {plain}{tokens.html}{if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore pull-right">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
-	  <div class="clearfix"></div>
-    </article>
-{define:level_found=1}
-{endif:level=101}
-
-{if:level=100}
-	<article>
-     {if:title}<{tokens|h1:1}>{title}</{tokens|h1:1}>{endif:title}
-	 {if:bgimg}<a class="kmw_article_photo" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{uimages}/{bgimg}" alt="" style="max-width:150px;" /></a>{endif:bgimg}
-     {plain}{tokens.html}{if:more}<div class="clearfix"></div><a href="{more_link}" class="magicmore pull-right">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
-	  <div class="clearfix"></div>
-    </article>
-{define:level_found=1}
-{endif:level=100}
+{endif:level=9999}
 
 {if:!level_found}
-	<article class="article {class}">
-     <div class="row">
-	  <div class="article-title">{if:title}<{tokens|h1:1}>{title}</{tokens|h1:1}>{endif:title}</div>
-	  {if:bgimg}<a class="kmw_article_photo pull-left" href="{uimages}/{bgimg}" fancybox="1"><img class="img-responsive" src="{uimages}/{bgimg}" alt="" /></a>{endif:bgimg}
-	  {plain}{tokens.html}{if:more}<a href="{more_link}" class="magicmore pull-right">{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}</a><div class="clearfix"></div>{endif:more}
-	  <div class="clearfix"></div>
-     </div>
-    </article>
-		
+<div class="card">
+ {if:title}
+ <div class="card-header">
+   <{tokens|h1:1}>{title}</{tokens|h1:1}>
+   {if:trailer}<span>{trailer}</span>{endif:trailer}
+   <div class="card-header-right">
+	<ul class="list-unstyled card-option">
+	 {if:more}
+	 <li><a href="{more_link}#{moretxt}" title="{if:moretxt}{moretxt}{endif:moretxt}{if:!moretxt}{translates.More}{endif:!moretxt}"><i class="feather icon-arrow-right"></i></a></li>
+	 {endif:more}
+	 <li><i class="feather minimize-card icon-minus"></i></li>
+	 <li><i class="feather icon-trash-2 close-card"></i></li>
+	</ul>
+  </div>
+ </div>
+ {endif:title}
+ <div class="card-block">
+   {plain}{tokens.html}
+ </div>
+ 
+</div>
+
 {endif:!level_found}
 
 {endwith:articleWidget}

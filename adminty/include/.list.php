@@ -3,7 +3,7 @@
     $webtd=new webtdModel($this->webtd['sid']);
 
     $webtd->ob = 3;
-    //$webtd->swfstyle = $loopback['card'];
+  
     $webtd->save();
     
     if ($swagger) {
@@ -52,8 +52,11 @@
     <label class="col-sm-1" style="text-align:right">
         <i class="fa fa-plus"></i>
     </label>
-    <div class="col-sm-11">
+    <div class="col-sm-8">
         <input type="text" class="form-control" value="<?php echo $loopback['actions']['add']['title'];?>" name="loopback[actions][add][title]" placeholder="add button title"/>
+    </div>
+    <div class="col-sm-3">
+        <input type="text" class="form-control" value="<?php echo $loopback['actions']['add']['init'];?>" name="loopback[actions][add][init]" placeholder="init fun before"/>
     </div>
     
     <label class="col-sm-1" style="text-align:right">

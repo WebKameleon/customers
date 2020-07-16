@@ -1,6 +1,6 @@
 <div class="card {class}">
     <div class="card-header">
-        {if:title}<h2>{title}</h2>{endif:title}
+        {if:title}<{tokens|h1:1}>{title}</{tokens|h1:1}>{endif:title}
         {if:plain}<span>{plain}</span>{endif:plain}
     </div>
     <div class="card-block">

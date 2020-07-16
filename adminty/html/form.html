@@ -16,7 +16,7 @@
             {endif:swfstyle}
             <div class="row m-b-20">
                 <div class="col-md-12">
-                    <h2{if:swfstyle} class="text-center"{endif:swfstyle}>{title}</h2>
+                    <{tokens|h1:1}{if:swfstyle} class="text-center"{endif:swfstyle}>{title}</{tokens|h1:1}>
                 </div>
             </div>
             

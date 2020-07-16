@@ -354,14 +354,28 @@ $(document).ready(function(){
                 action: function(e, dt, node, config) {
                     let action=list.postAction;
                     let methodAction=action.split(':');
-                    processing(true);
-                    loopback._request(methodAction[1],methodAction[0],{},requestHeader,function(err,result){
-                        processing(false);
-                        if (result && result.id)
-                            setLocation(list.next,result.id);
-                            
-                        
-                    });
+                    
+                    function add(data) {
+                        processing(true);
+                        loopback._request(methodAction[1],methodAction[0],data,requestHeader,function(err,result){
+                            processing(false);
+                            if (result && result.id)
+                                setLocation(list.next,result.id);
+                        });                        
+                    }
+                    
+                    if (list.buttons.add.init && window[list.buttons.add.init]) {
+                        window[list.buttons.add.init](function(err,data){
+                            if (err || !data) {
+                                
+                            } else {
+                                add(data);
+                            }
+                        });
+                    } else {
+                        add({});
+                    }
+
                     
                     
                 }
@@ -378,7 +392,22 @@ $(document).ready(function(){
                     if (!data)
                         return;
                     
-                    setLocation(list.next,data.id);
+                    if (list.putAction) {
+                        let action=list.putAction;
+                        for (let k in data) {
+                            action=action.replace('{'+k+'}',data[k]);
+                        }
+                        let methodAction=action.split(':');
+                        processing(true);
+                        loopback._request(methodAction[1],methodAction[0],null,requestHeader,function(err,result){
+                            processing(false);
+                            setLocation(list.next,result.id);
+                        });
+                    } else {
+                        setLocation(list.next,data.id);    
+                    }
+                    
+                    
                 }
             };
             buttons.push(button);
@@ -606,7 +635,6 @@ $(document).ready(function(){
                                 
                 loopback._request(methodAction[1],methodAction[0],{filter:filter},requestHeader,function(err,result,headers){
                     
-                    
                     if (err) {
                         notify(err.message,'danger');
                     } else {
@@ -628,14 +656,15 @@ $(document).ready(function(){
                                         result[i][k] = html;
                                     }
                                     
-                                    
                                 } else if (list.columns[k] && list.columns[k].type) {
                                     if (list.columns[k].type.indexOf('date')!==-1)
                                         result[i][k] = moment(new Date(result[i][k])).format('DD-MM-YYYY HH:mm');
                                         
                                     if (list.columns[k].type.indexOf('boolean')!==-1)
                                         result[i][k] = '<i class="fa '+(result[i][k]?'fa-check-square-o':'fa-square-o')+'"></i>';
-                                        
+                                    
+                                    if (list.columns[k].type.indexOf('object')!==-1)
+                                        result[i][k] = result[i][k]?'<textarea class="json">'+JSON.stringify(result[i][k])+'</textarea>':'';
                                 }
                             }
                         }
@@ -655,7 +684,14 @@ $(document).ready(function(){
                 
               
             },
-            columns: columns
+            columns: columns,
+            drawCallback: function(settings) {
+                $(settings.nTable).find('textarea.json').each(function(){
+                    $(this).parent().jsonViewer(JSON.parse($(this).val()),{
+                        collapsed: true
+                    });
+                });
+            }
         }
         
         var q=getUrlParameter('q');

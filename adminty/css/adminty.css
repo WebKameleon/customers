@@ -80,3 +80,13 @@
 .pcoded .pcoded-navbar .pcoded-item .pcoded-hasmenu .pcoded-submenu li>a>.pcoded-mtext {
     margin-left: 25px;
 }
+
+textarea.json {
+    display: none;
+}
+td.json-document {
+    padding-left: 20px;
+}
+a.json-toggle:before {
+    top: 3px;
+}

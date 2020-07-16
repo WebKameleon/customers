@@ -50,9 +50,11 @@
         })
         .fail(function(e) {
           cb(e.responseJSON);
-          if (e.responseJSON.code && e.responseJSON.code==='AUTHORIZATION_REQUIRED') {
-            Loopback.prototype.logout();
+          if (e.responseJSON.code && adminityKameleonMode<1) {
+            if (e.responseJSON.code==='AUTHORIZATION_REQUIRED' || e.responseJSON.code==='INVALID_TOKEN') 
+              Loopback.prototype.logout();
           }
+          
         });
   }
   
@@ -161,7 +163,7 @@
       if (me.roles && me.roles.length) {
         
         for (let i=0; i<me.roles.length; i++)
-          if (me.roles[i].name==='admin') {
+          if (me.roles[i].name && me.roles[i].name.indexOf('admin')!==-1) {
             $('.admin-access').addClass('user-admin');
           }
       }
