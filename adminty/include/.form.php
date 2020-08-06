@@ -12,6 +12,14 @@
         $sw=swagger($swagger,isset($loopback['initAction'])?$loopback['initAction']:null,[],[]);
         $initOptions=$sw['loopbackOptions'];
     }
+    
+    
+    $nextValueOptions='';
+    foreach ($parameters AS $name=>$parameter) {
+        $s=$loopback['addValueToNext']==$name?'selected':'';
+        $nextValueOptions.='<option '.$s.' value="'.$name.'">'.$name.'</option>';
+    }
+    
 ?>
 
 
@@ -146,6 +154,40 @@
 
 <div class="form-group row">
     <div class="col-sm-12">
+        Return button:
+    </div>
+    <div class="col-sm-12">
+        <input type="text" class="form-control" value="<?php echo $loopback['return']?>" name="loopback[return]" placeholder="Return button text">
+        <span class="messages"></span>
+    </div>
+    <div class="col-sm-12">
+        <select class="select2 col-sm-12 return-button-style" name="loopback[return_button_style]">
+            <option value="square">Return button style - default</option>
+            <option value="round">Return button style - rounded</option>
+            <option value="skew">Return button style - skew</option>
+            <option value="out">Return button style - inner solid border</option>
+            <option value="out-dashed">Return button style - inner dashed border</option>
+            <option value="out-dotted">Return button style - inner dotted border</option>
+        </select>
+        <span class="messages"></span>
+    </div>
+    
+    <div class="col-sm-12">
+        <select class="select2 col-sm-12 return-button-color" name="loopback[return_button_color]">
+            <option value="primary">Return button color - primary</option>
+            <option value="success">Return button color - success</option>
+            <option value="info">Return button color - info</option>
+            <option value="warning">Return button color - warning</option>
+            <option value="danger">Return button color - danger</option> 
+        </select>
+        <span class="messages"></span>
+    </div>
+</div>
+
+
+
+<div class="form-group row">
+    <div class="col-sm-12">
         Actions:
     </div>
     <div class="col-sm-12">
@@ -169,6 +211,14 @@
         <span class="messages"></span>
     </div>
     
+    <div class="col-sm-12">
+        <select class="select2 col-sm-12" name="loopback[addValueToNext]">
+            <option value="">Add form value to next link</option>
+            <?php echo $nextValueOptions;?>
+        </select>
+        <span class="messages"></span>
+    </div>
+    
 </div>
     
 
@@ -179,6 +229,14 @@
     <?php if ($loopback['button_color']):?>
     jQueryKam('#km_form_<?php echo $sid?> .button-color').val('<?php echo $loopback['button_color']?>');
     <?php endif;?>
+    
+    <?php if ($loopback['return_button_style']):?>
+    jQueryKam('#km_form_<?php echo $sid?> .return-button-style').val('<?php echo $loopback['return_button_style']?>');
+    <?php endif;?>
+    <?php if ($loopback['return_button_color']):?>
+    jQueryKam('#km_form_<?php echo $sid?> .return-button-color').val('<?php echo $loopback['return_button_color']?>');
+    <?php endif;?>
+    
     <?php if ($loopback['success_action']):?>
     jQueryKam('#km_form_<?php echo $sid?> .success-action').attr('v','<?php echo $loopback['success_action']?>');
     <?php endif;?>

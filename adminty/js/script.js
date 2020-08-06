@@ -195,6 +195,7 @@ $(document).ready(function(){
             loopback[rel[5]](rel[3],form);
         }
         
+        
         if (rel[7].length>0) {
             var initAction=rel[7].split(':');
             processing(true);
@@ -222,9 +223,18 @@ $(document).ready(function(){
                     processing(false);
                 });
                 
+                if (rel[8] && result[rel[8]] && rel[3]) {
+                    rel[3]+='/'+result[rel[8]];
+                }
+                
             });
         }
         
+        $(form).find('button.return').click(function(ev){
+            if (rel[3]) {
+                location.href=rel[3];
+            }
+        });
         
         
         $(form).find('button.submit').click(function(ev){

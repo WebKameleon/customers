@@ -37,6 +37,7 @@
 .pcoded-inner-navbar {
     background-position: center -56px;
     background-repeat: repeat;
+    height: 100% !important;
 }
 .navbar-logo {
     background-position: center 0;
@@ -89,4 +90,8 @@ td.json-document {
 }
 a.json-toggle:before {
     top: 3px;
+}
+
+button.right {
+    float: right;
 }

@@ -61,9 +61,14 @@
   
   Loopback.prototype.login = function(data,cb) {
     if (data.resp.token) {
-        window.localStorage.setItem('swagger_accessToken',data.resp.token);
+      window.localStorage.setItem('swagger_accessToken',data.resp.token);
     }
-    window.localStorage.setItem('remember_accessToken',data.data.remember);
+    if (data.data.remember && data.data.remember!==0) {
+      window.localStorage.setItem('remember_accessToken',data.data.remember);
+    } else {
+      window.localStorage.removeItem('remember_accessToken');
+    }
+    
     
     if (data.resp.me)
       window.localStorage.setItem('me',JSON.stringify(data.resp.me));
@@ -139,7 +144,7 @@
       })
     }
 
-    if (window.localStorage.getItem('remember_accessToken') && window.localStorage.getItem('swagger_accessToken') ){
+    if (window.localStorage.getItem('remember_accessToken') && window.localStorage.getItem('swagger_accessToken') && window.localStorage.getItem('remember_accessToken')!='0'){
         window.location.href=formUrl;
     }
   }
