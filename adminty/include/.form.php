@@ -120,6 +120,20 @@
     </div>
 </div>
 
+<div class="row form-group">
+    <div class="col-12">
+        <div class="checkbox-fade fade-in-primary d-">
+            <label>
+                <input type="hidden" name="loopback[round]" value="0"/>
+                <input type="checkbox" name="loopback[round]" value="1" <?php if($loopback['round']) echo 'checked';?>>
+                <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                <span class="text-inverse">Round style</span>
+            </label>
+        </div>
+    </div>
+</div>
+
+
 <div class="form-group row">
     <div class="col-sm-12">
         Submit button:

@@ -224,7 +224,9 @@ $(document).ready(function(){
                 });
                 
                 if (rel[8] && result[rel[8]] && rel[3]) {
-                    rel[3]+='/'+result[rel[8]];
+                    if (rel[3].slice(-1)!=='/') 
+                        rel[3]+='/'; 
+                    rel[3]+=result[rel[8]];
                 }
                 
             });
@@ -308,6 +310,7 @@ $(document).ready(function(){
         var methodAction=list.action.replace('{id}',urlID).split(':');
         
         var columns=[];
+        var checkboxes = {};
         for (var k in list.columns) {
             if (!list.columns[k].label || list.columns[k].label.length===0) 
                 continue;
@@ -325,6 +328,11 @@ $(document).ready(function(){
                 col.searchable='eq';
             } else {
                 col.searchable=false;
+                col.bSortable=false;
+            }
+            
+            if (list.columns[k].type==='boolean' && list.columns[k].editable) {
+                checkboxes[k] = {i: columns.length, list:list.columns[k], checked:true};
             }
             
             columns.push(col);
@@ -569,6 +577,7 @@ $(document).ready(function(){
             processing: true,
             serverSide: true,
             className:'wrap',
+            pageLength: list.size||10,
             order: [order],
             ajax: function(data,cb,settings) {
                 var filter={};
@@ -596,8 +605,7 @@ $(document).ready(function(){
                             continue;
                 
                         let word=q[j].match(/([a-zA-Z0-9 ]+)([:=><!]+)([a-zA-Z0-9\-]+)/);
-                        
-                        console.log(word);
+                    
                         
                         if (!word) {
                             let or=[];
@@ -642,7 +650,9 @@ $(document).ready(function(){
                     }
                     
                 }
-                                
+                
+                for (let k in checkboxes)
+                    checkboxes[k].checked = true;
                 loopback._request(methodAction[1],methodAction[0],{filter:filter},requestHeader,function(err,result,headers){
                     
                     if (err) {
@@ -651,6 +661,10 @@ $(document).ready(function(){
                         
                     
                         for (let i=0; i<result.length; i++) {
+                            if (result[i]===null) {
+                                result.splice(i--,1);
+                                continue;
+                            }
                             result[i].DT_RowId = result[i].id;
                             for (let k in result[i]) {
                                 
@@ -658,12 +672,19 @@ $(document).ready(function(){
                                     if (list.columns[k].type.indexOf('boolean')!==-1) {
                                         
                                         var checked=result[i][k]?'checked':'';
+                                        
+                                        if (!result[i][k] && checkboxes[k]) {
+                                            checkboxes[k].checked = false;
+                                        }
+                                        
                                         var chid = sid + '-' + list.columns[k].name + '-' + result[i].id;
                                         var html='<div class="checkbox-zoom zoom-primary list-editable-checkbox" rel="'+chid+'|'+result[i].id+'|'+list.columns[k].editable+'">';
-                                        html+='<label><input type="checkbox" id="'+chid+'" '+checked+'/>';
+                                        html+='<label><input type="checkbox" id="'+chid+'" '+checked+' class="checkbox-'+k+'"/>';
                                         html+='<span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span></label></div>';
                                         
                                         result[i][k] = html;
+                                        
+                                        
                                     }
                                     
                                 } else if (list.columns[k] && list.columns[k].type) {
@@ -678,14 +699,16 @@ $(document).ready(function(){
                                 }
                             }
                         }
-                    
+
                 
                         cb({
                             draw: data.draw,
                             recordsTotal: headers['x-count-total'],
                             recordsFiltered: headers['x-count-total'],
                             data: result
-                        })
+                        });
+                        
+                        
                         
                     }
                     
@@ -709,8 +732,10 @@ $(document).ready(function(){
             dataTableOptions.oSearch={"sSearch": q};
         }
         
+        
         DT=$(this).DataTable(dataTableOptions);
         $(this).on('click','.list-editable-checkbox .cr', function(){
+     
             var rel=$(this).closest('.list-editable-checkbox').attr('rel').split('|');
             
             var id=rel[1];
@@ -728,15 +753,67 @@ $(document).ready(function(){
                 processing(false);
               
                 if (result && result.id)
-                    setLocation(list.self,urlID);
+                    notify('OK','success');
                     
             });
             
             
         });
+        
+
+        
+        DT.columns().header().on('click','.checkbox-all', function(){
+     
+            var rel=$(this).attr('rel');
+            var checked = $(this).prop('checked');
+            
+            $(this).closest('table').find('.checkbox-'+rel).each(function(){
+                if ($(this).prop('checked') === checked)
+                    return;
+                var rel=$(this).closest('.list-editable-checkbox').attr('rel').split('|');
+                var id=rel[1];
+                var action=rel[2].toLowerCase().split(',');
+                action = checked ? action[0] : action[1];
+                
+                action=list[action+'Action'];
+                if (!action)
+                    return;
+                let methodAction=action.replace('{id}',urlID).split(':');
+                
+                loopback._request(methodAction[1],methodAction[0],{data:{id:id}},requestHeader,function(err,result){
+                    processing(false);
+                    if (result && result.id)
+                        notify('OK','success');
+                        
+                        
+                });
+
+                $(this).prop('checked',checked);
+            });
+            
+            
+            
+        });
+        
+        
+        for (let k in checkboxes) {           
+            if (checkboxes[k].list.editable.indexOf('all')===-1 )
+                continue;
+            let header = DT.columns().header()[checkboxes[k].i];
+            let html='<input type="checkbox" class="checkbox-all checkbox-all-'+k+'" rel="'+k+'"/> '+$(header).html();
+            $(header).html(html);
+            
+        }
+        
+        DT.on('draw.dt',function(){
+            for (let k in checkboxes) {
+                $('input.checkbox-all-'+k).prop('checked',checkboxes[k].checked);
+            }
+        });
+        
+        
+        
     });
-    
-    
     
 
 });

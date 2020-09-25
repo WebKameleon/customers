@@ -15,7 +15,8 @@
         auth: '{loopback.auth}',
         columns: <?php echo json_encode($fields);?>,
         buttons: <?php echo json_encode($loopback['actions']);?>,
-        order: '{loopback.order}'
+        order: '{loopback.order}',
+        size: <?php echo $size?:10;?>
     };
     
     
