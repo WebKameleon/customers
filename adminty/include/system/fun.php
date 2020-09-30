@@ -114,3 +114,48 @@
         ];
         
     }
+    
+    function relations($root, $swagger, $action) {
+        if (!$action)
+            return [];
+        
+        $action=explode(':',$action);
+        if (count($action)!=2)
+            return [];
+        
+        $path = $swagger['paths'][$action[1]][$action[0]];
+        if (!$path)
+            return [];
+        
+        $response = explode('/',$path['responses'][200]['schema']['items']['$ref']);
+        $class=$response['2'];
+        
+        $url=$root.substr($swagger['basePath'],1).$action[1].'/show-relations';
+        
+        $relations=@json_decode(file_get_contents($url),true);
+        
+        if (!$relations) {
+            $url=$root.substr($swagger['basePath'],1).dirname($action[1]).'/show-relations';
+            $relations=@json_decode(file_get_contents($url),true);
+        }
+   
+        if (count($relations)) {
+            foreach($relations AS $k=>$r) {
+                if (!$swagger['definitions'][$r['model']]['properties'])
+                    continue;
+                
+                $relations[$k]['fields'] = [];
+                foreach ($swagger['definitions'][$r['model']]['properties'] AS $name=>$f) {
+                    $relations[$k]['fields'][$name]['name']=$name;
+                    $relations[$k]['fields'][$name]['type']=$f['type'];
+                    if (isset($f['format']))
+                        $relations[$k]['fields'][$name]['type'] = $f['format'];
+                }
+            }
+        }
+     
+        return $relations;
+        
+        
+        
+    }

@@ -99,3 +99,25 @@ button.right {
 .picker-dialog {
     z-index: 1500;
 }
+
+@media print {
+    .navbar, .pcoded-navbar, .form-container, .dataTables_filter, .dataTables_paginate {
+        display: none !important;
+    }
+    
+    .pcoded-content {
+        margin-left: 0 !important;
+    }
+    
+    table.dataTable {
+        width: 100% !important;
+    }
+    
+    .pcoded-inner-content {
+        padding: 0 !important;
+    }
+    
+    .main-body {
+        padding: 0 !important;
+    }
+}

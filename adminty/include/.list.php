@@ -6,6 +6,8 @@
   
     $webtd->save();
     
+    $include=[];
+    
     if ($swagger) {
         $sw=swagger($swagger,isset($loopback['putAction'])?$loopback['putAction']:null,[],[]);
         $putOptions=$sw['loopbackOptions'];
@@ -13,10 +15,43 @@
         $deleteOptions=$sw['loopbackOptions'];
         $sw=swagger($swagger,isset($loopback['postAction'])?$loopback['postAction']:null,[],[]);
         $postOptions=$sw['loopbackOptions'];
+        
+        if ($loopback['action']) {
+            $relations=relations($loopbackRoot, $swagger, $loopback['action']);
+            if($relations) {
+                foreach ($relations AS $k=>$r)
+                    $include[]=$k;
+                
+                if ($loopback['include'] && strlen($loopback['include'])) {
+                    foreach(explode(',',$loopback['include']) AS $inc) {
+                    
+                        foreach ($relations[$inc]['fields'] AS $f=>$field) {
+                            $name=$inc.'.'.$f;
+                            
+                            $fields[$name]['name'] = $field['name'];
+                            $fields[$name]['type'] = $field['type'];
+                        }
+                    }
+                }
+            }
+        }
     }
+    
+    
+    
+    
     
 ?>
 
+<div class="form-group row">
+        
+    <div class="col-sm-12">
+        <input type="text" class="form-control" value="<?php echo $loopback['include'];?>" name="loopback[include]" placeholder="include relations: <?php echo join(', ',$include);?>" title="include: <?php echo join(', ',$include);?>"/>
+        <span class="messages"></span>
+    </div>
+        
+        
+</div>
 
 <div class="fields">
 <?php foreach ($fields AS $name=>$field): ?>
@@ -146,6 +181,19 @@
             <option value="2,desc" <?php if ($loopback['order']=='2,desc') echo 'selected';?>>Third column UP</option>
         </select>
         <span class="messages"></span>
+    </div>
+</div>
+
+<div class="row form-group">
+    <div class="col-12">
+        <div class="checkbox-fade fade-in-primary d-">
+            <label>
+                <input type="hidden" name="loopback[follow]" value="0"/>
+                <input type="checkbox" name="loopback[follow]" value="1" <?php if($loopback['follow']) echo 'checked';?>>
+                <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
+                <span class="text-inverse">Pass current location</span>
+            </label>
+        </div>
     </div>
 </div>
 

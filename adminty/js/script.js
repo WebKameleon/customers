@@ -109,11 +109,15 @@ function processing(on) {
     
 }
 
-function setLocation(url,id) {
+function setLocation(url,id,qs) {
     if (id) {
         if (url.substr(url.length-1,1)!=='/')
             url+='/';
         url+=id;
+    }
+    if (qs) {
+        url+=url.indexOf('?')>0?'&':'?';
+        url+=qs;
     }
     location.href=url;
 }
@@ -151,10 +155,34 @@ function getSelects(loopback,form,urlID,requestHeader,cb) {
 }
 
 
+function historyReplace(p,v,list) {
+    let lh=location.href.replace(location.origin,'');
+    const re=new RegExp(p+'=[^&]*');
+    lh=lh.replace(re,p+'='+encodeURIComponent(v));
+    if (lh.indexOf(p+'=')===-1) {
+        lh+=lh.indexOf('?')===-1 ? '?' : '&';
+        lh+=p+'='+encodeURIComponent(v);
+    }
+    history.pushState({}, '', lh);
+    $(list).attr('ret',btoa(lh));
+}
+
+function setLocationUrlRet(url, onlyReturn) {
+    var ret=getUrlParameter('ret');
+    if (ret)
+        url=atob(ret);
+    
+    if (onlyReturn) {
+        return url;
+    }
+    location.href = url;
+}
+
+
 $(document).ready(function(){
     $(".select2").select2();
     
-    var href=location.href.toString().split('/');
+    var href=location.href.toString().split('?')[0].split('/');
     var urlID = parseInt(href[href.length-1]);
     if (isNaN(urlID)) 
         urlID=null;
@@ -234,7 +262,7 @@ $(document).ready(function(){
         
         $(form).find('button.return').click(function(ev){
             if (rel[3]) {
-                location.href=rel[3];
+                setLocationUrlRet(rel[3]);
             }
         });
         
@@ -271,6 +299,8 @@ $(document).ready(function(){
                         } else {
                             notify('OK','success');
                         }
+                        
+                        rel[3] = setLocationUrlRet(rel[3],true);
         
                         if (rel[6].length>0 && Object.getPrototypeOf(loopback)[rel[6]]) {
                             loopback[rel[6]]({
@@ -278,7 +308,7 @@ $(document).ready(function(){
                                 resp: result,
                                 rel: rel
                             }, function(){
-                                window.location.href=rel[3];
+                                setLocationUrlRet(rel[3]);
                             });
                         } 
                     }
@@ -295,6 +325,7 @@ $(document).ready(function(){
     
     $('.loopback-list').each(function(){
         let sid=$(this).attr('rel');
+        const self=this;
         
         if ($(this).hasClass('admin-access') && !$(this).hasClass('user-admin')) {
             return;
@@ -311,6 +342,7 @@ $(document).ready(function(){
         
         var columns=[];
         var checkboxes = {};
+        
         for (var k in list.columns) {
             if (!list.columns[k].label || list.columns[k].label.length===0) 
                 continue;
@@ -322,10 +354,13 @@ $(document).ready(function(){
                 name: list.columns[k].label
             }
             
+            
             if (list.columns[k].type==='string') {
                 col.searchable='like';
             } else if (list.columns[k].type==='double') {
                 col.searchable='eq';
+            } else if (list.columns[k].type.indexOf('date')!==-1) {
+                col.searchable=false;
             } else {
                 col.searchable=false;
                 col.bSortable=false;
@@ -401,6 +436,7 @@ $(document).ready(function(){
             buttons.push(button);
         }
         
+        
         if (list.buttons.edit && list.buttons.edit.title ) {
             let button={
                 text: list.buttons.edit.title+' <i class="fa fa-edit"></i>',
@@ -422,7 +458,7 @@ $(document).ready(function(){
                             setLocation(list.next,result.id);
                         });
                     } else {
-                        setLocation(list.next,data.id);    
+                        setLocation(list.next,data.id,list.follow===1?'ret='+$(self).attr('ret'):null);    
                     }
                     
                     
@@ -570,6 +606,12 @@ $(document).ready(function(){
         if (order.length===1) {
             order=[0,'asc'];
         }
+        
+        var o=getUrlParameter('o');
+        if (o) {
+            order=[o.replace(/[^0-9]/,''),o.indexOf('-')>0?'desc':'asc'];
+        }
+        
         var dataTableOptions={
             dom: 'Bfrtip',
             select: true,
@@ -587,6 +629,7 @@ $(document).ready(function(){
                     for (let i=0; i<data.order.length; i++) {
                         filter.order+=data.columns[data.order[i].column].data + ' ' + data.order[i].dir + ' ';
                     }
+                    historyReplace('o',data.order[0].column+(data.order[0].dir==='desc'?'-':''),self);
                 }
                 
                 if (data.start) {
@@ -594,9 +637,17 @@ $(document).ready(function(){
                 }
                 if (data.length) {
                     filter.limit = data.length;
+                    
+                    historyReplace('p',1+Math.floor(data.start/data.length),self);
                 }
                 
+                
+               
+               
+                
                 if (data.search && data.search.value) {
+                    
+                    historyReplace('q',data.search.value,self);
                     
                     let q=data.search.value.split(' ');
                     let and=[];
@@ -649,10 +700,17 @@ $(document).ready(function(){
                         filter.where={and:and};
                     }
                     
+                } else {
+                    historyReplace('q','',self);
                 }
                 
                 for (let k in checkboxes)
                     checkboxes[k].checked = true;
+                    
+                if (list.include && list.include.length && list.include.length>0) {
+                    filter.include = list.include.split(',');
+                }
+                
                 loopback._request(methodAction[1],methodAction[0],{filter:filter},requestHeader,function(err,result,headers){
                     
                     if (err) {
@@ -666,6 +724,16 @@ $(document).ready(function(){
                                 continue;
                             }
                             result[i].DT_RowId = result[i].id;
+                            
+                            for (let k in result[i]) {
+                                if (list.relations && list.relations[k]) {
+                                    for (let kk in list.relations[k].fields) {
+                                        result[i][k+'.'+kk] = result[i][k][kk];  
+                                    }
+                                }
+                            }
+                            
+                            
                             for (let k in result[i]) {
                                 
                                 if (list.columns[k] && list.columns[k].editable && list.columns[k].editable.length) {
@@ -684,10 +752,11 @@ $(document).ready(function(){
                                         
                                         result[i][k] = html;
                                         
-                                        
                                     }
                                     
                                 } else if (list.columns[k] && list.columns[k].type) {
+                                    
+                                    
                                     if (list.columns[k].type.indexOf('date')!==-1)
                                         result[i][k] = moment(new Date(result[i][k])).format('DD-MM-YYYY HH:mm');
                                         
@@ -731,8 +800,12 @@ $(document).ready(function(){
         if (q && q.length>0){
             dataTableOptions.oSearch={"sSearch": q};
         }
+        var p=getUrlParameter('p');
+        if (p && p.length>0) {
+            dataTableOptions.displayStart=(parseInt(p)-1)*dataTableOptions.pageLength;
+        }
         
-        
+      
         DT=$(this).DataTable(dataTableOptions);
         $(this).on('click','.list-editable-checkbox .cr', function(){
      
@@ -812,8 +885,8 @@ $(document).ready(function(){
         });
         
         
-        
     });
+    
     
 
 });
