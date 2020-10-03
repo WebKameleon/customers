@@ -49,7 +49,9 @@
             foreach($p AS $mName => $m) {
                 $value=$mName.':'.$k;
                 $s=($action==$value)?'selected':'';
-                $loopbackOptions.='<option '.$s.' value="'.$value.'">'.strtoupper($mName).' '.$k.'</option>';
+                
+                $kk=$m['summary']?' - '.$m['summary']:'';
+                $loopbackOptions.='<option '.$s.' value="'.$value.'">'.strtoupper($mName).' '.$k.$kk.'</option>';
                 if (strlen($s)) {
                     
                     
@@ -115,9 +117,14 @@
         
     }
     
+    function swaggerSummary($swagger,$loopback) {
+        return swagger($swagger,isset($loopback['action'])?$loopback['action']:null,isset($loopback['parameters'])?$loopback['parameters']:[],isset($loopback['fields'])?$loopback['fields']:[]);
+    }
+    
     function relations($root, $swagger, $action) {
         if (!$action)
             return [];
+        
         
         $action=explode(':',$action);
         if (count($action)!=2)
@@ -127,7 +134,9 @@
         if (!$path)
             return [];
         
-        $response = explode('/',$path['responses'][200]['schema']['items']['$ref']);
+        
+        
+        $response = explode('/',$path['responses'][200]['schema']['items']['$ref']?:$path['responses'][200]['schema']['$ref']);
         $class=$response['2'];
         
         $url=$root.substr($swagger['basePath'],1).$action[1].'/show-relations';
@@ -136,6 +145,11 @@
         
         if (!$relations) {
             $url=$root.substr($swagger['basePath'],1).dirname($action[1]).'/show-relations';
+            $relations=@json_decode(file_get_contents($url),true);
+        }
+        
+        if (!$relations) {
+            $url=$root.substr($swagger['basePath'],1).'/'.strtolower(preg_replace('/([a-z])([A-Z])/',"\\1-\\2",$class)).'/show-relations';
             $relations=@json_decode(file_get_contents($url),true);
         }
    
@@ -156,6 +170,40 @@
      
         return $relations;
         
-        
-        
+    }
+    
+    function getRelations($loopbackRoot, $swagger, &$loopback) {
+        if ($loopback['action']) {
+            $fields=$loopback['fields'];
+            $include=[];
+            $relations=relations($loopbackRoot, $swagger, $loopback['action']);
+            if ($relations && $fields) {
+                foreach ($relations AS $k=>$r)
+                    $include[]=$k;
+                
+                if ($loopback['include'] && strlen($loopback['include'])) {
+                    
+                    foreach(explode(',',$loopback['include']) AS $inc) {
+                        if (!$relations[$inc]['fields'])
+                            continue;
+                    
+                        foreach ($relations[$inc]['fields'] AS $f=>$field) {
+                            $name=$inc.'.'.$f;
+                            $fields[$name]['name'] = $inc.':'.$field['name'];
+                            $fields[$name]['type'] = $field['type'];
+                        }
+                    }
+                }
+                foreach ($relations AS $k=>$r) {
+                    if ($r['type']=='hasMany') {
+                        $fields[$k.'Count']['name'] = $k.'Count';
+                        $fields[$k.'Count']['type'] = 'double';
+                        $fields[$k.'Count']['relation'] = $k;
+                    }
+                }
+            }
+            $loopback['includes'] = $include;
+            $loopback['fields'] = $fields;
+            $loopback['relations'] = $relations;
+        }
     }

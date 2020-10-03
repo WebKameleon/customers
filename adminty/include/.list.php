@@ -1,47 +1,3 @@
-<?php
-
-    $webtd=new webtdModel($this->webtd['sid']);
-
-    $webtd->ob = 3;
-  
-    $webtd->save();
-    
-    $include=[];
-    
-    if ($swagger) {
-        $sw=swagger($swagger,isset($loopback['putAction'])?$loopback['putAction']:null,[],[]);
-        $putOptions=$sw['loopbackOptions'];
-        $sw=swagger($swagger,isset($loopback['deleteAction'])?$loopback['deleteAction']:null,[],[]);
-        $deleteOptions=$sw['loopbackOptions'];
-        $sw=swagger($swagger,isset($loopback['postAction'])?$loopback['postAction']:null,[],[]);
-        $postOptions=$sw['loopbackOptions'];
-        
-        if ($loopback['action']) {
-            $relations=relations($loopbackRoot, $swagger, $loopback['action']);
-            if($relations) {
-                foreach ($relations AS $k=>$r)
-                    $include[]=$k;
-                
-                if ($loopback['include'] && strlen($loopback['include'])) {
-                    foreach(explode(',',$loopback['include']) AS $inc) {
-                    
-                        foreach ($relations[$inc]['fields'] AS $f=>$field) {
-                            $name=$inc.'.'.$f;
-                            
-                            $fields[$name]['name'] = $field['name'];
-                            $fields[$name]['type'] = $field['type'];
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    
-    
-    
-?>
 
 <div class="form-group row">
         
@@ -58,13 +14,16 @@
     <div class="form-group row">
         
         <div class="col-sm-12">
-            <input type="text" class="form-control" value="<?php echo $field['label'];?>" name="loopback[fields][<?php echo $name?>][label]" placeholder="<?php echo $name?> - column name"/>
+            <input type="text" class="form-control" value="<?php echo $field['label'];?>" name="loopback[fields][<?php echo $name?>][label]" placeholder="<?php echo $name?> - column name" title="label: <?php echo $name?>"/>
             <span class="messages"></span>
         </div>
         
-  
-        <div class="col-sm-12">
-            <input type="text" class="form-control" value="<?php echo $field['editable'];?>" name="loopback[fields][<?php echo $name?>][editable]" placeholder="<?php echo $name?> - editable"/>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" value="<?php echo $field['editable'];?>" name="loopback[fields][<?php echo $name?>][editable]" placeholder="<?php echo $name?> - editable" title="editable: <?php echo $name?>"/>
+            <span class="messages"></span>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" value="<?php echo $field['title'];?>" name="loopback[fields][<?php echo $name?>][title]" placeholder="<?php echo $name?> - title" title="title: <?php echo $name?>"/>
             <span class="messages"></span>
         </div>
     
@@ -179,6 +138,11 @@
             <option value="1,desc" <?php if ($loopback['order']=='1,desc') echo 'selected';?>>Second column UP</option>
             <option value="2,asc" <?php if ($loopback['order']=='2,asc') echo 'selected';?>>Third column DOWN</option>
             <option value="2,desc" <?php if ($loopback['order']=='2,desc') echo 'selected';?>>Third column UP</option>
+            <option value="3,asc" <?php if ($loopback['order']=='3,asc') echo 'selected';?>>Fourth column DOWN</option>
+            <option value="3,desc" <?php if ($loopback['order']=='3,desc') echo 'selected';?>>Fourth column UP</option>
+            <option value="4,asc" <?php if ($loopback['order']=='4,asc') echo 'selected';?>>Fifth column DOWN</option>
+            <option value="4,desc" <?php if ($loopback['order']=='4,desc') echo 'selected';?>>Fifth column UP</option>
+        </select>
         </select>
         <span class="messages"></span>
     </div>

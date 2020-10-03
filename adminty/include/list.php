@@ -1,8 +1,12 @@
 <?php
 
-    $relations=[];
+
+    /*
+    
     if ($loopback['action'] && $loopback['include']) {
-        $relations=relations($loopbackRoot, $swagger, $loopback['action']);
+        
+        $relations=$relationArray;
+        
         
         if ($loopback['include'] && strlen($loopback['include'])) {
             foreach(explode(',',$loopback['include']) AS $inc) {
@@ -19,6 +23,9 @@
         }
         
     }
+    */
+    //mydie($relations,$loopback['include']); 
+    
 ?>
 <script>
     if (!window.list)
@@ -26,7 +33,7 @@
     
     window.list[{sid}] = {
         root: '{loopbackRoot}',
-        base: '{swagger.basePath}',
+        base: '{loopback.basePath}',
         action: '{loopback.action}',
         deleteAction: '{loopback.deleteAction}',
         putAction: '{loopback.putAction}',

@@ -1,4 +1,4 @@
-<form class="md-float-material form-material loopback" novalidate="" id="form_{sid}" rel="{loopbackRoot}|{swagger.basePath}|{loopback.action}|{next_link}|{loopback.auth}|{loopback.init_action}|{loopback.success_action}|{loopback.initAction}|{loopback.addValueToNext}">
+<form class="md-float-material form-material loopback" novalidate="" id="form_{sid}" rel="{loopbackRoot}|{loopback.basePath}|{loopback.action}|{next_link}|{loopback.auth}|{loopback.init_action}|{loopback.success_action}|{loopback.initAction}|{loopback.addValueToNext}">
     
     {loop:parameters}
     {if:label}
@@ -56,7 +56,7 @@
 
     
     <div class="row m-t-30">
-        <div class="col-md-12">
+        <div class="col-md-12"{if:loopback.round} style="padding: 0 30px;"{endif:loopback.round}>
             {if:loopback.return}
             <button type="button" class="return right btn btn-{loopback.return_button_color} btn-md btn-{loopback.return_button_style} waves-effect waves-light text-center m-b-20">{loopback.return}</button>
             {endif:loopback.return}

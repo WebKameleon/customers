@@ -100,6 +100,10 @@ button.right {
     z-index: 1500;
 }
 
+table.dataTable td{
+    font-size: 13px;
+}
+
 @media print {
     .navbar, .pcoded-navbar, .form-container, .dataTables_filter, .dataTables_paginate {
         display: none !important;

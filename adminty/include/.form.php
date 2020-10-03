@@ -1,19 +1,11 @@
 <?php
 
     $webtd=new webtdModel($this->webtd['sid']);
-    if (!$cos) 
+    if (!$cos) {
         $webtd->cos=1;
-    $webtd->ob = 3;
-    $webtd->swfstyle = $loopback['card'];
-    $webtd->save();
-    
-    
-    if ($swagger) {
-        $sw=swagger($swagger,isset($loopback['initAction'])?$loopback['initAction']:null,[],[]);
-        $initOptions=$sw['loopbackOptions'];
+        $webtd->save();
     }
-    
-    
+
     $nextValueOptions='';
     foreach ($parameters AS $name=>$parameter) {
         $s=$loopback['addValueToNext']==$name?'selected':'';

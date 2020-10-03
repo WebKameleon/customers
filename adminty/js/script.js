@@ -348,16 +348,17 @@ $(document).ready(function(){
                 continue;
             
             let col= {
-                title: list.columns[k].label,
+                tooltip: list.columns[k].title,
                 data: list.columns[k].name.replace(':','.'),
                 type: list.columns[k].type,
-                name: list.columns[k].label
+                name: list.columns[k].label,
+                title: list.columns[k].label
             }
             
             
             if (list.columns[k].type==='string') {
                 col.searchable='like';
-            } else if (list.columns[k].type==='double') {
+            } else if (list.columns[k].type==='double' && list.columns[k].name.indexOf('Count')===-1) {
                 col.searchable='eq';
             } else if (list.columns[k].type.indexOf('date')!==-1) {
                 col.searchable=false;
@@ -372,6 +373,7 @@ $(document).ready(function(){
             
             columns.push(col);
         }
+        
         
         var DT;
 
@@ -641,7 +643,16 @@ $(document).ready(function(){
                     historyReplace('p',1+Math.floor(data.start/data.length),self);
                 }
                 
+                for (var k in list.columns) {
+                    if (list.columns[k].label && list.columns[k].label.length>0 && list.columns[k].relation && list.columns[k].relation.length>0) {
+                        if (!filter.count) {
+                            filter.count=[];
+                        }
+                        filter.count.push(list.columns[k].relation);
+                    }
+                }
                 
+                //console.log(filter);
                
                
                 
@@ -793,6 +804,20 @@ $(document).ready(function(){
                         collapsed: true
                     });
                 });
+                
+                const header = DT.columns().header();
+                for (let i=0; i<header.length; i++) {
+                    //console.log(header[i], columns);
+                    for (let j=0; j<columns.length; j++) {
+                        if (columns[j].title==header[i].innerHTML) {
+                            if (columns[j].tooltip) {
+                                $(header[i]).attr('title',columns[j].tooltip);
+                            }
+                            
+                            
+                        }
+                    }
+                }
             }
         }
         
