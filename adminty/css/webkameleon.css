@@ -13,3 +13,16 @@
 li.admin-access {
     display: block !important;
 }
+
+.form-radio .radio {
+    margin-top: 0;
+}
+
+.form-radio .radio-inline {
+    margin-right: 5px;
+    padding-left: 5px;
+}
+
+.loopback-card {
+    display: inline-block;
+}

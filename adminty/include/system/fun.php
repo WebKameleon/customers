@@ -1,32 +1,34 @@
 <?php
 
-    function loopbackRootUrlFinal($url) {
-        $mode=Bootstrap::$main->session('editmode');
+    function loopbackRootUrlFinal($url, $mode) {
+        $mode+=0;        
         $url=explode(',',$url);
         while (!isset($url[$mode]))
             $mode--;
+            
+        //mydie($url,$mode);
         return $url[$mode];
     }
 
-    function loopbackRootUrl($webpage,$url=false) {
+    function loopbackRootUrl($webpage,$mode, $url=false) {
         
         if ($url) {
             $wpm=new webpageModel($webpage['sid']);
             $wpm->pagekey=$url;
             $wpm->save();
-            return loopbackRootUrlFinal($url);
+            return loopbackRootUrlFinal($url, $mode);
         }
         
         
         if ($webpage['pagekey']) {
-            return loopbackRootUrlFinal($webpage['pagekey']);
+            return loopbackRootUrlFinal($webpage['pagekey'], $mode);
         }
         
         
         if ($webpage['prev']!=-1 && strlen($webpage['prev'])) {
             $wpm=new webpageModel();
             $page=$wpm->getOne($webpage['prev']);
-            return loopbackRootUrl($page);
+            return loopbackRootUrl($page, $mode);
         }
         
         return '';

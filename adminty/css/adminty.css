@@ -104,6 +104,33 @@ table.dataTable td{
     font-size: 13px;
 }
 
+.clipboard {
+    cursor: pointer;
+}
+
+.init {
+    display: none;
+}
+
+.header-search input.form-control {
+    background-color: #dcdcdc;
+}
+
+.range-slider {
+    min-height: 60px;
+}
+form.loopback textarea {
+    min-height: 150px;
+    font-family: Courier;
+    font-size: 12px;
+}
+
+.loopback-card {
+    display: none;
+}
+
+
+
 @media print {
     .navbar, .pcoded-navbar, .form-container, .dataTables_filter, .dataTables_paginate {
         display: none !important;

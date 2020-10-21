@@ -3,10 +3,10 @@
         return;
     include_once __DIR__.'/fun.php';
     
-    $loopbackRoot=loopbackRootUrl($this->webpage);
+    $loopbackRoot=loopbackRootUrl($this->webpage,$this->mode );
     
     if (isset($_POST['loopbackRootUrl']) && strlen($_POST['loopbackRootUrl'])) {
-        $loopbackRoot=loopbackRootUrl($this->webpage,$_POST['loopbackRootUrl']);
+        $loopbackRoot=loopbackRootUrl($this->webpage,$this->mode, $_POST['loopbackRootUrl']);
     }
     
     $loopback=[];$parameters=[]; $fields=[];
@@ -46,6 +46,12 @@
             $parameters = $loopback['parameters'] = $swaggerSummary['parameters'];
             $fields = $loopback['fields'] = $swaggerSummary['fields'];
         }
+    } elseif ($swagger) {
+        $swaggerSummary=swaggerSummary($swagger,$loopback);
+        getRelations($loopbackRoot, $swagger, $loopback);
+        
+        $parameters = $loopback['parameters'] = $swaggerSummary['parameters'];
+        $fields = $loopback['fields'] = $swaggerSummary['fields'];
     }
     
     if (count($loopback)) {
@@ -65,6 +71,8 @@
         $deleteOptions=$sw['loopbackOptions'];
         $sw=swagger($swagger,isset($loopback['postAction'])?$loopback['postAction']:null,[],[]);
         $postOptions=$sw['loopbackOptions'];
+        $sw=swagger($swagger,isset($loopback['customAction'])?$loopback['customAction']:null,[],[]);
+        $customOptions=$sw['loopbackOptions'];
         
         //form
         $sw=swagger($swagger,isset($loopback['initAction'])?$loopback['initAction']:null,[],[]);

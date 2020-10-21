@@ -155,7 +155,7 @@ function getSelects(loopback,form,urlID,requestHeader,cb) {
 }
 
 
-function historyReplace(p,v,list) {
+function historyReplace(p,v,list,t) {
     let lh=location.href.replace(location.origin,'');
     const re=new RegExp(p+'=[^&]*');
     lh=lh.replace(re,p+'='+encodeURIComponent(v));
@@ -164,7 +164,7 @@ function historyReplace(p,v,list) {
         lh+=p+'='+encodeURIComponent(v);
     }
     history.pushState({}, '', lh);
-    $(list).attr('ret',btoa(lh));
+    $(list).attr('ret',btoa(lh+(t?'#'+t:'')));
 }
 
 function setLocationUrlRet(url, onlyReturn) {
@@ -176,11 +176,63 @@ function setLocationUrlRet(url, onlyReturn) {
         return url;
     }
     location.href = url;
+    return false;
 }
 
 
+function smartSort(arr) {
+    arr.sort(function(a,b){
+        for (let k in a) {
+            if (k==='id' || typeof a[k]!=='number')
+                continue;
+            
+            if (b[k]) {
+                if (a[k]>b[k])
+                    return 1;
+                if (a[k]<b[k])
+                    return -1;
+                
+                return 0;
+                
+            } else {
+                return 1;
+            }
+            
+        }
+        
+        return 0;
+    });
+}
+
+
+function smekta(text,obj) {
+    for (let k in obj) {
+        const re=new RegExp('{{'+k+'}}','g');
+        text=text.replace(re,obj[k]);
+    }
+    
+    return text;
+}
+
+
+function timeShrink(t) {    
+    if (t<60) {
+        return t+' s';
+    }
+    if (t<3600) {
+        return Math.round(t/60)+' m';
+    }
+    if (t<24*3600) {
+        return Math.round(10*t/3600)/10+' h';
+    }
+    
+    
+    return Math.round(t*10/(24*3600))/10+' d';
+}
+
 $(document).ready(function(){
     $(".select2").select2();
+
     
     var href=location.href.toString().split('?')[0].split('/');
     var urlID = parseInt(href[href.length-1]);
@@ -233,18 +285,38 @@ $(document).ready(function(){
                     return;
                 }
                 for (let k in result) {
-                    $(form).find('input[type="text"][name="'+k+'"]').val(result[k]).attr('v',result[k]);
-                    $(form).find('select[name="'+k+'"]').val(result[k]).attr('v',result[k]);
-                    $(form).find('textarea[name="'+k+'"]').val(result[k]).attr('v',result[k]);
-                    $(form).find('input[type="hidden"][name="'+k+'"]').each(function(){
-                        if ($(this).attr('rel')!='checkbox') {
-                            $(this).val(result[k]).attr('v',result[k]);
+                    
+                    if (result[k]) {
+                        
+                        if (typeof result[k]==='object') {
+                            result[k] = JSON.stringify(result[k],null,2);
                         }
-                    });
-                    $(form).find('input[type="checkbox"][name="'+k+'"]').each(function(){
-                        if (result[k]) {
-                            $(this).prop('checked',true);
-                        }
+                        
+                        $(form).find('input[type="text"][name="'+k+'"]').val(result[k]).attr('v',result[k]);
+                        $(form).find('select[name="'+k+'"]').val(result[k]).attr('v',result[k]);
+                        $(form).find('textarea[name="'+k+'"]').val(result[k]).attr('v',result[k]);
+                        $(form).find('input[type="hidden"][name="'+k+'"]').each(function(){
+                            if ($(this).attr('rel')!='checkbox') {
+                                $(this).val(result[k]).attr('v',result[k]);
+                            }
+                        });
+                        $(form).find('input[type="checkbox"][name="'+k+'"]').each(function(){
+                            if (result[k]) {
+                                $(this).prop('checked',true);
+                            }
+                        });
+                    }
+                    
+                    
+                    $(form).find('input.range-slider[name="'+k+'"]').each(function(){
+                        
+                        var slider = new Slider(this, {
+                            step: parseFloat($(this).attr('data-slider-step')),
+                            min: parseFloat($(this).attr('data-slider-min')),
+                            max: parseFloat($(this).attr('data-slider-max')),
+                            tooltip: 'always',
+                            value: result[k]||$(this).val()
+                        });
                     });
                 }
                 getSelects(loopback,form,urlID,requestHeader,function(){
@@ -256,6 +328,26 @@ $(document).ready(function(){
                         rel[3]+='/'; 
                     rel[3]+=result[rel[8]];
                 }
+                
+                $('.init').each(function(){
+                    
+                    var href=$(this).attr('href');
+                    var html=$(this).html();
+                    
+                    for (let k in result) {
+                        if (href) 
+                            href=href.replace('{{'+k+'}}',result[k]);
+                        if (html)
+                            html=html.replace('{{'+k+'}}',result[k]);
+                    }
+                    
+                    if (href)
+                        $(this).attr('href',href);
+                    if (html)
+                        $(this).html(html);
+                    
+                    $(this).show();
+                });
                 
             });
         }
@@ -322,6 +414,12 @@ $(document).ready(function(){
        
     });
     
+    $(document).on('click','.clipboard', function(){
+        let text=$(this).attr('href');
+        navigator.clipboard.writeText(text);
+        notify(text,'info');
+        return false;
+    });
     
     $('.loopback-list').each(function(){
         let sid=$(this).attr('rel');
@@ -346,7 +444,7 @@ $(document).ready(function(){
         for (var k in list.columns) {
             if (!list.columns[k].label || list.columns[k].label.length===0) 
                 continue;
-            
+                
             let col= {
                 tooltip: list.columns[k].title,
                 data: list.columns[k].name.replace(':','.'),
@@ -526,7 +624,47 @@ $(document).ready(function(){
             buttons.push(button);
         }
         
+        if (list.buttons.custom && list.buttons.custom.title && list.customAction) {
+            let text = list.buttons.custom.title;
+            if (list.buttons.custom.icon)
+                text+=' <i class="fa fa-'+list.buttons.custom.icon+'"></i>';
+            let className='multi-select';
+            if (list.buttons.custom.class)
+                className+=' btn-'+list.buttons.custom.class;
+            let button={
+                text: text,
+                className: className,
+                action: function(e, dt, node, config) {
+                    let data=[];
+                    
+                    DT.$('tr.selected').each(function(i,dt){
+                        data.push(DT.row(dt).data());
+                    });
+                    
+                    processing(true);
+                    async.map(data,function(row,next){
+                        let action=list.customAction;
+                        for (let k in row) {
+                            action=action.replace('{'+k+'}',row[k]);
+                        }
+                        let methodAction=action.split(':');
+                        loopback._request(methodAction[1],methodAction[0],null,requestHeader,function(err,result){
+                            next();
+                        });
+                        
+                    },function(){
+                        processing(false);
+                    });
+                    
+                    
+                    
+                }
+            };
+            buttons.push(button);
+        }
+        
         if (list.buttons.trash && list.buttons.trash.title && list.deleteAction) {
+            
             let button={
                 text: list.buttons.trash.title+' <i class="fa fa-trash"></i>',
                 className: 'multi-select btn-danger',
@@ -631,7 +769,7 @@ $(document).ready(function(){
                     for (let i=0; i<data.order.length; i++) {
                         filter.order+=data.columns[data.order[i].column].data + ' ' + data.order[i].dir + ' ';
                     }
-                    historyReplace('o',data.order[0].column+(data.order[0].dir==='desc'?'-':''),self);
+                    historyReplace('o',data.order[0].column+(data.order[0].dir==='desc'?'-':''),self,list.title);
                 }
                 
                 if (data.start) {
@@ -640,7 +778,7 @@ $(document).ready(function(){
                 if (data.length) {
                     filter.limit = data.length;
                     
-                    historyReplace('p',1+Math.floor(data.start/data.length),self);
+                    historyReplace('p',1+Math.floor(data.start/data.length),self,list.title);
                 }
                 
                 for (var k in list.columns) {
@@ -658,9 +796,19 @@ $(document).ready(function(){
                 
                 if (data.search && data.search.value) {
                     
-                    historyReplace('q',data.search.value,self);
+                    historyReplace('q',data.search.value,self,list.title);
                     
-                    let q=data.search.value.split(' ');
+                    let q=data.search.value;
+                    for (let k in window.card ) {
+                        if (window.card[k].q) {
+                            if (q.indexOf(' ')===-1 && q.indexOf(':')===-1) {
+                                window.card[k].q(q);
+                            } else {
+                                window.card[k].q();
+                            }
+                        }
+                    }
+                    q=data.search.value.split(' ');
                     let and=[];
                     for (let j=0; j<q.length; j++) {
                         if (q[j].length===0)
@@ -712,7 +860,10 @@ $(document).ready(function(){
                     }
                     
                 } else {
-                    historyReplace('q','',self);
+                    historyReplace('q','',self,list.title);
+                    for (let k in window.card ) {
+                        window.card[k].q&&window.card[k].q();
+                    }
                 }
                 
                 for (let k in checkboxes)
@@ -912,6 +1063,133 @@ $(document).ready(function(){
         
     });
     
-    
+    $('.loopback-card').each(function(){
+        const sid=$(this).attr('rel');
+        const self=this;
+        
+        if (!window.card || ! window.card[sid])
+            return;
+        
+        const card = window.card[sid];
+        const requestHeader = card.auth==='1'? {authorization: 'Bearer '+window.localStorage.getItem('swagger_accessToken')} : null;
+        const loopback=new Loopback(card.root,card.base);
+        const action=card.action;
+        const methodAction=action.split(':');
+        
+        const change=card.change && card.change.length>0?card.change.split(','):null;
+        const html = $(self).html();
+        const classValue=$(self).attr('class').replace('loopback-card','');
+        
+        window.card[sid].q = function (q) {
+            let data=null;
+            for (let k in card.params) {
+                if (card.params[k].label && card.params[k].label.length) {
+                    if (!data)
+                        data={};
+                    data[k] = card.params[k].label;
+                    continue;
+                }
+                
+                if (k==='q' && q && q.length>0) {
+                    data[k]=q;
+                }
+                
+                if (k==='ctxId' && urlID) {
+                    data[k]=urlID;
+                }
+            }
+                
+            
+            const resultHtml=[];
+            
+            loopback._request(methodAction[1],methodAction[0],data,requestHeader,function(err,result){
+                if (err || !result || !result.result)
+                    return;
+                if (Array.isArray(result.result)) {
+                    smartSort(result.result);
+                    
+                    for (let i=0; i<result.result.length; i++) {
+                        result.result[i].change=0;
+                        result.result[i].color='pink';
+                        result.result[i].icon=card.icon||'calendar';
+                        
+                        
+                        if (result.result[i].main && result.result[i].id) {
+                            
+                            let changeAbs=0, changePrc=0;
+                            if (result.diffrence && Array.isArray(result.diffrence)) {
+                                for (let j=0; j<result.diffrence.length; j++) {
+                                    if (result.diffrence[j].id && result.result[i].id===result.diffrence[j].id && result.diffrence[j].main) {
+                                        changeAbs=result.result[i].main-result.diffrence[j].main;
+                                        changePrc = Math.ceil(changeAbs*100 / result.diffrence[j].main);
+                                    }
+                                }
+                            }
+                            
+                            result.result[i].change = changeAbs;
+                            
+                            if (changePrc!==0) {
+                                if (changePrc>0) {
+                                    result.result[i].color='blue';
+                                }
+                                if (changePrc>5) {
+                                    result.result[i].color='yellow';
+                                }
+                                if (changePrc>10) {
+                                    result.result[i].color='green';
+                                }
+                            }
+                            
+                            if (change) {
+                                for (let j=0; j<change.length; j++) {
+                                    let changePair=change[j].split(':');
+                                    if (changePair.length===2 && result.result[i][changePair[0]] && window[changePair[1]]) {
+                                        result.result[i][changePair[0]] = window[changePair[1]](result.result[i][changePair[0]]);    
+                                    }
+                                    
+                                    if (changePair[0]==='change' && changePair[1]==='prc') {
+                                        result.result[i].change = changePrc+'%';
+                                    }
+                                    
+                                    
+                                }
+                                
+                            }
+                            
+                            if (typeof(result.result[i].change)==='number') {
+                                result.result[i].change = result.result[i].change.toString();
+                            }
+                            
+                            if (result.result[i].change==='0') {
+                                result.result[i].change='';
+                            } else if (result.result[i].change.indexOf('-')===-1) {
+                                result.result[i].change = '+'+result.result[i].change;
+                            }
+                            
+                            resultHtml.push('<div class="'+classValue+' card'+sid+'">'+smekta(html,result.result[i])+'</div>');
+                        }
+                      
+                        
+                    }
+                    const size=card.size.length?parseInt(card.size):0;
+                    while (Array.isArray(result.result) && size>0 && resultHtml.length>size) {
+                        resultHtml.splice(0,1);
+                    }
+                    resultHtml.push('<div class="clearfix"/>');
+                }
+                
+                while ($('.card'+sid).length>1) {
+                    $('.card'+sid).first().remove();
+                }
+                if($('.card'+sid).length>0)
+                    $('.card'+sid).replaceWith(resultHtml.join(''));
+                else
+                    $(self).replaceWith(resultHtml.join(''));
+            });
+        };
+        
+        window.card[sid].q(getUrlParameter('q'));   
+        
+    });
 
 });

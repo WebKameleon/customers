@@ -2,7 +2,7 @@
 <div class="form-group row">
         
     <div class="col-sm-12">
-        <input type="text" class="form-control" value="<?php echo $loopback['include'];?>" name="loopback[include]" placeholder="include relations: <?php echo join(', ',$include);?>" title="include: <?php echo join(', ',$include);?>"/>
+        <input type="text" class="form-control" value="<?php echo $loopback['include'];?>" name="loopback[include]" placeholder="include relations: <?php echo $include?join(', ',$include):'choose path first';?>" title="include: <?php echo join(', ',$include);?>"/>
         <span class="messages"></span>
     </div>
         
@@ -97,6 +97,19 @@
         <input type="text" class="form-control" value="<?php echo $loopback['actions']['trash']['confirm'];?>" name="loopback[actions][trash][confirm]" placeholder="trash confirmation?"/>
     </div>
     
+    <label class="col-sm-1" style="text-align:right">
+        <i class="fa fa-question"></i>
+    </label>
+       <div class="col-sm-4">
+        <input type="text" class="form-control" value="<?php echo $loopback['actions']['custom']['title'];?>" name="loopback[actions][custom][title]" placeholder="custom button title"/>
+    </div>
+    <div class="col-sm-3">
+        <input type="text" class="form-control" value="<?php echo $loopback['actions']['custom']['icon'];?>" name="loopback[actions][custom][icon]" placeholder="custom icon class"/>
+    </div>
+    <div class="col-sm-4">
+        <input type="text" class="form-control" value="<?php echo $loopback['actions']['custom']['class'];?>" name="loopback[actions][custom][class]" placeholder="custom button class"/>
+    </div>
+    
 </div>
 
 <div class="form-group row">   
@@ -124,6 +137,16 @@
         <select class="select2 col-sm-12" name="loopback[deleteAction]">
             <option value="">Choose delete path</option>
             <?php echo $deleteOptions;?>
+        </select>
+        <span class="messages"></span>
+    </div>
+</div>
+
+<div class="form-group row">   
+    <div class="col-sm-12">
+        <select class="select2 col-sm-12" name="loopback[customAction]">
+            <option value="">Choose custom action path</option>
+            <?php echo $customOptions;?>
         </select>
         <span class="messages"></span>
     </div>

@@ -1,3 +1,14 @@
+<?php
+    
+    foreach($parameters AS &$parameter) {
+        if ($parameter['fieldType']=='range' && $parameter['rangeLabels']) {
+            $labels=explode(',',trim($parameter['rangeLabels']));
+            $parameter['rangeLabels']='"'.implode('","',$labels).'"';
+        }
+    }
+    
+?>
+
 <form class="md-float-material form-material loopback" novalidate="" id="form_{sid}" rel="{loopbackRoot}|{loopback.basePath}|{loopback.action}|{next_link}|{loopback.auth}|{loopback.init_action}|{loopback.success_action}|{loopback.initAction}|{loopback.addValueToNext}">
     
     {loop:parameters}
@@ -9,11 +20,10 @@
         {endif:loopback.card}
         
         {if:!loopback.card}
-
         <label class="col-md-3 col-form-label">{label}</label>
         <div class="col-md-9">
         {endif:!loopback.card}
-      
+
             {if:fieldType=text}
             <input type="{fieldType}" name="{name}" class="form-control{if:loopback.round} form-control-round{endif:loopback.round}" {if:require}require="{require}"{endif:require} placeholder="{label}" title="{label}"/>
             {endif:fieldType=text}
@@ -34,18 +44,25 @@
             
             
             {if:type=boolean}
-            
             <div class="checkbox-fade fade-in-primary">
                 <label>
                     <input type="hidden" name="{name}" rel="checkbox" value="0"/>
                     <input type="checkbox" name="{name}" value="1"/>
                     <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                    <span class="text-inverse">{label}</span>
+                    {if:loopback.card}<span class="text-inverse">{label}</span>{endif:loopback.card}
                 </label>
-              
             </div>
-        
             {endif:type=boolean}
+            
+            {if:fieldType=range}
+            <div class="range-slider">
+                <input name="{name}" type="text" class="range-slider" style="display:none" data-slider-min="{sliderMin}" data-slider-max="{sliderMax}"  value="{sliderValue}" data-slider-step="{sliderStep}">
+            </div>
+            {endif:fieldType=range}
+            
+            {if:type=object}
+            <textarea name="{name}" class="form-control{if:loopback.round} form-control-round{endif:loopback.round}" {if:require}require="{require}"{endif:require} placeholder="{label}" title="{label}"></textarea>
+            {endif:type=object}
         
         </div>
         
