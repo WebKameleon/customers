@@ -207,7 +207,7 @@ function smartSort(arr) {
 
 function smekta(text,obj) {
     for (let k in obj) {
-        const re=new RegExp('{{'+k+'}}','g');
+        const re=new RegExp('{+'+k+'}+','g');
         text=text.replace(re,obj[k]);
     }
     
@@ -1086,7 +1086,7 @@ $(document).ready(function(){
                 if (card.params[k].label && card.params[k].label.length) {
                     if (!data)
                         data={};
-                    data[k] = card.params[k].label;
+                    data[k] = card.params[k].label.replace('{id}',urlID);
                     continue;
                 }
                 
@@ -1094,9 +1094,6 @@ $(document).ready(function(){
                     data[k]=q;
                 }
                 
-                if (k==='ctxId' && urlID) {
-                    data[k]=urlID;
-                }
             }
                 
             
@@ -1191,5 +1188,93 @@ $(document).ready(function(){
         window.card[sid].q(getUrlParameter('q'));   
         
     });
+    
+    $('.google-chart').each(function(){
+        const sid=$(this).attr('rel');
+        const self=this;
+        const id=$(this).attr('id');
+
+        if (!window.chart)
+            return;
+        const chart=window.chart[id];
+        const requestHeader = chart.auth==='1'? {authorization: 'Bearer '+window.localStorage.getItem('swagger_accessToken')} : null;
+        const loopback=new Loopback(chart.root,chart.base);
+        const action=chart.action;
+        const methodAction=action.split(':');
+
+        window.chart[id].q = function (q) {
+            let data=null;
+            for (let k in chart.params) {
+                if (chart.params[k].label && chart.params[k].label.length) {
+                    if (!data)
+                        data={};
+                    data[k] = chart.params[k].label.replace('{id}',urlID);
+                    continue;
+                }
+                if (k==='q' && q && q.length>0) {
+                    data[k]=q;
+                }
+                
+            }
+                
+            
+            
+            loopback._request(methodAction[1],methodAction[0],data,requestHeader,function(err,result){
+                if (err || !result || !result.result || !Array.isArray(result.result) || result.result.length===0)
+                    return;
+                
+                smartSort(result.result);
+   
+                const dataTable = [];
+                const header=[chart.options.vAxis.title];
+                for (let i=0;i<chart.series.length; i++) {
+                    if (!chart.series[i].label || chart.series[i].label.length===0)
+                        break;
+                    header.push(chart.series[i].label);
+                }
+                dataTable.push(header);
+                
+                for (let i=0; i<result.result.length; i++) {
+                    const row=[
+                        smekta(chart.series[0].vValue,result.result[i])
+                    ];
+                    for (let j=0; j<chart.series.length; j++) {
+                        if (!chart.series[j].label || chart.series[j].label.length===0)
+                            break;
+                        
+                        row.push(result.result[i][chart.series[j].hValue] || 0);
+                        
+                    }
+                    dataTable.push(row);
+                }
+                
+          
+                
+                
+                google.charts.load('current', {packages: chart.packages?chart.packages.split(','):['corechart', 'bar']});
+        
+                google.charts.setOnLoadCallback(function () {
+                    data=google.visualization.arrayToDataTable(dataTable);
+                    
+                    console.log(chart.options);
+                    chart.options.chartArea.height = '92%';
+                    $('#'+id).height(200+50*dataTable.length);
+                    
+                    
+                    chart.chart = new google.visualization.BarChart(document.getElementById(id));
+                    chart.chart.draw(data, chart.options);
+                  });
+                
+                
+            });
+        };
+        
+        window.chart[id].q(getUrlParameter('q'));
+        
+        
+        
+        
+    });
 
 });
+
