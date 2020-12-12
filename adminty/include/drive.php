@@ -7,7 +7,7 @@
 <script>
     var googleDrive={
         root: '{loopbackRoot}',
-        base: '{swagger.basePath}',
+        base: '{loopback.basePath}',
         getAction: '{loopback.action}',
         postAction: '{loopback.postAction}',
         buttonId: '{id}',

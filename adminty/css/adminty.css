@@ -22,30 +22,38 @@
 
 .form-logo {
     display: initial;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255,255,255,0);
     padding: 10px 8px;
     border-radius: 5px;
 }
 
 .nav-logo {
     display: initial;
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0);
     padding: 10px 8px;
     border-radius: 5px;
 }
 
 .pcoded-inner-navbar {
-    background-position: center -56px;
-    background-repeat: repeat;
+    background-position: center -156px;
+    background-repeat: no-repeat;
     height: 100% !important;
+    background-size: 1100px;
 }
 .navbar-logo {
-    background-position: center 0;
-    background-repeat: repeat;
+    background-position: center -100px;
+    background-repeat: no-repeat;
+    background-size: 1100px;
+}
+
+.pcoded[theme-layout="vertical"] .pcoded-navbar .pcoded-item>li>a .pcoded-mtext {
+    font-weight: bold;
 }
 
 .pcoded .pcoded-navbar .pcoded-navigatio-lavel[menu-title-theme="theme5"]  {
-    color: #eee !important;   
+    color: #eee !important;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .pcoded .pcoded-navbar[navbar-theme="theme1"] .pcoded-item>li.active>a {
@@ -96,8 +104,8 @@ button.right {
     float: right;
 }
 
-.picker-dialog {
-    z-index: 1500;
+.picker, .picker-dialog {
+    z-index: 150000 !important;
 }
 
 table.dataTable td{
@@ -129,7 +137,24 @@ form.loopback textarea {
     display: none;
 }
 
+.kmw_article_text button {
+    margin: 0 20px 20px 20px;
+}
 
+.login-block {
+    background-size: 2000px;
+    background-position: center center;
+}
+
+.navbar-logo .feather {
+    float: right;
+}
+
+@media screen and (max-width: 1400px) {
+    .login-block {
+        background-size: 1500px;
+    }
+}
 
 @media print {
     .navbar, .pcoded-navbar, .form-container, .dataTables_filter, .dataTables_paginate {

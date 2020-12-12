@@ -13,6 +13,11 @@
   }
   
   Loopback.prototype._request=function(url,method,data,header,cb) {
+    
+    
+    if (this.url.substr(-1)==='/' && url.substr(0,1)==='/') {
+      url=url.substr(1);
+    }
     var finalUrl=this.url+url;
     
     var ajax={
@@ -93,8 +98,12 @@
       window.localStorage.removeItem('me');
       if (cb)
         cb();
-      else
-        location.href=$(link).attr('href');
+      else {
+        var url=$(link).attr('href');
+        url+='?ret='+btoa(location.href.toString());
+        //return   console.log(url);
+        location.href=url;
+      }
     });
   
     

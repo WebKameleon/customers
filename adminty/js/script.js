@@ -226,7 +226,6 @@ function timeShrink(t) {
         return Math.round(10*t/3600)/10+' h';
     }
     
-    
     return Math.round(t*10/(24*3600))/10+' d';
 }
 
@@ -270,6 +269,7 @@ $(document).ready(function(){
         
         let requestHeader = rel[4]==='1'? {authorization: 'Bearer '+window.localStorage.getItem('swagger_accessToken')} : null;
        
+        console.log(rel);
         
         if (rel[5].length>0 && Object.getPrototypeOf(loopback)[rel[5]]) {
             loopback[rel[5]](rel[3],form);
@@ -1227,6 +1227,7 @@ $(document).ready(function(){
    
                 const dataTable = [];
                 const header=[chart.options.vAxis.title];
+                //console.log(chart.series);
                 for (let i=0;i<chart.series.length; i++) {
                     if (!chart.series[i].label || chart.series[i].label.length===0)
                         break;
@@ -1256,8 +1257,7 @@ $(document).ready(function(){
                 google.charts.setOnLoadCallback(function () {
                     data=google.visualization.arrayToDataTable(dataTable);
                     
-                    console.log(chart.options);
-                    chart.options.chartArea.height = '92%';
+                    chart.options.chartArea.height = dataTable.length > 50 ? '97%' : '92%';
                     $('#'+id).height(200+50*dataTable.length);
                     
                     
