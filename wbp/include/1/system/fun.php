@@ -417,7 +417,7 @@ class WBP {
 		if (isset($_SERVER['SERVER_SOFTWARE']) && strstr(strtolower($_SERVER['SERVER_SOFTWARE']),'engine')) {
 			require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
 			$dir='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/'.self::$FCONTEST_DIR.'/'.$client;
-			$arch='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/'.self::$FCONTEST_ARCH.'/'.date("Y.m.d").'/'.$client;
+			$arch='gs://'.CloudStorageTools::getDefaultGoogleStorageBucketName().'/'.self::$FCONTEST_ARCH.'/'.date("Y/m/d").'/'.$client;
 		} else {
 			$dir='/tmp/'.self::$FCONTEST_DIR.'/'.$client;
 			if (!is_dir($dir)) mkdir($dir,0755,true);
