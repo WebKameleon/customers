@@ -213,7 +213,7 @@ for ($i=0; $i<count($clients); $i++) {
         
         WBP::mail($td_data['drive']['email'],$data['email'],$td_data['title'],$mail);
     
-        //WBP::removeContestFolder($data['id']);
+        WBP::removeContestFolder($data['id']);
         
         file_put_contents($client_data['dir'].'/ok.txt',date('c'));
     }

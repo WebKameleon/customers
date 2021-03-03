@@ -229,6 +229,23 @@ function timeShrink(t) {
     return Math.round(t*10/(24*3600))/10+' d';
 }
 
+function listEval(ev,row,defaultValue) {
+    
+    for (let k in row) {
+        const re=new RegExp('\\b'+k+'\\b');
+        const rep=typeof row[k]==='number' ? row[k] : '"'+row[k]+'"';
+        ev=ev.replace(re,rep);
+    }
+    try {
+        var e;
+        eval('e='+ev+';');
+        return e;
+    } catch (e) {
+        console.log(e);
+        return defaultValue;
+    }
+}
+
 $(document).ready(function(){
     $(".select2").select2();
 
@@ -269,7 +286,7 @@ $(document).ready(function(){
         
         let requestHeader = rel[4]==='1'? {authorization: 'Bearer '+window.localStorage.getItem('swagger_accessToken')} : null;
        
-        console.log(rel);
+        //console.log(rel);
         
         if (rel[5].length>0 && Object.getPrototypeOf(loopback)[rel[5]]) {
             loopback[rel[5]](rel[3],form);
@@ -898,6 +915,7 @@ $(document).ready(function(){
                             
                             for (let k in result[i]) {
                                 
+                                
                                 if (list.columns[k] && list.columns[k].editable && list.columns[k].editable.length) {
                                     if (list.columns[k].type.indexOf('boolean')!==-1) {
                                         
@@ -927,7 +945,12 @@ $(document).ready(function(){
                                     
                                     if (list.columns[k].type.indexOf('object')!==-1)
                                         result[i][k] = result[i][k]?'<textarea class="json">'+JSON.stringify(result[i][k])+'</textarea>':'';
-                                }
+                                
+                                    if (list.columns[k].eval) {
+                                        result[i][k] = listEval(list.columns[k].eval,result[i], result[i][k]);
+                                    }
+                                    
+                                } 
                             }
                         }
 

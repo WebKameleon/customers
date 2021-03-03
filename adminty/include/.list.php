@@ -13,8 +13,12 @@
 <?php foreach ($fields AS $name=>$field): ?>
     <div class="form-group row">
         
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <input type="text" class="form-control" value="<?php echo $field['label'];?>" name="loopback[fields][<?php echo $name?>][label]" placeholder="<?php echo $name?> - column name" title="label: <?php echo $name?>"/>
+            <span class="messages"></span>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" value="<?php echo $field['eval'];?>" name="loopback[fields][<?php echo $name?>][eval]" placeholder="<?php echo $name?> - column evaluation code" title="eval: <?php echo $name?>"/>
             <span class="messages"></span>
         </div>
         
