@@ -10,4 +10,4 @@ function wcag_tabindex() {
 }
 
 setTimeout(wcag_tabindex,2000);
-$(document).ready(wcag_tabindex):
+$(document).ready(wcag_tabindex);
