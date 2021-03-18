@@ -37,6 +37,9 @@ function wcag_tabindex() {
         $(this).find('.carousel-inner .item.active .articlelist-block').each(function(){
         	$(this).attr('tabindex',tabindex++);
         });
+        
+        $(this).find('.container-fluid').attr('tabindex',tabindex++).attr('title','Strony');
+        
         $(this).find('.container-fluid li a').each(function(){
         	$(this).attr('tabindex',tabindex++);
         });
