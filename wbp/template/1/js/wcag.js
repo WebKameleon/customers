@@ -14,15 +14,15 @@ function wcag_tabindex() {
         $(this).attr('tabindex',tabindex++);
     });
     $('.wcag button').attr('tabindex',tabindex++);
-    $('.gsc-input input').attr('tabindex',tabindex++).attr('title','Wyszukiwarka');
+    $('.gsc-input input').attr('tabindex',tabindex++).attr('title','Wyszukiwarka w serwisie');
     
     $('.main-menu>ul.navbar-nav>li>a').each (function(){
         $(this).attr('tabindex',tabindex++);
 
 	
-	$(this).parent().find('li').each(function(){
-        	$(this).attr('tabindex',tabindex++);
-	});
+        $(this).parent().find('li').each(function(){
+            $(this).attr('tabindex',tabindex++);
+        });
     });
 
     $('#banner .bx-viewport li').each (function(){
@@ -34,12 +34,12 @@ function wcag_tabindex() {
     });
 
     $('.carousel.slide').each (function(){
-	$(this).find('.carousel-inner .item.active .articlelist-block').each(function(){
+        $(this).find('.carousel-inner .item.active .articlelist-block').each(function(){
         	$(this).attr('tabindex',tabindex++);
-	});
-	$(this).find('.container-fluid li a').each(function(){
+        });
+        $(this).find('.container-fluid li a').each(function(){
         	$(this).attr('tabindex',tabindex++);
-	});
+        });
     });
 
     $('#wbp_shop_results li').each (function(){

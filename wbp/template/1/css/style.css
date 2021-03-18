@@ -3833,6 +3833,19 @@ ul.nav li.dropdown:focus-within > ul.dropdown-menu {
 }
 
 
+.bx-pager.bx-default-pager {
+	background-color: #ffffffc0;
+}
+
+.bx-wrapper .bx-pager .bx-pager-link {
+	background: #111;
+}
+
+.bx-wrapper .bx-pager .bx-pager-link.active {
+	background: #f00;
+}
+
+
 /* High Contrast Mode CSS for www.wbp.poznan.pl website */
 /* Created by Karol Huszal - http://karol.huszal.com */
 
