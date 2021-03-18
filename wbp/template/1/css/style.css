@@ -798,7 +798,8 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .main-left .article,
 .main-right .article {
 	margin-top:25px;
-	text-align: justify;
+	x-text-align: justify;
+	text-align: left;
 }
 
 .main-left .article h1,
@@ -2539,7 +2540,8 @@ btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
 	color:#555;
 	height:112px;
 	overflow:hidden;
-	text-align: justify;
+	x-text-align: justify;
+	text-align: left;
 }
 
 .articlelist-block a.articlelist-block-more {
@@ -3848,6 +3850,15 @@ ul.nav li.dropdown:focus-within > ul.dropdown-menu {
 
 /* High Contrast Mode CSS for www.wbp.poznan.pl website */
 /* Created by Karol Huszal - http://karol.huszal.com */
+
+
+body.wcag :focus {
+	outline: 2px solid black;
+}
+
+body.wcag-contrast-1 :focus {
+	outline: 2px solid white;
+}	
 
 body.wcag-contrast-1 {
 	background:#000;
