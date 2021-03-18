@@ -138,12 +138,12 @@ $(document).ready(function ($) {
     
     $('.top .wcag button').click(function(){
         $('.wcag-contents').show();
-        $('body').addClass('wcag');
+        $('body').addClass('wcag-on');
     });
     
     $('.wcag-contents .wcag').click(function(){
         $('.wcag-contents').hide();
-        $('body').removeClass('wcag');
+        $('body').removeClass('wcag-on');
     });
     
     var fontLevel = 0;

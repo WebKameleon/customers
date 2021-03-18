@@ -3852,7 +3852,7 @@ ul.nav li.dropdown:focus-within > ul.dropdown-menu {
 /* Created by Karol Huszal - http://karol.huszal.com */
 
 
-body.wcag :focus, body.wcag-contrast-1 :focus {
+body.wcag-on :focus, body.wcag-contrast-1 :focus {
 	outline: 2px solid yellow;
 }
 
