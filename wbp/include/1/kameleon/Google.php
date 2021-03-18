@@ -5,15 +5,18 @@ class Google {
     const TOKEN_ENDPOINT = 'https://accounts.google.com/o/oauth2/token';
     const AUTH_ENDPOINT = 'https://accounts.google.com/o/oauth2/auth';
     
-    const CLIENT_ID = "243294196991.apps.googleusercontent.com";
-    const CLIENT_SECRET = "TryrcvBXGoZyywb6bu4Zbss7";
-    
+    //const CLIENT_ID = "243294196991.apps.googleusercontent.com";
+    //const CLIENT_SECRET = "TryrcvBXGoZyywb6bu4Zbss7";
+    const CLIENT_ID = "996647074475-glos9smvgp03ep5gutk0r45ktvimds3j.apps.googleusercontent.com";
+    const CLIENT_SECRET = "84OpN3Wcji1QjqjcR_qa_UUm";
+
 
     protected static $token=null;
 
     public static function getAccessToken($scope,$callback=null)
     {
-	if (is_null($callback)) $callback='http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+	if (is_null($callback)) 
+		$callback='https://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 	
 	if (isset($_GET['code']))
 	{
@@ -55,8 +58,6 @@ class Google {
 	
 		$t=self::request(self::TOKEN_ENDPOINT,'POST',$post,'','json-obj');
 
-			
-		
 		if (isset($t->expires_in))
 		{
 			$t->expire=$t->expires_in+time();
@@ -76,11 +77,11 @@ class Google {
         $ch = curl_init();
         
 
-		curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
 
         
         $h=array();

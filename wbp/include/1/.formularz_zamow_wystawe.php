@@ -18,9 +18,7 @@
     $access_token=json_decode(Google::getUserClient(null,false,'drive')->getAccessToken());
     $access_data['access_token']=$access_token->access_token;    
     
-    
-    
-    
+
     $configuration_file_name=md5($sid);
     $configuration=WBP::get_data($configuration_file_name);
     
@@ -53,8 +51,6 @@
 
     if (isset($_POST['drive'][$sid]))
     {
-        //mydie($configuration,$configuration_file_name);
-        
 		echo "<script>km_preloader_show();</script>";
 		flush();
 		ob_end_flush();        

@@ -297,6 +297,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 /* ===== PRINT BUTTON ===== */
 .print {
 	float:right;
+	display: none;
 }
 
 .print button {
@@ -1363,7 +1364,7 @@ h5.kmw_article_author {
 	padding-bottom:0px;
 	font-size:12px;
 	font-family: 'Open Sans', sans-serif;
-	color:#555;
+	color:#111;
 	text-transform:uppercase;
 }
 
@@ -1373,8 +1374,9 @@ h5.kmw_article_author {
 	margin:0px;
 }
 
-#footer ul a {
-	color:#999;
+#footer  a {
+	color:#111;
+	font-weight: bold;
 }
 
 #footer ul a:hover {
@@ -3817,10 +3819,17 @@ a.skip-main:focus, a.skip-main:active {
     margin: 10px 35%;
     padding:5px;
     border-radius: 15px;
-    border:4px solid yellow;
+    border:6px solid yellow;
     text-align:center;
     font-size:1.2em;
     z-index:999;
+}
+
+
+ul.nav li.dropdown:hover > ul.dropdown-menu,
+ul.nav li.dropdown:active > ul.dropdown-menu,
+ul.nav li.dropdown:focus-within > ul.dropdown-menu {
+    display: block;    
 }
 
 
@@ -3939,4 +3948,22 @@ body.wcag-on a.bx-pager-link {
 
 .wbp-shoper {
 	display: none
+}
+
+#main .kmw_article_plain h2 {
+	font-size: 30px
+}
+#main .kmw_article_plain h3 {
+	font-size: 26px
+}
+#main .kmw_article_plain h4 {
+	font-size: 22px
+}
+#main .kmw_article_plain h5 {
+	font-size: 18px
+}
+#main .kmw_article_plain h6,
+#main .kmw_article_plain h7,
+#main .kmw_article_plain h8 {
+	font-size: 16px
 }

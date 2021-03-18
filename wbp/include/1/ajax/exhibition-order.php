@@ -19,7 +19,7 @@
     unset($data['sid']);
     
     $td_data=WBP::get_data($sid);
-        
+
     if (!isset($data['institution']) || !$data['institution'])
     {
         die (json_encode(array('error'=>'Nie podano nazwy instytucji','obj'=>'institution')));
@@ -97,7 +97,8 @@
     @session_start();
            
    
-    if (!isset($_SESSION['drive_access_token'])) $_SESSION['drive_access_token']=$td_data['tokens']['drive'];
+    if (!isset($_SESSION['drive_access_token'])) 
+	$_SESSION['drive_access_token']=$td_data['tokens']['drive'];
     $token=Google::setToken($_SESSION['drive_access_token']);    
     foreach($token AS $k=>$v) $td_data['tokens']['drive']->$k=$v;
     $_SESSION['drive_access_token']=$td_data['tokens']['drive'];
@@ -105,11 +106,9 @@
     
     session_write_close();
     
-
     // Drive part
     Google::setToken($_SESSION['drive_access_token']);
     $file=Google::getFile($td_data['drive']['id']);
-    
     
     foreach($file['parents'] AS $parent)
     {

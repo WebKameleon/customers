@@ -1,7 +1,9 @@
 {with:header}
 
 
+<a class="skip-main" href="#top-menu">{if:lang=pl}Przejdź do menu{endif:lang=pl}{if:lang=en}Skip to main menu{endif:lang=en}</a>
 <a class="skip-main" href="#body">{if:lang=pl}Przejdź do treści{endif:lang=pl}{if:lang=en}Skip to main content{endif:lang=en}</a>
+<a class="skip-main" href="#footer">{if:lang=pl}Przejdź do stopki{endif:lang=pl}{if:lang=en}Skip to main footer{endif:lang=en}</a>
 
 {if:level199}{level199}{endif:level199}
 <div class="facebook hidden-sm hidden-xs">{level104}</div>
@@ -26,7 +28,7 @@
      <div class="high-contrast-bw">A</div>
      
    </div>
-   <div class="wcag hidden-xs">
+   <div class="wcag hidden-xs" title="{if:lang=pl}Ulatwienia dostepu{endif:lang=pl}{if:lang=en}Disabled support{endif:lang=en}">
     <button></button>
    </div>
    
@@ -49,7 +51,7 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        <div class="main-menu navbar-collapse collapse navbar-left">{level102}</div>
+        <div id="top-menu" class="main-menu navbar-collapse collapse navbar-left">{level102}</div>
         
       </div>
     </div><!-- /container -->

@@ -3,7 +3,7 @@ var wbp_active_suffix;
 
 
 
-function wbp_inject(part)
+function wbp_inject(part,cb)
 {
   $.ajax({
     url: wbp_url_prefix+part+'.js',
@@ -46,6 +46,9 @@ function wbp_inject(part)
       
       re=/xisdcbj7yejsc6svasdt7u3hagsdva7sdta/g;
       data=data.replace(re,'src="//');      
+
+      if (cb)
+	return cb(data);
       
       if (part=='header') $('body').prepend(data);
       else $('body').append(data);

@@ -1,5 +1,6 @@
 <?php
 
+
 use google\appengine\api\cloud_storage\CloudStorageTools;
 
 require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
@@ -10,12 +11,16 @@ echo "$base\n";
 
 foreach (scandir($base) AS $component)
 {
+    if (!strstr($component,"202"))
+	continue;
+
     echo "Starting $component\n";
     if ($component[0]=='.') continue;
     $dir="$base/$component";
     
     
     $log=[];
+    $del=[];
     foreach(scandir($dir) AS $f)
     {
         if ($f[0]=='.') continue;
@@ -25,7 +30,7 @@ foreach (scandir($base) AS $component)
 	if (!isset($log[substr($f,0,10)])) $log[substr($f,0,10)]=''; 
 	$log[substr($f,0,10)].=$f."\n".file_get_contents("$dir$f")."\n\n";
 	
-        unlink("$dir$f");
+	$del[]="$dir$f";
     }
 
 
@@ -34,6 +39,9 @@ foreach (scandir($base) AS $component)
 		if (strlen($f)<10) continue;
 		file_put_contents($dir.$f.'.txt',$c);
 	}
+
+	foreach ($del AS $d)
+		unlink($d);
 
 
 	
