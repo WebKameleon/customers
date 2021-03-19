@@ -70,6 +70,12 @@ function wcag_tabindex() {
     $('#wbp_shop_results li').each (function(){
         $(this).attr('tabindex',tabindex++);
     });
+    
+     $('aside #side-nav .panel a').each (function(){
+        $(this).attr('tabindex',tabindex++);
+    });
+    
+    //footer
     $('#footer p').each (function(){
         $(this).attr('tabindex',tabindex++);
     });
@@ -78,9 +84,7 @@ function wcag_tabindex() {
     });
     
     
-    $('aside #side-nav .panel a').each (function(){
-        $(this).attr('tabindex',tabindex++);
-    });
+   
 
 }
 
