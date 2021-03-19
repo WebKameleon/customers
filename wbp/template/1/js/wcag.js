@@ -44,6 +44,28 @@ function wcag_tabindex() {
         	$(this).attr('tabindex',tabindex++);
         });
     });
+    
+    $('.kmw_articlelist_list').each (function(){
+        $(this).find('.kmw_articlelist_nav ul li a').each(function(){
+        	$(this).attr('tabindex',tabindex++);
+        });
+        $(this).find('.kmw_articlelist .kmw_articlelist_content').each(function(){
+        	$(this).attr('tabindex',tabindex++);
+        });
+    });
+    
+    
+    $('.article .kmw_article_content').each (function(){
+        $(this).attr('tabindex',tabindex++);
+        
+    });
+    
+    $('.gallery2 figure').each (function(){
+        $(this).attr('tabindex',tabindex++);
+        
+    });
+    
+    
 
     $('#wbp_shop_results li').each (function(){
         $(this).attr('tabindex',tabindex++);
@@ -52,6 +74,11 @@ function wcag_tabindex() {
         $(this).attr('tabindex',tabindex++);
     });
     $('#footer .menu-simple .img-list').each (function(){
+        $(this).attr('tabindex',tabindex++);
+    });
+    
+    
+    $('aside #side-nav .panel a').each (function(){
         $(this).attr('tabindex',tabindex++);
     });
 

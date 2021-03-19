@@ -251,6 +251,9 @@ $(document).ready(function ($) {
         ".magicmore": {
             "font-size": 11
         },
+        "h3 .magicmore": {
+            "font-size": 18
+        },
         ".kmw_articlelist_content h3, .kmw_articlelist_content h3 a":{
             "font-size": 16
         },
@@ -260,11 +263,10 @@ $(document).ready(function ($) {
         ".kmw_articlelist_more": {
             "font-size": 11
         },
-        ".carousel .article-list-indicators li a": {
+        ".carousel .article-list-indicators li a, .kmw_articlelist_nav li a": {
             "font-size": 12,
             "width": 25
         }
-        
     }
     
     function adjustFont(x) {
