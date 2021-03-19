@@ -183,10 +183,10 @@ $(document).ready(function ($) {
             "font-size": 16
         },
         ".articlelist-block": {
-            "line-height": 361
+            "height": 361
         },
         ".articlelist-block h3": {
-            "line-height": 41
+            "height": 41
         },
         ".articlelist-block h3 a": {
             "font-size": 16,
