@@ -283,7 +283,13 @@ $(document).ready(function ($) {
         for (var k in fontDefault) {
             var css={};
             for (let l in fontDefault[k]) {
-                css[l] = (fontDefault[k][l]+fontLevel*(l=='height'?10:2))+'px'; 
+                let q=2;
+                if (l==='height') {
+                    q=Math.round(fontDefault[k][l]/10);
+                    if (q<5)
+                        q=5;
+                }
+                css[l] = (fontDefault[k][l]+fontLevel*q)+'px'; 
             }
         
             $(k).css(css);
