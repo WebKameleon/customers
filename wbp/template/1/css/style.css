@@ -3860,7 +3860,7 @@ body.wcag-contrast-1 :focus {
 	outline: 3px solid yellow;
 }
 
-body.wcag-on .navbar-header :focus {
+body.wcag-on .navbar :focus {
 	outline: 2px solid yellow;
 }
 
