@@ -58,6 +58,10 @@ function wcag_tabindex() {
     $('.article .kmw_article_content').each (function(){
         $(this).attr('tabindex',tabindex++);
         
+        $(this).find('iframe').each(function(){
+        	$(this).attr('tabindex',tabindex++);
+        });
+        
     });
     
     $('.gallery2 figure').each (function(){
