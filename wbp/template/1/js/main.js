@@ -183,7 +183,8 @@ $(document).ready(function ($) {
             "font-size": 16
         },
         ".articlelist-block h3 a": {
-            "font-size": 16
+            "font-size": 16,
+            "line-height": 15
         },
         ".articlelist-block .articlelist-block-date":{
             "font-size": 11
@@ -251,6 +252,9 @@ $(document).ready(function ($) {
         },
         ".kmw_articlelist_more": {
             "font-size": 11
+        },
+        ".carousel .article-list-indicators li a": {
+            "font-size": 12
         }
         
     }
