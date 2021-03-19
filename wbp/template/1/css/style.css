@@ -3853,11 +3853,11 @@ ul.nav li.dropdown:focus-within > ul.dropdown-menu {
 
 
 body.wcag-on :focus {
-	outline: 2px solid yellow;
+	outline: 3px solid #176095;
 }
 
 body.wcag-contrast-1 :focus {
-	outline: 2px solid yellow;
+	outline: 3px solid yellow;
 }
 
 
