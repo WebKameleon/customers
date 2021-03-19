@@ -3861,6 +3861,10 @@ body.wcag-contrast-1 :focus {
 }
 
 
+body.wcag-on .navbar-header :focus {
+	outline: 2px solid yellow;
+}
+
 body.wcag-contrast-1 {
 	background:#000;
 	color:#fff;
