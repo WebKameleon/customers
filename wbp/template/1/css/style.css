@@ -3979,19 +3979,24 @@ body.wcag-on a.bx-pager-link {
 }
 
 #main .kmw_article_plain h2 {
-	font-size: 30px
+	font-size: 30px;
 }
 #main .kmw_article_plain h3 {
-	font-size: 26px
+	font-size: 26px;
 }
 #main .kmw_article_plain h4 {
-	font-size: 22px
+	font-size: 22px;
 }
 #main .kmw_article_plain h5 {
-	font-size: 18px
+	font-size: 18px;
 }
 #main .kmw_article_plain h6,
 #main .kmw_article_plain h7,
 #main .kmw_article_plain h8 {
-	font-size: 16px
+	font-size: 16px;
+}
+
+
+.fb_iframe_widget {
+	min-height: 150px;
 }
