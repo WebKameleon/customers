@@ -196,7 +196,8 @@ $(document).ready(function ($) {
             "font-size": 11
         },
         ".articlelist-block .articlelist-block-text":{
-            "font-size": 12
+            "font-size": 12,
+            "height": 112
         },
         ".articlelist-block a.articlelist-block-more":{
             "font-size": 11
@@ -260,7 +261,8 @@ $(document).ready(function ($) {
             "font-size": 11
         },
         ".carousel .article-list-indicators li a": {
-            "font-size": 12
+            "font-size": 12,
+            "width": 25
         }
         
     }
@@ -281,7 +283,7 @@ $(document).ready(function ($) {
         for (var k in fontDefault) {
             var css={};
             for (let l in fontDefault[k]) {
-                css[l] = (fontDefault[k][l]+fontLevel*(l=='height'?5:2))+'px'; 
+                css[l] = (fontDefault[k][l]+fontLevel*(l=='height'?10:2))+'px'; 
             }
         
             $(k).css(css);
