@@ -286,8 +286,8 @@ $(document).ready(function ($) {
                 let q=2;
                 if (l==='height') {
                     q=Math.round(fontDefault[k][l]/10);
-                    if (q<5)
-                        q=5;
+                    if (q<8)
+                        q=8;
                 }
                 css[l] = (fontDefault[k][l]+fontLevel*q)+'px'; 
             }
