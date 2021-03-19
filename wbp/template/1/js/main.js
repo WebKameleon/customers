@@ -182,6 +182,12 @@ $(document).ready(function ($) {
         ".librarian-reader-zone > li > a":{
             "font-size": 16
         },
+        ".articlelist-block": {
+            "line-height": 361
+        },
+        ".articlelist-block h3": {
+            "line-height": 41
+        },
         ".articlelist-block h3 a": {
             "font-size": 16,
             "line-height": 15
