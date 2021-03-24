@@ -1047,3 +1047,8 @@ body.wcag-contrast-1 .wcag-contents a {
     border: 0;
 }
 
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  left: auto;
+  right: 0;
+}
+
