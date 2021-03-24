@@ -1092,7 +1092,7 @@ body.wcag-on .navbar :focus {
 	outline: 2px solid yellow;
 }
 
-ul.nav li.dropdown:focus-within {
+ul.nav li:focus-within {
   background-color: #e3000b;
 }
 
