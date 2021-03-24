@@ -12,20 +12,24 @@ function wcag_tabindex() {
     
     $('.gsc-input input').attr('tabindex',tabindex++).attr('title','Wyszukiwarka w serwisie');
     
-    $('.kmw_langs a').each (function(){
+    $('.navbar .kmw_langs a').each (function(){
         $(this).attr('tabindex',tabindex++);
     });
     $('.wcag button').attr('tabindex',tabindex++);
     
     
     $('#navbar>ul.navbar-nav>li>a').each (function(){
+        
+        if ($(this).closest('ul').hasClass('facebook'))
+            return;
         $(this).attr('tabindex',tabindex++);
-
 	
         $(this).parent().find('li').each(function(){
             $(this).attr('tabindex',tabindex++);
         });
     });
+    
+    $('#navbar>ul.navbar-nav.facebook').attr('tabindex',tabindex++);
 
     $('#banner .bx-viewport li').each (function(){
         $(this).attr('tabindex',tabindex++);

@@ -1079,3 +1079,23 @@ a.skip-main:focus, a.skip-main:active {
     z-index:999;
 }
 
+
+body.wcag-on :focus {
+	outline: 3px solid #176095;
+}
+
+body.wcag-contrast-1 :focus {
+	outline: 3px solid yellow;
+}
+
+body.wcag-on .navbar :focus {
+	outline: 2px solid yellow;
+}
+
+
+
+ul.nav li.dropdown:hover > ul.dropdown-menu,
+ul.nav li.dropdown:active > ul.dropdown-menu,
+ul.nav li.dropdown:focus-within > ul.dropdown-menu {
+    display: block;    
+}
