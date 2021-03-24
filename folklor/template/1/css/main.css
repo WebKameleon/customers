@@ -1100,5 +1100,6 @@ ul.nav li.dropdown:focus-within {
 ul.nav li.dropdown:hover > ul.dropdown-menu,
 ul.nav li.dropdown:active > ul.dropdown-menu,
 ul.nav li.dropdown:focus-within > ul.dropdown-menu {
-    display: block;    
+    display: block;
+    background-color: #e3000b;
 }

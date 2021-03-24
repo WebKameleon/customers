@@ -31,7 +31,7 @@ function wcag_tabindex() {
     
     $('#navbar>ul.navbar-nav.facebook').attr('tabindex',tabindex++);
 
-    $('#banner .bx-viewport li').each (function(){
+    $('.bxslider-wrapper .bx-viewport li').each (function(){
         $(this).attr('tabindex',tabindex++);
     });
 
@@ -40,13 +40,12 @@ function wcag_tabindex() {
     });
 
     
-    
     $('.article-list').each (function(){
         $(this).attr('tabindex',tabindex++);
     });
     
     
-    $('.article .kmw_article_content').each (function(){
+    $('#content .kmw_article').each (function(){
         $(this).attr('tabindex',tabindex++);
         
         $(this).find('iframe').each(function(){
@@ -61,12 +60,8 @@ function wcag_tabindex() {
     });
     
     
-
-    $('#wbp_shop_results li').each (function(){
-        $(this).attr('tabindex',tabindex++);
-    });
     
-     $('aside #side-nav .panel a').each (function(){
+     $('#sidebar .kmw_article').each (function(){
         $(this).attr('tabindex',tabindex++);
     });
     
