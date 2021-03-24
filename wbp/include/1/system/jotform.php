@@ -11,7 +11,7 @@ class jotform {
     
     private function req($url,$type='GET',$data=null)
     {
-        $rurl='https://api.jotform.com/'.$url.'?apiKey='.$this->key;
+        $rurl='https://eu-api.jotform.com/'.$url.'?apiKey='.$this->key;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $rurl);
         if ($data)

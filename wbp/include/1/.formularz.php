@@ -62,6 +62,7 @@
     $jotform=new jotform($jotform_subkey);
     $folders=$jotform->getFolders();
     
+	//mydie($folders);
     foreach ($folders['content']['forms'] AS $f)
     {
         if ($f['status']!='ENABLED') continue;

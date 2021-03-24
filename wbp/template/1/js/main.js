@@ -139,6 +139,8 @@ $(document).ready(function ($) {
     $('.top .wcag button').click(function(){
         $('.wcag-contents').show();
         $('body').addClass('wcag-on');
+	if (typeof(kmw_slideshowArray)!=='undefined' && kmw_slideshowArray.length>0)
+		kmw_slideshowArray[0].slider.stopAuto();	
     });
     
     $('.wcag-contents .wcag').click(function(){

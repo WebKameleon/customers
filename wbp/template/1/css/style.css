@@ -3973,6 +3973,28 @@ body.wcag-on a.bx-pager-link {
   -moz-border-radius: 0;
 }
 
+#footer .social {
+	float: left;
+	width: 30px;
+    	height: 20px;
+	background-position: center;
+	background-repeat: no-repeat;
+	text-decoration: none;
+}
+
+#footer .social:hover {
+	text-decoration: none;
+
+}
+
+#footer .social.yt {
+	background-image: url('img/youtube.svg');
+	background-size: 35px 25px;
+}
+#footer .social.fb {
+	background-image: url('img/facebook.svg');
+}
+
 
 .wbp-shoper {
 	display: none
