@@ -2,6 +2,8 @@
 function wcag_tabindex() {
     let tabindex=1;
 
+	console.log('TAB indexing');
+
     $('.skip-main').each (function(){
         $(this).attr('tabindex',tabindex++);
     });
@@ -66,11 +68,17 @@ function wcag_tabindex() {
     });
     
     //footer
-    $('#footer p').each (function(){
+    $('.footer-menu li a').each (function(){
         $(this).attr('tabindex',tabindex++);
     });
-    $('#footer .menu-simple .img-list').each (function(){
-        $(this).attr('tabindex',tabindex++);
+    $('#footer .footer-left a').each (function(){
+        $(this).parent().attr('tabindex',tabindex++);
+    });
+    $('#footer .footer-center a').each (function(){
+        $(this).parent().attr('tabindex',tabindex++);
+    });
+    $('#footer .footer-right a').each (function(){
+        $(this).parent().attr('tabindex',tabindex++);
     });
     
     
@@ -79,4 +87,4 @@ function wcag_tabindex() {
 }
 
 setTimeout(wcag_tabindex,10000);
-$(document).ready(wcag_tabindex);
+setTimeout(wcag_tabindex,1000);
