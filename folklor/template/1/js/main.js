@@ -172,7 +172,7 @@ $(document).ready(function ($) {
     });
     
 
-	$(document).on('keydown', '#navbar', function(e) { 
+    $(document).on('keydown', '#navbar', function(e) { 
   		var keyCode = e.keyCode || e.which; 
 		
   		if (keyCode == 9) { 
@@ -182,9 +182,9 @@ $(document).ready(function ($) {
 	$(document).on('keydown', '.bxslider-wrapper', function(e) { 
   		var keyCode = e.keyCode || e.which; 
 		
-        	if (keyCode === 9 && typeof(kmw_slideshowArray)!=='undefined' && kmw_slideshowArray.length>0) {
-            		kmw_slideshowArray[0].slider.stopAuto();
-			kmw_slideshowArray[0].slider.goToNextSlide();
+        if (keyCode === 9 && typeof(kmw_slideshowArray)!=='undefined' && kmw_slideshowArray.length>0) {
+            kmw_slideshowArray[0].slider.stopAuto();
+            kmw_slideshowArray[0].slider.goToNextSlide();
   		} 
 	});
 });
